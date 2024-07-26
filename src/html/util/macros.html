@@ -1,0 +1,12 @@
+{% macro ph(num, placeholder, class) %}
+<img src="//placehold.mstoner.com/{{ num }}" alt="{{ placeholder }}" class="{{ class }}">
+{% endmacro %}
+
+{% macro svgstore(svg, title, class) %}
+  <span class="{% if class %}{{ class }} {% endif %}svgstore svgstore--{{ svg }}">
+    <svg>
+      {% if title %}<title>{{ title }}</title>{% endif %}
+      <use xlink:href="/img/svgstore.svg#{{ svg }}"></use>
+    </svg>
+  </span>
+{% endmacro %}

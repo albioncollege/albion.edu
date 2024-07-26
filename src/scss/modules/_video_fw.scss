@@ -1,0 +1,11 @@
+/* Video FW Styles */
+
+//! move to vars partials
+$light-teal: #4A8B91;
+
+.video-fw__caption {
+  padding-top   : 1rem;
+  padding-bottom: 0.65rem;
+  font-size     : 1rem;
+  border-bottom : 2px solid $light-teal;
+}

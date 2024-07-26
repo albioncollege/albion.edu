@@ -1,0 +1,115 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -2rem;
+  margin-left: -2rem;
+  > div {
+    //@include zero;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+}
+
+.grid--50 {
+  > div {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(50% - 2rem);
+    }
+  }
+}
+
+.grid--80-20 {
+  > div:first-child {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(80% - 2rem);
+    }
+  }
+  > div:last-child {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(20% - 2rem);
+    }
+  }
+}
+
+.grid--20-80 {
+  > div:first-child {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(20% - 2rem);
+    }
+  }
+  > div:last-child {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(80% - 2rem);
+    }
+  }
+}
+
+.grid--70-30 {
+  > div:first-child {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(70% - 2rem);
+    }
+  }
+  > div:last-child {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(30% - 2rem);
+    }
+  }
+}
+.grid--65-35 {
+  > div:first-child {
+    @include mq($lg) {
+      width: calc(65% - 2rem);
+    }
+  }
+  > div:last-child {
+    @include mq($lg) {
+      width: calc(35% - 2rem);
+    }
+  }
+}
+
+.grid--33-33-33 {
+  > div {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(33% - 2rem);
+    }
+  }
+}
+
+.grid--25-25-25-25 {
+  > div {
+    width: 100%;
+    @include mq($lg) {
+      width: calc(25% - 2rem);
+    }
+  }
+}
+
+.grid--35-65 {
+  > div:first-child {
+    @include mq($lg) {
+      width: calc(35% - 2rem);
+    }
+  }
+  > div:last-child {
+    @include mq($lg) {
+      width: calc(65% - 2rem);
+    }
+  }
+}
+
+.grid--narrow {
+  @include mq($lg) {
+    padding: 0 6.25rem;
+  }
+}
+

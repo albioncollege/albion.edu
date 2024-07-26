@@ -1,0 +1,115 @@
+.svgstore,
+.video {
+  display: block;
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+  }
+  
+  iframe,
+  svg,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.svgstore {
+  &::before {
+    padding-top: 100%;
+  }
+}
+
+.video {
+  &::before {
+    padding-top: 56.25%;
+  }
+}
+
+.screen-reader-text {
+  @include hide;
+}
+
+.skip-link {
+  position: absolute;
+  left: -10000rem;
+  top: -2rem;
+  width: .1rem;
+  height: .1rem;
+  overflow: hidden;
+  z-index: 100;
+  color: $white;
+  outline: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-bottom-right-radius: .3rem;
+  transition: top 1s ease-out;
+  font-family: $serif;
+  color: $white;
+  &:focus,
+  &:hover {
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    background: $black;
+    transition: top .1s ease-in;
+    color: $white;
+  }
+}
+
+.icon {
+  min-width: 2.59375rem;
+  min-height: 2.59375rem;
+}
+
+.hide {
+  @include hide;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.svgstore--logo {
+  &::before {
+    padding-top: 14%;
+  }
+}
+
+.zero {
+  @include zero;
+}
+
+.show-at-mobile {
+  display: block;
+  @include mq($md) {
+    display: none;
+  }
+}
+
+.show-at-tablet {
+  display: none;
+  @include mq($md) {
+    display: block;
+  }
+}
+
+
+.mobile-only {
+  @include mq($lg) {
+    display: none;
+  }
+}
+
+.desktop-only {
+  display: none;
+  @include mq($lg) {
+    display: block;
+  }
+}

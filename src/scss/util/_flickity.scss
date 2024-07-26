@@ -1,0 +1,65 @@
+.flickity-viewport {
+  position: relative;
+}
+
+.flickity-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+
+  & > *:not(.testimonial-slider__content):not(.social-slider__content) {
+    flex-shrink: 0;
+    position: relative !important;
+    left: auto !important;
+  }
+}
+
+.flickity-button {
+  position: relative;
+  width: 3.3125rem;
+  height: 3.3125rem;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: $blue-dark;
+
+  @include mq($sm) {
+    width: 4rem;
+    height: 4rem;
+  }
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  & svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.flickity-page-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin: 0.25rem;
+    border-radius: 50%;
+    background-color: $green;
+    text-indent: -999rem;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  & .is-selected {
+    background-color: $green-dark;
+  }
+}

@@ -1,0 +1,169 @@
+.canvas {
+  position: relative;
+  overflow-x: hidden;
+}
+.main {
+  @include container;
+  display: flex;
+}
+.main__header,
+.main__inner,
+.main__footer {
+  width: 100%;
+}
+
+.category,
+.tag {
+  .main__inner {
+    width: 100%;
+    .main__side{
+      width: 100%; 
+    }
+  }
+}
+
+.main__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 2rem 0;
+
+  @include mq($lg) {
+    margin: 4rem 0;
+    order: 1;
+  }
+
+  @include mq($lg) {
+    padding-left: $mainSpacing;
+    padding-right: $mainSpacing;
+  }
+
+}
+
+.main__content {
+  width: 100%;
+  @include mq($xl) {
+    padding-right: $mainSpacing;
+  }
+}
+
+.main__side,
+.sidebar {
+  @include zero;
+  width: 100%;
+
+  .post & {
+    margin-top: 2rem;
+  }
+}
+
+.main__side {
+  position: relative;
+  //margin-top: 4rem;
+  @include mq($lg) {
+    width: calc(100% - 25rem);
+    float: right;
+    clear: right;
+  }
+
+
+}
+
+.sidebar {
+  margin-bottom: 2rem;
+  @include mq($lg) {
+    margin-bottom: 0;
+    width: 19rem;
+    float: left;
+    clear: left;
+  }
+  & + .sidebar {
+    margin-top: 2rem;
+  }
+}
+
+.sidebar--header {
+  order: -1;
+}
+.sidebar--program {
+  order: 2;
+  width: 24rem;
+}
+
+
+.main__full {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  order: 1;
+}
+
+// .landing__intro {
+//   margin-bottom: 4rem;
+// }
+
+.router {
+  //padding: 1rem 0 4rem;
+  h3 {
+    margin-bottom: 3.5rem;
+  }
+  .grid > div {
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+
+
+
+.page {
+  position: relative;
+  //top: -1rem;
+}
+
+
+
+.background--gold {
+  background-color: $gold;
+}
+.background--purple {
+  background-color: $purple;
+}
+.background--purple-gray {
+  background-color: $purple-gray;
+}
+.background--purple-pattern {
+  background-color: $purple;
+  @include sprite-img('hex-pattern');
+  background-size: 95px;
+  background-repeat: repeat;
+  background-position: -0.5rem -0.1rem;
+}
+.background--yellow {
+  background-color: $yellow;
+}
+
+
+.background {
+  margin: 2rem 0;
+  h1, h2, h3, h4 {
+    margin-top: 0;
+  }
+  &.background--purple-gray, &.background--purple, &.background--gold, &.background--yellow, &.background--purple-pattern {
+    padding: 2rem 0;
+    margin: 0;
+    @include mq($lg) {
+      padding: 6rem 0;
+    }
+  }
+  &.background--purple, &.background--purple-pattern {
+    color: $white;
+  }
+  @include mq($lg) {
+    margin: 6rem 0;
+  }
+}
+
+.background.background--purple-gray + .background.background--purple-gray {
+  padding-top: 0;
+}

@@ -1,0 +1,34 @@
+/* Class Notes Styles */
+
+.class-notes__component {
+
+  .class-notes__heading {
+    color    : $white;
+    margin   : 0 0 2rem 0;
+    max-width: 30rem;
+  }
+
+  .text-large {
+    color         : $gold;
+    padding-bottom: 2em;
+  }
+
+  .grid {
+    margin-bottom: 2em;
+  }
+
+  .grid--25-25-25-25>div{
+    height: fit-content;
+  }
+
+  .class-notes__column {
+    padding         : 1em 1.5em;
+    color           : $dark-gray;
+    background-color: #ffffff;
+  }
+
+  .text-center .button {
+    display: inline-block;
+  }
+
+}

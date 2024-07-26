@@ -1,0 +1,116 @@
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
+
+blockquote {
+  position: relative;
+  margin: 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
+  &.active {
+    &::before {
+      animation: slideUp 1000ms ease-in-out 500ms forwards;
+    }
+  }
+  
+  p:first-of-type:not([class]) {
+    @include h4;
+    margin-top: 0;
+    margin-bottom: 0;
+    &::after {
+      content: '\201D'
+    }
+  }
+}
+
+.blockquote__image {
+  flex-shrink: 0;
+  margin-left: -6rem;
+  margin-top: 5rem;
+  max-width: 11.25rem;
+}
+
+.blockquote__content {
+  @include zero;
+  width: 100%;
+}
+
+.blockquote__icon {
+  flex-shrink: 0;
+  height: 50px;
+  margin-bottom: 0.5rem;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 3rem;
+    height: 2.25rem;
+    @include sprite('icon-quote', (
+    color: #{$gold}
+    ));
+  }
+  .active & {
+    &::before {
+        animation: fadeIn 1000ms ease-in-out 500ms forwards;
+      @include mq($xl) {
+        animation: slideUp 1000ms ease-in-out 500ms forwards;
+      }
+    }
+  }
+}
+
+.blockquote__quote {
+  position: relative;
+  margin-bottom: 2rem;
+
+  @include mq($xl) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.blockquote__author {
+  color: $purple;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  &::before {
+    content: "\2014";
+    padding: 0 0.5rem;
+  }
+}
+.blockquote__position {
+  margin: 0;
+  color: $purple;
+  font-style: italic;
+  &::before {
+    content: "\2014";
+    color: transparent;
+  }
+}
+.blockquote__link {
+  margin-top: 0.5rem;
+  &::before {
+    content: "\2014";
+    color: transparent;
+  }
+}
+
+.blockquote__author__wrapper {
+  @include mq($lg) {
+    display: flex;
+  }
+}
+.blockquote__author__photo {
+  margin: 0 1.625rem 1.625rem 0;
+  img {
+    border-radius: 95px;
+  }
+}
+

@@ -1,0 +1,15 @@
+@media print {
+    header, footer, nav, .sidebar, .scroll-top, .breadcrumb, .panel__headline__icon {
+        display: none;
+    }
+
+    .hero {
+        background: none;
+        padding-bottom: 0;
+    }
+
+    h1.hero__title {
+        color: black;
+    }
+     
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="63px" height="63px" viewBox="0 0 63 63" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Expand</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+        <filter id="filter-2">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 0 1.000000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Revised-Concept-&amp;-Design-System" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Albion-Landing" transform="translate(-226.000000, -4928.000000)">
+            <g id="Group-5" transform="translate(144.000000, 4880.613379)">
+                <g id="Group-4" transform="translate(82.000000, 47.386621)">
+                    <circle id="Oval" fill="#00747A" cx="31.5" cy="31.5" r="31.5"></circle>
+                    <g filter="url(#filter-1)" id="noun_Arrow_1300525-Copy-2">
+                        <g transform="translate(37.554097, 38.285714) rotate(45.000000) translate(-37.554097, -38.285714) translate(30.054097, 30.785714)">
+                            <g id="Group" transform="translate(0.000000, 0.000000)" fill="#000000" fill-rule="nonzero">
+                                <g id="Path">
+                                    <polygon transform="translate(7.420583, 7.199902) rotate(90.000000) translate(-7.420583, -7.199902) " points="7.40568881 2.54262865e-05 0.25596527 7.23516153 1.41948529 8.39868155 6.59772536 3.2208529 6.59772536 14.3997788 8.24343967 14.3997788 8.24343967 3.2208529 13.4216798 8.39868155 14.5851998 7.23516153"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g filter="url(#filter-2)" id="noun_Arrow_1300525-Copy-3">
+                        <g transform="translate(24.445903, 23.714286) scale(-1, -1) rotate(45.000000) translate(-24.445903, -23.714286) translate(16.945903, 16.214286)">
+                            <g id="Group" transform="translate(0.000000, 0.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                <g id="Path">
+                                    <polygon transform="translate(7.420583, 7.199902) rotate(90.000000) translate(-7.420583, -7.199902) " points="7.40568881 2.5426285e-05 0.25596527 7.23516153 1.41948529 8.39868155 6.59772536 3.2208529 6.59772536 14.3997788 8.24343967 14.3997788 8.24343967 3.2208529 13.4216798 8.39868155 14.5851998 7.23516153"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

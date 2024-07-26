@@ -1,0 +1,112 @@
+.media, .wp-caption {
+  @include zero;
+
+  margin: 2rem 0;
+
+  audio {
+    box-shadow: 5px 5px 20px rgba(0,0, 0, 0.4);
+    border-radius: 1.71875rem;
+    width: 100%;
+  }
+}
+
+.media--event {
+  position: relative;
+  width: 1600px;
+  height: 900px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.media--left, .alignleft {
+  max-width: 100%;
+  @include mq($lg) {
+    max-width: calc(50% - 1rem);
+    margin: 0 2rem 1rem 0;
+    float: left;
+  }
+}
+
+.alignnone {
+  max-width: 100%;
+}
+
+.media--right, .alignright {
+  max-width: 100%;
+  @include mq($lg) {
+    max-width: calc(50% - 1rem);
+    margin: 0 0 1rem 2rem;
+    float: right;
+  }
+}
+
+.media__caption, .wp-caption-text {
+  @include text-caption;
+  margin-top: 0.6875rem;
+  padding-bottom: 0.6875rem;
+  border-bottom: 1px $teal solid;
+}
+
+.media--slider {
+  position: relative;
+  // overflow: hidden;
+  z-index: 0;
+  border-bottom: 1px $teal solid;
+
+  .media__caption {
+    border-bottom: none;
+    padding-bottom: 4.75rem;
+
+    @include mq($sm) {
+      width: 70%;
+      padding-bottom: 0.6875rem;
+    }
+  }
+
+  .flickity-viewport {
+    overflow: hidden;
+  }
+
+  .flickity-button {
+    position: absolute;
+    color: $purple;
+    bottom: 1rem;
+    z-index: 1;
+    background-image: none;
+
+    width: 2.25rem;
+    height: 2.25rem;
+
+    svg {
+      border-radius: 100%;
+    }
+
+    @include mq($sm) {
+      width: 2.625rem;
+      height: 2.625rem;
+    }
+    &.previous {
+      margin-left: 0;
+      right: 3rem;
+      @include mq($sm) {
+        right: 3.5rem;
+      }
+    }
+
+    &.next {
+        right: 0;
+    }
+  }
+}
+
+.media__slide {
+  width: 100%;
+  .flickity-enabled & {
+    margin: 0 0.5rem;
+  }
+}
+
+.image--full, .img-fluid {
+  width: 100%;
+}

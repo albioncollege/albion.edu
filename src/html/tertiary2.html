@@ -1,0 +1,148 @@
+{% set page = {
+  title: 'Tertiary 2',
+  alert: true
+} %}
+
+{% extends "templates/default.html" %}
+
+{% block body %}
+
+{% include "modules/_hero.html" %}
+
+<div class="main">
+<div class="main__inner">
+    
+  <div id="sidebar" class="sidebar sidebar--header">
+    <!-- whatever goes into this container will go to the top at mobile -->
+    <!-- REGION: Sidebar Navigation -->
+    {% include "modules/_subnav.html" %}
+    <!-- /REGION: Sidebar Navigation -->
+    <!-- REGION: Sidebar Context Top --><!-- /REGION: Sidebar Context Top -->
+  </div>
+  <div class="main__side">
+
+
+    <p class="text-intro">
+      <strong>Intro Text (20-25 Words)</strong> — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magni.
+    </p>
+
+    <h2>Headline (H2)</h2>
+
+    <p><strong>Paragraph (Body) (3-5 Sentences)</strong> — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum turpis in augue consectetur, non cursus massa vestibulum. Aenean et augue suscipit, ultrices augue vel, faucibus velit. Fusce pellentesque elit non felis commodo, non tempus urna gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    <p><a href="#" class="button__link">Optional LINK</a></p>
+
+    <p class="caption"><strong>Small Caption Text (3-5 Sentences)</strong> — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum turpis in augue consectetur, non cursus massa vestibulum. Aenean et augue suscipit, ultrices augue vel, faucibus velit. Fusce pellentesque elit non felis commodo, non tempus urna gravida.</p>
+
+
+    <h3>Headline (Split Column)</h3>
+    <div class="grid grid--50">
+      <div>
+        <p>
+          Body Text — Split column is great for listing multiple items such as locations, degree types, and offices. Morbi interdum turpis in augue consectetur.Aenean et augue suscipit, ultrices augue vel, faucibus velit. Fusce pellentesque elit.
+        </p>
+      </div>
+      <div>
+        <p>
+          Body Text — Split column is great for listing multiple items such as locations, degree types, and offices. Morbi interdum turpis in augue consectetur.Aenean et augue suscipit, ultrices augue vel, faucibus velit. Fusce pellentesque elit.
+        </p>
+      </div>
+    </div>
+      
+
+    <h3>Headline (Testimonial)</h3>
+    {% include "modules/_blockquote.html" %}
+
+    <div class="panel">
+      <div class="panel__media">
+        <div class="panel__image">
+          <a class="panel__icon" href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal>{{ svgstore('icon-play') }}</a>
+          <img src="//placehold.mstoner.com/482x321" alt="" class="">
+        </div>
+      </div>
+      <div class="panel__details">
+        <h4><a href="#">Headline (Feature)</a></h4>
+        <p>Body Text (8-12 words) — Flexible feature for a news article, event, or otherwise relevant page.</p>
+        <a href="#" class="button">Call To Action</a>
+      </div>
+    </div>
+
+    <h3>Headline (Inline Images)</h3>
+    <div class="media media--right">
+      {% include "modules/_image.html" %}
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque. Laoreet id donec ultrices tincidunt arcu. Lectus nulla at volutpat diam ut venenatis. Netus et malesuada fames ac turpis egestas integer eget. Etiam sit amet nisl purus in mollis nunc sed. At volutpat diam ut venenatis tellus in. Diam maecenas sed enim ut sem viverra. Massa tincidunt nunc pulvinar sapien. Purus viverra accumsan in nisl nisi scelerisque eu ultrices. Mauris ultrices eros in cursus. Consequat semper viverra nam libero justo laoreet sit. At tellus at urna condimentum mattis pellentesque.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque. Laoreet id donec ultrices tincidunt arcu. Lectus nulla at volutpat diam ut venenatis. Netus et malesuada fames ac turpis egestas integer eget. Etiam sit amet nisl purus in mollis nunc sed.
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque.
+    </p>
+    
+    <div class="media media--left">
+      {% set image = {landscape: true} %}
+      {% include "modules/_image.html" %}
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque. Laoreet id donec ultrices tincidunt arcu. Lectus nulla at volutpat diam ut venenatis. Netus et malesuada fames ac turpis egestas integer eget. Etiam sit amet nisl purus in mollis nunc sed. At volutpat diam ut venenatis tellus in.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque. Laoreet id donec ultrices tincidunt arcu. Lectus nulla at volutpat diam ut venenatis. Netus et malesuada fames ac turpis egestas integer eget. Etiam sit amet nisl purus in mollis nunc sed. At volutpat diam ut venenatis tellus in.
+    </p>
+
+
+    <h3>Headline (Intruder Image)</h3>
+
+    <div class="media media--slider">
+      <div class="media__slide">
+        {% include "modules/_image.html" %}
+      </div>
+    </div>
+
+    <h3>Headline (Video Embed)</h3>
+      
+    <div class="media">
+      <div class="video">
+        <iframe title="video title" src="https://www.youtube.com/embed/S_Rc1HPKGPo" allowfullscreen></iframe>
+      </div>
+      <p class="media__caption">
+        Caption — Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+
+    <h3>Headline (Slideshow)</h3>
+      
+    <div class="media media--slider">
+      <div class="media__slide">
+        {% include "modules/_image.html" %}
+      </div>
+      <div class="media__slide">
+        {% include "modules/_image.html" %}
+      </div>
+      <div class="media__slide">
+        {% include "modules/_image.html" %}
+      </div>
+    </div>
+
+    <h3>Headline (Accordion)</h3>
+    {% include "modules/_accordion.html" %}
+    
+    <h3>Headline (Table)</h3>
+    {% include "modules/_table.html" %}
+
+    <h3>Headline (Tabs)</h3>
+    {% include "modules/_tabs.html" %}
+    
+    <h3>Headline (People List)</h3>
+    {% include "modules/_list.html" %}
+
+
+  </div>
+  
+</div>
+
+</div>
+
+
+{% endblock %}

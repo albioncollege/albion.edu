@@ -1,0 +1,82 @@
+.feature__component {
+  .background::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.feature__card {
+  display: block;
+  margin-bottom: 4rem;
+  
+  &:nth-child(2){
+    @include mq($lg) {
+      margin-top: 5.625rem;
+    }
+  }
+  &:nth-child(2n){
+    @include mq($lg) {
+        float: right;
+        clear: right;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  @include mq($lg) {
+    float: left;
+    clear: left;
+    width: 50%;
+    padding: 4rem 2.125rem 2.125rem;
+    margin-bottom: 0;
+    &:hover {
+      background-color: $gold;
+    }
+    .feature__grid--yellow & {
+      &:hover {
+        background-color: $yellow;
+      }
+    }
+    p {
+      a {
+        &:hover {
+          color: $purple;
+          @include underline($purple);
+        }
+      }
+    }
+  }
+}
+
+.feature__card__title {
+  margin: 0 auto 2.5rem 0;
+  text-align: center;
+  a {
+    color: $purple;
+    &:hover {
+      @include underline($gold);
+    }
+  }
+}
+
+a .feature__card__title span {
+  text-decoration: none;
+  color: $purple;
+  padding-bottom: 1px;
+  @include underline($teal);
+  transition: color $transition;
+  &:hover {
+    @include underline($gold);
+  }
+  .feature__grid--yellow & {
+    &:hover {
+      @include underline($yellow);
+    }
+  }
+}
+
+.feature__clear {
+  clear: both;
+}

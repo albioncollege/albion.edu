@@ -1,0 +1,138 @@
+.button {
+  @include button-text;
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+  padding: 1.0625rem 2.25rem 0.9375rem;
+  margin-bottom: 1rem;
+  border: 0;
+  background-color: $teal;
+  background-image: none;
+  color: $white;
+  transition: background-color $transition,
+  color $transition;
+
+  background-size: 200% 200%;
+  transition: background-position .3s;
+
+  background-image: linear-gradient(to right, $purple 50%, $teal 0);
+  background-position: right;
+
+
+  .container--purple & {
+    background-image: linear-gradient(to right, $white 50%, $gold 0);
+    color: $purple;
+  }
+
+  &:hover {
+    color: $white;
+
+    background-position: left;
+    .container--purple & {
+      color: $purple;
+    }
+  }
+  &[data-minimodal] {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.button--icon {
+  // display: inline-flex;
+  // align-items: center;
+}
+
+.button--gold {
+  @extend .button;
+  background-image: linear-gradient(to right, $purple 50%, $gold 0);
+  color: $purple;
+  &:hover {
+    background-color: $purple;
+  }
+}
+
+.button__link {
+  @include button-text;
+  margin-bottom: 1rem;
+  .container--purple & {
+    color: $white;
+    @include underlineTransparency($gold);
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.router__card__link .button__link {
+  text-decoration: none;
+  color: $dark-gray;
+  padding-bottom: 1px;
+  @include underline($teal);
+  transition: color $transition;
+  &:hover {
+    color: $teal;
+  }
+  @include button-text;
+  margin-bottom: 1rem;
+  .container--purple & {
+    color: $white;
+    @include underlineTransparency($gold);
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin:  0 -0.5rem;
+  align-items: center;
+  .button,
+  .button__link {
+    margin: 0.5rem;
+    margin-right: 1rem;
+    &:last-of-type {
+      margin-right: 0.5rem;
+    }
+  }
+  & + & {
+    margin-top: 0.5rem;
+  }
+}
+
+.button-group--stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  a {
+    margin: .5rem .5rem .5rem 0;
+  }
+  & + & {
+    margin-top: .5rem;
+  }
+}
+
+.button--icon {
+  display: inline-flex;
+  align-items: center;;
+}
+.button--svg {
+  width: 14px;
+  height: 24px;
+  color: $purple;
+  padding-right: 1.5rem;
+  margin-right: 1rem;
+}
+
+// Scroll to top fixed button
+.scroll-top {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-image: none;
+  color: $white;
+  width: 3.6875rem;
+  &--show {
+    display: block;
+  }
+}

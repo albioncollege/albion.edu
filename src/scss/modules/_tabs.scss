@@ -1,0 +1,211 @@
+.tabs .tabs-nav {
+  @include mq($lg) {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 2rem 0 0 0;
+  }
+}
+
+.tabs-nav {
+  display: none;
+  @include mq($lg) {
+    display: block;
+  }
+}
+
+.tabs__mobile__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+  font-family: $sans-serif;
+  background-color: $white;
+  border: 1px $purple solid;
+  border-bottom: none;
+  color: $purple;
+  @include font-size(18);
+  line-height: 1.4;
+  text-align: left;
+  width: 100%;
+
+  &:last-of-type {
+    border-bottom: 1px $purple solid;
+  }
+
+
+  &:hover, &:focus, &:active {
+    background-color: $gold;
+    color: $purple;
+    [data-whatinput='keyboard'] & {
+      @include focus;
+      outline-offset: 0.125rem;
+    }
+  }
+}
+
+.tabs__toggle {
+  position: relative;
+  padding: 1.625rem;
+  cursor: pointer;
+  font-family: $sans-serif;
+  background-color: $white;
+  color: $purple;
+  @include font-size(18);
+  line-height: 1.4;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 1.25rem;
+  width: 100%;
+
+  @include mq($lg) {
+    text-align: center;
+    line-height: 1;
+    flex-grow: 1;
+    order: -1;
+    width: auto;
+    //margin: 0 0 0 0.25rem;
+    margin: 0;
+  }
+
+  &:first-child {
+    @include mq($lg) {
+      margin: 0;
+    }
+  }
+
+  &:hover, &:focus, &:active {
+    @include mq($lg) {
+      background-color: $gold;
+      color: $purple;
+    }
+    [data-whatinput='keyboard'] & {
+      @include focus;
+      outline-offset: 0.125rem;
+    }
+  }
+}
+
+.tabs__icon {
+  width: 1.125rem;
+  margin-left: 1.25rem;
+  float: right;
+}
+
+.tabs__icon--inactive {
+  display: block;
+
+  .tabs__toggle--active & {
+    display: none;
+  }
+}
+
+.tabs__icon--active {
+  display: none;
+
+  .tabs__toggle--active & {
+    display: block;
+    width: 1rem;
+  }
+}
+
+.tabs__icon--active,
+.tabs__icon--inactive,
+.tabs__toggle--active .tabs__icon--active,
+.tabs__mobile__toggle {
+  @include mq($lg) {
+    display: none;
+  }
+}
+
+.tabs__toggle--active {
+    background-color: $gold;
+    color: $purple;
+    border-color: $gold;
+    font-weight: bold;
+}
+
+.tabs__content__item {
+  @include zero;
+  visibility: hidden;
+  overflow: hidden;
+  width: 100%;
+  padding: 2.25rem 2rem;
+  @include font-size(18);
+  color: $white;
+  background-color: $purple;
+  @include mq($lg) {
+    display: none;
+    visibility: visible;
+  }
+  &.mobile__tabs__content__item--active {
+    visibility: visible;
+  }
+  &.tabs__content__item--active {
+    @include mq($lg) {
+      display: block;
+    }
+  }
+  a:not([class]) {
+    color: $white;
+    @include underline($gold);
+    transition: color $transition;
+
+    font-weight: 600;
+    padding-bottom: .125em;
+
+    &:hover {
+      text-decoration: none;
+      color: $gold;
+    }
+  }
+  @include mq($lg) {
+    padding: 4rem 3.125rem;
+  }
+}
+
+.tabs__content__item:not(.mobile__tabs__content__item--active) {
+  height: 0 !important;
+  padding: 0;
+  margin: 0;
+  @include mq($lg) {
+    height: auto !important;
+    padding: 4rem 3.125rem;
+  }
+}
+
+.tabs-carousel__component {
+  margin-bottom: -5.25rem;
+  .large-headline {
+    max-width: 50rem;
+  }
+  .tabs-nav {
+    margin: 0;
+  }
+  @include mq($lg) {
+    margin-bottom: -12rem;
+  }
+}
+.tabs-carousel__container {
+  @include container;
+  position: relative;
+  transform: translateY(-5.25rem);
+  @include mq($lg) {
+    transform: translateY(-12rem);
+  }
+}
+.tabs-carousel__photo {
+  width: 100%;
+  height: 12.75rem;
+  background-size: cover;
+  background-position: center;
+  @include mq($lg) {
+    height: 43.375rem;
+  }
+}
+.background--purple-gray .tabs__wrapper, 
+.background--purple .tabs__wrapper {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+

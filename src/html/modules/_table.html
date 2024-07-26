@@ -1,0 +1,23 @@
+<div class="table">
+  <div class="table__scroll">
+    <table>
+      <caption>This specifies the caption (or title) of a table.</caption>
+      <thead>
+        <tr>
+          {% for this in range(0, 3) -%}
+            <th scope="col">Column</th>
+          {%- endfor  %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for this in range(0, 6) -%}
+          <tr>
+            <th>Row</th>
+            <td>$38,283</td>
+            <td>May 13, 2020</td>
+          </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

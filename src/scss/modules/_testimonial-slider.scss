@@ -1,0 +1,310 @@
+.testimonial-slider {
+  background-color: $purple;
+  color: $white;
+  @include sprite-img('hex-pattern');
+  background-size: 95px;
+  background-repeat: repeat;
+  background-position: -0.5rem -0.1rem;
+  color: $white;
+  position: relative;
+  z-index: 0;
+  margin-top: 10rem;
+}
+
+.testimonial-slider__top {
+  @include container;
+  text-align: center;
+
+  span {
+    width: 3.1875rem;
+    height: 2.625rem;
+    color: $beige;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.testimonial-slider__heading {
+  margin-bottom: 2rem;
+  .large-headline {
+    margin-bottom: 0;
+  }
+  p {
+    @include mq($lg) {
+      @include text-intro;
+    }
+  }
+  @include mq($lg) {
+    width: 50%;
+  }
+}
+.testimonial__text {
+  @include h4;
+  color: $white;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  &::after {
+    content: "\201D";
+  }
+}
+.testimonial__cite {
+  color: $gold;
+  &::before {
+    content: "\2014";
+    padding-right: 0.5rem;
+  }
+}
+.testimonial__attr {
+  color: $gold;
+  font-style: italic;
+  &::before {
+    content: "\2014";
+    color: transparent;
+    padding-right: 0.5rem;
+  }
+}
+
+.testimonial-slider__container {
+  @include container;
+  // padding-top: 3rem;
+  position: relative;
+
+  @include mq($lg) {
+    display: flex;
+    justify-content: space-between;
+    // display: flex;
+    // position: static;
+  }
+}
+
+.testimonial-slider__contents {
+  @include zero;
+  position: relative;
+  top: -2rem;
+  padding-bottom: 2rem;
+
+  @include mq($lg) {
+    position: relative;
+    top: auto;
+    z-index: 1;
+    width: 37.5rem;
+    padding-right: 2rem;
+    padding-top: 5rem;
+    padding-left: 0;
+  }
+
+  .flickity-slider {
+    transform: none !important;
+  }
+}
+
+.testimonial-slider__content {
+  @include zero;
+  left: 0 !important;
+  opacity: 0;
+  transition: opacity $transition;
+  z-index: -1;
+  width: 100%;
+
+  &.is-selected {
+    opacity: 1;
+    z-index: 0
+  }
+}
+
+.testimonial-slider__items {
+  flex-shrink: 0;
+  // width: 100%;
+  position: relative;
+  top: -4rem;
+  max-width: 18.75rem;
+
+  margin: 0 auto;
+
+  @include mq($lg) {
+    // width: 38%;
+    max-width: 30.125rem;
+    margin: 0;
+    order: 1;
+    // overflow: hidden;
+  }
+
+  // .flickity-button {
+  //   position: absolute;
+  //   left: 0;
+  //   top: 50%;
+  //   background-image: none;
+  //   color: $white;
+  //   left: -2rem;
+  //   @include mq($md) {
+  //     left: -4rem;
+  //   }
+  //   @include mq($lg) {
+  //     left: 0;
+  //   }
+
+  //   &.next {
+  //     transform: translateY(calc(-50% - 3.3125rem));
+  //     @include mq($sm) {
+  //       transform: translateY(calc(-50% - 4rem));
+  //     }
+  //     @include mq($lg) {
+  //       transform: translateY(-2rem);
+  //     }
+  //   }
+
+  //   &.previous {
+  //     transform: translateY(-50%);
+
+  //     @include mq($lg) {
+  //       transform: translateY(2rem);
+  //     }
+  //   }
+  // }
+
+  .testimonial__icon {
+    display: block;
+    position: absolute;
+    background: none;
+    bottom: 1rem;
+    left: 3rem;
+    width: 63px;
+  }
+
+  .flickity-viewport {
+    overflow: hidden;
+  }
+  .flickity-button {
+    position: absolute;
+    color: $purple;
+    top: -4rem;
+    z-index: 1;
+    background-image: none;
+
+    width: 2.625rem;
+    height: 2.625rem;
+
+    svg {
+      border-radius: 100%;
+    }
+
+    &.previous {
+      margin-left: 0;
+      right: 3rem;
+      @include mq($sm) {
+        right: 3.5rem;
+      }
+    }
+
+    &.next {
+        right: 0;
+    }
+  }
+
+  .flickity-page-dots {
+    justify-content: flex-start;
+    margin: 0.5rem 0 2rem;
+
+    @include mq($lg) {
+      margin-bottom: 0;
+    }
+
+    .dot {
+      background-color: $white;
+
+      &.is-selected {
+        background-color: transparent;
+        border: 0.0625rem solid $white;
+      }
+    }
+  }
+}
+
+.testimonial-slider__media {
+  margin-right: 2rem;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition,
+    visibility $transition;
+
+  @include mq($lg) {
+    width: 30.125rem;
+  }
+
+  &.is-selected,
+  &.is-selected~& {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  a {
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    bottom: 3rem;
+    transform: translateX(-50%);
+  }
+}
+
+
+.testimonial-slider__nav {
+  display: flex;
+  position: absolute;
+  top: -4rem;
+  right: 0;
+  z-index: 1;
+  .testimonial-slider__button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: none;
+    color: $white;
+    background-color: $purple;
+
+    width: 2.625rem;
+    height: 2.625rem;
+
+    border-radius: 100%;
+
+    &:disabled {
+      background-color: $purple-tint;
+    }
+
+    span {
+      width: 0.75rem;
+      @include mq($lg) {
+        width: 1rem;
+      }
+    }
+    &.testimonial-slider__previous {
+      margin-right: 0.5rem;
+      @include mq($lg) {
+        margin-right: 1rem;
+      }
+    }
+    @include mq($lg) {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+  }
+  @include mq($lg) {
+    display: flex;
+    float: none;
+    top: -6rem;
+  }
+}
+
+
+.testimonial-slider--purple {
+  background-image: none !important;
+  background-color: $purple !important;
+}
+.testimonial-slider--teal {
+  background-image: none !important;
+  background-color: $teal-dark !important;
+}
+.testimonial-slider--teal-pattern {
+  background-color: $teal-dark !important;
+}

@@ -1,0 +1,173 @@
+.minimodal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.minimodal__overlay {
+  position: absolute;
+  top: -8rem;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 16rem);
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.minimodal__viewport {
+  position: relative;
+  height: 100%;
+  pointer-events: none;
+}
+
+.minimodal__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.minimodal__status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+.minimodal__content {
+  height: 100%;
+}
+
+.minimodal__element {
+  display: block;
+  position: relative;
+  top: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+.minimodal__element--map {
+  background: white;
+}
+
+.minimodal__element--video {
+  max-width: calc(100vh * (16/9));
+  top: auto;
+  transform: none;
+}
+
+.minimodal__element--video::before {
+  display: block;
+  padding-bottom: 56.25%;
+  background: black;
+  content: '';
+}
+
+.minimodal__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.minimodal__caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  pointer-events: auto;
+}
+
+.minimodal__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.minimodal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.minimodal__nav--previous {
+  left: 0;
+}
+
+.minimodal__nav--next {
+  right: 0;
+}
+
+// customization
+
+.minimodal {
+  transition: opacity $transition;
+  opacity: 0;
+  z-index: 3;
+}
+
+.minimodal--active {
+  opacity: 1;
+}
+
+.minimodal__overlay {
+  background-color: $purple;
+}
+
+.minimodal__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.minimodal__content {
+  width: 100%;
+  max-width: 80rem;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 2rem;
+  transform: scale(0.5);
+  transition: transform $transition;
+
+  .minimodal__item--loaded & {
+    transform: none;
+  }
+}
+
+.minimodal__status {
+  visibility: hidden;
+}
+
+.minimodal__caption {
+  position: static;
+  width: 100%;
+  max-width: 80rem;
+  margin: 2rem auto 0;
+  padding: 0 2rem;
+}
+
+.minimodal__close {
+  left: 2rem;
+  right: auto;
+  @include eyebrow;
+  padding: 2rem;
+  border: 0;
+  background-color: transparent;
+  color: $white;
+  background-image: none;
+  @include sprite('icon-close', (color: #{$white}));
+  background-size: 1.5rem 1.5rem;
+  background-position: left center;
+  &:hover {
+    color: $white;
+  }
+}

@@ -1,0 +1,59 @@
+.container {
+  @include container;
+}
+
+.container-sm {
+  max-width: 46.5rem;
+}
+
+.container--narrow {
+  @include mq($lg) {
+    padding-left: calc(2rem + #{$mainSpacing});
+    padding-right: calc(2rem + #{$mainSpacing});
+  }
+}
+
+.container--extranarrow {
+  @include mq($lg) {
+    padding-left: calc(3.75rem + #{$mainSpacing});
+    padding-right: calc(3.75rem + #{$mainSpacing});
+  }
+}
+
+.container--spacing {
+  padding: 2rem;
+  @include mq($md) {
+    padding: 2.375rem;
+  }
+}
+
+.page-template-page--one-column .container {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.page-template-page--one-column .container.container--paragraph {
+  margin-bottom: 0;
+  margin-top: 0;
+  &:last-child {
+    margin-bottom: 4rem;
+  }
+}
+
+.page-template-page--one-column .background--purple-gray .container, 
+.page-template-page--one-column .background--gold .container, 
+.page-template-page--one-column .background--purple .container {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.page-template-page--one-column .container--paragraph + .background--purple-gray {
+    margin-top: 3rem;
+}
+
+.subnav__landing.container {
+  @include mq($lg) {
+    margin-top: 0;
+    margin-bottom: -2.5rem;
+  }
+}

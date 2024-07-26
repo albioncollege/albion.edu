@@ -1,0 +1,427 @@
+{% set page = {
+title: 'Landing'
+} %}
+
+{% extends "templates/default.html" %}
+
+{% block body %}
+
+{% include "modules/_splash-landing.html" %}
+
+{% include "modules/_subnav-landing.html" %}
+
+<div class="background">
+  <div class="container container--extranarrow">
+    <h2>Headline (Paragraph - Body)</h2>
+    <p>Lorem ipsum dolor sit amet, cetero aliquam feugiat id sea. Ea case nullam consulatu qui, autem abhorreant
+      elaboraret et sit. Pro insolens ullamcorper ut. Odio lucilius eam cu, in sea salutandi assentior. Bonorum eleifend
+      at nam, ad vis habeo periculis. Te quas legere ignota nam, cum et assum alienum. Id has dicunt corpora rationibus,
+      vix ullum doming interpretaris ad, quot voluptatibus.</p>
+  </div>
+</div>
+
+<div class="container">
+  <hr />
+</div>
+
+<div class="background">
+  <div class="container">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+        <div class="panel__headline__details">
+          <h3>Headline (2-Up Panel)</h3>
+          <p><strong>Optional (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+              Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</strong></p>
+        </div>
+        <div class="panel__headline__right panel__headline__right--icon">
+          <div class="panel__headline__icon">
+            {{ svgstore('icon-certification') }}
+          </div>
+        </div>
+      </div>
+
+      <div class="container container--extranarrow">
+        <div class="grid grid--50">
+          <div>
+            <h4><a href="#">Subheading (3-5 Words) — Optional Link</a></h4>
+            <p>
+              Body Text (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Sit
+              amet, consectetur adipiscing elit, sed do eiusmod.
+            </p>
+          </div>
+          <div>
+            <h4><a href="#">Subheading (3-5 Words) — Optional Link</a></h4>
+            <p>
+              Body Text (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Sit
+              amet, consectetur adipiscing elit, sed do eiusmod.
+            </p>
+          </div>
+          <div>
+            <h4><a href="#">Subheading (3-5 Words)</a></h4>
+            <p>
+              Body Text (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Sit
+              amet, consectetur adipiscing elit, sed do eiusmod.
+            </p>
+            <a href="#" class="button__link">Optional Link</a>
+          </div>
+          <div>
+            <h4><a href="#">Subheading (3-5 Words)</a></h4>
+            <p>
+              Body Text (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Sit
+              amet, consectetur adipiscing elit, sed do eiusmod.
+            </p>
+            <a href="#" class="button__link">Optional Link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="background background--purple-gray">
+  <div class="container">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+        <div class="panel__headline__details">
+          <h3>Headline (3-Up Panel)</h3>
+          <p><strong>Optional (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+              Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</strong></p>
+        </div>
+        <div class="panel__headline__right panel__headline__right--icon">
+          <div class="panel__headline__icon">
+            {{ svgstore('icon-certification') }}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid--33-33-33">
+        <div>
+          <h4><a href="#">Subheading (3-5 Words) — Optional Link</a></h4>
+          <p>
+            Body Text (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Sit
+            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+          </p>
+        </div>
+        <div>
+          <h4><a href="#">Subheading (3-5 Words) — Optional Link</a></h4>
+          <p>
+            Body Text (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Sit
+            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+          </p>
+        </div>
+        <div>
+          <h4><a href="#">Subheading (3-5 Words) — Optional Link</a></h4>
+          <p>
+            Body Text (1-3 sentences) — Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Sit
+            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+          </p>
+          <a href="#" class="button__link">Optional Link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+  Events Panel
+-->
+{% include "modules/_events.html" %}
+
+{% include "modules/_testimonial-slider-program.html" %}
+
+
+<!--
+  FEATURE PANEL
+-->
+<div class="background background--purple-gray">
+  <div class="panel">
+    <div class="container">
+      <div class="grid grid--50">
+        <div>
+          <div class="panel__image">
+            <a class="panel__icon" href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal>{{
+              svgstore('icon-play') }}</a>
+            <img src="//placehold.mstoner.com/482x321" alt="" class="">
+          </div>
+          <p class="caption">Caption — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="panel__details">
+          <h4>Feature Panel</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec.</p>
+          <a href="#" class="button">Call To Action</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="background background--purple-gray">
+  <div class="panel">
+    <div class="container">
+      <div class="grid grid--50">
+        <div>
+          <div class="panel__image">
+            <a class="panel__icon" href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal>{{
+              svgstore('icon-play') }}</a>
+            <img src="//placehold.mstoner.com/482x321" alt="" class="">
+          </div>
+        </div>
+        <div class="panel__details">
+          <h4><a href="#">Feature Panel - Optional Link</a></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec.</p>
+          <a href="#" class="button">Call To Action</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+  Tabs Full Width
+-->
+<div class="background">
+  <div class="container">
+    <h3>Headline (Tabs Full Width)</h3>
+    {% include "modules/_tabs.html" %}
+  </div>
+</div>
+
+<!--
+  Router Grid (3 col)
+-->
+<div class="background background--purple-pattern">
+  <div class="router">
+    <div class="container container--purple">
+
+      <h3>Headline (Router Grid)</h3>
+
+      <div class="grid grid--33-33-33">
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+  Router Grid (4 col)
+-->
+<div class="background background--purple-gray">
+  <div class="router">
+    <div class="container">
+
+      <h3>Headline (Router Grid)</h3>
+
+      <div class="grid grid--25-25-25-25">
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+        <div>
+          <a class="router__card__link" href="#">
+            <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+            <p>
+              <span class="button__link">Subheading Hyperlink</span>
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+  CTA Panel
+-->
+{% include "modules/_panel-cta.html" %}
+
+
+<div class="background background--purple">
+  <div class="container">
+    <div class="journey__wrapper">
+      <h2 class="journey__heading">Start Your Admission Journey</h2>
+
+      <div class="journey__grid">
+        <div>
+          <div class="journey__main">
+            <div class="journey__main__photo" style="background-image: url('//placehold.mstoner.com/518x345');">
+              <div class="journey__main__date">
+                <div>OCT</div>
+                <div>26</div>
+              </div>
+            </div>
+            <div class="journey__main__content">
+              <h4>Attend the Next Virtual Info Session</h4>
+              <p>Paragraph Text (2-3 Sentences) — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <a href="#" class="button">Sign Up</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="journey__item">
+            <div class="journey__item__content">
+              <div class="journey__item__date">
+              </div>
+              <div class="journey__item__link">
+                <a href="#" class="button__link">Talk to an Admission Counselor</a>
+              </div>
+            </div>
+            <div class="journey__item__photo" style="background-image: url('//placehold.mstoner.com/242x161');"></div>
+          </div>
+          <div class="journey__item">
+            <div class="journey__item__content">
+              <div class="journey__item__date">
+                Submit By: Oct.26
+              </div>
+              <div class="journey__item__link">
+                <a href="#" class="button__link">Submit Your Deposit</a>
+              </div>
+            </div>
+            <div class="journey__item__photo" style="background-image: url('//placehold.mstoner.com/242x161');"></div>
+          </div>
+          <div class="journey__item">
+            <div class="journey__item__content">
+              <div class="journey__item__date">
+                Apply By: Oct.26
+              </div>
+              <div class="journey__item__link">
+                <a href="#" class="button__link">Apply for Financial Aid</a>
+              </div>
+            </div>
+            <div class="journey__item__photo" style="background-image: url('//placehold.mstoner.com/242x161');"></div>
+          </div>
+          <div class="journey__item">
+            <div class="journey__item__content">
+              <div class="journey__item__date">
+              </div>
+              <div class="journey__item__link">
+                <a href="#" class="button__link">Take a Virtual Tour</a>
+              </div>
+            </div>
+            <div class="journey__item__photo" style="background-image: url('img/SampleImage.jpg');"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "modules/_feature.html" %}
+
+{% include "modules/_infographic.html" %}
+
+{% include "modules/_image-grid.html" %}
+
+{% include "modules/_video-fw.html" %}
+
+<div class="container">
+  <h3>Headline (Accordion)</h3>
+  {% include "modules/_accordion.html" %}
+</div>
+
+{% include "modules/_class-notes.html" %}
+
+{% endblock %}

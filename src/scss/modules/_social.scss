@@ -1,0 +1,253 @@
+.social__grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1rem;
+  @supports (display:grid) {
+    margin-left: 0;
+    display: grid;
+    min-height: 1440px;
+    grid-template-rows: 0.5fr 2fr 0.5fr 1fr .5fr .5fr .5fr 1fr 0.25fr 1.5fr .5fr;
+    grid-template-columns: 1fr 2fr 2fr 1.5fr 1.5fr;
+    @include mq($lg) {
+      min-height: 900px;
+      grid-template-rows: .15fr 28px .45fr .15fr .1fr .5fr .15fr 28px .25fr .25fr;
+      grid-template-columns: .25fr 1fr .5fr 3fr .25fr .25fr 1.5fr .25fr
+    }
+  }
+}
+
+.social__headline {
+  width: 100%;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  @supports (display:grid) {
+    margin-top: 0;
+    margin-left: 0;
+    grid-row: 1;
+    grid-column: 1 / 6;
+    @include mq($lg) {
+      grid-row: 1 / 3;
+      grid-column: 2 / 5;
+      z-index: 2;
+      align-self: end;
+    }
+  }
+  h2 {
+    @include h1;
+    color: $purple;
+    @include mq($lg) {
+      margin: 0;
+    }
+  }
+}
+
+.social__img__one,
+.social__img__two,
+.social__img__three,
+.social__img__four,
+.social__img__five {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  height: calc(14.5rem - 2rem);
+  width: calc(14.5rem - 2rem);
+  @supports (display:grid) {
+    margin-top: 0;
+    margin-left: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.social__img__one {
+  @supports (display:grid) {
+    grid-row: 2 / 4;
+    grid-column: 1 / 5;
+    @include mq($lg) {
+      grid-row: 1 / 5;
+      grid-column: 5 / 9;
+      z-index: 1;
+    }
+  }
+}
+
+.social__img__two {
+  @supports (display:grid) {
+    grid-row: 3 / 6;
+    grid-column: 2 / 6;
+    @include mq($lg) {
+      grid-row: 2 / 10;
+      grid-column: 3 / 7;
+    }
+  }
+}
+
+.social__img__three {
+  @supports (display:grid) {
+    grid-row: 5 / 8;
+    grid-column: 1 / 4;
+    @include mq($lg) {
+      grid-row: 4 / 7;
+    }
+  }
+}
+
+.social__img__four {
+  @supports (display:grid) {
+    grid-row: 7 / 10;
+    grid-column: 3 / 6;
+    @include mq($lg) {
+      grid-row: 8 / 11;
+      grid-column: 2 / 4;
+    }
+  }
+}
+
+.social__img__five {
+  @supports (display:grid) {
+    grid-row: 9 / 11;
+    grid-column: 2 / 5;
+    @include mq($lg) {
+      grid-row: 6 / 9;
+      grid-column: 6 / 8;
+    }
+  }
+}
+
+.social__list {
+  @include clean;
+  list-style: none;
+  margin-top: 2rem;
+  display: flex;
+  margin-left: 2rem;
+  width: 100%;
+  @supports (display:grid) {
+    width: auto;
+    margin-left: 0;
+    grid-row: 11 / 12;
+    grid-column: 1 / 6;
+    @include mq($lg) {
+      margin-left: auto;
+      grid-row: 10 / 11;
+      grid-column: 4 / 7;
+    }
+  }
+}
+
+.social__item {
+  margin-right: 1rem;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.social__link {
+  border-radius: 50%;
+  border: 0.125rem solid $blue-dark;
+  display: block;
+  width: 2.5rem;
+  padding: 0.55rem;
+  color: $blue-dark;
+  &:hover {
+    border-color: $gold;
+    color: $gold;
+  }
+}
+
+[id^="modal-social-"] {
+  display: none;
+}
+
+.social-modal {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($blue, .6);
+    opacity: 0;
+    transition: opacity $transition;
+  }
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.social-modal__wrapper {
+  position: relative;
+  max-width: 50rem;
+  max-height: calc(100vh - 5rem);
+  margin: 0 auto;
+  padding: 3rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $blue-dark;
+  color: $white;
+  overflow: auto;
+  opacity: 0;
+  transition: opacity 300ms $transition;
+  .minimodal__item--loaded & {
+    opacity: 1;
+  }
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: calc(100vh - 5rem);
+    background-color: rgba($blue-dark, .87);
+  }
+
+
+  .button {
+    margin-top: 2rem;
+  }
+}
+
+.minimodal--social {
+  .minimodal__close {
+    min-height: auto;
+    min-width: auto;
+    top: 1rem;
+    right: 1rem;
+    line-height: 1;
+    color: $white;
+    .subhead {
+      padding-right: 2rem;
+    }
+    &::before,
+    &::after {
+      left: calc(100% - 1rem);
+      border-width: 0.125rem;
+    }
+  }
+}
+
+.social-modal__container {
+  position: relative;
+  @include zero;
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  p {
+    @extend h4;
+  }
+}
+
+.social__icon {
+  display: block;
+  width: 1.4375rem;
+}

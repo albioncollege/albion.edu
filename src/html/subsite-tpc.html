@@ -1,0 +1,230 @@
+{% set page = {
+  title: 'Sub-site'
+} %}
+
+{% extends "templates/subsite.html" %}
+
+{% block body %}
+
+<div class="splash" style="background-image: url('//placehold.mstoner.com/600x400/000/fff&text=2560+×+1440');">
+  <button class="splash__control" aria-label="Toggle Video">
+  </button>
+  <div class="splash__video">
+    <video muted="" loop="" autoplay="" playsinline="">
+      <source src="img/SampleVideo.mp4" type="video/mp4" />
+    </video>
+  </div>
+  
+  <div class="splash__content">
+    <h1 class="splash__content__headlines">
+      The Philadelphia Center
+    </h1>
+    {% if splash.video %}
+    <p class="splash__headline__button">
+      <a class="button--white" href="https://www.youtube.com/watch?v=gLyhHlQP6EM" data-minimodal>{{ svgstore('icon-play-alt', '', 'button-icon') }} &nbsp; Watch Now</a>
+    </p>
+    {% endif %}
+    {% if splash.audio %}
+    <p class="splash__headline__button">
+      <a href="#" class="button--white" href="#" data-minimodal data-minimodal-selector="#audioSplash">{{ svgstore('icon-audio', '', 'button-icon') }} &nbsp; Listen</a>
+      <div style="display: none" id="audioSplash">
+        <div class="modal">
+          <div class="modal__media">
+            <div class="media">
+              <audio controls src="img/music.mp3">
+                Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+              <p class="media__caption">
+                Audio Player Text Caption
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
+    {% endif %}
+  </div>
+</div>
+
+
+
+<div class="feature__component">
+  <div class="background">
+    <div class="container container--narrow">
+      <h3>What's New at TPC</h3>
+      <div class="feature__grid feature__grid--yellow">
+        <div class="feature__card">
+          <a href="#"><h4 class="feature__card__title"><span>The Philadelphia Center Names Gretchen Mielke as New Executive Director</span></h4>
+          <img src="//placehold.mstoner.com/420x276" alt="" class=""></a>
+          <p>With more than a decade of experience in the areas of experiential learning, local-to-global partnerships and student development, Gretchen Mielke has been named the new executive director of The Philadelphia Center.</p>
+        </div>
+        <div class="feature__card">
+          <a href="#"><h4 class="feature__card__title"><span>The Philadelphia Center COVID-19 Updates and Information</span></h4>
+          <img src="//placehold.mstoner.com/420x276" alt="" class=""></a>
+          <p>TPC has been reviewing (and updating as needed) our existing emergency planning procedures regarding the coronavirus – COVID-19.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="background background--yellow">
+  <div class="panel">
+    <div class="container">
+      <div class="grid grid--50 grid--no-reorder">
+        <div class="panel__details">
+          <h4>Experiential Education at its Finest</h4>
+          <p>With more than a decade of experience in the areas of experiential learning, local-to-global partnerships and student development, Gretchen Mielke has been named the new executive director of The Philadelphia Center.</p>
+          <a href="#" class="button">Academics Information</a>
+        </div>
+        <div>
+          <div class="panel__image">
+            <img src="//placehold.mstoner.com/482x321" alt="" class="">
+          </div>
+        </div>
+      </div>
+      <div class="grid grid--50 grid--no-reorder">
+        <div class="panel__details">
+          <h4>Fostering an Off-Campus Educational Experience Since 1967</h4>
+          <p>TPC has been reviewing (and updating as needed) our existing emergency planning procedures regarding the coronavirus – COVID-19.</p>
+          <a href="#" class="button">Meet Our Faculty & Staff</a>
+        </div>
+        <div>
+          <div class="panel__image">
+            <img src="//placehold.mstoner.com/482x321" alt="" class="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="image-grid__component">
+  <div class="background">
+    <div class="container">
+      <div class="image-grid__header">
+        <h3>Living in Philadelphia</h3>
+        <a href="#" class="image-grid__cta-link">Life in Philadelphia</a>
+      </div>
+      <div class="grid grid--25-25-25-25">
+        <div class="image-grid__media"><a href="http://placehold.mstoner.com/400x300" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+        <div class="image-grid__media"><a href="http://placehold.mstoner.com/400x300" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+        <div class="image-grid__media"><a href="http://placehold.mstoner.com/400x300" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+        <div class="image-grid__media"><a href="http://placehold.mstoner.com/400x300" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+        <div class="image-grid__media image-grid__media--video"><a href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+        <div class="image-grid__media"><a href="http://placehold.mstoner.com/400x300" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+        <div class="image-grid__media"><a href="http://placehold.mstoner.com/400x300" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+        <div class="image-grid__media"><a href="http://placehold.mstoner.com/400x300" data-minimodal><div class="overlay"></div><img src="http://placehold.mstoner.com/400x300" class="img-fluid" alt="" /></a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="background background--yellow">
+  <div class="container">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+        <div class="panel__headline__details">
+          <h3>What Does the Philadelphia Center Offer?</h3>
+          <p><strong>The Philadelphia Center, an off-campus urban experiential program, is designed to provide college students from across the country with an independent living and learning experience while earning college credit in one of America’s oldest cities.</strong></p>
+        </div>
+        <div>
+        </div>
+      </div>
+
+      <div class="container container--extranarrow">
+        <div class="grid grid--50">
+          <div>
+            <h4><a href="#">Educational Experience</a></h4>
+            <ul>
+              <li>An opportunity to thrive through experiential education</li>
+              <li>Take part in professional, accredited internships</li>
+              <li>Ability to explore career paths through real-world applications</li>
+              <li>Develop an individualized learning plan</li>
+              <li>Concentrate on key knowledge and skill areas</li>
+            </ul>
+          </div>
+          <div>
+            <h4><a href="#">Living Experience</a></h4>
+            <ul>
+              <li>An opportunity to gain independence</li>
+              <li>Independent living in a major U.S. metropolitan area</li>
+              <li>Develop a strong sense of abilities, social and professional aspirations, and a plan for the future</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="testimonial-slider-program__component">
+  <div class="background">
+    <div class="container">
+      <div class="testimonial-slider__heading">
+        <h2>Past Experiences</h2>
+      </div>
+    </div>
+    <div class="testimonial-slider testimonial-slider--teal">
+      <div class="testimonial-slider__container container--purple">
+        <div class="testimonial-slider__items">
+          <div class="testimonial-slider__nav">
+            <div class="testimonial-slider__counter"></div>
+            <button class="testimonial-slider__button testimonial-slider__previous">{{ svgstore('icon-arrow-left') }}</button>
+            <button class="testimonial-slider__button testimonial-slider__next">{{ svgstore('icon-arrow-right') }}</button>
+          </div>
+          <div class="testimonial-slider__media">
+            {{ ph('482x468') }}
+            <a class="testimonial__icon" href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal>{{ svgstore('icon-play') }}</a>
+          </div>
+          <div class="testimonial-slider__media">
+            {{ ph('482x468') }}
+            <a class="testimonial__icon" href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal>{{ svgstore('icon-play') }}</a>
+          </div>
+          <div class="testimonial-slider__media">
+            {{ ph('482x468') }}
+          </div>
+        </div>
+        <div class="testimonial-slider__contents">
+          <div class="testimonial-slider__content">
+            <div class="blockquote__icon"></div>
+            <p class="testimonial__text">The Philadelphia Center provided me with a positive learning experience and I now feel more equipped as a young professional to step into the workforce.</p>
+            <div class="testimonial__cite">Blair, Lebanon Valley College</div>
+          </div>
+          <div class="testimonial-slider__content">
+            <div class="blockquote__icon"></div>
+            <p class="testimonial__text">My time at Albion College was the best four years of my life. Albion shaped me both personally and professionally.</p>
+            <div class="testimonial__cite">Bessie Morton</div>
+            <div class="testimonial__attr">
+              Professor of Economics
+            </div>
+          </div>
+          <div class="testimonial-slider__content">
+            <div class="blockquote__icon"></div>
+            <p class="testimonial__text">My time at Albion College was the best four years of my life. Albion shaped me both personally and professionally.</p>
+            <div class="testimonial__cite">Bessie Morton</div>
+            <div class="testimonial__attr">
+              Professor of Economics
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

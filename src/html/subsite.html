@@ -1,0 +1,114 @@
+{% set page = {
+  title: 'Sub-site'
+} %}
+
+{% extends "templates/subsite-alt.html" %}
+
+{% block body %}
+
+<div class="splash" style="background-image: url('//placehold.mstoner.com/600x400/000/fff&text=2560+×+1440');">
+  <button class="splash__control" aria-label="Toggle Video">
+  </button>
+  <div class="splash__video">
+    <video muted="" loop="" autoplay="" playsinline="">
+      <source src="img/SampleVideo.mp4" type="video/mp4" />
+    </video>
+  </div>
+  
+  <div class="splash__content">
+    <h1 class="splash__content__headlines">
+      Sub-site Hero
+    </h1>
+    {% if splash.video %}
+    <p class="splash__headline__button">
+      <a class="button--white" href="https://www.youtube.com/watch?v=gLyhHlQP6EM" data-minimodal>{{ svgstore('icon-play-alt', '', 'button-icon') }} &nbsp; Watch Now</a>
+    </p>
+    {% endif %}
+    {% if splash.audio %}
+    <p class="splash__headline__button">
+      <a href="#" class="button--white" href="#" data-minimodal data-minimodal-selector="#audioSplash">{{ svgstore('icon-audio', '', 'button-icon') }} &nbsp; Listen</a>
+      <div style="display: none" id="audioSplash">
+        <div class="modal">
+          <div class="modal__media">
+            <div class="media">
+              <audio controls src="img/music.mp3">
+                Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+              <p class="media__caption">
+                Audio Player Text Caption
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
+    {% endif %}
+  </div>
+</div>
+
+
+
+<div class="testimonial-slider-program__component">
+  <div class="background">
+    <div class="container">
+      <div class="testimonial-slider__heading">
+        <h2 class="large-headline">You Belong at Albion</h2>
+        <p class="text-teal">Make our campus your home. Create a meaningful educational experience that’s all yours.</p>
+      </div>
+    </div>
+    <div class="testimonial-slider testimonial-slider--teal">
+      <div class="testimonial-slider__container container--purple">
+        <div class="testimonial-slider__items">
+          <div class="testimonial-slider__nav">
+            <div class="testimonial-slider__counter"></div>
+            <button class="testimonial-slider__button testimonial-slider__previous">{{ svgstore('icon-arrow-left') }}</button>
+            <button class="testimonial-slider__button testimonial-slider__next">{{ svgstore('icon-arrow-right') }}</button>
+          </div>
+          <div class="testimonial-slider__media">
+            {{ ph('482x468') }}
+            <a class="testimonial__icon" href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal>{{ svgstore('icon-play') }}</a>
+          </div>
+          <div class="testimonial-slider__media">
+            {{ ph('482x468') }}
+            <a class="testimonial__icon" href="https://www.youtube.com/watch?v=-xWU35SWbxA" data-minimodal>{{ svgstore('icon-play') }}</a>
+          </div>
+          <div class="testimonial-slider__media">
+            {{ ph('482x468') }}
+          </div>
+        </div>
+        <div class="testimonial-slider__contents">
+          <div class="testimonial-slider__content">
+            <div class="blockquote__icon"></div>
+            <p class="testimonial__text">My time at Albion College was the best four years of my life. Albion shaped me both personally and professionally.</p>
+            <div class="testimonial__cite">Bessie Morton</div>
+            <div class="testimonial__attr">
+              Professor of Economics
+            </div>
+          </div>
+          <div class="testimonial-slider__content">
+            <div class="blockquote__icon"></div>
+            <p class="testimonial__text">My time at Albion College was the best four years of my life. Albion shaped me both personally and professionally.</p>
+            <div class="testimonial__cite">Bessie Morton</div>
+            <div class="testimonial__attr">
+              Professor of Economics
+            </div>
+          </div>
+          <div class="testimonial-slider__content">
+            <div class="blockquote__icon"></div>
+            <p class="testimonial__text">My time at Albion College was the best four years of my life. Albion shaped me both personally and professionally.</p>
+            <div class="testimonial__cite">Bessie Morton</div>
+            <div class="testimonial__attr">
+              Professor of Economics
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

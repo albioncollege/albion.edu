@@ -1,0 +1,343 @@
+// Font sizing
+// @include font-size(21);
+@mixin font-size($sizeValue: 16) {
+  font-size: ($sizeValue / 16) + rem;
+}
+
+// Fluid type for width dimensions
+// @include fluid-type(font-size, $minScreen, $maxScreen, 30px, 40px);
+@mixin fluid($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+  
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+  
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin container ($max-width: 80rem) {
+  width: 100%;
+  max-width: $max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  @include mq($lg) {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+}
+
+// clearfix
+@mixin clear {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+// clean
+@mixin clean {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@mixin hide {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+// min-width media query
+@mixin mq($min: 0, $max: 0) {
+  @if ($min > 0 and $max > 0) {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+  @else if ($min > 0) {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+  @else if ($max > 0) {
+    @media (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+@mixin fill($name) {
+  $sprite: map-get($sprites, $name);
+  background-image: url($sprite);
+}
+
+@mixin underline($color) {
+  background-image: linear-gradient($color, $color);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0.0625rem;
+}
+
+@mixin underlineTransparency($color) {
+  background-image: linear-gradient(rgba($color, .5), rgba($color, .5));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0.0625rem;
+  transition: all $transition;
+  &:hover {
+    background-image: linear-gradient($color, $color);
+  }
+}
+
+@mixin underlineShow($color) {
+  position: relative;
+  background-image: none;
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient($color, $color);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 0.0625rem;
+    opacity: 0;
+    transition: opacity $transition;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+// zero margins
+@mixin zero {
+  > :first-child {
+    margin-top: 0;
+  }
+  
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin large-headline {
+  font-family: $serif;
+  font-weight: normal;
+  @include font-size(42);
+  line-height: 1.143;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(96);
+    line-height: 1;
+  }
+}
+
+@mixin h1 {
+  font-family: $serif;
+  font-weight: normal;
+  @include font-size(42);
+  line-height: 1.143;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(84);
+    line-height: 1;
+  }
+}
+
+@mixin h1 {
+  font-family: $serif;
+  font-weight: normal;
+  @include font-size(42);
+  line-height: 1.143;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(84);
+    line-height: 1;
+  }
+}
+
+@mixin h2 {
+  font-family: $serif;
+  font-weight: normal;
+  @include font-size(38);
+  line-height: 1.21;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(54);
+    line-height: 1.15;
+  }
+}
+
+@mixin h3 {
+  font-family: $serif;
+  font-weight: normal;
+  @include font-size(32);
+  line-height: 1.25;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(42);
+    line-height: 1.29;;
+  }
+}
+
+@mixin h4 {
+  font-family: $serif;
+  font-weight: normal;
+  @include font-size(26);
+  line-height: 1.25;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(32);
+    line-height: 1.25;
+  }
+}
+
+@mixin h5 {
+  font-family: $sans-serif;
+  font-weight: 300;
+  @include font-size(24);
+  line-height: 1.25;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(28);
+    line-height: 1.29;
+  }
+}
+
+@mixin h6 {
+  font-family: $sans-serif;
+  font-weight: 300;
+  @include font-size(20);
+  line-height: 1.4;
+  color: $purple;
+
+  @include mq($lg) {
+    @include font-size(22);
+    line-height: 1.45;
+  }
+}
+
+@mixin text-base {
+  color: $dark-gray;
+  font-family: $sans-serif;
+  @include font-size(18);
+  line-height: 1.444;
+}
+
+@mixin text-lg {
+  @include font-size(28);
+  font-family: $sans-serif;
+  line-height: 1.29;
+  font-weight: 300;
+}
+
+@mixin text-intro {
+  @include font-size(28);
+  font-family: $sans-serif;
+  line-height: 1.29;
+  font-weight: 300;
+  color: $teal;
+}
+
+@mixin text-sm {
+  @include font-size(16);
+  line-height: 1.5;
+}
+
+@mixin text-caption {
+  @include font-size(14);
+  line-height: 1.57;
+}
+
+@mixin text-date {
+  font-family: $sans-serif;
+  font-weight: bold;
+}
+
+@mixin eyebrow {
+  font-family: $sans-serif;
+  font-weight: bold;
+  @include font-size(14);
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.116875rem;
+}
+
+@mixin button-text {
+  font-family: $sans-serif;
+  font-weight: bold;
+  @include font-size(14);
+  line-height: 1.4375;
+  text-transform: uppercase;
+  letter-spacing: 0.125rem;
+  color: $purple;
+  &:hover {
+    color: $teal;
+  }
+}
+
+@mixin focus {
+  outline: 0.125rem solid #4d90fe; // light blue
+  outline-offset: 0.125rem;
+}
+
+@mixin sprite-img($name, $user-variables: (), $include-size: false) {
+  $sprite: map-get($sprites, $name);
+  
+  // Inject variables
+  $default-variables: map-get($variables, $name);
+  @if type-of($default-variables) == 'map' {
+    @each $key, $value in map-merge($default-variables, $user-variables) {
+      @if ( not map-has-key($default-variables, $key) ) {
+        @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+      }
+      
+      $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(quote(#{$value})));
+    }
+  } @else if type-of($user-variables) == 'map' {
+    @warn 'Sprite \'#{$name}\' does not contain any variables';
+  }
+  
+  background-image: url($sprite);
+  background-repeat: no-repeat;
+  
+  @if $include-size {
+    $size: map-get($sizes, $name);
+    background-size: map-get($size, width) map-get($size, height);
+  }
+}

@@ -1,0 +1,13 @@
+<div class="background">
+  <div class="accordion">
+    {% for this in range(0, 4) -%}
+      <button class="accordion__toggle" tabindex="0" aria-pressed="false">
+        Accordion {{ this }}
+          {{ svgstore('icon-arrow-down', 'Toggle Accordion', 'accordion__icon') }}
+      </button>
+      <div class="accordion__content container--purple">
+        <p>Body Text — dolor sit amet, consectetur adipiscing elit. Morbi interdum turpis in augue consectetur, non cursus. <a href="#">Optional Inline Link</a> quis nostrud exercitation ullamco laboris. Aenean et augue suscipit ultrices.</p>
+      </div>
+      {%- endfor %}
+  </div>
+</div>

@@ -1,0 +1,87 @@
+.accordion {
+  margin: 2rem 0;
+}
+
+.accordion__toggle {
+  @include h6;
+  font-weight: 300;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  margin: 0.25rem 0 0 0 !important;
+  padding: 0.75rem 4rem 0.75rem 1.625rem;
+  border: 0;
+  background-color: $gold;
+  background-image: none;
+  color: $purple;
+  text-align: left;
+  //transition: background-color $transition;
+  //min-height: 4.063rem;
+  &:first-child {
+    margin: 0;
+  }
+
+  &:hover {
+    color: $purple;
+    background-color: $white;
+  }
+
+  &.active {
+    color: $white;
+    background-color: $purple;
+  }
+
+  @include mq($lg) {
+    padding: 1.5rem 4rem 1.5rem 2.5rem;
+  }
+}
+
+.accordion__toggle__text {
+  font-size: 1rem;
+  h2, h3, h4, h5, h6,
+  .accordion__toggle__text {
+    font-size: 1rem;
+  }
+}
+
+
+
+.accordion__icon {
+  position: absolute;
+  top: calc(50% - 0.5rem);
+  right: 1.5rem;
+  width: 1rem;
+
+  color: $purple;
+
+  .active & {
+    color: $white;
+    transform: rotate(-180deg);
+  }
+
+  @include mq($lg) {
+    width: 1.25rem;
+    top: calc(50% - 0.75rem);
+  }
+
+}
+
+.accordion__content {
+  @include zero;
+  @include clear;
+  display: none;
+  padding: 2.5rem;
+  padding-top: 0;
+  background-color: $purple;
+  color: $white;
+
+  .active + & {
+    display: block;
+  }
+
+  a:not([class]) {
+    color: $white;
+    @include underline($gold);
+  }
+}

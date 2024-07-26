@@ -1,0 +1,90 @@
+// colors
+$white: #fff;
+$black: #000;
+$grey: #999;
+$beige: #EFDBB2;
+$beige-light: #FBF6EC;
+$yellow: #EED484;
+$orange: #D86018;
+$orange-dark: #BF5515;
+$red: #BE3A34;
+$red-dark: #942D29;
+$blue: #236192;
+$blue-dark: #003057;
+$green: #218274;
+$green-a11y: #2A7361;
+$green-dark: #173F35;
+
+$gold: #FFC845;
+$purple: #4B306A;
+$purple-tint: #9B8BAB;
+$purple-gray: #EEEAF0;
+$teal: #00747A;
+$teal-dark: #005A5E;
+$dark-gray: #262626;
+
+$yellow: #FFF6E3;
+
+// fonts
+$serif: "TiemposHeadline", serif;
+$sans-serif: "trade-gothic-next", sans-serif;
+$display: "LeituraDisplay", serif;
+
+// transitions
+$transition-speed: 300ms;
+$transition-easing: ease;
+$transition: $transition-speed $transition-easing;
+
+// breakpoints
+$sm: 32em;
+$md: 48em;
+$lg: 64.0625em;
+$xl: 80em;
+$max: 90em;
+
+$minScreen: 20rem;
+$maxScreen: 90rem;
+
+// sizes
+
+// left padding to line up main content areas
+$mainSpacing: 4.25rem; 
+
+ // spacing for outer full-width items
+$mobileSpacing: 1.25rem;
+$desktopSpacing: 2.25rem;
+
+// shape sizes
+$shapeWidthSmall: 207px;
+$shapeHeightSmall: 196.5px;
+
+$shapeWidthLarge: 414px;
+$shapeHeightLarge: 393px;
+
+// animations
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUpFadeIn {
+  0% {
+    transform: translate(0,50px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}

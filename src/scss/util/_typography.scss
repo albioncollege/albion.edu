@@ -1,0 +1,96 @@
+body {
+  @include text-base;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ol:not([class]) {
+  padding-left: 1.5rem;
+}
+
+ul:not([class]) {
+  padding-left: 1.5rem;
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 0.0625rem $purple solid;
+  clear: both;
+  @include mq($lg) {
+    margin: 5rem 0;
+  }
+}
+
+.full-width--hr {
+  width: 100%;
+  border: 0;
+  border-top: 0.0625rem $purple solid;
+  clear: both;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $dark-gray;
+  padding-bottom: 1px;
+  @include underline($teal);
+  transition: color $transition;
+  &:hover {
+    color: $teal;
+  }
+  
+  h1 &, h2 &, h3 &, h4, .large-headline &, .h1 &, .h2 &, .h3 &, .h4 &, .h5 &, .h6 &, & {
+    color: $purple;
+  }
+}
+
+.container--purple {
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .large-headline, .text-intro {
+    color: $white;
+  }
+}
+
+.container--gold {
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .large-headline, .text-intro {
+    color: $purple;
+  }
+}
+
+.text-small {
+  @include text-sm;
+}
+
+.text-large {
+  @include text-lg;
+  @include mq($lg) {
+    max-width: 90%;
+  }
+}
+
+.text-intro {
+  @include text-intro;
+  @include mq($lg) {
+    max-width: 90%;
+  }
+}
+
+.text-teal {
+  color: $teal;
+}
+
+.text-gold {
+  color: $gold;
+}
+
+.eyebrow {
+  @include eyebrow;
+}
+
+.caption {
+  @include text-caption;
+  margin: 1rem 0;
+}
+

@@ -1,0 +1,270 @@
+{% set page = {
+  title: 'Program'
+} %}
+
+{% extends "templates/default.html" %}
+
+{% block body %}
+
+{% include "modules/_hero-program.html" %}
+
+<div class="main main--program">
+  <div class="main__inner">
+      
+    <div id="sidebar" class="sidebar sidebar--program">
+      <!-- whatever goes into this container will go to the top at mobile -->
+      <!-- REGION: Sidebar Navigation -->
+      {% include "modules/_subnav-program.html" %}
+      <!-- /REGION: Sidebar Navigation -->
+      <!-- REGION: Sidebar Context Top --><!-- /REGION: Sidebar Context Top -->
+    </div>
+    <div class="main__side">
+      <div class="program__intro">
+        <img src="//placehold.mstoner.com/687x458" alt="" class="program__header__image">
+
+        <h2>Why Study English at Albion?</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque.</p>
+
+        <h2>What Will You Learn as An English Major?</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque.</p>
+        
+        <ul>
+          <li>You'll develop the most essential skills required to live and thrive in any society—reading, writing and thinking.</li>
+          <li>You’ll take courses in British and American literature, creative writing, journalism and literary theory. You’ll study major works and you’ll also examine the impacts of gender, race and ethnicity, and class on the creation and reception of those works.</li>
+          <li>You’ll examine pieces of writing—essays, poems, stories—to figure out what makes them successful, then you’ll apply that knowledge to your own work.</li>
+          <li>You’ll become comfortable being challenged and making an argument. You’ll  understand the power of language and you’ll know how to harness it to make an impact in your own life, in your community or even on the world.</li>
+        </ul>
+        
+
+      </div>
+
+      <div class="button-group">
+        <a href="#" class="button__link">Major Courses</a>
+        <a href="#" class="button__link">Minor Courses</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="background background--purple-gray">
+  <div class="container container--narrow">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+          <div class="panel__headline__details">
+            <h3>Emphases & Certification</h3>
+            <p><strong>In addition to our standard English major, you can pursue an emphasis in Creative Writing or Professional Writing or obtain an Education Certification along with your English major or minor.</strong></p>
+          </div>
+          <div class="panel__headline__right panel__headline__right--icon">
+            <div class="panel__headline__icon">
+              {{ svgstore('icon-certification') }}
+            </div>
+          </div>
+      </div>
+
+      <div class="grid grid--33-33-33">
+        <div>
+          <h4><a href="#">Creative Writing Emphasis</a></h4>
+          <p>
+            As an English major with a Creative Writing emphasis, you’ll take intermediate and advanced workshop courses in poetry or fiction, where you and your classmates will share and critique each other’s work. You’ll also have the opportunity to study screenwriting, journalism, multimedia production, creative nonfiction and more.
+          </p>
+        </div>
+        <div>
+          <h4><a href="#">Professional Writing Emphasis</a></h4>
+          <p>
+            As an English major with a Professional Writing emphasis, you’ll take our most advanced writing courses. You’ll also choose from courses that build career-ready skills in journalism, public relations, multimedia production and more.
+          </p>
+        </div>
+        <div>
+          <h4><a href="#">Education Certification</a></h4>
+          <p>
+            Obtain your Michigan state teaching certification in elementary English/Language Arts (K-8) or secondary English (grades 6-12).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="background background--purple">
+  <div class="container container--narrow">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+          <div class="panel__headline__details">
+            <h3>Emphases & Certification</h3>
+            <p><strong>In addition to our standard English major, you can pursue an emphasis in Creative Writing or Professional Writing or obtain an Education Certification along with your English major or minor.</strong></p>
+          </div>
+          <div class="panel__headline__right panel__headline__right--icon">
+            <div class="panel__headline__icon">
+              {{ svgstore('icon-certification') }}
+            </div>
+          </div>
+      </div>
+
+      <div class="grid grid--33-33-33">
+        <div>
+          <h4><a href="#">Creative Writing Emphasis</a></h4>
+          <p>
+            As an English major with a Creative Writing emphasis, you’ll take intermediate and advanced workshop courses in poetry or fiction, where you and your classmates will share and critique each other’s work. You’ll also have the opportunity to study screenwriting, journalism, multimedia production, creative nonfiction and more.
+          </p>
+        </div>
+        <div>
+          <h4><a href="#">Professional Writing Emphasis</a></h4>
+          <p>
+            As an English major with a Professional Writing emphasis, you’ll take our most advanced writing courses. You’ll also choose from courses that build career-ready skills in journalism, public relations, multimedia production and more.
+          </p>
+        </div>
+        <div>
+          <h4><a href="#">Education Certification</a></h4>
+          <p>
+            Obtain your Michigan state teaching certification in elementary English/Language Arts (K-8) or secondary English (grades 6-12).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "modules/_feature.html" %}
+
+{% include "modules/_testimonial-slider-program.html" %}
+
+<div class="background">
+  {% include "modules/_panel.html" %}
+</div>
+
+
+<div class="background background--purple-gray">
+  <div class="container container--narrow">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+          <div class="panel__headline__details">
+            <h3>Careers & Outcomes</h3>
+            <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec. Posuere urna nec tincidunt praesent semper. Scelerisque mauris pellentesque pulvinar pellentesque. </strong></p>
+          </div>
+          <div class="panel__headline__right panel__headline__right--icon">
+            <div class="panel__headline__icon">
+              {{ svgstore('icon-briefcase', '', 'panel__icon--briefcase') }}
+            </div>
+          </div>
+      </div>
+
+      <div class="grid grid--50 grid--narrow">
+        <div>
+          <h4>Job Titles</h4>
+
+          <ul>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+          </ul>
+
+        </div>
+        <div>
+          <h4>Employers</h4>
+
+          <ul>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+            <li>Sit amet, consectetur adipiscing</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "modules/_infographic.html" %}
+
+<div class="background">
+  <div class="container container--narrow">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+          <div class="panel__headline__details">
+            <h3>Additional Information</h3>
+            <p><strong>Paragraph Text (2-3 Sentences) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque. Eleifend donec pretium vulputate sapien nec.</strong></p>
+          </div>
+          <div class="panel__headline__right panel__headline__right--icon">
+            <div class="panel__headline__icon">
+              {{ svgstore('icon-bubble') }}
+            </div>
+          </div>
+      </div>
+
+      <div class="grid grid--50">
+        <div>
+          <p>
+            <a href="#" class="button__link">History Department</a>
+          </p>
+          <p>
+            <a href="#" class="button__link">Gerald R. Ford Institute for Leadership in Public Policy and Service</a>
+          </p>
+        </div>
+        <div>
+          <p>
+            <a href="#" class="button__link">Coy James Memorial Lecture Series</a>
+          </p>
+          <p>
+            <a href="#" class="button__link">Foundation for Undergraduate Research, Scholarship, and Creative Activity (FURSCA)</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="background background--purple-gray">
+  <div class="container container--narrow">
+    <div class="panel__headline__wrapper">
+      <div class="grid grid--70-30">
+          <div class="panel__headline__details">
+            <h3>Related Programs</h3>
+          </div>
+          <div class="panel__headline__right">
+            <a href="#" class="button">Explore All Programs</a>
+          </div>
+      </div>
+
+      <div class="grid grid--33-33-33">
+        <div>
+          <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+          <p>
+            <a href="#" class="button__link">Related Program</a>
+          </p>
+        </div>
+        <div>
+          <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+          <p>
+            <a href="#" class="button__link">Related Program</a>
+          </p>
+        </div>
+        <div>
+          <img src="//placehold.mstoner.com/687x458" alt="" class="image--full">
+          <p>
+            <a href="#" class="button__link">Related Program</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,242 @@
+.footer {
+  position: relative;
+  background: $purple;
+  color: $white;
+  //margin-top: calc(3.6875rem + 2.25rem);
+}
+
+.footer__container {
+  @include container;
+  padding: 2.875rem 2.25rem;
+  p {
+    margin-top: 0;
+    // margin-bottom: 2rem;
+  }
+
+  > div:first-of-type {
+    > div:first-of-type {
+      order: 1;
+      .button {
+        width: 100%;
+      }
+      p:first-of-type {
+        margin-bottom: 2rem;
+      }
+      @include mq($lg){
+        .button {
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+.footer__grid {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+  // padding-top: 2rem;
+  // padding-bottom: 2rem;
+  //margin-left: -2rem;
+  @include mq($lg) {
+    flex-flow: row;
+  }
+
+  > div {
+    order: 1;
+    @include mq($lg) {
+      order: 2;
+      text-align: right;
+    }
+  }
+  
+  > div:not([class]) {
+    // margin-top: 2rem;
+    // @include mq($lg) {
+    //   margin-top: 1rem;
+    // }
+  }
+  
+  > div:first-of-type {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    text-align: left;
+    order: 2;
+
+    @include mq($lg) {
+      order: 1;
+      width: calc(50% - 2rem);
+    }
+  }
+}
+
+.footer__lead {
+  margin-top: -1rem;
+  @include mq($lg) {
+    margin-top: 0;
+  }
+}
+
+.footer__rule {
+  position: relative;
+  margin: 3.5rem auto 3.5rem;
+  // margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.25);
+  height: 1px;
+}
+.footer__logo {
+  width: 117px;
+  height: 135px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -67px;
+  left: 0;
+  right: 0;
+  background: $purple;
+  border: 20px $purple solid;
+
+  @include mq($lg) {
+    width: 145px;
+    height: 170px;
+    bottom: -85px;
+  }
+}
+
+.footer__location {
+  font-family: $sans-serif;
+  margin-top: 0;
+  margin-bottom: 1.875rem;
+  @include font-size(16);
+
+  a {
+    @include button-text;
+    .container--purple & {
+      color: $white;
+      @include underlineTransparency($gold);
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+}
+
+.footer__social {
+  display: flex;
+}
+
+.footer__social__link {
+  background-image: none;
+  color: $white;
+  display: block;
+  width: 1.5rem;
+  margin-right: 2.25rem;
+  &:hover {
+    color: $gold;
+  }
+}
+
+.footer__list {
+  @include clean;
+  margin-bottom: 2.25rem;
+  @include mq($lg) {
+    margin-bottom: 0;
+  }
+}
+
+.footer__list--fullwidth {
+  li {
+    margin-bottom: 1.25rem;
+  }
+  a {
+    width: 100%;
+  }
+}
+
+.footer__link {
+  color: $white;
+  font-family: $sans-serif;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  @include font-size(14);
+  line-height: 2.75;
+  letter-spacing: 2px;
+  background-image: none;
+  @include underline($gold);
+
+  &:hover {
+    color: $gold;
+  }
+}
+
+.footer__headline {
+  font-family: $sans-serif;
+  font-weight: bold;
+  @include font-size(20);
+  letter-spacing: 2.94px;
+  text-transform: uppercase;
+}
+
+.footer__bottom__wrapper {
+  background: $white;
+}
+.footer__bottom {
+  @include container;
+  font-family: $sans-serif;
+  @include font-size(14);
+  background: $white;
+  color: $black;
+  width: 100%;
+
+  &::before {
+    content:"";
+    z-index:-1;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-100vw;
+    right:-100vw;
+    background: $white;
+  }
+  
+  @include mq($lg) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.footer__cr {
+  font-weight: bold;
+}
+
+.footer__bottom__group {
+  @include font-size(16);
+  padding: 2.375rem 0;
+  width: 100%;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem -0.75rem;
+    li {
+      margin-bottom: 1rem;
+      a {
+        white-space: nowrap;
+        background-image: none;
+      }
+    }
+    @include mq($lg) {
+      display: flex;
+      margin: 0;
+      justify-content: space-between;
+      li {
+        margin: 0 0.5rem;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.page-template-page--program .footer {
+  margin-top: 0;
+}

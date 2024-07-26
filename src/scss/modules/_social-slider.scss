@@ -1,0 +1,362 @@
+.social-slider {
+  background-color: $purple;
+  @include sprite-img('hex-pattern');
+  background-size: 95px;
+  background-repeat: repeat;
+  background-position: -0.5rem -0.1rem;
+  position: relative;
+  z-index: 0;
+  clear: both;
+
+  // @include mq($xl) {
+  //   padding-left: calc(4rem + #{$mainSpacing});
+  // }
+}
+.social-slider__component {
+}
+
+.social-slider__header {
+  @include mq($lg) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+}
+
+.social-slider__nav {
+  display: flex;
+  float: right;
+  margin-bottom: 1rem;
+  .social-slider__button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: none;
+    color: $white;
+    background-color: $purple;
+
+    width: 2.625rem;
+    height: 2.625rem;
+
+    border-radius: 100%;
+
+    &:disabled {
+      background-color: $purple-tint;
+    }
+
+    span {
+      width: 0.75rem;
+      @include mq($lg) {
+        width: 1rem;
+      }
+    }
+    &.social-slider__previous {
+      margin-right: 0.5rem;
+      @include mq($lg) {
+        margin-right: 1rem;
+      }
+    }
+    @include mq($lg) {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
+  }
+  @include mq($lg) {
+    display: flex;
+    float: none;
+    top: -6rem;
+  }
+}
+
+.social-slider__top {
+  @include container;
+  text-align: center;
+
+  span {
+    width: 3.1875rem;
+    height: 2.625rem;
+    color: $beige;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.social-slider__heading {
+  //margin-bottom: 8rem;
+
+  @include mq($md) {
+    //margin-bottom: 10rem;
+  }
+
+  .large-headline {
+    margin-bottom: 0;
+    margin-top: 0;
+    color: $purple;
+  }
+  p {
+    @include mq($lg) {
+      @include text-intro;
+      margin: 0;
+    }
+  }
+  @include mq($lg) {
+    width: 50%;
+  }
+}
+
+// .social__page {
+//   position: relative;
+//   width: 100%;
+
+
+//}
+
+.social-slider__content-wrapper {
+  width: 75%;
+  height: 100%;
+  @include mq($lg) {
+    width: 25%;
+    padding: 1.5rem;
+    margin: 0;
+  }
+}
+.social-slider__content {
+  display: block;
+
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding-top: 75%;
+  margin: 2rem 2vw;
+  overflow: hidden;
+
+  &:hover {
+    z-index: 10;
+    .social-slider__overlay {
+      opacity: 1;
+      background-color: rgba(75,48,106,0.7);
+    }
+    .social-slider__text {
+      opacity: 1;
+    }
+  }
+
+  @include mq($lg) {
+    width: 25%;
+    padding: 1.5rem;
+    margin: 0;
+  }
+}
+@include mq($lg) {
+  //height: 42vw;
+
+  .social__img__one {
+    z-index: 4;
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    width: 32vw !important;
+    height: 32vw;
+  }
+  .social__img__two {
+    z-index: 3;
+    position: absolute;
+    top: 3vw;
+    width: 22vw !important;
+    height: 22vw;
+    right: 0vw;
+  }
+  .social__img__three {
+    z-index: 2;
+    position: absolute;
+    left: 2vw;
+    bottom: -37vw;
+    width: 22vw !important;
+    height: 22vw;
+  }
+  .social__img__four {
+    z-index: 1;
+    position: absolute;
+    top: -2rem;
+    right: 0;
+    width: 32vw !important;
+    height: 32vw;
+  }
+}
+
+.social-slider__overlay {
+  display: none;
+  @include mq($lg) {
+    display: flex;
+    height: 100%;
+    padding: 1.5rem;
+    align-items: center;
+  }
+}
+.social-slider__text {
+  margin: 0;
+  color: $white;
+  @include mq($lg) {
+    overflow: hidden;
+    display: block;
+    color: $white;
+    margin: 0;
+    opacity: 0;
+    font-size: 0.75rem;
+    position: relative;
+  }
+  @include mq($xl) {
+    font-size: 1rem;
+  }
+}
+
+@include mq($lg) {
+  .social-slider__overlay{
+    .social__img__two &, .social__img__three & {
+      padding: 0.75rem;
+    }
+  }
+}
+
+
+.social-slider__container {
+  //@include container;
+  // padding-top: 3rem;
+  position: relative;
+
+  @include mq($lg) {
+    display: flex;
+    justify-content: space-between;
+    // display: flex;
+    // position: static;
+  }
+}
+
+.social-slider__contents {
+  @include zero;
+  position: relative;
+  min-height: 45vw;
+  //padding: 2rem 0;
+
+  @include mq($lg) {
+    position: relative;
+    top: auto;
+    z-index: 1;
+    width: 100%
+  }
+
+  .flickity-slider {
+    //transform: none !important;
+    margin: 0 2rem;
+    @include mq($lg) {
+      margin: 0;
+    }
+  }
+}
+
+.social-slider__links {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  color: $gold;
+  @include mq($lg) {
+    left: 10vw;
+    bottom: 6vw;
+    justify-content: flex-start;
+  }
+}
+.social-slider__insta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  left: 2.5rem;
+  margin-bottom: 2rem;
+  &::before {
+    position: absolute;
+    content: '';
+    width: 1.5625rem;
+    height: 1.5625rem;
+    left: -2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    @include sprite('icon-instagram', (
+      color: '#{$gold}'
+    ));
+    .open & {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+  &:hover {
+    color: $gold;
+  }
+  @include mq($lg) {
+    margin-bottom: 0;
+  }
+}
+
+// .social-slider__content {
+//   @include zero;
+//   left: 0 !important;
+//   //opacity: 0;
+//   transition: opacity $transition;
+//   z-index: -1;
+//   width: 100%;
+
+//   &.is-selected {
+//     opacity: 1;
+//     z-index: 0
+//   }
+// }
+
+.social__grid {
+  // flex-shrink: 0;
+  // // width: 100%;
+  // position: relative;
+  // top: -4rem;
+  // max-width: 18.75rem;
+
+  // margin: 0 auto;
+
+  // @include mq($lg) {
+  //   // width: 38%;
+  //   max-width: 30.125rem;
+  //   margin: 0;
+  //   order: 1;
+  //   // overflow: hidden;
+  // }
+
+  .flickity-viewport {
+    overflow: visible;
+  }
+
+}
+
+// .social-slider__media {
+//   margin-right: 2rem;
+//   width: 100%;
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: opacity $transition,
+//     visibility $transition;
+
+//   @include mq($lg) {
+//     width: 30.125rem;
+//   }
+
+//   &.is-selected,
+//   &.is-selected~& {
+//     opacity: 1;
+//     visibility: visible;
+//   }
+
+//   a {
+//     white-space: nowrap;
+//     position: absolute;
+//     left: 50%;
+//     bottom: 3rem;
+//     transform: translateX(-50%);
+//   }
+// }

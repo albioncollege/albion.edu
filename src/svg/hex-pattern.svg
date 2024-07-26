@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="95px" height="80px" viewBox="0 0 95 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>hex-pattern</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.0807524182">
+        <g id="hex-pattern" transform="translate(1.000000, 1.000000)" stroke="#FFFFFF">
+            <polygon id="Path" points="70.95625 0.3125 23.89375 0.3125 0.3625 40.4125 23.89375 80.5125 70.95625 80.5125 94.4875 40.4125"></polygon>
+            <polyline id="Path" points="0.3625 40.4125 47.425 40.4125 70.95625 0.3125"></polyline>
+            <line x1="70.95625" y1="80.5125" x2="47.425" y2="40.4125" id="Path"></line>
+        </g>
+    </g>
+</svg>

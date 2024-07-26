@@ -1,0 +1,51 @@
+.link-carousel {
+  margin-top: 2rem;
+  ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  li {
+    width: 100%;
+    padding-bottom: 2rem;
+
+    @include mq($lg) {
+      width: 48%;
+    }
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+
+}
+
+.link-carousel__image {
+  height: 7.5rem;
+  width: 9.125rem;
+  background-position: center center;
+  background-size: cover;
+  flex-basis: 100%;
+}
+.link-carousel__name {
+  display: flex;
+  background: white;
+  height: 7.5rem;
+  flex: auto;
+  flex-basis: 100%;
+  color: $purple;
+  position: relative;
+  align-items: center;
+  padding: 2rem;
+  transition: color $transition;
+  &:hover {
+    color: $teal;
+  }
+}

@@ -1,0 +1,74 @@
+.table {
+  margin: 2rem 0;
+  overflow: auto;
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 0.75rem 1rem;
+  }
+  td {
+    padding: 0.75rem 1rem;
+    color: $purple;
+    @include mq($lg) {
+      padding: 1rem;
+    }
+  }
+  
+  thead { 
+    th {
+      border-bottom: $purple solid 0.0625rem;
+      color: $purple;
+      text-align: left;
+    }
+  }
+  tbody {
+    th {
+      color: $purple;
+    }
+    th, td {
+      text-align: left;
+    }
+    tr:nth-child(even) {
+      td, th {
+        background-color: $white;
+      }
+    }
+    tr:nth-child(even) {
+      td, th {
+        background-color: $purple-gray;
+      }
+    }
+  }
+
+  caption {
+    @include hide;
+  }
+}
+
+.table__scroll {
+  min-width: 38rem;
+}
+
+.dataTables_info{
+  padding: 1rem 0 1rem 0;
+}
+
+.paginate_button{
+  margin-right: 2rem;
+}
+
+.column-filter-widgets {
+  @include mq($lg) {
+    float: right;
+  }
+}
+
+.dataTables_filter input[type=search] {
+  margin-left: 1rem;
+}
+

@@ -1,0 +1,87 @@
+{
+    "key": "group_605b919380741",
+    "title": "Subnav",
+    "fields": [
+        {
+            "key": "field_6089d200c0884",
+            "label": "Hide Siblings",
+            "name": "hide_siblings",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Hide siblings of current page in subnavigation.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_605b91a18be80",
+            "label": "Hide Children",
+            "name": "subnav_hide_children",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Hide all children of this page in the subnav",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check to enable",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_605b92828be81",
+            "label": "Exclude Page",
+            "name": "exclude_page",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Exlude page from parent subnav",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check to enable",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1721759457
+}

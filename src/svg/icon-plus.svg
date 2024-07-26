@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group Copy 2</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.294118 0 0 0 0 0.188235 0 0 0 0 0.415686 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.9">
+        <g id="Albion-m-TertiaryPageInventory" transform="translate(-298.000000, -7953.000000)">
+            <g id="Group-Copy-2" transform="translate(33.000000, 7940.000000)" filter="url(#filter-1)">
+                <g transform="translate(277.970563, 25.970563) rotate(45.000000) translate(-277.970563, -25.970563) translate(268.970563, 16.970563)">
+                    <path d="M9.69230769,1.95351606e-12 L9.692,8.307 L18,8.30769231 L18,9.69230769 L9.692,9.692 L9.69230769,18 L8.30769231,18 L8.307,9.692 L0,9.69230769 L0,8.30769231 L8.307,8.307 L8.30769231,1.95360084e-12 L9.69230769,1.95351606e-12 Z" id="Menu_Icon-Copy-3" fill="#00747A"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

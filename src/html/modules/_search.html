@@ -1,0 +1,18 @@
+<div class="search" id="main-search">
+  <button class="header__link toggle-search" aria-label="Close Search" aria-expanded="false">
+    Close
+  </button>
+  <form class="search__container">
+    <div class="search__input__container">
+      <label for="site-search" class="screen-reader-text">Search</label>
+      <input id="site-search" type="search" class="search__input" placeholder="Search Albion">
+      <button type="submit" class="button">
+        SEARCH
+      </button>
+    </div>
+    
+    
+    <p class="search__results__label">Explore More:</p>
+    {% include "modules/_linkcarousel.html" %}
+  </form>
+</div>

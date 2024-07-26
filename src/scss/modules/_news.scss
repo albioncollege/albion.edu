@@ -1,0 +1,139 @@
+.news__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h3 {
+    margin-top: 0;
+  }
+  a {
+    display: block;
+  }
+}
+.news__more__mobile {
+  @include mq($lg) {
+    display: none;
+  }
+}
+.news__block {
+  position: relative;
+  background: $purple;
+  margin-bottom: 1.125rem;
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease;
+  @include mq($lg) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.125rem;
+    height: 13.625rem;
+    background: $purple-gray;
+    .background--purple-gray & {
+      background: $white;
+    } 
+
+    &:hover {
+      background: $purple;
+      height: 16.625rem;
+      width: calc(100% + 4rem);
+      left: -2rem;
+      .news__image {
+        width: 21.125rem;
+      }
+      .news__content {
+        padding: 5.125rem 2rem;
+        a {
+          color: $white;
+          @include underline($gold);
+        }
+        span {
+          color: $gold;
+        }
+      }
+    }
+  }
+  &.block--archive {
+
+    height: 100%;
+    background: $purple-gray;
+    @include mq($lg) {
+      background: $purple-gray;
+      .news__image {
+        width: 17.375rem;
+        min-width: 9.5rem;
+        align-self: flex-start;
+        padding-top:4rem;
+        img {
+          margin-left: 2rem;
+        }
+      }
+      &:hover {
+        width: 100%;
+        background: $purple-gray;
+        left: 0;
+        height: 100%;
+        .news__image {
+          img {
+            margin-left: 2rem;
+          }
+        }
+      }
+    }
+    .news__content {
+      padding: 3.5rem 4rem;
+      a {
+        color: $purple;
+      }
+      span {
+        color: $purple;
+        &.teaser{
+          font-weight:normal;
+          font-style:italic;
+        }
+      }
+    }
+  }
+}
+
+.news__image {
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  min-height: 14.5rem;
+  width: 100%;
+  @include mq($lg) {
+    height: 100%;
+    width: 22.375rem;
+    min-height: auto;
+  }
+}
+
+.news__content {
+  transition: all 0.3s ease;
+  padding: 1.5rem 1.875rem;
+  .news__link {
+    margin-bottom: 1rem;
+    max-width: 67rem;
+  }
+  a {
+    @include font-size(18);
+    color: $white;
+    @include underline($gold);
+  }
+  span {
+    display: block;
+    color: $gold;
+    font-weight: bold;
+  }
+  @include mq($lg) {
+    padding: 3.5rem 4rem;
+    a {
+      color: $purple;
+      @include font-size(28);
+      font-weight: 300;
+      background-image: none;
+    }
+    span {
+      color: $purple;
+    }
+  }
+}

@@ -1,0 +1,705 @@
+.header {
+  position: relative;
+  background: $white;
+  color: $purple;
+  // border-bottom: 0.0625rem solid $blue-dark;
+  z-index: 3;
+  //height: 3.625rem;
+  @include mq($lg) {
+    //height: 5.3125rem;
+  }
+}
+
+.header__topbar {
+  //@include container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $purple;
+  height: 50px;
+  max-width: 100%;
+
+  @include mq($lg) {
+    justify-content:space-between;
+    padding: 0 2.25rem;
+  }
+
+  .header__topbar__left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      margin-right: 1rem;
+      line-height: 1;
+
+      &:nth-last-of-type(2) {
+        margin-right: 0;
+      }
+      &:last-of-type {
+        display: none;
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+      position: relative;
+      vertical-align: bottom;
+      font-family: $sans-serif;
+      font-weight: bold;
+      @include font-size(10);
+      letter-spacing: 1.43px;
+      line-height: 0.9375px;
+      text-transform: uppercase;
+      color: $gold;
+      background-image: none;
+      &::before {
+        position: absolute;
+        content: ' ';
+        //width: 1.3125rem;
+        left: 0;
+        top: 0;
+        height: 100%;
+      }
+      &:hover {
+        color: $white;
+      }
+    }
+
+    @include mq($lg) {
+      width: auto;
+      a {
+        @include font-size(12);
+        display: inline-flex;
+        align-items: center;
+      }
+      li {
+        &:nth-last-of-type(2) {
+          margin-right: 1rem;
+        }
+        &:last-of-type {
+          display: inline-block;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .header__topbar__right {
+    display: none;
+    padding: 0;
+    li {
+      display: inline-block;
+      line-height: 1;
+    }
+    a {
+      position: relative;
+      font-family: $sans-serif;
+      @include font-size(15);
+      color: $white;
+      background-image: none;
+      padding-left: 2rem;
+      vertical-align: top;
+      &::before {
+        position: absolute;
+        content: '';
+        width: 1.3125rem;
+        left: 0;
+        bottom: 0;
+        height: 100%;
+      }
+      &:hover {
+        color: $gold;
+      }
+    }
+
+    @include mq($lg) {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      a {
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  .header__topbar__request {
+    &::before {
+      @include sprite('icon-info');
+    }
+  }
+  .header__topbar__visit {
+    &::before {
+      @include sprite('icon-map');
+    }
+  }
+  .header__topbar__apply {
+    &::before {
+      @include sprite('icon-pencil');
+    }
+  }
+  .header__topbar__give {
+    &::before {
+      @include sprite('icon-gift');
+      color: $gold;
+    }
+  }
+  .header__topbar__icon {
+    height: 17px;
+    width: 17px;
+    //padding-left: 2.5rem;
+    margin-right: 0.5rem;
+    @include mq($lg) {
+      //padding-left: 2rem;
+    }
+  }
+  .header__topbar__logo {
+    position: relative;
+    top: 5px;
+    width: 62px;
+    height: 85px;
+    @include mq($lg) {
+      top: 10px;
+      width: 75px;
+      height: 95px;
+    }
+  }
+}
+
+.header__topbar--sticky {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 3.6875rem;
+  z-index: 100;
+  justify-content: space-between;
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  box-shadow: 0px 0px 42px 0px rgba(28,16,41,1);
+
+  .header__toggle--menu,
+  .header__toggle--search,
+  .header__auxiliary {
+    &:hover {
+      color: $gold;
+    }
+  }
+
+  .header__topbar__logolink {
+    order: 1;
+    background-image: none;
+    @include mq($lg) {
+      order: 2;
+      width: 70px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .header__topbar__left {
+    order: 2;
+    padding: 0;
+    justify-content: space-evenly;
+    li {
+      display: inline-block;
+      margin-right: 1rem;
+      text-align: center;
+      min-width: 3rem;
+
+      &:nth-last-of-type(2) {
+        margin-right: 1rem;
+      }
+      &:last-of-type {
+        display: none;
+      }
+
+      @include mq($lg) {
+        text-align: left;
+        margin-right: 1rem;
+        &:last-of-type {
+          display: inline-block;
+        }
+      }
+    }
+    a {
+      display: inline-block;
+      padding-left: 0;
+      @include mq($lg) {
+        display: inline-flex;
+      }
+    }
+    .header__topbar__icon {
+      margin: 0 auto;
+      margin-bottom: 0.75rem;
+      @include mq($lg) {
+        margin-right: 0.5rem;
+        margin-bottom: 0;
+      }
+    }
+    @include mq($lg) {
+      order: 1;
+      flex: 1;
+      margin-right: auto;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+
+  .header__topbar__right {
+    order: 3;
+    display: block;
+    color: $white;
+    min-width: 5rem;
+
+    li:last-of-type {
+      margin-left: 1rem;
+    }
+
+    @include mq($lg) {
+      min-width: auto;
+      margin-left: auto;
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+    }
+  }
+
+  .header--pinned & {
+    display: flex;
+  }
+
+  @include mq($lg) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// .header__wrapper {
+//   .header--pinned & {
+//     position: fixed;
+//     width: 100%;
+//   }
+// }
+
+.header__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($white, .5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition;
+  .search-active &,
+  .menu-active &,
+  .info-active & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.header__flyout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100vh;
+  background-color: $purple;
+  color: $gold;
+  overflow-y: scroll;
+  transform: translateX(100%);
+  transition: $transition;
+  padding-bottom: 5rem;
+  .search-active &,
+  .menu-active &,
+  .info-active & {
+    position: fixed;
+    transform: translateX(0);
+  }
+  // .toggle-menu {
+  //   position: absolute;
+  //   right: 0;
+  //   margin-right: 3rem;
+  //   padding-right: 3rem;
+  // }
+  .nav__grid {
+    margin-top: 3.5rem;
+  }
+  .nav__primary__item {
+    margin: 0.5rem 0;
+    padding-bottom: 0.25rem;
+  }
+  .nav__secondary__link {
+    @include font-size(12);
+    @include mq($lg) {
+      @include font-size(18);
+    }
+  }
+  .nav__secondary {
+    margin: 1rem 0;
+    li {
+      margin: 0.2rem 0;
+    }
+    @include mq($lg) {
+      li {
+        margin: 1rem 0;
+      }
+    }
+  }
+  .nav__secondary--light {
+    @include mq($lg) {
+      margin-top: 3rem;
+    }
+  }
+  .nav__secondary__item {
+    padding-bottom: 0.6rem;
+    @include mq($lg) {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+.header__scroll {
+  width: 100%;
+  padding: 1px;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.header__wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__container {
+  position: relative;
+  z-index: 100;
+  //height: inherit;
+  width: 100%;
+  height: 100%;
+  height: 3.625rem;
+  padding: 0 1rem;
+
+  @include mq($md) {
+    padding: 0 2.25rem;
+  }
+
+  @include mq($lg) {
+    height: 5.3125rem;
+  }
+
+  // .header--pinned & {
+  //   position: fixed;
+  //   top: 0;
+  //   background-color: $purple;
+  //   color: $gold;
+
+  //   box-shadow: 0 0 72px #1c1029;
+
+  //   height: 3.125rem;
+  //   //overflow: hidden;
+  //   @include mq($md) {
+  //     height: 4.6875rem;
+  //   }
+
+  // }
+}
+
+.header__left {
+  //width: 100%;
+  display: flex;
+  justify-content: space-between;
+  @include mq($lg) {
+    //width: auto;
+    display: block;
+  }
+}
+
+.header__right {
+  //margin-left: auto;
+  margin-right: 0;
+  @include mq($lg) {
+    //width: auto;
+    display: block;
+  }
+}
+
+
+.header__toggle--menu,
+.header__toggle--search,
+.header__auxiliary {
+  @include button-text;
+  position: relative;
+  background-image: none;
+  color: inherit;
+  &:hover {
+    background-image: none;
+    color: $teal;
+    .header__nav__text {
+      background-image: none;
+      &::before {
+        opacity: 0;
+      }
+    }
+  }
+
+  .svgstore {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.625rem;
+  }
+}
+
+.header__toggle--menu,
+.header__toggle--search {
+  padding:  0;
+  @include mq($md) {
+    padding: 0;
+  }
+}
+
+
+.header__toggle--search {
+  @include mq($lg) {
+    //margin-left: 2rem;
+  }
+}
+
+.header__auxiliary {
+  display: none;
+  @include mq($lg) {
+    display: block;
+    .svgstore {
+      width: 2.25rem;
+    }
+    .header--pinned & {
+      display: none;
+    }
+  }
+}
+
+.header__cta {
+  display: none;
+  @include clean;
+
+  li {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+  .button__link {
+    position: relative;
+    color: inherit;
+    background-size: 100% .125rem;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0.0625rem;
+      background-image: linear-gradient($white, $white);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 100% .125rem;
+      transition: opacity $transition;
+      opacity: 0;
+    }
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .header--pinned & {
+    display: none;
+    @include mq($lg) {
+      display: block;
+    }
+  }
+}
+
+.header__nav__text {
+  display: none;
+  @include mq($md) {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: 0.0625rem;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient($gold, $gold);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 100% .125rem;
+      z-index: -1;
+      transition: opacity $transition;
+      opacity: 0;
+      .header--pinned & {
+        background-image: linear-gradient($white, $white);
+      }
+    }
+  }
+}
+
+.header__logo {
+  display: block;
+  width: 12.4375rem;
+  background-image: none;
+  @include mq($lg) {
+    width: 19.68rem;
+  }
+  &:hover {
+    color: inherit;
+  }
+
+  .header--pinned & {
+    width: 71px;
+    color: $white;
+    @include mq($lg) {
+      width: 71px;
+    }
+  }
+}
+
+.header__logo--default {
+  .header--pinned & {
+    display: none;
+  }
+}
+
+.header__logo--pinned {
+  display: none;
+  .header--pinned & {
+    display: block;
+  }
+}
+
+.header__main {
+  padding: 1.25rem 0;
+  @include mq($md) {
+    padding: 2.5rem;
+    .header--pinned & {
+      padding: 1.5rem 2.5rem;
+    }
+  }
+}
+
+//.header__link,
+//.header__menu,
+.header__info {
+  color: $gold;
+  width: 100%;
+  height: 100%;
+  a:not(.button):hover {
+    color: inherit;
+  }
+  button {
+    text-align: left;
+    background-image: none;
+
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    margin-right: 1rem;
+    padding-right: 2rem;
+
+    @include mq($md) {
+      margin-right: 3rem;
+      padding-right: 2rem;
+    }
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.header__menu {
+  display: none;
+  .menu-active & {
+    display: block;
+    @include container;
+  }
+  .info-active & {
+    display: none;
+  }
+}
+
+.header__search {
+  display: none;
+  position: relative;
+  .search-active & {
+    display: block;
+    padding: 5rem 0;
+
+    @include mq($md) {
+      padding: 5rem;
+    }
+  }
+  .button-group {
+    .button {
+      color: $gold;
+      background-color: $white;
+      &:hover {
+        color: $white;
+        background-color: $gold;
+      }
+    }
+  }
+  .header__main {
+    padding: 1.25rem;
+  }
+}
+
+.header__info {
+  display: none;
+  .info-active & {
+    display: block;
+  }
+}
+
+.header__link {
+  @include button-text;
+  position: relative;
+  padding-right: 3rem;
+  margin-bottom: 2rem;
+  color: $white;
+  text-align: right;
+  background-image: none;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  height: auto;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-left: 0.5rem;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @include sprite('icon-close', (
+    color: '#{$gold}'
+    ));
+  }
+  &:hover {
+    color: $gold;
+  }
+}

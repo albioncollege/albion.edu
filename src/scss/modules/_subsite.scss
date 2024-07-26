@@ -1,0 +1,206 @@
+.header--subsite {
+  .header__logo--custom {
+    color: #FFFFFF;
+    width: 9.5rem;
+  }
+  .header__toggle--menu .svgstore {
+    color: #FFFFFF;
+  }
+  .header__topbar {
+    background: $white;
+    padding-right: 0;
+    .header__logo {
+      width: 11.125rem;
+      .svgstore--tpc-logo {
+        &::before {
+          padding-top: 28%;
+        }
+      }
+      @include mq($lg) {
+        width: 11.125rem;
+      }
+    }
+    .header__top__left {
+      .header__logo {
+        height: auto;
+        width: 7.125rem;
+      }
+    }
+    .header__topbar__right {
+      min-width: unset;
+      li {
+        padding: 0 0.75rem;
+        &:first-of-type {
+          border-right: 1px $purple solid;
+          padding-left: 0;
+          padding-right: 1.5rem;
+        }
+        &:nth-of-type(2) {
+          padding-left: 1.5rem;
+        }
+        &:last-of-type {
+          padding-left: 1.5rem;
+          padding-right: 0;
+        }
+      }
+      a {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        color: $purple;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .header__topbar__link--bold {
+      font-weight: 700;
+    }
+
+    .header__topbar__link--cta {
+      height: 50px;
+      padding: 0 1rem !important;
+      display: flex;
+      align-items: center;
+
+      @extend .button;
+      background-image: linear-gradient(to right, $purple 50%, $teal 0) !important;
+      color: $white !important;
+      margin-bottom: 0;
+      &:hover {
+        background-color: $purple;
+        text-decoration: none !important;
+      }
+    }
+    &.header__topbar--sticky {
+      padding-right: 0.5rem;
+      @include mq($lg) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .header__topbar--nologo {
+    display: none;
+    @include mq($lg) {
+      display: flex;
+    }
+  }
+
+  .header__container {
+    background: #4B306A;
+  }
+
+  .header__title {
+    @include h4;
+    color: $white;
+  }
+
+  .header__toggle--menu {
+    .header__nav__text {
+      display: none;
+    }
+    @include mq($lg) {
+      display: none;
+    }
+  }
+  .header__cta {
+    @include mq($lg) {
+      display: flex;
+      a {
+        background-image: none;
+        color: $white;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      li {
+        margin-left: 2.625rem;
+        &:first-of-type {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .header__topbar--sticky {
+    background:#4B306A;
+    height: 50px;
+    .header__topbar__left {
+      .header__logo {
+        height: auto;
+        width: 7.125rem;
+      }
+      flex: none;
+      li {
+        margin-right: 2rem;
+      }
+      a {
+        height: 50px;
+        color: $white;
+        text-transform: none;
+        font-size: 1rem;
+        font-weight: normal;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .nav__grid {
+    .button {
+      background-image: linear-gradient(to right, $white 50%, $gold 0) !important;
+      color: $purple !important;
+      width: 100%;
+      margin-bottom: 0;
+      &:hover {
+        background-color: $white;
+        color: $purple !important;
+      }
+    }
+  }
+}
+
+
+
+.footer--subsite {
+  background: #4B306A;
+
+  .footer__grid {
+    > div {
+      border-top: 1px rgba(255, 255, 255, 0.25) solid;
+      padding: 2.125rem 0;
+      text-align: left;
+      width: 100%;
+      @include mq($lg) {
+        width: 33%;
+        padding: 1.25rem 2.875rem 0 2.875rem;
+        border-top: none;
+        border-left: 1px rgba(255, 255, 255, 0.25) solid;
+      }
+    }
+  }
+  .footer__title {
+    @include h4;
+    color: $white;
+    margin-top: 0;
+  }
+  .footer__location a {
+    text-transform: none;
+  }
+}
+
+
+
+
+
+
+
+
+.splash__content__headlines {
+  @include mq($lg) {
+    max-width: 55rem;
+  }
+}

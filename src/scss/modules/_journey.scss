@@ -1,0 +1,149 @@
+.journey__wrapper{
+  //padding: 6rem 0;
+}
+.journey__grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -1.5rem;
+  margin-left: -1.5rem;
+  > div {
+    @include zero;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+  }
+  > div:first-child,
+  > div:last-child {
+    width: 100%;
+    @include mq($lg) {
+      margin-left: 1rem;
+      width: calc(50% - 1rem);
+    }
+  }
+  > div:last-child {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+}
+
+.journey__heading {
+  color: $white;
+  margin: 0 0 2rem 0;
+  max-width: 30rem;
+}
+
+.journey__main__photo {
+  position: relative;
+  min-height: 13.125rem;
+  background-size: cover;
+  background-position: center;
+
+  @include mq($lg) {
+    min-height: 21.5625rem;
+  }
+}
+.journey__main__date {
+  position: absolute;
+  top: 0.625rem;
+  left: 1.125rem;
+  width: 4.25rem;
+  height: 4.25rem;
+  text-align: center;
+  > div:first-child {
+    color: $white;
+    @include font-size(14);
+    line-height: 1.625rem;
+    letter-spacing: 1.93px;
+    background: $purple;
+    @include mq($lg) {
+      @include font-size(16);
+      line-height: 2rem;
+      letter-spacing: 2.2px;
+    }
+  }
+  > div:last-child {
+    background: $white;
+    color: $purple;
+    font-weight: 300;
+    @include font-size(26);
+    line-height: 1;
+    padding: 0.5rem 0;
+    @include mq($lg) {
+      @include font-size(30);
+      line-height: 2.375rem;
+      letter-spacing: 1.3px;
+    }
+  }
+
+  @include mq($lg) {
+    top: 1.75rem;
+    left: 2rem;
+    width: 5.4375rem;
+    height: 5.4375rem;
+  }
+}
+.journey__main__content {
+  background: $white;
+  padding: 1.5rem;
+
+  h4 {
+    margin: 0;
+  }
+  p {
+    color: $purple;
+    margin-bottom: 2rem;
+  }
+}
+
+.journey__item {
+  display: flex;
+  min-height: 6.75rem;
+  margin-bottom: 2rem;
+
+  &:nth-of-type(2n){
+    .journey__item__content {
+      order: 2;
+    }
+  }
+
+  @include mq($lg) {
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+}
+.journey__item__photo {
+  background-size: cover;
+  background-position: center;
+  flex: 0.5;
+  padding: 0.875rem 1.125rem;
+}
+.journey__item__content {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  background: $white;
+  flex: 0.5;
+  padding: 0.875rem 1.125rem;
+
+  .button__link {
+    text-transform: unset;
+    @include font-size(16);
+    font-weight: normal;
+    line-height: 1.5rem;
+    margin-right: auto;
+
+    @include mq($lg) {
+      @include font-size(22);
+      font-weight: 300;
+    }
+  }
+}
+.journey__item__date {
+  color: $purple;
+  @include font-size(14);
+  font-weight: bold;
+
+  @include mq($lg) {
+    @include font-size(16);
+  }
+}

@@ -1,0 +1,204 @@
+.search {
+  max-width: 49rem;
+  margin: 0 auto;
+}
+
+.search__container {}
+
+.search__input__container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 4rem;
+  //padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 1.25rem;
+    height: 1.75rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    @include sprite('icon-search', (
+      color: '#{$gold}'
+    ));
+  }
+  .button {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.search__input__icon {
+  color: $gold;
+}
+
+.search__input {
+  @include h4;
+  border: 0;
+  background-color: transparent;
+  color: $white;
+  font-size: 1.3125em;
+  width: calc(100% - 5rem);
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.38);
+  }
+}
+
+.search__input__button {
+  width: 1.5rem;
+  color: $white;
+  
+  &:focus {
+    background-color: inherit;
+    color: inherit;
+  }
+}
+
+
+.search__results__label {
+  color: $white;
+  margin: 0 0 -1rem;
+}
+
+//CSE Styles
+.gsc-search-button svg {
+  max-width: none;
+}
+
+.gsc-control-cse table {
+    line-height: 1;
+}
+
+.cse .gsc-control-cse, .gsc-control-cse {
+  padding-left: 0 !important;
+  margin-top: 0 !important;
+}
+
+.gsc-control-cse * {
+  box-sizing: unset !important;
+}
+
+.gsc-control-cse {
+  font-family: $sans-serif !important;
+  font-size: 15px !important;
+  padding: 0 !important;
+  margin-top: 4rem;
+}
+
+.gsst_a {
+  border-bottom: none;
+  padding-top: 6.5px !important;
+  background: none;
+  color: $teal;
+}
+
+.gcsc-branding {
+  display: none !important;
+}
+
+.gsc-control-cse .gsc-table-result {
+  font-size: 1rem !important;
+  line-height: 1.3 !important;
+  font-family: $sans-serif !important;
+}
+
+.gsc-control-cse .gs-spelling, .gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {
+  font-size: 1.125rem !important;
+}
+
+.gsc-result .gs-title, .gsc-result .gs-title b {
+    height: 1.5rem !important;
+    border-bottom: none !important;
+    text-decoration: none;
+    color: $dark-gray !important;
+    padding-bottom: 1px !important;
+    transition: color $transition;
+    &:hover {
+      color: $teal !important;
+    }
+}
+
+.gsc-results a.gs-title {
+    @include underline($teal);
+}
+
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+  border-radius: 0 !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
+
+.gsc-search-button-v2 {
+  transition: background-color $transition;
+  height: 38px;
+  border-radius: 0rem !important;
+  border-color: $teal !important;
+  background-color: $teal !important;
+  &:hover {
+    border-color: $purple !important;
+    background-color: $purple !important;
+  }
+}
+
+.gcsc-find-more-on-google-magnifier {
+  display: inline;
+}
+
+.gsc-control-cse table {
+    width: 100%;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+    border-bottom: 0;
+    border-radius: 0;
+}
+
+.gsc-control-cse table th, .gsc-control-cse table td {
+  padding: .5rem;
+}
+
+table.gsc-search-box td {
+  height: 34px;
+}
+
+
+.gs-result .gs-image, .gs-result .gs-promotion-image {
+    border: none !important;
+}
+
+.googleSearch {
+    margin-bottom: 3rem;
+}
+
+.googleSearch .gsc-thumbnail {
+  display:none;
+}
+
+.gsc-adBlock {
+  display: none !important;
+}
+
+.gcsc-more-maybe-branding-root {
+  display: none !important;
+}
+
+.gs-webResult div.gs-visibleUrl {
+  color: $teal !important;
+}
+
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+  color: $dark-gray !important;
+  margin: 0 1.25rem 1rem 0 !important;
+}
+.gsc-wrapper {
+  margin-bottom: 3rem;
+}
+

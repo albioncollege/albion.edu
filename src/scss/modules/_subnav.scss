@@ -1,0 +1,274 @@
+.subnav {
+  @include zero;
+}
+
+.subnav__toggle {
+  position: relative;
+  @include eyebrow;
+  background: $gold;
+  color: $purple;
+  background-image: none;
+  padding: 1rem 3rem 1rem 2rem;
+  width: 100%;
+  text-align: left;
+  .subnav--red & {
+    background-color: $red;
+  }
+  &::before {
+    position: absolute;
+    content: '';
+    width: 1.25rem;
+    height: 1rem;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    @include sprite('icon-arrow-down', (
+      color: '#{$purple}'
+    ));
+    .open & {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+  .open & {
+    //background-color: $blue;
+  }
+  .subnav--red .open & {
+    background-color: $red-dark;
+  }
+  @include mq($lg) {
+    display: none;
+  }
+
+  &:hover {
+    color: $purple;
+  }
+}
+
+.subnav__heading {
+  display: none;
+  @include mq($lg) {
+    background: $gold;
+    color: $purple;
+    display: block;
+    @include eyebrow;
+    margin: 0;
+    //margin-bottom: 1.5rem;
+    padding: 1.125rem 2.75rem;
+  }
+}
+
+.subnav__list {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  margin-bottom: 2rem;
+  display: none;
+  background-color: $purple;
+
+  a {
+    background-image: none;
+    color: $white;
+    display: block;
+    font-family: $sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    padding: 0.6875rem 1.75rem;
+    
+
+    &:hover {
+        color: $gold;
+    }
+  }
+
+  @include mq($lg) {
+    display: block;
+  }
+
+  .open & {
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0.75rem 0;
+    //padding-left: 1rem;
+  }
+  
+  li {
+    margin: 0.65rem 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    // margin-top: 0.75rem;
+  }
+}
+
+.subnav__item--current, .subnav .current_page_item {
+  > a {
+    color: $purple;
+    background: $white;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+  ul a {
+    font-weight: normal;
+  }
+  li {
+    &::before {
+      content: "―";
+      color: $gold;
+      float: left;
+      padding: 0.5rem;
+    }
+  }
+}
+
+.subnav__social {
+  background-color: $purple-gray;
+  padding: 1.5rem 1.25rem;
+  margin-top: 2rem;
+}
+
+.subnav__social__title {
+  color: $purple;
+  @include font-size(12);
+  font-weight: bold;
+  letter-spacing: 1.71px;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.subnav__social__link {
+  background-image: none;
+  color: $purple;
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1.5rem;
+  &:hover {
+    color: $teal;
+  }
+}
+
+// Form Version
+.sidebar--program {
+  .subnav__extra {
+    .button {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+.subnav--form {
+  background-color: $purple;
+  color: $white;
+  padding: 2rem;
+
+  .subnav__heading {
+    padding: 0;
+    margin-bottom: 2rem;
+    background: none;
+    color: $gold;
+    @include font-size(28);
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+}
+
+.subnav__input__group {
+  margin-bottom: 2rem;
+  label {
+    display: block;
+    @include font-size(16);
+    margin-bottom: 0.5rem;
+  }
+  input[type="text"], input[type="email"], select {
+    border: none;
+    padding: 0.5rem;
+    color: $black;
+  }
+  input, button, select {
+    width: 100%;
+  }
+}
+
+
+// Landing page
+.subnav__landing {
+  margin: 2rem auto;
+  .subnav__list {
+    @include mq($lg) {
+      display: flex;
+      flex-wrap: wrap;
+      background: none;
+      padding: 0;
+      margin-bottom: 1rem;
+
+      li {
+        display: flex;
+        align-self: stretch;
+        margin: 0 0.5rem 0.5rem 0;
+        flex-grow: 1;
+        flex-basis: 24%;
+        min-height: 4.625rem;
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: $purple;
+          font-size: 1.125rem;
+          line-height: 1.625rem;
+          // padding: 1.5rem 3rem;
+          text-align: center;
+          width: 100%;
+          &:hover {
+            background: $gold;
+            color: $purple;
+          }
+        }
+      }
+    }
+  }
+  .subnav__extra {
+    @include mq($lg) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .subnav__social {
+    padding: 1rem;
+
+    @include mq($lg) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      margin-top: 0;
+    }
+  }
+  .subnav__social__title {
+    margin-bottom: 0;
+    margin-bottom: 1rem;
+    @include mq($lg) {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+  }
+  .subnav__social__link {
+    width: 1.25rem;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  @include mq($lg) {
+    position: relative;
+    top: -2.5rem;
+    margin: 0 auto;
+    z-index: 1;
+  }
+}

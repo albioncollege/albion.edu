@@ -1,0 +1,46 @@
+.hero {
+  background: $purple;
+  color: $white;
+  padding: 2.125rem 0;
+
+  @include mq($lg) {
+    padding: 3.8125rem 0;
+  }
+}
+
+.hero__container {
+  @include container;
+
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+
+  & .button__link {
+    display: inline-block;
+  }
+
+  @include mq($lg) {
+    padding-left: 6.375rem;
+    padding-right: 6.375rem;
+  }
+}
+
+.hero__title {
+  color: $white;
+  margin: 0;
+}
+
+.hero__link {
+  margin-top: 2.625rem;
+}
+
+.hero--program {
+  .hero__link {
+    margin-top: 1.25rem;
+  }
+  p {
+    @include font-size(28);
+    font-weight: 300;
+    color: $gold;
+  }
+}

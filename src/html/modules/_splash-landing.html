@@ -1,0 +1,51 @@
+<div class="splash splash--landing" style="background-image: url('//placehold.mstoner.com/600x400/000/fff&text=2560+×+1440');">
+  <button class="splash__control" aria-label="Toggle Video">
+  </button>
+  <div class="splash__video">
+    <video muted="" loop="" autoplay="" playsinline="">
+      <source src="img/SampleVideo.mp4" type="video/mp4" />
+    </video>
+  </div>
+  
+  <div class="splash__content container--purple">
+    <!-- REGION: Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Page Breadcrumb">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>Landing</li>
+      </ul>
+    </nav>
+    <!-- /REGION: Breadcrumb -->
+    <p class="splash__content__headlines">
+      Landing Page
+    </p>
+    <div class="hero__link">
+      <a href="#" class="button__link">Business Unit Routing</a>
+    </div>
+    {% if splash.video %}
+    <p class="splash__headline__button">
+      <a class="button--white" href="https://www.youtube.com/watch?v=gLyhHlQP6EM" data-minimodal>{{ svgstore('icon-play-alt', '', 'button-icon') }} &nbsp; Watch Now</a>
+    </p>
+    {% endif %}
+    {% if splash.audio %}
+    <p class="splash__headline__button">
+      <a href="#" class="button--white" href="#" data-minimodal data-minimodal-selector="#audioSplash">{{ svgstore('icon-audio', '', 'button-icon') }} &nbsp; Listen</a>
+      <div style="display: none" id="audioSplash">
+        <div class="modal">
+          <div class="modal__media">
+            <div class="media">
+              <audio controls src="img/music.mp3">
+                Your browser does not support the
+                <code>audio</code> element.
+              </audio>
+              <p class="media__caption">
+                Audio Player Text Caption
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </p>
+    {% endif %}
+  </div>
+</div>

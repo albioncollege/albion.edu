@@ -1,0 +1,11 @@
+{% if image.portrait %}
+{{ ph('350x525') }}
+
+{% elif image.landscape %}
+{{ ph('900x600') }}
+{% else %}
+{{ ph('900x600') }}
+{% endif %}
+<p class="media__caption">
+  Caption — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum turpis in augue consectetur, non cursus massa vestibulum. Aenean et augue suscipit, ultrices augue vel, faucibus velit. Fusce pellentesque elit non felis.
+</p>

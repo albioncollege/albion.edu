@@ -1,0 +1,37 @@
+.breadcrumb {
+  margin-bottom: 1.3125rem;
+  text-transform: capitalize;
+  @include font-size(12);
+  ul  {
+    @include clean;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {
+    color: $white;
+    &::after {
+      content: "―";
+      display: inline-block;
+      padding: 0 0.5rem;
+    }
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  a {
+    @include underline($gold);
+    color: $white;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+
+  @include mq($lg) {
+    @include text-sm;
+    margin-bottom: 2.625rem;
+  }
+}

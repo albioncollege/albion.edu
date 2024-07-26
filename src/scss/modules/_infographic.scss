@@ -1,0 +1,88 @@
+/* infographic modue styles */
+
+.infographic__component {
+
+  .infographic__columns {
+    margin-top: 2em;
+
+    @include mq($md) {
+      display: flex;
+    }
+
+  }
+
+  .infographic__column {
+    display       : flex;
+    flex          : auto;
+    flex-direction: column;
+    padding       : 0 1rem;
+
+    .infographic__body {
+      margin             : 0;
+      padding            : .5rem;
+      align-items        : center;
+      justify-content    : center;
+      display            : flex;
+      text-align         : center;
+      // background-color: rgba(255, 255, 255, .1);
+
+      @include mq($md) {
+        height: 8em;
+        margin: 1rem;
+      }
+
+      .text-large {
+        max-width     : unset;
+        padding-bottom: 1rem;
+
+        @include mq($md) {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    .title {
+      margin    : 0;
+      margin-top: 2rem;
+      font-size : 2.25rem;
+      text-align: center;
+
+      @include mq($md) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    p {
+      max-width : unset;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .text-small {
+      padding: 0 1.5em;
+    }
+  }
+
+  .infographic__divider {
+    display: block;
+
+    @include mq($md) {
+      display    : flex;
+      width      : 3px;
+      align-items: center;
+    }
+  }
+
+  .infographic__divider--line {
+    height          : 1px;
+    background-color: $gold;
+    width           : 80%;
+    margin          : 2rem auto 1rem;
+
+    @include mq($md) {
+      min-height: 6em;
+      width     : 1px;
+    }
+  }
+
+}

@@ -1,0 +1,74 @@
+.callout__component {
+  // position: relative;
+  // padding-top: 2.875rem;
+  padding-bottom: 13.5rem;
+  // margin-bottom: 15rem;
+  // background-color: $purple;
+  // color: $white;
+  // @include sprite-img('hex-pattern');
+  // background-size: 95px;
+  // background-repeat: repeat;
+  // background-position: -0.5rem -0.1rem;
+
+  @include mq($lg) {
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    padding-bottom: 3.5rem;
+  }
+}
+
+.callout__container {
+  @include container;
+  z-index: 1;
+  padding-bottom: 5rem;
+
+  @include mq($lg) {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+  }
+}
+
+.callout__content {
+  @include mq($lg) {
+    width: 40%;
+    padding-right: 2rem;
+  }
+  h2 {
+    @include h3;
+    margin: 0;
+    color: $white;
+  }
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.625rem;
+    @include mq($lg) {
+      margin-bottom: 2.875rem;
+    }
+  }
+  & .button {
+    @include font-size(10.5);
+    @include mq($lg) {
+      @include font-size(14);
+    }
+  }
+}
+
+
+.callout__media {
+  position: relative;
+  width: 308px;
+
+  img {
+    position: absolute;
+    bottom: -18.5rem;
+  }
+
+  @include mq($lg) {
+    width: 510px;
+    img {
+      bottom: -8.5rem;
+    }
+  }
+}

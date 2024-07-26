@@ -1,0 +1,108 @@
+.list {
+  @include clean;
+
+  li {
+    // IE fix
+    display: flex;
+    flex-direction: column;
+    border-top: 0.0625rem solid $purple;
+
+    &:last-child {
+      border-bottom: 0.0625rem solid $purple;
+    }
+  }
+}
+
+.list--person {
+  @include clean;
+}
+
+.list__person {
+  @include zero;
+  border-top: 0.0625rem solid $purple;
+  padding: 1.625rem 0;
+  transition: background $transition;
+
+  @include mq($lg) {
+    display: flex;
+  }
+
+  &:last-child {
+    border-bottom: 0.0625rem solid $purple;
+  }
+
+  &.active {
+    background-color: $white;
+  }
+}
+
+.list__content {
+  @include zero;
+  display: none;
+  padding: 1.5rem;
+  background-color: $white;
+  color: $purple;
+}
+
+.list__content--person {
+  @include zero;
+  @include font-size(16);
+  color: $purple;
+
+  @include mq($lg) {
+    width: 90%;
+  }
+}
+
+.list__content--hasImage {
+  @include mq($lg) {
+    width: 60%;
+    padding-left: 3rem;
+    .list__list--person--alt & {
+      width: 70%;
+    }
+  }
+}
+
+.list__person__name {
+  @include h6;
+  margin-top: 2rem;
+  margin-bottom: 0;
+
+}
+
+.list__person__image {
+  margin-bottom: 1rem;
+  //padding-bottom: 56.25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 0;
+
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding-bottom: 100%;
+  width: 100%;
+  //order: 1;
+  align-self: center;
+
+  @include mq($lg) {
+    align-self: flex-start;
+    margin-bottom: 0;
+    padding-bottom: 30%;
+    width: 30%;
+  }
+  
+}
+
+.list__person__title, .list__person__secondary__title {
+  color: $purple;
+  font-weight: bold;
+  margin: 0;
+}
+
+.list__person__contact {
+  a {
+    color: $purple;
+  }
+}

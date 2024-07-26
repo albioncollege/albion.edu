@@ -1,0 +1,42 @@
+.modal {
+  position: relative;
+  padding: 2rem;
+  background-color: $white;
+  box-shadow: 0 0 2rem rgba($black, 0.5);
+
+  @include mq($lg) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+
+.modal__media {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  .media__caption {
+    width: 100%;
+  }
+}
+
+.modal__content {
+  @include zero;
+
+  position: relative;
+  margin-top: 2rem;
+
+  @include mq($lg) {
+    width: calc(40% - 2rem);
+    margin: 0 0 0 2rem;
+  }
+
+  @include mq($xl) {
+    width: calc(30% - 2rem);
+  }
+}
+
+.modal__meta {
+  @include h5;
+}
