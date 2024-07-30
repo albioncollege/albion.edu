@@ -53,7 +53,6 @@ const browserSync = new BrowserSyncPlugin({
 
 const copyFiles = new CopyWebpackPlugin([
   { from: 'src/fonts', to: '../fonts' },
-  { from: 'src/json', to: '../json' },
   { from: 'src/img', to: '../img' }
 ]);
 

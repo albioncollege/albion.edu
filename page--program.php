@@ -1,8 +1,8 @@
 <?php
-  /*
-    Template Name: Program
-    Template Post Type: page
-  */
+/*
+Template Name: Program
+Template Post Type: page
+*/
 ?>
 
 <?php get_header(); ?>

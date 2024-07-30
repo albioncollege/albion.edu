@@ -8,11 +8,11 @@ The main WordPress theme for Albion College's website.
 3. Run production build -- ```npm run build```
 
 ### Features
-* Sass
-* ES2015 w/ babel compiler
-* Sourcemaps
-* Nunjucks html templating
-* SVG sprite file and sass style generation
+- Sass
+- ES2015 w/ babel compiler
+- Sourcemaps
+- Nunjucks html templating
+- SVG sprite file and sass style generation
 
 ### Dependencies
 - flickity, flickity-imagesloaded (https://flickity.metafizzy.co) is an image carousel library.

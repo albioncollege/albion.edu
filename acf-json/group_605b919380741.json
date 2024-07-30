@@ -3,6 +3,40 @@
     "title": "Subnav",
     "fields": [
         {
+            "key": "field_66a94e7a3729d",
+            "label": "Menu Override",
+            "name": "nav-menu",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Overrides all settings below and displays a normal WordPress menu instead.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0": "- no menu -",
+                "about-us": "About Us",
+                "action-footer": "Action Footer",
+                "action-nav": "Action Nav",
+                "audience-nav": "Audience Nav",
+                "footer-nav": "Footer Nav",
+                "legal-footer": "Legal Footer",
+                "primary-nav": "Primary Nav"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
             "key": "field_6089d200c0884",
             "label": "Hide Siblings",
             "name": "hide_siblings",
@@ -83,5 +117,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1721759457
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1722371955
 }

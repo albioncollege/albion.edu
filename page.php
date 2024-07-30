@@ -37,7 +37,13 @@
 			<!-- REGION: Sidebar Navigation -->
 			<div id="sidebar" class="sidebar sidebar--header">
 			    <!-- whatever goes into this container will go to the top at mobile -->
-			    <?php get_template_part('modules/_subnav'); ?>
+			    <?php 
+				if ( has_sidebar_nav_module() ) { 
+					get_template_part( 'modules/_subnav_menu' ); 
+				} else { 
+					get_template_part( 'modules/_subnav' ); 
+				} 
+				?>
 				<div class="subnav__extra desktop-only">
 				    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						<?php while (have_rows('sidebar_column_modules')) : the_row(); ?>
