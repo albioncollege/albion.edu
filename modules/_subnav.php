@@ -13,22 +13,22 @@ $hide_siblings = get_field('hide_siblings');
 if ( $hide_siblings ) {
 
 	// get the children pages and make an array of ids
-	$children = get_page_children( $current_id );
+	$children = get_children( array( 'post_parent' => $current_id ) );
 	$childids = array();
 	if ( !empty( $children ) ) {
 		foreach ( $children as $child ) {
 			$childids[] = $child->ID;
 		}
-
-		// get the subnav items
-		$subnav = wp_list_pages( array(
-			'child_of' => $current_id,
-			'echo' => false,
-			'depth' => 2,
-			'title_li' => '',
-			'include'  =>  $current_id . ',' . implode( ',', $childids ),
-		) );
 	}
+
+	// get the subnav items
+	$subnav = wp_list_pages( array(
+		'child_of' => $current_id,
+		'echo' => false,
+		'depth' => 2,
+		'title_li' => '',
+		'include'  =>  $current_id . ',' . implode( ',', $childids ),
+	) );
 
 } else {
 
