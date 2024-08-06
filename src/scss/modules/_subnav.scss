@@ -121,6 +121,29 @@
 				color: $gold;
 				pointer-events: none;
 			}
+			
+			ul {
+				li {
+					position: relative;
+					
+					a {
+						padding-left: 4.8rem; 
+					}
+		
+					&.current_page_item:before, &.current-menu-item:before {
+						color: $purple;
+					}
+		
+					&:before {
+						content: "\2014";
+						position: absolute;
+						left: 3.2rem;
+						top: .65rem;
+						color: $gold;
+						pointer-events: none;
+					}
+				}
+			}
 		}
 	}
 	
@@ -134,13 +157,13 @@
 			display: none;
 		}
 
-		&.menu-item-has-children.current_page_item ul, &.menu-item-has-children.current_page_ancestor ul {
+		&.menu-item-has-children.current_page_item > ul, &.menu-item-has-children.current_page_ancestor > ul {
 			display: block;
 		}
 	}
 }
 
-.subnav__item--current, .subnav .current_page_item {
+.subnav__item--current, .subnav .current_page_item, .subnav .current-menu-item {
 	> a {
 		color: $purple;
 		background: $white;

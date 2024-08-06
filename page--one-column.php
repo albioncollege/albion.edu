@@ -52,13 +52,13 @@
 				<?php
 					while( have_rows('subnavigation_links') ) : the_row();
 						$subnav_links = get_sub_field('links');
-						if ( is_array( $subnav_links ) ) {
+						if ( is_array( $subnav_links ) ) :
 							$link_url     = $subnav_links['url'];
 							$link_title   = $subnav_links['title'];
 							?>
 						<li><a href="<?php echo esc_url( $link_url ); ?>" <?php echo link_target( $subnav_links ); ?>><?php echo esc_html( $link_title ); ?></a></li>
 							<?php 
-						}
+						endif;
 					endwhile;
 					?>
 				</ul>

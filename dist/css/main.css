@@ -4039,20 +4039,33 @@ table.gsc-search-box td {
         top: .65rem;
         color: #FFC845;
         pointer-events: none; }
+      .subnav__list ul li ul li {
+        position: relative; }
+        .subnav__list ul li ul li a {
+          padding-left: 4.8rem; }
+        .subnav__list ul li ul li.current_page_item:before, .subnav__list ul li ul li.current-menu-item:before {
+          color: #4B306A; }
+        .subnav__list ul li ul li:before {
+          content: "\2014";
+          position: absolute;
+          left: 3.2rem;
+          top: .65rem;
+          color: #FFC845;
+          pointer-events: none; }
   .subnav__list li:first-child {
     margin-top: 0; }
   .subnav__list li.menu-item-has-children ul.sub-menu {
     display: none; }
-  .subnav__list li.menu-item-has-children.current_page_item ul, .subnav__list li.menu-item-has-children.current_page_ancestor ul {
+  .subnav__list li.menu-item-has-children.current_page_item > ul, .subnav__list li.menu-item-has-children.current_page_ancestor > ul {
     display: block; }
 
-.subnav__item--current > a, .subnav .current_page_item > a {
+.subnav__item--current > a, .subnav .current_page_item > a, .subnav .current-menu-item > a {
   color: #4B306A;
   background: #fff; }
-  .subnav__item--current > a:hover, .subnav .current_page_item > a:hover {
+  .subnav__item--current > a:hover, .subnav .current_page_item > a:hover, .subnav .current-menu-item > a:hover {
     color: #4B306A; }
 
-.subnav__item--current ul a, .subnav .current_page_item ul a {
+.subnav__item--current ul a, .subnav .current_page_item ul a, .subnav .current-menu-item ul a {
   font-weight: normal; }
 
 .subnav__social {
@@ -4509,20 +4522,33 @@ table.gsc-search-box td {
         top: .65rem;
         color: #FFC845;
         pointer-events: none; }
+      .subnav__list ul li ul li {
+        position: relative; }
+        .subnav__list ul li ul li a {
+          padding-left: 4.8rem; }
+        .subnav__list ul li ul li.current_page_item:before, .subnav__list ul li ul li.current-menu-item:before {
+          color: #4B306A; }
+        .subnav__list ul li ul li:before {
+          content: "\2014";
+          position: absolute;
+          left: 3.2rem;
+          top: .65rem;
+          color: #FFC845;
+          pointer-events: none; }
   .subnav__list li:first-child {
     margin-top: 0; }
   .subnav__list li.menu-item-has-children ul.sub-menu {
     display: none; }
-  .subnav__list li.menu-item-has-children.current_page_item ul, .subnav__list li.menu-item-has-children.current_page_ancestor ul {
+  .subnav__list li.menu-item-has-children.current_page_item > ul, .subnav__list li.menu-item-has-children.current_page_ancestor > ul {
     display: block; }
 
-.subnav__item--current > a, .subnav .current_page_item > a {
+.subnav__item--current > a, .subnav .current_page_item > a, .subnav .current-menu-item > a {
   color: #4B306A;
   background: #fff; }
-  .subnav__item--current > a:hover, .subnav .current_page_item > a:hover {
+  .subnav__item--current > a:hover, .subnav .current_page_item > a:hover, .subnav .current-menu-item > a:hover {
     color: #4B306A; }
 
-.subnav__item--current ul a, .subnav .current_page_item ul a {
+.subnav__item--current ul a, .subnav .current_page_item ul a, .subnav .current-menu-item ul a {
   font-weight: normal; }
 
 .subnav__social {
