@@ -6,32 +6,34 @@
             "key": "field_605bb3aeb6f4d",
             "label": "Subheading",
             "name": "subheading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_605bb3aeb7037",
             "label": "Intro Text",
             "name": "intro_text",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
-                "class": "",
+                "width": "50",
+                "class": "short",
                 "id": ""
             },
             "default_value": "",
@@ -44,6 +46,7 @@
             "key": "field_605bb3aeb70ab",
             "label": "CTA Items",
             "name": "cta_items",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -53,74 +56,87 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "acfe_repeater_stylised_button": 0,
+            "layout": "block",
+            "pagination": 0,
             "min": 0,
             "max": 3,
-            "layout": "row",
+            "collapsed": "",
             "button_label": "Add CTA Item",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_605bb3aebd95b",
                     "label": "Icon",
                     "name": "icon",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
+                    "uploader": "",
                     "return_format": "url",
-                    "preview_size": "medium",
                     "library": "all",
+                    "acfe_thumbnail": 0,
                     "min_width": "",
                     "min_height": "",
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": "svg,png"
+                    "mime_types": "svg,png",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_605bb3aeb70ab"
                 },
                 {
                     "key": "field_605bb3aebd9cf",
                     "label": "Image",
                     "name": "image",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "25",
                         "class": "",
                         "id": ""
                     },
+                    "uploader": "",
                     "return_format": "id",
-                    "preview_size": "medium",
                     "library": "all",
+                    "acfe_thumbnail": 0,
                     "min_width": "",
                     "min_height": "",
                     "min_size": "",
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_605bb3aeb70ab"
                 },
                 {
                     "key": "field_605bb3aebda45",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_605bb3aeb70ab"
                 }
             ]
         }
@@ -142,5 +158,13 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1616622548
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1723215741
 }

@@ -3,9 +3,27 @@
     "title": "Module - Events",
     "fields": [
         {
+            "key": "field_66b6322ae902c",
+            "label": "(Column 6\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "6\/12",
+            "endpoint": 0
+        },
+        {
             "key": "field_607f3e8de4160",
             "label": "Subheading",
             "name": "subheading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,12 +43,13 @@
             "key": "field_607f3fdfe4161",
             "label": "Subheading Level",
             "name": "subheading_level",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -42,23 +61,26 @@
                 "h6": "H6"
             },
             "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "placeholder": "",
+            "allow_null": 1,
+            "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_607f401ce4162",
             "label": "Background Color",
             "name": "background_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -67,17 +89,20 @@
                 "none": "None"
             },
             "default_value": "none",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_607f4036e4163",
             "label": "Routing Links",
             "name": "routing_links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -91,12 +116,14 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_607f405fe4164",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -106,14 +133,34 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_607f4036e4163"
                 }
-            ]
+            ],
+            "acfe_repeater_stylised_button": 0
+        },
+        {
+            "key": "field_66b63231e902d",
+            "label": "(Column 6\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "6\/12",
+            "endpoint": 0
         },
         {
             "key": "field_6081a6a2da860",
             "label": "Display Type",
             "name": "display_type",
+            "aria-label": "",
             "type": "select",
             "instructions": "If filtered is chosen you may select a category to show the three most recent events from. If curated is chosen you may select three specific events to display.",
             "required": 1,
@@ -133,12 +180,15 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_6081aa56da861",
             "label": "Category",
             "name": "category",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
@@ -163,12 +213,14 @@
             "load_terms": 0,
             "return_format": "id",
             "multiple": 0,
-            "allow_null": 0
+            "allow_null": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_607f33fa88d83",
             "label": "Events",
             "name": "events",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -193,7 +245,11 @@
             "allow_null": 0,
             "multiple": 1,
             "return_format": "object",
-            "ui": 1
+            "ui": 1,
+            "bidirectional_target": [],
+            "save_custom": 0,
+            "save_post_type": "",
+            "save_post_status": ""
         }
     ],
     "location": [
@@ -213,5 +269,13 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1619110659
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1723216468
 }

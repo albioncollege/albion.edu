@@ -3,9 +3,27 @@
     "title": "Module - News Panel",
     "fields": [
         {
+            "key": "field_66b631080e79b",
+            "label": "(Column 6\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "6\/12",
+            "endpoint": 0
+        },
+        {
             "key": "field_60887e104e4e9",
             "label": "Subheading",
             "name": "subheading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,12 +43,13 @@
             "key": "field_60887e104e544",
             "label": "Subheading Level",
             "name": "subheading_level",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -42,23 +61,26 @@
                 "h6": "H6"
             },
             "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "placeholder": "",
+            "allow_null": 1,
+            "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_60887e104e5b2",
             "label": "Background Color",
             "name": "background_color",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -67,17 +89,50 @@
                 "none": "None"
             },
             "default_value": "none",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_60ba564614976",
+            "label": "Number Of Posts To Display",
+            "name": "number_of_posts_to_display",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60887f1f9495b",
+                        "operator": "==",
+                        "value": "filtered"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "min": 3,
+            "max": 6,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_60887e104e611",
             "label": "Routing Link",
             "name": "routing_link",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -90,9 +145,27 @@
             "return_format": "array"
         },
         {
+            "key": "field_66b630cf0e79a",
+            "label": "(Column 6\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "6\/12",
+            "endpoint": 0
+        },
+        {
             "key": "field_60887f1f9495b",
             "label": "Display Type",
             "name": "display_type",
+            "aria-label": "",
             "type": "select",
             "instructions": "If filtered is chosen you may select a category to show a number of the most recent posts from. If curated is chosen you may select a number specific posts to display.",
             "required": 1,
@@ -112,41 +185,15 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_60ba564614976",
-            "label": "Number Of Posts To Display",
-            "name": "number_of_posts_to_display",
-            "type": "number",
-            "instructions": "If no number is provided, the default number of posts to show is 3.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_60887f1f9495b",
-                        "operator": "==",
-                        "value": "filtered"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "30",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 3,
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_60887f949495c",
             "label": "Category",
             "name": "category",
+            "aria-label": "",
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
@@ -171,12 +218,14 @@
             "load_terms": 0,
             "return_format": "id",
             "multiple": 0,
-            "allow_null": 0
+            "allow_null": 0,
+            "bidirectional_target": []
         },
         {
             "key": "field_6088803d9495d",
             "label": "News Posts",
             "name": "news_posts",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "The number of posts selected is the number of posts that will display.",
             "required": 0,
@@ -201,7 +250,11 @@
             "allow_null": 0,
             "multiple": 1,
             "return_format": "object",
-            "ui": 1
+            "ui": 1,
+            "bidirectional_target": [],
+            "save_custom": 0,
+            "save_post_type": "",
+            "save_post_status": ""
         }
     ],
     "location": [
@@ -217,9 +270,17 @@
     "position": "normal",
     "style": "default",
     "label_placement": "top",
-    "instruction_placement": "label",
+    "instruction_placement": "field",
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1624043484
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1723216324
 }
