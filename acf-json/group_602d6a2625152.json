@@ -3,10 +3,11 @@
     "title": "Module - Routing Panel",
     "fields": [
         {
-            "key": "field_602d6a7fcacb7",
-            "label": "Background Color",
-            "name": "background_color",
-            "type": "select",
+            "key": "field_66b571864ebcd",
+            "label": "(Column 6\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,75 +16,40 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "gray": "Gray",
-                "none": "None"
-            },
-            "default_value": "gray",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_602d6abdcacb8",
-            "label": "Icon",
-            "name": "icon",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "icon-briefcase": "Briefcase Icon",
-                "icon-bubble": "Bubble Icon",
-                "icon-certification": "Certification Icon",
-                "icon-map": "Map Icon",
-                "icon-virtual": "Virtual Icon"
-            },
-            "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "columns": "6\/12",
+            "endpoint": 0
         },
         {
             "key": "field_602d6b59cacb9",
             "label": "Subheading",
             "name": "subheading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_603955ed4430b",
             "label": "Subheading Level",
             "name": "subheading_level",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -95,24 +61,103 @@
                 "h6": "H6"
             },
             "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
             "return_format": "value",
+            "multiple": 0,
+            "placeholder": "",
+            "allow_null": 1,
+            "ui": 0,
             "ajax": 0,
-            "placeholder": ""
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
-            "key": "field_602d6bd1cacbb",
-            "label": "Intro Text",
-            "name": "intro_text",
-            "type": "wysiwyg",
+            "key": "field_602d6a7fcacb7",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gray": "Gray",
+                "none": "None"
+            },
+            "default_value": "gray",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_602d6abdcacb8",
+            "label": "Icon",
+            "name": "icon",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "icon-briefcase": "Briefcase Icon",
+                "icon-bubble": "Bubble Icon",
+                "icon-certification": "Certification Icon",
+                "icon-map": "Map Icon",
+                "icon-virtual": "Virtual Icon"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "placeholder": "",
+            "allow_null": 1,
+            "ui": 0,
+            "ajax": 0,
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_66b571b04ebce",
+            "label": "(Column 6\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
+                "id": ""
+            },
+            "columns": "6\/12",
+            "endpoint": 0
+        },
+        {
+            "key": "field_602d6bd1cacbb",
+            "label": "Intro Text",
+            "name": "intro_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "short",
                 "id": ""
             },
             "default_value": "",
@@ -122,10 +167,11 @@
             "delay": 0
         },
         {
-            "key": "field_602d6c0ccacbc",
-            "label": "Column 1 Links",
-            "name": "column_1_links",
-            "type": "repeater",
+            "key": "field_66b571b54ebcf",
+            "label": "(Column Endpoint)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -134,16 +180,37 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "endpoint": 1,
+            "columns": "6\/12"
+        },
+        {
+            "key": "field_602d6c0ccacbc",
+            "label": "Column 1 Links",
+            "name": "column_1_links",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 0,
+            "layout": "table",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "collapsed": "",
             "button_label": "Add Link",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_602d6c20cacbd",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -153,7 +220,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_602d6c0ccacbc"
                 }
             ]
         },
@@ -161,25 +229,30 @@
             "key": "field_602d6c49cacbe",
             "label": "Column 2 Links",
             "name": "column_2_links",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "acfe_repeater_stylised_button": 0,
+            "layout": "table",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "collapsed": "",
             "button_label": "Add Link",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_602d6c76cacbf",
                     "label": "Link",
                     "name": "link",
+                    "aria-label": "",
                     "type": "link",
                     "instructions": "",
                     "required": 0,
@@ -189,7 +262,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "array"
+                    "return_format": "array",
+                    "parent_repeater": "field_602d6c49cacbe"
                 }
             ]
         }
@@ -211,5 +285,13 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1616186561
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1723170890
 }

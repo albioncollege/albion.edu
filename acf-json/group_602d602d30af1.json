@@ -3,9 +3,27 @@
     "title": "Module - Infographics",
     "fields": [
         {
+            "key": "field_66b5777b67c0b",
+            "label": "(Column 5\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "5\/12",
+            "endpoint": 0
+        },
+        {
             "key": "field_602d62e92dd7f",
             "label": "Subheading",
             "name": "subheading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +43,7 @@
             "key": "field_602d67344162a",
             "label": "Subheading Level",
             "name": "subheading_level",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -47,19 +66,39 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
-            "key": "field_602d63302dd80",
-            "label": "Intro Text",
-            "name": "intro_text",
-            "type": "wysiwyg",
+            "key": "field_66b5778367c0c",
+            "label": "(Column 7\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
+                "id": ""
+            },
+            "columns": "7\/12",
+            "endpoint": 0
+        },
+        {
+            "key": "field_602d63302dd80",
+            "label": "Intro Text",
+            "name": "intro_text",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "short",
                 "id": ""
             },
             "default_value": "",
@@ -69,9 +108,27 @@
             "delay": 0
         },
         {
+            "key": "field_66b5798cd344a",
+            "label": "(Column Endpoint)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "endpoint": 1,
+            "columns": "6\/12"
+        },
+        {
             "key": "field_602d63672dd81",
             "label": "Infographics",
             "name": "infographics",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -81,16 +138,20 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "acfe_repeater_stylised_button": 0,
+            "layout": "table",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "row",
+            "collapsed": "",
             "button_label": "Add Infographic",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_602d63ae2dd82",
                     "label": "Big Text",
                     "name": "big_text",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -104,12 +165,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_602d63672dd81"
                 },
                 {
                     "key": "field_602d63b92dd83",
                     "label": "Medium Text",
                     "name": "medium_text",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -123,12 +186,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_602d63672dd81"
                 },
                 {
                     "key": "field_602d63c02dd84",
                     "label": "Regular Text",
                     "name": "regular_text",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -142,7 +207,8 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_602d63672dd81"
                 }
             ]
         }
@@ -164,5 +230,13 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1614288513
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1723169173
 }

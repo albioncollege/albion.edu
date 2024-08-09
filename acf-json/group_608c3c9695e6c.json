@@ -3,10 +3,11 @@
     "title": "Module - Video Full Width",
     "fields": [
         {
-            "key": "field_608c3cefa5906",
-            "label": "Background Color",
-            "name": "background_color",
-            "type": "select",
+            "key": "field_66b5771d6c35f",
+            "label": "(Column 7\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,22 +16,48 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "gray": "Gray",
-                "none": "None"
+            "columns": "7\/12",
+            "endpoint": 0
+        },
+        {
+            "key": "field_608c3c969ac55",
+            "label": "Video Url",
+            "name": "video_url",
+            "aria-label": "",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
             },
-            "default_value": "gray",
-            "allow_null": 0,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_66b577116c35e",
+            "label": "(Column 5\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "5\/12",
+            "endpoint": 0
         },
         {
             "key": "field_608c3cb3a5904",
             "label": "Subheading",
             "name": "subheading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -50,6 +77,7 @@
             "key": "field_608c3cd1a5905",
             "label": "Subheading Level",
             "name": "subheading_level",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -72,13 +100,16 @@
             "ui": 0,
             "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
-            "key": "field_608c3c969ac55",
-            "label": "Video Url",
-            "name": "video_url",
-            "type": "oembed",
+            "key": "field_608c3cefa5906",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -87,13 +118,25 @@
                 "class": "",
                 "id": ""
             },
-            "width": "",
-            "height": ""
+            "choices": {
+                "gray": "Gray",
+                "none": "None"
+            },
+            "default_value": "gray",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_608c3c969ac97",
             "label": "Caption",
             "name": "caption",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -127,5 +170,13 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1619806581
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1723168579
 }

@@ -6,6 +6,7 @@
             "key": "field_6026a4a1f0e84",
             "label": "Intro Text",
             "name": "intro_text",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -16,9 +17,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "acfe_textarea_code": 0,
             "maxlength": "",
-            "rows": "",
+            "rows": 5,
+            "placeholder": "",
             "new_lines": ""
         }
     ],
@@ -39,5 +41,13 @@
     "hide_on_screen": "",
     "active": false,
     "description": "",
-    "modified": 1613151831
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1723166542
 }
