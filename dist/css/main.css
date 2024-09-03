@@ -914,6 +914,9 @@ a {
   .flickity-page-dots .is-selected {
     background-color: #173F35; }
 
+.tribe-common .tribe-common-l-container {
+  max-width: 100%; }
+
 .tribe-events * {
   font-family: "trade-gothic-next", sans-serif; }
 

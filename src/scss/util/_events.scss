@@ -1,10 +1,14 @@
 
 
+.tribe-common .tribe-common-l-container {
+    max-width: 100%;
+}
 
 .tribe-events {
     * {
         font-family: "trade-gothic-next", sans-serif;
     }
+
 
     .tribe-events-calendar-month__multiday-event-bar-inner, .tribe-events-calendar-month__multiday-event-bar-inner:hover {
         background-color: $gold;
