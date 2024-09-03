@@ -1,0 +1,81 @@
+
+
+
+.tribe-events {
+    * {
+        font-family: "trade-gothic-next", sans-serif;
+    }
+
+    .tribe-events-calendar-month__multiday-event-bar-inner, .tribe-events-calendar-month__multiday-event-bar-inner:hover {
+        background-color: $gold;
+        
+        .tribe-common-h8 {
+            padding: 3px 0;
+        }
+    }
+
+    .tribe-common--breakpoint-medium.tribe-events .tribe-events-calendar-month__multiday-event-wrapper {
+        padding: 3px 0;
+    }
+
+    .tribe-events-calendar-month__multiday-event-hidden-title {
+        line-height: 1.5em;
+    }
+
+    .tribe-events-calendar-month__multiday-event--end .tribe-events-calendar-month__multiday-event-bar {
+        border-radius: 0;
+    }
+
+    .tribe-events-calendar-month__multiday-event-hidden-link {
+        color: white !important;
+    }
+    
+    .tribe-events-calendar-month__multiday-event-bar > 
+    
+    .tribe-events-calendar-month__day-cell--selected, .tribe-events-calendar-month__day-cell--selected:focus, .tribe-events-calendar-month__day-cell--selected:hover {
+        background-color: $purple;
+    }
+
+    .tribe-events-calendar-month__day-cell--selected .tribe-events-calendar-month__day-date-daynum {
+        color: white;
+    }
+
+    .tribe-events-calendar-month__mobile-events-icon--event {
+        background-color: $purple;
+    }
+
+    .tribe-events-c-top-bar__datepicker-time * {
+        font-family: "TiemposHeadline", serif;
+    }
+
+}
+
+.tribe-common .tribe-common-c-btn-border, .tribe-common a.tribe-common-c-btn-border {
+    background: $purple;
+    color: white;
+    width: 250px;
+    white-space: nowrap;
+
+    .tribe-events-c-subscribe-dropdown__button-text {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    svg {
+        fill: white;
+        color: white;
+    }
+}
+
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button-icon, .tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button-icon {
+    margin-top: -4px;
+}
+
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button.tribe-events-c-subscribe-dropdown__button--active, .single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus, .single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus-within, .single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover, .tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button.tribe-events-c-subscribe-dropdown__button--active, .tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus, .tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:focus-within, .tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button:hover {
+    background: rgba( $purple, .9 );
+}
+
+.single-tribe_events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button-text:focus, .single-tribe_events .tribe-events-c-subscribe-dropdown button.tribe-events-c-subscribe-dropdown__button-text:focus, .tribe-events .tribe-events-c-subscribe-dropdown .tribe-events-c-subscribe-dropdown__button-text:focus, .tribe-events .tribe-events-c-subscribe-dropdown button.tribe-events-c-subscribe-dropdown__button-text:focus {
+    outline: none;
+}
+
