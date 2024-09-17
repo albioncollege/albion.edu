@@ -44,6 +44,13 @@ function acf_wysiwyg_short() {
     .short .mce-statusbar {
         display: none;
     }
+    .message-spaced {
+        margin-top: 30px !important;
+        padding-top: 10px !important;
+        padding-bottom: 0 !important;
+        border-bottom: 1px solid #bbb !important;
+        font-size: 1.2em;
+    }
 	</style>
 	<?php
 }

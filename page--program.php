@@ -46,6 +46,8 @@ Template Post Type: page
 
     <?php get_template_part('modules/_program_related_programs'); ?>
 
+    <?php get_template_part('modules/_program_news_panel'); ?>
+
 </main>
 
 <?php get_footer(); ?>

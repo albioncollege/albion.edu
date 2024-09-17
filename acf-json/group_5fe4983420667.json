@@ -3,9 +3,28 @@
     "title": "Contact Card Fields",
     "fields": [
         {
+            "key": "field_66e9d46448c36",
+            "label": "(Column 4\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "4\/12",
+            "endpoint": 0,
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_6026aa2fc6999",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -15,21 +34,25 @@
                 "class": "",
                 "id": ""
             },
+            "uploader": "",
             "return_format": "id",
-            "preview_size": "medium",
             "library": "all",
+            "acfe_thumbnail": 0,
             "min_width": "",
             "min_height": "",
             "min_size": "",
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "allow_in_bindings": 1,
+            "preview_size": "medium_large"
         },
         {
             "key": "field_5fe4983c698da",
             "label": "Heading",
             "name": "heading",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -49,6 +72,7 @@
             "key": "field_5fe49843698db",
             "label": "Position Title",
             "name": "position_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -68,6 +92,7 @@
             "key": "field_6026aa46c699a",
             "label": "Secondary Title",
             "name": "secondary_title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -84,47 +109,70 @@
             "maxlength": ""
         },
         {
+            "key": "field_6026aa5fc699b",
+            "label": "Office",
+            "name": "office",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66e9d46b48c37",
+            "label": "(Column 8\/12)",
+            "name": "",
+            "aria-label": "",
+            "type": "acfe_column",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "columns": "8\/12",
+            "endpoint": 0,
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_5fe4984f698dc",
-            "label": "Blurb",
+            "label": "Biography",
             "name": "blurb",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "short",
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
+            "allow_in_bindings": 1,
+            "tabs": "visual",
             "toolbar": "basic",
             "media_upload": 0,
             "delay": 0
         },
         {
-            "key": "field_6026aa5fc699b",
-            "label": "Office",
-            "name": "office",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5fe4985b698dd",
             "label": "Email",
             "name": "email",
+            "aria-label": "",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -135,6 +183,7 @@
                 "id": ""
             },
             "default_value": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -143,6 +192,7 @@
             "key": "field_5fe49864698de",
             "label": "Phone",
             "name": "phone",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -153,15 +203,17 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_5fe4986d698df",
             "label": "Fax",
             "name": "fax",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -172,10 +224,11 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         }
     ],
     "location": [
@@ -189,7 +242,7 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
@@ -197,5 +250,13 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620740970
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1726600833
 }
