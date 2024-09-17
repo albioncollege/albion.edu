@@ -7,6 +7,8 @@
  */
 
 $subheading                 = get_field( 'subheading' );
+$subheading                 = ( empty( $subheading ) ? 'Related Posts' : $subheading );
+
 $subheading_level           = get_field( 'subheading_level' );
 $background_color           = get_field('background_color');
 $bg_color_class             = ( $background_color == 'gray' ) ? ' background--purple-gray' : '';
