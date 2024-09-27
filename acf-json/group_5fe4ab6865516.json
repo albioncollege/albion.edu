@@ -1156,6 +1156,20 @@
                 "operator": "==",
                 "value": "default"
             }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page--right-sidebar.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1176,5 +1190,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1723171375
+    "modified": 1727457350
 }

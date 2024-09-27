@@ -2743,6 +2743,18 @@ label {
     .main__inner {
       padding-left: 4.25rem;
       padding-right: 4.25rem; } }
+  .main__inner.right_sidebar {
+    flex-direction: row-reverse; }
+    .main__inner.right_sidebar .main__side, .main__inner.right_sidebar .sidebar {
+      float: none;
+      clear: none;
+      flex: 1; }
+    .main__inner.right_sidebar .sidebar {
+      flex-basis: 19rem;
+      margin-left: 5rem; }
+    @media (min-width: 64.0625em) {
+      .main__inner.right_sidebar .main__side {
+        flex-basis: calc(100% - 25rem); } }
 
 .main__content {
   width: 100%; }

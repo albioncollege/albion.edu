@@ -37,11 +37,35 @@
     padding-left: $mainSpacing;
     padding-right: $mainSpacing;
   }
+  
+  &.right_sidebar {
+    flex-direction: row-reverse;
 
+    .main__side, .sidebar {
+      float: none;
+      clear: none;
+      flex: 1;
+    }
+
+    .sidebar {
+      flex-basis: 19rem;
+      margin-left: 5rem;
+    }
+
+    .main__side {
+      
+      @include mq($lg) {
+        flex-basis: calc(100% - 25rem);
+      }
+    }
+  }
 }
+
+
 
 .main__content {
   width: 100%;
+
   @include mq($xl) {
     padding-right: $mainSpacing;
   }

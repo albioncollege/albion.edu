@@ -10,6 +10,7 @@
 	</div>
 	<div class="main">
 		<div class="main__inner">
+			<!--
 			<div id="sidebar" class="sidebar sidebar--header">
 			    <?php get_template_part('modules/_subnav'); ?>
 			    <div class="subnav__extra">
@@ -20,7 +21,8 @@
 					<?php endwhile; endif; wp_reset_postdata(); ?>
 				</div>
 			</div>
-			<div class="main__side">
+			-->
+			<div class="container container--extranarrow container--paragraph">
 				<?php $lede = get_field('lede'); ?>
 				<?php if( $lede ) : ?>
 					<p class="text-intro"><?php echo $lede; ?></p>

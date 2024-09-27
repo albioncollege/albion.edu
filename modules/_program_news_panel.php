@@ -20,7 +20,7 @@ $number_of_posts_to_display = get_field('number_of_posts_to_display') ? get_fiel
 if ($display_type == 'filtered') {
     $terms = get_field('category');
 
-    if($terms){
+    if ( $terms ) {
         $news = get_posts([
             'post_type'      => 'post',
             'posts_per_page' => $number_of_posts_to_display,

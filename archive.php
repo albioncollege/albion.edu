@@ -82,13 +82,8 @@ $archive_query = new WP_Query( $args ); ?>
 	</div>
 	<div class="main">
 		<div class="main__inner">
-		<?php if ( 'post_types' === $post_types_terms->taxonomy ) : ?>
-			<div id="sidebar" class="sidebar sidebar--header">
-				<?php get_template_part('modules/_subnav'); ?>
-			</div>
-		<?php endif; ?>
 			<?php if ( $archive_query->have_posts() ) : ?>
-				<div class="main__side">
+				<div class="container container--extranarrow container--paragraph">
 					<div class="news__wrapper">
 						<?php if ( $highlighted_content ) { ?>
 						<div class="news__block block--archive">

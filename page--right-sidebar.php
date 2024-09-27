@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Two-Column (Default)
+Template Name: Two-Column (Right Sidebar)
 Template Post Type: page
 */
 ?>
@@ -22,27 +22,16 @@ Template Post Type: page
 		</div>
 	</div>
 	<div class="main">
-		<div class="main__inner">
-			<div class="main__side">
-				<?php if ( post_password_required() ) :
-					echo get_the_password_form();
-				elseif( ! post_password_required() ) : ?>
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-						<?php while (have_rows('main_column_modules')) : the_row(); ?>
-							<?php get_template_part('modules/_' . get_row_layout()); ?>
-						<?php endwhile; ?>
-					<?php endwhile; endif; wp_reset_postdata(); ?>
-				<?php endif; ?>
-			</div>
+		<div class="main__inner right_sidebar">
 			<!-- REGION: Sidebar Navigation -->
 			<div id="sidebar" class="sidebar sidebar--header">
 			    <!-- whatever goes into this container will go to the top at mobile -->
 			    <?php 
-				if ( has_sidebar_nav_module() ) { 
-					get_template_part( 'modules/_subnav_menu' ); 
-				} else { 
-					get_template_part( 'modules/_subnav' ); 
-				} 
+				if ( has_sidebar_nav_module() ) {
+					get_template_part( 'modules/_subnav_menu' );
+				} else {
+					// get_template_part( 'modules/_subnav' );
+				}
 				?>
 				<div class="subnav__extra desktop-only">
 				    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -63,6 +52,17 @@ Template Post Type: page
 				</div>
 			</div>
 			<!-- /REGION: Sidebar Navigation -->
+			<div class="main__side">
+				<?php if ( post_password_required() ) :
+					echo get_the_password_form();
+				elseif( ! post_password_required() ) : ?>
+					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php while (have_rows('main_column_modules')) : the_row(); ?>
+							<?php get_template_part('modules/_' . get_row_layout()); ?>
+						<?php endwhile; ?>
+					<?php endwhile; endif; wp_reset_postdata(); ?>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </main>
