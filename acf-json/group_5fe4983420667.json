@@ -158,13 +158,13 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
             "allow_in_bindings": 1,
-            "tabs": "visual",
-            "toolbar": "basic",
+            "tabs": "all",
+            "toolbar": "full",
             "media_upload": 0,
             "delay": 0
         },
@@ -258,5 +258,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1726600833
+    "modified": 1727466665
 }
