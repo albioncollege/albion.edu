@@ -226,7 +226,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -387,7 +387,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -691,7 +691,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -821,7 +821,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "short",
+                        "class": "",
                         "id": ""
                     },
                     "default_value": "",
@@ -966,7 +966,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -1125,7 +1125,7 @@
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "short",
+                        "class": "",
                         "id": ""
                     },
                     "default_value": "",
@@ -1440,7 +1440,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -1815,7 +1815,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -2020,7 +2020,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
             "default_value": "",
@@ -2492,5 +2492,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1726604208
+    "modified": 1727799183
 }
