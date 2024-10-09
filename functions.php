@@ -337,10 +337,10 @@ function get_root_child_ids( $current, $active ) {
 
 // allow xml uploads
 function albion_upload_mimes( $existing_mimes ) {
-		// Add xml to the list of mime types.
-		$existing_mimes['xml'] = 'text/xml';
-		// Return the array back to the function with our added mime type.
-		return $existing_mimes;
+	// Add xml to the list of mime types.
+	$existing_mimes['xml'] = 'text/xml';
+	// Return the array back to the function with our added mime type.
+	return $existing_mimes;
 }
 add_filter( 'mime_types', 'albion_upload_mimes' );
 

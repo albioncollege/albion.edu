@@ -189,6 +189,7 @@
                 "class": "",
                 "id": ""
             },
+            "acfe_flexible_advanced": 0,
             "layouts": {
                 "layout_602c30a6e87ec": {
                     "key": "layout_602c30a6e87ec",
@@ -347,6 +348,51 @@
                             },
                             "clone": [
                                 "group_608c28788062a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "acfe_seamless_style": 0,
+                            "acfe_clone_modal": 0,
+                            "acfe_clone_modal_close": 0,
+                            "acfe_clone_modal_button": "",
+                            "acfe_clone_modal_size": "large"
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_category": false
+                },
+                "layout_66fc3bed5e01e": {
+                    "key": "layout_66fc3bed5e01e",
+                    "name": "contact-list",
+                    "label": "Contact Card List",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_66fc3c015e021",
+                            "label": "Module: Contact Card List",
+                            "name": "module-contact-card-list",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_66fc3a42d88e1"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -1316,10 +1362,9 @@
                     "acfe_flexible_category": false
                 }
             },
-            "button_label": "Add Module",
             "min": "",
             "max": "",
-            "acfe_flexible_advanced": false,
+            "button_label": "Add Module",
             "acfe_flexible_stylised_button": false,
             "acfe_flexible_hide_empty_message": false,
             "acfe_flexible_empty_message": "",
@@ -1384,6 +1429,13 @@
                 "operator": "==",
                 "value": "page--one-column.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "contact_card"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1404,5 +1456,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1724890847
+    "modified": 1728418530
 }

@@ -1474,6 +1474,98 @@ blockquote {
     margin-top: 0;
     margin-bottom: -2.5rem; } }
 
+.people {
+  padding: 20px 0; }
+
+.people-search {
+  padding: 0;
+  border: 3px solid #9B8BAB;
+  margin-bottom: 20px; }
+  .people-search input[type=text] {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border: 0;
+    background: url(../img/icon-search.webp) left center no-repeat;
+    background-size: contain;
+    font-size: 1.1em;
+    margin-top: 0 !important; }
+    .people-search input[type=text]:focus {
+      outline: 0; }
+    .people-search input[type=text]::-moz-placeholder {
+      color: #bbb; }
+    .people-search input[type=text]::placeholder {
+      color: #bbb; }
+
+.person-entry {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+  .person-entry img {
+    width: 100%; }
+  .person-entry .info {
+    padding: 10px 20px 20px; }
+    .person-entry .info h4 {
+      padding-bottom: 0; }
+    .person-entry .info .person-title {
+      padding: 3px 0; }
+    .person-entry .info .person-email {
+      padding: 0;
+      font-size: .9em; }
+
+@media (min-width: 500px) {
+  .main__side .people-listing {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -2%; } }
+
+@media (min-width: 900px) {
+  .main__side .people-listing {
+    margin-right: -3%; } }
+
+.main__side .people-listing .person-entry {
+  display: none;
+  margin: 0 0 20px 0; }
+  .main__side .people-listing .person-entry.visible {
+    display: block; }
+  @media (min-width: 500px) {
+    .main__side .people-listing .person-entry {
+      flex: 1;
+      flex-basis: 48%;
+      flex-grow: 0;
+      margin: 0 2% 2% 0; } }
+  @media (min-width: 900px) {
+    .main__side .people-listing .person-entry {
+      flex-basis: 30.3333%;
+      margin: 0 3% 3% 0; } }
+
+@media (min-width: 500px) {
+  .container--narrow .people-listing {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -2%; } }
+
+@media (min-width: 900px) {
+  .container--narrow .people-listing {
+    margin-right: -3%; } }
+
+.container--narrow .people-listing .person-entry {
+  display: none;
+  margin: 0 0 20px 0; }
+  .container--narrow .people-listing .person-entry.visible {
+    display: block; }
+  @media (min-width: 500px) {
+    .container--narrow .people-listing .person-entry {
+      flex: 1;
+      flex-basis: 48%;
+      flex-grow: 0;
+      margin: 0 2% 2% 0; } }
+  @media (min-width: 900px) {
+    .container--narrow .people-listing .person-entry {
+      flex-basis: 30.3333%;
+      margin: 0 3% 3% 0; } }
+  @media (min-width: 1220px) {
+    .container--narrow .people-listing .person-entry {
+      flex-basis: 22%; } }
+
 .feature__component .background::after {
   content: "";
   display: table;
@@ -2922,8 +3014,9 @@ label {
       margin: 0 2rem 1rem 0;
       float: left; } }
 
-.alignnone {
-  max-width: 100%; }
+.alignnone, .aligncenter {
+  max-width: 100%;
+  margin: 0 auto; }
 
 .media--right, .alignright {
   max-width: 100%; }
