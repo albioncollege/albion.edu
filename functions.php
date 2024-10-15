@@ -121,7 +121,7 @@ add_filter( 'the_title', 'remove_private_protected_prefix' );
 
 // get current url on any page, post or cpt across the site.
 function get_current_url() {
-		return home_url( $_SERVER['REQUEST_URI'] );
+	return home_url( $_SERVER['REQUEST_URI'] );
 }
 
 
@@ -279,9 +279,7 @@ function move_yoast_to_bottom() {
 add_filter( 'wpseo_metabox_prio', 'move_yoast_to_bottom');
 
 
-
 // FUNCTIONS
-
 // inline svg function.
 function svgstore( $svg, $title, $class ) {
 	$output = '<span class="' . ($class ? $class : '') . ' svgstore svgstore--'.$svg.'">
@@ -295,8 +293,7 @@ function svgstore( $svg, $title, $class ) {
 
 
 // get post ids string
-function get_post_ids_string($posts)
-{
+function get_post_ids_string( $posts ) {
 	$string = '';
 	foreach ($posts as $post) {
 		$string .= $post->ID . ',';
@@ -348,13 +345,7 @@ add_filter( 'mime_types', 'albion_upload_mimes' );
 // adjust the wysiwyg toolbars
 add_filter( 'acf/fields/wysiwyg/toolbars' , 'albion_toolbars'  );
 function albion_toolbars( $toolbars ) {
-	// Uncomment to view format of $toolbars
 
-	/*echo '< pre >';
-		print_r($toolbars);
-	echo '< /pre >';
-	die;*/
-	
 	// Add a new toolbar called "Tablepress"
 	// - this toolbar has only 1 row with 1 button
 	$toolbars['Tablepress Toolbar' ] = array();
@@ -366,7 +357,7 @@ function albion_toolbars( $toolbars ) {
 
 
 // default page template title
-add_filter('default_page_template_title', function() {
+add_filter( 'default_page_template_title', function() {
 	return __('Default', 'albion');
 });
 

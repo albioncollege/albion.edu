@@ -15267,6 +15267,8 @@ _toConsumableArray(contactLists).forEach(function (contactList) {
   var contactSearch = contactList.querySelector('.people-search input');
   var contactEntries = contactList.querySelectorAll('.people-listing .person-entry');
   console.log(contactEntries);
+
+  // search event listener
   contactSearch.addEventListener('keyup', function (event) {
     // store the search term
     var searchTerm = contactSearch.value;

@@ -7,6 +7,7 @@ const contactLists = document.querySelectorAll( '.people' );
     var contactEntries = contactList.querySelectorAll( '.people-listing .person-entry' );
     console.log( contactEntries );
 
+    // search event listener
     contactSearch.addEventListener( 'keyup', (event) => {
         
         // store the search term
