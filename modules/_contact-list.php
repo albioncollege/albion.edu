@@ -14,6 +14,7 @@ if ( $mode == 'filtered' ) {
     $args = array(
         'post_type' => 'contact_card',
         'post_status' => 'publish',
+        'posts_per_page' => 300,
         'tax_query' => array(
             array(
                 'taxonomy' => 'group',
