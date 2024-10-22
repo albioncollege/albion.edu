@@ -3359,6 +3359,25 @@ label {
       .news__content span {
         color: #4B306A; } }
 
+.related-programs {
+  padding: 10px 0; }
+  .related-programs .program a {
+    display: flex;
+    background: none !important;
+    align-items: center; }
+    .related-programs .program a .program-image {
+      flex: 1 1 30%;
+      margin-right: 4%; }
+    .related-programs .program a .program-title {
+      flex: 1 1 66%; }
+      .related-programs .program a .program-title h6 {
+        margin: 0; }
+
+.related-posts {
+  padding: 10px 0; }
+  .related-posts ul li {
+    margin-bottom: 14px; }
+
 @media (min-width: 64.0625em) {
   .panel {
     display: flex; } }

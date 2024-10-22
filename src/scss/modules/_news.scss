@@ -137,3 +137,37 @@
     }
   }
 }
+
+
+.related-programs {
+  padding: 10px 0;
+
+  .program {
+    a {
+      display: flex;
+      background: none !important;
+      align-items: center;
+
+      .program-image {
+        flex: 1 1 30%;
+        margin-right: 4%;
+      }
+
+      .program-title {
+        flex: 1 1 66%;
+
+        h6 {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.related-posts {
+  padding: 10px 0;
+
+  ul li {
+    margin-bottom: 14px;
+  }
+}

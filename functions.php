@@ -46,7 +46,7 @@ add_action('after_setup_theme', 'theme_settings');
 function theme_css() {
 	wp_dequeue_style('wp-block-library');
 	wp_enqueue_style('theme-typekit-fonts', 'https://use.typekit.net/xdv3bwe.css', [], null, 'all');
-	wp_enqueue_style('theme-styles', get_theme_file_uri('/dist/css/main.css?v=3'), [], null, 'screen');
+	wp_enqueue_style('theme-styles', get_theme_file_uri('/dist/css/main.css?v=4'), [], null, 'screen');
 }
 add_action('wp_enqueue_scripts', 'theme_css');
 
@@ -397,4 +397,49 @@ function nav_menus_load( $field ) {
 	}
 	return $field;
 }
+
+
+add_filter( 'posts_where', 'title_like_posts_where', 10, 2 );
+function title_like_posts_where( $where, $wp_query ) {
+    global $wpdb;
+    if ( $post_title_like = $wp_query->get( 'post_title_like' ) ) {
+        $where .= ' AND ' . $wpdb->posts . '.post_title LIKE "%' . esc_sql( $wpdb->esc_like( $post_title_like ) ) . '%"';
+    }
+    return $where;
+}
+
+
+// get related programs for a given post IDs categories
+function get_related_programs( $post_id ) {
+	// get the post category ids
+	$category_ids = wp_get_post_categories( $post_id );
+
+	// select the term info for all of them
+	$categories = get_terms(array(
+		'include' => $category_ids
+	));
+
+	// set up an empty array for the related programs
+	$related = array();
+
+	// loop through the categories
+	foreach ( $categories as $cat ) {
+
+		// query for pages that have a title like the category name
+		$related_area_query = new WP_Query( array( 
+			'post_type' => 'page', 
+			'post_title_like' => $cat->name, 
+			'posts_per_page' => 1 
+		));
+
+		// if we have results, include the ID in our related id array
+		if ( isset( $related_area_query->posts[0] ) ) {
+			$related[] = $related_area_query->posts[0]->ID;
+		}
+	}
+
+	// return the related program ids in an array
+	return $related;
+}
+
 
