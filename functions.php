@@ -17,6 +17,7 @@ function theme_settings() {
 		'audience'      => 'Audience',
 		'action'        => 'Action',
 		'footer'        => 'Footer',
+		'action_news' 	=> 'Action News',
 		'action_footer' => 'Action Footer',
 		'legal_footer'  => 'Legal Footer',
 	]);
