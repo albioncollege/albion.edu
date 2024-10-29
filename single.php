@@ -88,6 +88,21 @@
 					}
 				}
 
+				if ( has_nav_menu( 'action_news' ) ) { ?>
+				<div class="related-posts">
+					<h4>Connect With Us</h4>
+					<?php
+					wp_nav_menu([
+						'theme_location' => 'action_news',
+						'menu_class'     => 'subnav action-news',
+						'li_class'       => '',
+						'link_class'     => 'button--gold',
+						'container'      => ''
+					]);
+					?>
+				</div>
+					<?php
+				}
 
 				?>
 			</div>
