@@ -1429,13 +1429,6 @@
                 "operator": "==",
                 "value": "page--one-column.php"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "contact_card"
-            }
         ]
     ],
     "menu_order": 0,
@@ -1456,5 +1449,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1728418530
+    "modified": 1730229178
 }
