@@ -92,6 +92,27 @@
             "library": "all"
         },
         {
+            "key": "field_673b5c3dfaf6a",
+            "label": "Website",
+            "name": "website",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_66e9d46b48c37",
             "label": "(Column 8\/12)",
             "name": "",
@@ -481,5 +502,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1730231794
+    "modified": 1731943500
 }
