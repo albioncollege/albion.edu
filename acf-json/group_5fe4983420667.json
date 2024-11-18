@@ -448,6 +448,24 @@
             "columns": "6\/12"
         },
         {
+            "key": "field_673b5e8e2f710",
+            "label": "Page Content",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Use Modules below to add Subheadings and Paragraphs components to add Research, Publications, Presentations, and Awards",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_67213bc0d5f01",
             "label": "Modules",
             "name": "modules",
@@ -502,5 +520,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1731943500
+    "modified": 1731944138
 }
