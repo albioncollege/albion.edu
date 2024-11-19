@@ -13,7 +13,8 @@
 			<div id="sidebar" class="sidebar sidebar--header">
 
 				<?php 
-
+				
+				/*
 				$related = get_related_programs( get_the_ID() );
 
 				// if we have related page ids
@@ -49,7 +50,7 @@
 						<?php
 					}
 				}
-
+				*/
 
 				// get the post category ids
 				$category_ids = wp_get_post_categories( get_the_ID() );
