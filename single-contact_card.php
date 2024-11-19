@@ -41,7 +41,7 @@ if ( have_posts() ) :
 					<?php if ( !empty( $office ) ) { ?><p class="contact-item"><strong>Office:</strong><br> <?php print $office ?></p><?php } ?>
 					<?php if ( !empty( $email ) ) { ?><p class="contact-item"><strong>Email:</strong><br> <a href="mailto:<?php print $email ?>"><?php print $email ?></a></p><?php } ?>
 					<?php if ( !empty( $phone ) ) { ?><p class="contact-item"><strong>Phone:</strong><br> <a href="tel:<?php print preg_replace("/[^0-9]/", "", $phone ) ?>"><?php print $phone ?></a></p><?php } ?>
-					<?php if ( !empty( $fax ) ) { ?><p class="contact-item"><strong>Fax:</strong><br> <a href="tel:<?php print preg_replace("/[^0-9]/", "", $phone ) ?>"><?php print $phone ?></a></p><?php } ?>
+					<?php if ( !empty( $fax ) ) { ?><p class="contact-item"><strong>Fax:</strong><br> <a href="tel:<?php print preg_replace("/[^0-9]/", "", $fax ) ?>"><?php print $phone ?></a></p><?php } ?>
 				</div>
 			</div>
 			<div class="main__side">
