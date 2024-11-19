@@ -83,3 +83,5 @@ endif;
 
 <?php
 if ( $is_one_column ): ?></div></div><?php endif;
+
+wp_reset_postdata();

@@ -443,4 +443,3 @@ function get_related_programs( $post_id ) {
 	return $related;
 }
 
-

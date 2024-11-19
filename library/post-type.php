@@ -6,9 +6,10 @@ function cpt_card() {
 
     register_post_type( 'contact_card', array (
         'public'   => true,
-        'label'    => 'Contact Card',
+        'label'    => 'Contact Cards',
+        'label_single'    => 'Contact Card',
         'supports' => ['title', 'editor'],
-        'rewrite'  => ['slug' => 'contact_card', 'with_front' => false],  
+        'rewrite'  => ['slug' => 'bio', 'with_front' => false],  
         'menu_icon' => 'dashicons-admin-users'
     ) );
 

@@ -91,7 +91,7 @@
 }
 
 
-.container--narrow .people-listing  {
+.single-contact_card .people-listing, .container--narrow .people-listing  {
 	@include mq( 500px ) {
 		display: flex;
 		flex-wrap: wrap;
@@ -125,6 +125,15 @@
         @include mq( 1220px ) {
 			flex-basis: 22%;
 		}
+	}
+}
+
+
+.single-contact_card {
+	.contact-items {
+		background: $purple-gray;
+		padding: 1rem 2rem;
+		margin-bottom: 20px;
 	}
 }
 

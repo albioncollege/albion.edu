@@ -1538,33 +1538,38 @@ blockquote {
       margin: 0 3% 3% 0; } }
 
 @media (min-width: 500px) {
-  .container--narrow .people-listing {
+  .single-contact_card .people-listing, .container--narrow .people-listing {
     display: flex;
     flex-wrap: wrap;
     margin-right: -2%; } }
 
 @media (min-width: 900px) {
-  .container--narrow .people-listing {
+  .single-contact_card .people-listing, .container--narrow .people-listing {
     margin-right: -3%; } }
 
-.container--narrow .people-listing .person-entry {
+.single-contact_card .people-listing .person-entry, .container--narrow .people-listing .person-entry {
   display: none;
   margin: 0 0 20px 0; }
-  .container--narrow .people-listing .person-entry.visible {
+  .single-contact_card .people-listing .person-entry.visible, .container--narrow .people-listing .person-entry.visible {
     display: block; }
   @media (min-width: 500px) {
-    .container--narrow .people-listing .person-entry {
+    .single-contact_card .people-listing .person-entry, .container--narrow .people-listing .person-entry {
       flex: 1;
       flex-basis: 48%;
       flex-grow: 0;
       margin: 0 2% 2% 0; } }
   @media (min-width: 900px) {
-    .container--narrow .people-listing .person-entry {
+    .single-contact_card .people-listing .person-entry, .container--narrow .people-listing .person-entry {
       flex-basis: 30.3333%;
       margin: 0 3% 3% 0; } }
   @media (min-width: 1220px) {
-    .container--narrow .people-listing .person-entry {
+    .single-contact_card .people-listing .person-entry, .container--narrow .people-listing .person-entry {
       flex-basis: 22%; } }
+
+.single-contact_card .contact-items {
+  background: #EEEAF0;
+  padding: 1rem 2rem;
+  margin-bottom: 20px; }
 
 .feature__component .background::after {
   content: "";
@@ -3366,12 +3371,14 @@ label {
     background: none !important;
     align-items: center; }
     .related-programs .program a .program-image {
-      flex: 1 1 30%;
+      flex: 1 1 28%;
       margin-right: 4%; }
     .related-programs .program a .program-title {
-      flex: 1 1 66%; }
+      flex: 1 1 68%; }
       .related-programs .program a .program-title h6 {
-        margin: 0; }
+        margin: 0;
+        font-size: 1em;
+        font-weight: 500; }
 
 .related-posts {
   padding: 10px 0; }
