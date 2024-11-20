@@ -23,6 +23,8 @@ if ( have_posts() ) :
 		$education = get_field( 'education' );
 		$courses = get_field( 'courses' );
 		$areas_of_interest = get_field( 'areas_of_interest' );
+		$publications = get_field( 'publications' );
+		$awards = get_field( 'awards' );
 ?>
 <main class="page" id="main-content">
 	<div class="hero">
@@ -60,6 +62,14 @@ if ( have_posts() ) :
 				<?php if ( !empty( $areas_of_interest ) ) { ?>
 				<h5>Areas of Interest</h5>
 				<div class="areas-of-interest"><?php print $areas_of_interest; ?></div>
+				<?php } ?>
+				<?php if ( !empty( $publications ) ) { ?>
+				<h5>Publications</h5>
+				<div class="publications"><?php print $publications; ?></div>
+				<?php } ?>
+				<?php if ( !empty( $awards ) ) { ?>
+				<h5>Awards</h5>
+				<div class="awards"><?php print $awards; ?></div>
 				<?php } ?>
 			</div>
 		</div>
