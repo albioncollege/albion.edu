@@ -19,6 +19,8 @@ if ( have_posts() ) :
 		$email = get_field( 'email' );
 		$phone = get_field( 'phone' );
 		$fax = get_field( 'fax' );
+		$web = get_field( 'website' );
+		$cv = get_field( 'cv' );
 		$blurb = get_field( 'blurb' );
 		$education = get_field( 'education' );
 		$courses = get_field( 'courses' );
@@ -44,6 +46,8 @@ if ( have_posts() ) :
 					<?php if ( !empty( $email ) ) { ?><p class="contact-item"><strong>Email:</strong><br> <a href="mailto:<?php print $email ?>"><?php print $email ?></a></p><?php } ?>
 					<?php if ( !empty( $phone ) ) { ?><p class="contact-item"><strong>Phone:</strong><br> <a href="tel:<?php print preg_replace("/[^0-9]/", "", $phone ) ?>"><?php print $phone ?></a></p><?php } ?>
 					<?php if ( !empty( $fax ) ) { ?><p class="contact-item"><strong>Fax:</strong><br> <a href="tel:<?php print preg_replace("/[^0-9]/", "", $fax ) ?>"><?php print $fax ?></a></p><?php } ?>
+					<?php if ( !empty( $web ) ) { ?><p class="contact-item"><strong>Website:</strong><br> <a href="<?php print $web ?>" target="_blank">Visit Website</a></p><?php } ?>
+					<?php if ( !empty( $cv ) ) { ?><p class="contact-item"><strong>CV/Resume:</strong><br> <a href="<?php print $cv ?>" target="_blank">Download</a></p><?php } ?>
 				</div>
 				<!-- https://apply.albion.edu/register/?id=1d079b0c-a7d2-4c5c-940c-5dc0979a7caf -->
 			</div>

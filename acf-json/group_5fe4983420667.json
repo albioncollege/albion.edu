@@ -84,7 +84,7 @@
                 "id": ""
             },
             "uploader": "",
-            "return_format": "array",
+            "return_format": "url",
             "min_size": "",
             "max_size": "",
             "mime_types": "",
@@ -598,5 +598,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1732070911
+    "modified": 1733254350
 }
