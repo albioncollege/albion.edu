@@ -54,6 +54,7 @@ if ( $is_one_column ): ?><div class="background"><div class="container container
 if ( $card_query->have_posts() ): ?>
     <div class="people-listing">
     <?php
+
 	while ( $card_query->have_posts() ): $card_query->the_post();
 
         // get the fields
@@ -61,15 +62,19 @@ if ( $card_query->have_posts() ): ?>
         $heading = get_field( 'heading' );
         $position_title = get_field( 'position_title' );
         $email = get_field( 'email' );
+
+        $do_link = get_field( 'link' );
         ?>
 
         <div class="person-entry visible">
+            <?php if ( $do_link ) { ?><a href="<?php the_permalink(); ?>"><?php } ?>
             <?php print wp_get_attachment_image( $image, 'quote' ); ?>
             <div class="info">
                 <h6><?php print $heading; ?></h6>
                 <p class="person-title"><?php print $position_title; ?></p>
-                <?php print ( !empty( $email ) ? '<p class="person-email"><a href="mailto:' . $email . '">Email Me</a></p>' : '' ); ?>
+                <!--<?php print ( !empty( $email ) ? '<p class="person-email"><a href="mailto:' . $email . '">Email Me</a></p>' : '' ); ?>-->
             </div>
+            <?php if ( $do_link ) {?></a><?php } ?>
         </div>
         <?php
     endwhile;

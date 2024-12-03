@@ -113,6 +113,27 @@
             "append": ""
         },
         {
+            "key": "field_674f698f0d2c6",
+            "label": "Link from Listings",
+            "name": "link",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Check this to link to this persons bio page from contact card listings.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_66e9d46b48c37",
             "label": "(Column 8\/12)",
             "name": "",
@@ -598,5 +619,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1733254350
+    "modified": 1733257869
 }
