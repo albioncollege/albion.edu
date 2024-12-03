@@ -48,8 +48,8 @@ if ( have_posts() ) :
 					<?php if ( !empty( $fax ) ) { ?><p class="contact-item"><strong>Fax:</strong><br> <a href="tel:<?php print preg_replace("/[^0-9]/", "", $fax ) ?>"><?php print $fax ?></a></p><?php } ?>
 					<?php if ( !empty( $web ) ) { ?><p class="contact-item"><strong>Website:</strong><br> <a href="<?php print $web ?>" target="_blank">Visit Website</a></p><?php } ?>
 					<?php if ( !empty( $cv ) ) { ?><p class="contact-item"><strong>CV/Resume:</strong><br> <a href="<?php print $cv ?>" target="_blank">Download</a></p><?php } ?>
+					<a href="https://apply.albion.edu/register/?id=1d079b0c-a7d2-4c5c-940c-5dc0979a7caf" class="button--gold">Ask a Question!</a>
 				</div>
-				<!-- https://apply.albion.edu/register/?id=1d079b0c-a7d2-4c5c-940c-5dc0979a7caf -->
 			</div>
 			<div class="main__side">
 				<?php if ( !empty( $title_primary ) ) { ?><h4 class="title-primary"><?php print $title_primary ?></h4><?php } ?>

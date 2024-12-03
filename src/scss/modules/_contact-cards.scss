@@ -134,6 +134,11 @@
 		background: $purple-gray;
 		padding: 1rem 2rem;
 		margin-bottom: 20px;
+
+		.button--gold, .button {
+			display: block;
+			margin-top: 30px;
+		}
 	}
 }
 
