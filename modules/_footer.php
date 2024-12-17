@@ -7,7 +7,7 @@
  */
 
 ?>
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="footer__container container--purple">
         <div class="footer__grid">
             <div>
