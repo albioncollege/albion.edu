@@ -20,7 +20,8 @@ const contactLists = document.querySelectorAll( '.people' );
             } else {
                 contact.classList.remove("visible");
             }
-        })
+        });
+        
     });
 
 })

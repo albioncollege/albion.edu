@@ -1,13 +1,17 @@
 <?php
-  /*
-    Template Name: Home
-    Template Post Type: page
-  */
-?>
+/*
+Template Name: Home
+Template Post Type: page
+*/
 
-<?php get_header(); ?>
+get_header(); 
+
+?>
 <main class="page" id="main-content">
-    <?php
+
+<?php
+if ( !get_field( 'modules_only' ) ) :
+
     $hero_image       = get_field( 'hero_image' );
     $background_video = get_field( 'background_video' );
     $heading          = get_field ( 'heading' );
@@ -38,6 +42,7 @@
             <?php endif; ?>
         </div>
     <?php endif; ?>
+    
     <?php
     $intro_subheading       = get_field ( 'intro_subheading' );
     $intro_subheading_level = get_field ( 'intro_subheading_level' );
@@ -97,6 +102,8 @@
             </div>
         </div>
     <?php endif; ?>
+<?php endif; ?>
+
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <?php while (have_rows('modules')) : the_row(); ?>
             <?php $layout = get_row_layout(); ?>

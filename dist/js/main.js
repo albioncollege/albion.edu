@@ -5729,6 +5729,62 @@ defineIterator(String, 'String', function (iterated) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.string.match.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.string.match.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var fixRegExpWellKnownSymbolLogic = __webpack_require__(/*! ../internals/fix-regexp-well-known-symbol-logic */ "./node_modules/core-js/internals/fix-regexp-well-known-symbol-logic.js");
+var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
+var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
+var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
+var advanceStringIndex = __webpack_require__(/*! ../internals/advance-string-index */ "./node_modules/core-js/internals/advance-string-index.js");
+var regExpExec = __webpack_require__(/*! ../internals/regexp-exec-abstract */ "./node_modules/core-js/internals/regexp-exec-abstract.js");
+
+// @@match logic
+fixRegExpWellKnownSymbolLogic('match', 1, function (MATCH, nativeMatch, maybeCallNative) {
+  return [
+    // `String.prototype.match` method
+    // https://tc39.github.io/ecma262/#sec-string.prototype.match
+    function match(regexp) {
+      var O = requireObjectCoercible(this);
+      var matcher = regexp == undefined ? undefined : regexp[MATCH];
+      return matcher !== undefined ? matcher.call(regexp, O) : new RegExp(regexp)[MATCH](String(O));
+    },
+    // `RegExp.prototype[@@match]` method
+    // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@match
+    function (regexp) {
+      var res = maybeCallNative(nativeMatch, regexp, this);
+      if (res.done) return res.value;
+
+      var rx = anObject(regexp);
+      var S = String(this);
+
+      if (!rx.global) return regExpExec(rx, S);
+
+      var fullUnicode = rx.unicode;
+      rx.lastIndex = 0;
+      var A = [];
+      var n = 0;
+      var result;
+      while ((result = regExpExec(rx, S)) !== null) {
+        var matchStr = String(result[0]);
+        A[n] = matchStr;
+        if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
+        n++;
+      }
+      return n === 0 ? null : A;
+    }
+  ];
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.string.replace.js":
 /*!***********************************************************!*\
   !*** ./node_modules/core-js/modules/es.string.replace.js ***!
@@ -15300,7 +15356,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes__WEBPACK_IMPORTED_MODULE_0__);
 
 var dev = false;
-if (['localhost', 'albion.mstoner.com', 'mstoner.ngrok.io'].includes(window.location.hostname)) {
+if (['localhost', 'albion.jpederson.io'].includes(window.location.hostname)) {
   dev = true;
 }
 console.log('Dev env: ' + dev);
@@ -15545,6 +15601,108 @@ var toggle = function toggle() {
 };
 _toConsumableArray(toggleButtons).forEach(function (toggleButton) {
   toggleButton.addEventListener('click', toggle);
+});
+
+/***/ }),
+
+/***/ "./src/js/modules/_showcase.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/_showcase.js ***!
+  \*************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.regexp.exec */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.string.match */ "./node_modules/core-js/modules/es.string.match.js");
+/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+// select all showcase containers in the page
+var showcaseContainers = document.querySelectorAll('.showcase-container');
+
+// loop through the showcase containers (handles multiple showcases)
+_toConsumableArray(showcaseContainers).forEach(function (showcaseContainer) {
+  // get the showcase and controls
+  var showcase = showcaseContainer.querySelector('.showcase');
+  var controls = showcaseContainer.querySelector('.controls');
+
+  // function to advance to the next slide
+  // we need this for both the controls and the auto-advance feature
+  var nextSlide = function nextSlide() {
+    // get and store the current slide and what we expect is the next one (if it exists)
+    var currentSlide = showcase.querySelector('.slide.active');
+    var nextSlide = currentSlide.nextElementSibling;
+
+    // remove the active class from the current slide
+    currentSlide.classList.remove("active");
+
+    // if we don't have a next slide
+    if (nextSlide === null) {
+      // select the first slide in the list
+      showcase.querySelectorAll('.slide')[0].classList.add('active');
+    } else {
+      // otherwise, make next slide active
+      nextSlide.classList.add("active");
+    }
+  };
+
+  // select all the controls
+  controls.querySelectorAll('a').forEach(function (control) {
+    // when the user clicks a control
+    control.addEventListener('click', function (event) {
+      // if we're trying to go to the next slide
+      if (this.className.match('next')) {
+        nextSlide();
+      } else if (this.className.match('prev')) {
+        // get and store the current slide and what we expect is the next one (if it exists)
+        var currentSlide = showcase.querySelector('.slide.active');
+        var prevSlide = currentSlide.previousElementSibling;
+
+        // remove the active class from the current slide
+        currentSlide.classList.remove("active");
+
+        // if we don't have a next slide
+        if (prevSlide === null) {
+          var allSlides = showcase.querySelectorAll('.slide');
+
+          // select the first slide in the list
+          allSlides[allSlides.length - 1].classList.add('active');
+        } else {
+          // otherwise, make next slide active
+          prevSlide.classList.add("active");
+        }
+      } else {
+        // get and store the current slide
+        var currentSlide = showcase.querySelector('.slide.active');
+
+        // this is the catch-all for the controls, if it gets here, it means that
+        // they selected a specific slide in the showcase by pushing
+        var selectedSlide = showcase.querySelector('[data-slide="' + this.dataset.slide + '"]');
+        console.log(selectedSlide);
+
+        // remove the active class from the current slide
+        currentSlide.classList.remove("active");
+
+        // select the first slide in the list
+        selectedSlide.classList.add('active');
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -16160,11 +16318,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/_nav */ "./src/js/modules/_nav.js");
 /* harmony import */ var _modules_sidebar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/_sidebar */ "./src/js/modules/_sidebar.js");
 /* harmony import */ var _modules_sidebar__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_modules_sidebar__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _modules_social__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/_social */ "./src/js/modules/_social.js");
-/* harmony import */ var _modules_splash__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/_splash */ "./src/js/modules/_splash.js");
-/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/_tabs */ "./src/js/modules/_tabs.js");
-/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_modules_tabs__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _modules_testimonial_slider__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/_testimonial-slider */ "./src/js/modules/_testimonial-slider.js");
+/* harmony import */ var _modules_showcase__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/_showcase */ "./src/js/modules/_showcase.js");
+/* harmony import */ var _modules_social__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/_social */ "./src/js/modules/_social.js");
+/* harmony import */ var _modules_splash__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/_splash */ "./src/js/modules/_splash.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/_tabs */ "./src/js/modules/_tabs.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_modules_tabs__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _modules_testimonial_slider__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./modules/_testimonial-slider */ "./src/js/modules/_testimonial-slider.js");
 
 
 // polyfills
@@ -16184,6 +16343,7 @@ __webpack_require__.r(__webpack_exports__);
 smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_6___default.a.polyfill();
 
 // modules
+
 
 
 

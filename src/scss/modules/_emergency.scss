@@ -1,0 +1,37 @@
+
+
+.emergency {
+    color: white;
+    padding: 20px;
+
+    &.purple {
+        background: $purple;
+    }
+
+    &.gold {
+        background: $gold;
+        color: black;
+    }
+
+    &.teal {
+        background: $teal;
+    }
+    
+    a.close {
+        float: right;
+        margin: 0 0 0 15px;
+        text-decoration: none;
+        font-stretch: ultra-expanded;
+        border: none;
+    }
+
+    p {
+        margin: 0;
+        padding: 10px 0 0 0;
+
+        &:first-child {
+            padding: 0;
+        }
+    }
+}
+

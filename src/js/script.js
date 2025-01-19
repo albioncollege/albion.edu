@@ -25,6 +25,7 @@ import './modules/_header';
 import './modules/_media';
 import './modules/_nav';
 import './modules/_sidebar';
+import './modules/_showcase';
 import './modules/_social';
 import './modules/_splash';
 import './modules/_tabs';
