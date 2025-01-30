@@ -49,13 +49,34 @@ if ( $mode == 'filtered' ) {
     // otherwise, this is a curated list
     $cards = get_sub_field( 'cards' );
     
+    // some empty variables before our custom loop
+    $card_ids = array();
+    $card_content = '';
+
+    // loop through cards and build our own listing because
+    foreach ( $cards as $card ) {
+        $card_ids[] = $card->ID;
+        $image = get_field( 'image', $card->ID );
+        $heading = get_field( 'heading', $card->ID );
+        $position_title = get_field( 'position_title', $card->ID );
+        $do_link = get_field( 'link', $card->ID );
+
+        $card_content .= '<div class="person-entry visible">
+            ' . ( $do_link ? '<a href="/bio/' .  $card->post_name . '/">' : '' ) . '
+            ' . wp_get_attachment_image( $image, 'quote' ) . '
+            <div class="info">
+                <h6>' . $heading . '</h6>
+                <p class="person-title">' . $position_title . '</p>
+            </div>
+            ' . ( $do_link ? '</a>' : '' ) . '
+        </div>';
+    }
+    
     // set up query args
     $args = array(
         'post_type' => 'contact_card',
         'post_status' => 'publish',
-        'post__in' => $cards,
-        'meta_query' => $meta_query,
-        'orderby' => $orderby,
+        'post__in' => $card_ids
     );
 
 }
@@ -77,29 +98,33 @@ if ( $card_query->have_posts() ): ?>
     <div class="people-listing">
     <?php
 
-	while ( $card_query->have_posts() ): $card_query->the_post();
+    if ( $mode == 'filtered' ) {
+        while ( $card_query->have_posts() ): $card_query->the_post();
 
-        // get the fields
-        $image = get_field( 'image' );
-        $heading = get_field( 'heading' );
-        $position_title = get_field( 'position_title' );
-        $email = get_field( 'email' );
+            // get the fields
+            $image = get_field( 'image' );
+            $heading = get_field( 'heading' );
+            $position_title = get_field( 'position_title' );
+            $email = get_field( 'email' );
 
-        $do_link = get_field( 'link' );
-        ?>
+            $do_link = get_field( 'link' );
+            ?>
 
-        <div class="person-entry visible">
-            <?php if ( $do_link ) { ?><a href="<?php the_permalink(); ?>"><?php } ?>
-            <?php print wp_get_attachment_image( $image, 'quote' ); ?>
-            <div class="info">
-                <h6><?php print $heading; ?></h6>
-                <p class="person-title"><?php print $position_title; ?></p>
-                <!--<?php print ( !empty( $email ) ? '<p class="person-email"><a href="mailto:' . $email . '">Email Me</a></p>' : '' ); ?>-->
+            <div class="person-entry visible">
+                <?php if ( $do_link ) { ?><a href="<?php the_permalink(); ?>"><?php } ?>
+                <?php print wp_get_attachment_image( $image, 'quote' ); ?>
+                <div class="info">
+                    <h6><?php print $heading; ?></h6>
+                    <p class="person-title"><?php print $position_title; ?></p>
+                    <!--<?php print ( !empty( $email ) ? '<p class="person-email"><a href="mailto:' . $email . '">Email Me</a></p>' : '' ); ?>-->
+                </div>
+                <?php if ( $do_link ) {?></a><?php } ?>
             </div>
-            <?php if ( $do_link ) {?></a><?php } ?>
-        </div>
-        <?php
-    endwhile;
+            <?php
+        endwhile;
+    } else {
+        print $card_content;
+    }
     ?>
     </div>
     <?php
