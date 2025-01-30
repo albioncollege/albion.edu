@@ -4,6 +4,24 @@
 $mode = get_sub_field( 'mode' );
 $search = get_sub_field( 'search' );
 
+$meta_query = array(
+    'relation' => 'AND',
+    'name_first' => array(
+        'key' => 'name_first',
+        'compare' => 'EXISTS',
+    ),
+    'name_last' => array(
+        'key' => 'name_last',
+        'compare' => 'EXISTS',
+    ), 
+);
+
+$orderby = array( 
+    'name_last' => 'ASC',
+    'name_first' => 'ASC',
+);
+
+
 // mode switch
 if ( $mode == 'filtered' ) {
 
@@ -15,6 +33,8 @@ if ( $mode == 'filtered' ) {
         'post_type' => 'contact_card',
         'post_status' => 'publish',
         'posts_per_page' => 300,
+        'meta_query' => $meta_query,
+        'orderby' => $orderby,
         'tax_query' => array(
             array(
                 'taxonomy' => 'group',
@@ -33,7 +53,9 @@ if ( $mode == 'filtered' ) {
     $args = array(
         'post_type' => 'contact_card',
         'post_status' => 'publish',
-        'post__in' => $cards
+        'post__in' => $cards,
+        'meta_query' => $meta_query,
+        'orderby' => $orderby,
     );
 
 }
