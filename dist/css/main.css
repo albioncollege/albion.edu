@@ -1505,7 +1505,12 @@ blockquote {
     padding: 10px 20px 20px; }
     .person-entry .info h6 {
       padding-bottom: 0;
-      margin: 0; }
+      margin: 0;
+      font-size: 1.15em;
+      font-weight: bold; }
+    .person-entry .info p {
+      font-size: .9em;
+      color: black; }
     .person-entry .info .person-title {
       padding: 3px 0;
       margin: 0; }
