@@ -15322,22 +15322,22 @@ var contactLists = document.querySelectorAll('.people');
 _toConsumableArray(contactLists).forEach(function (contactList) {
   var contactSearch = contactList.querySelector('.people-search input');
   var contactEntries = contactList.querySelectorAll('.people-listing .person-entry');
-  console.log(contactEntries);
+  if (contactSearch != null) {
+    // search event listener
+    contactSearch.addEventListener('keyup', function (event) {
+      // store the search term
+      var searchTerm = contactSearch.value;
 
-  // search event listener
-  contactSearch.addEventListener('keyup', function (event) {
-    // store the search term
-    var searchTerm = contactSearch.value;
-
-    // loop through the entries and show/hide based on match
-    _toConsumableArray(contactEntries).forEach(function (contact) {
-      if (contact.innerHTML.toLowerCase().search(searchTerm.toLowerCase()) > 0 || searchTerm.length === 0) {
-        contact.classList.add("visible");
-      } else {
-        contact.classList.remove("visible");
-      }
+      // loop through the entries and show/hide based on match
+      _toConsumableArray(contactEntries).forEach(function (contact) {
+        if (contact.innerHTML.toLowerCase().search(searchTerm.toLowerCase()) > 0 || searchTerm.length === 0) {
+          contact.classList.add("visible");
+        } else {
+          contact.classList.remove("visible");
+        }
+      });
     });
-  });
+  }
 });
 
 /***/ }),
