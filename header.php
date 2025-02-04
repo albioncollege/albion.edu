@@ -5,6 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <?php wp_head(); ?>
+    <script src="https://25live.collegenet.com/pro/embedding-client-code/embedded25.js"></script>
   </head>
   <body <?php body_class(); ?>>
     <nav aria-label="Skip to Sections">
@@ -15,6 +16,4 @@
     </nav>
     <div class="canvas">
       <?php get_template_part( 'modules/_header' ); ?>
-      
-
       
