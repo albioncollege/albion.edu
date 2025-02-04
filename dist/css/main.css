@@ -4745,8 +4745,6 @@ table.gsc-search-box td {
 
 .tabs-carousel__component {
   margin-bottom: -5.25rem; }
-  .tabs-carousel__component .large-headline {
-    max-width: 50rem; }
   .tabs-carousel__component .tabs-nav {
     margin: 0; }
   @media (min-width: 64.0625em) {
