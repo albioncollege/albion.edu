@@ -159,3 +159,26 @@ $light-purple-tint: #EDEAF0;
 .background--purple-gray .event__card.background--purple-gray {
     background: $white;
 }
+
+.tribe-events-header .add-event {
+  border: 1px solid $purple;
+  text-decoration: none;
+  background: none;
+  display: inline-block;
+  padding: 0px 10px 5px;
+  margin-right: 10px;
+
+  span {
+    display: none;
+  }
+
+  @include mq( $md ) {
+    margin-bottom: var(--tec-spacer-7);
+
+    span {
+      display: inline;
+      position: relative;
+      top: 2px;
+    }
+  }
+}

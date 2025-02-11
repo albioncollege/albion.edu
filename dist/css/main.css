@@ -5835,6 +5835,23 @@ table.gsc-search-box td {
 .background--purple-gray .event__card.background--purple-gray {
   background: #fff; }
 
+.tribe-events-header .add-event {
+  border: 1px solid #4B306A;
+  text-decoration: none;
+  background: none;
+  display: inline-block;
+  padding: 0px 10px 5px;
+  margin-right: 10px; }
+  .tribe-events-header .add-event span {
+    display: none; }
+  @media (min-width: 48em) {
+    .tribe-events-header .add-event {
+      margin-bottom: var(--tec-spacer-7); }
+      .tribe-events-header .add-event span {
+        display: inline;
+        position: relative;
+        top: 2px; } }
+
 /* Image Grid (gallery) */
 .image-grid__header {
   padding-bottom: 2em; }

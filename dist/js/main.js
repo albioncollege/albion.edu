@@ -15382,6 +15382,18 @@ console.log('Dev env: ' + dev);
 
 /***/ }),
 
+/***/ "./src/js/modules/_events.js":
+/*!***********************************!*\
+  !*** ./src/js/modules/_events.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var eventsCalendar = document.querySelector('.tribe-events-header__top-bar');
+eventsCalendar.insertAdjacentHTML('beforebegin', '<a href="https://www.albion.edu/offices/camps-and-conferences/reserve-a-room/" class="add-event">+ <span>Submit Event</span></a>');
+
+/***/ }),
+
 /***/ "./src/js/modules/_footer.js":
 /*!***********************************!*\
   !*** ./src/js/modules/_footer.js ***!
@@ -16329,19 +16341,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_button__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/_button */ "./src/js/modules/_button.js");
 /* harmony import */ var _modules_button__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_button__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _modules_contacts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/_contacts */ "./src/js/modules/_contacts.js");
-/* harmony import */ var _modules_footer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/_footer */ "./src/js/modules/_footer.js");
-/* harmony import */ var _modules_footer__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_modules_footer__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _modules_header__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/_header */ "./src/js/modules/_header.js");
-/* harmony import */ var _modules_media__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/_media */ "./src/js/modules/_media.js");
-/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/_nav */ "./src/js/modules/_nav.js");
-/* harmony import */ var _modules_sidebar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/_sidebar */ "./src/js/modules/_sidebar.js");
-/* harmony import */ var _modules_sidebar__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_modules_sidebar__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _modules_showcase__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/_showcase */ "./src/js/modules/_showcase.js");
-/* harmony import */ var _modules_social__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/_social */ "./src/js/modules/_social.js");
-/* harmony import */ var _modules_splash__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/_splash */ "./src/js/modules/_splash.js");
-/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/_tabs */ "./src/js/modules/_tabs.js");
-/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_modules_tabs__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _modules_testimonial_slider__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./modules/_testimonial-slider */ "./src/js/modules/_testimonial-slider.js");
+/* harmony import */ var _modules_events__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/_events */ "./src/js/modules/_events.js");
+/* harmony import */ var _modules_events__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_modules_events__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _modules_footer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/_footer */ "./src/js/modules/_footer.js");
+/* harmony import */ var _modules_footer__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_modules_footer__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _modules_header__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/_header */ "./src/js/modules/_header.js");
+/* harmony import */ var _modules_media__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/_media */ "./src/js/modules/_media.js");
+/* harmony import */ var _modules_nav__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/_nav */ "./src/js/modules/_nav.js");
+/* harmony import */ var _modules_sidebar__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./modules/_sidebar */ "./src/js/modules/_sidebar.js");
+/* harmony import */ var _modules_sidebar__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_modules_sidebar__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _modules_showcase__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./modules/_showcase */ "./src/js/modules/_showcase.js");
+/* harmony import */ var _modules_social__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./modules/_social */ "./src/js/modules/_social.js");
+/* harmony import */ var _modules_splash__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/_splash */ "./src/js/modules/_splash.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./modules/_tabs */ "./src/js/modules/_tabs.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_modules_tabs__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _modules_testimonial_slider__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./modules/_testimonial-slider */ "./src/js/modules/_testimonial-slider.js");
 
 
 // polyfills
@@ -16361,6 +16375,7 @@ __webpack_require__.r(__webpack_exports__);
 smoothscroll_polyfill__WEBPACK_IMPORTED_MODULE_6___default.a.polyfill();
 
 // modules
+
 
 
 
