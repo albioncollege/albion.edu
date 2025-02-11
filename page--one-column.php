@@ -50,6 +50,7 @@ if( $hero_image ) :
 	<a name="main-content"></a>
 	<?php if( have_rows( 'subnavigation_links' ) || $social_bar || $link_to_spanish_content ) : ?>
 	<div class="subnav__landing container">
+		<?php if( have_rows( 'subnavigation_links' ) ) : ?>
 		<nav class="subnav has-submenu" aria-label="Side Navigation">
 			<button class="subnav__toggle" aria-haspopup="true" aria-expanded="false"><?php esc_html_e( 'In this section', 'albion' ); ?></button>
 			<ul class="subnav__list">
@@ -68,6 +69,8 @@ if( $hero_image ) :
 			</ul>
 		</nav>
 		<?php 
+		endif;
+		
 		if ( $link_to_spanish_content || $social_bar ) : ?>
 		<div class="subnav__extra">
 			<?php if ( $link_to_spanish_content ) :
