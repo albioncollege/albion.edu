@@ -46,27 +46,29 @@ if( $hero_image ) :
 <?php endif; ?>
 
 	<a name="main-content"></a>
-	<?php if( have_rows( 'subnavigation_links' ) || $link_to_spanish_content || $social_bar ) : ?>
-		<div class="subnav__landing container">
-		<?php if( have_rows( 'subnavigation_links' ) ) : ?>
-			<nav class="subnav has-submenu" aria-label="Side Navigation">
-				<button class="subnav__toggle" aria-haspopup="true" aria-expanded="false"><?php esc_html_e( 'In this section', 'albion' ); ?></button>
-				<ul class="subnav__list">
-				<?php
-					while( have_rows('subnavigation_links') ) : the_row();
-						$subnav_links = get_sub_field('links');
-						if ( is_array( $subnav_links ) ) :
-							$link_url     = $subnav_links['url'];
-							$link_title   = $subnav_links['title'];
-							?>
-						<li><a href="<?php echo esc_url( $link_url ); ?>" <?php echo link_target( $subnav_links ); ?>><?php echo esc_html( $link_title ); ?></a></li>
-							<?php 
-						endif;
-					endwhile;
-					?>
-				</ul>
-			</nav>
-		<?php endif; ?>
+	<?php if( have_rows( 'subnavigation_links' ) ) : ?>
+	<div class="subnav__landing container">
+		<nav class="subnav has-submenu" aria-label="Side Navigation">
+			<button class="subnav__toggle" aria-haspopup="true" aria-expanded="false"><?php esc_html_e( 'In this section', 'albion' ); ?></button>
+			<ul class="subnav__list">
+			<?php
+				while( have_rows('subnavigation_links') ) : the_row();
+					$subnav_links = get_sub_field('links');
+					if ( is_array( $subnav_links ) ) :
+						$link_url     = $subnav_links['url'];
+						$link_title   = $subnav_links['title'];
+						?>
+					<li><a href="<?php echo esc_url( $link_url ); ?>" <?php echo link_target( $subnav_links ); ?>><?php echo esc_html( $link_title ); ?></a></li>
+						<?php 
+					endif;
+				endwhile;
+				?>
+			</ul>
+		</nav>
+		<?php 
+		$social_bar = get_field( 'social_bar' );
+
+		if ( $link_to_spanish_content || $social_bar ) : ?>
 		<div class="subnav__extra">
 			<?php if ( $link_to_spanish_content ) :
 				$link_url   = $link_to_spanish_content['url'];
@@ -119,6 +121,7 @@ if( $hero_image ) :
 		</div>
 		<?php endif; ?>
 	</div>
+	<?php endif; ?>
 
 	<?php if ( post_password_required() ) :
 		echo get_the_password_form();
