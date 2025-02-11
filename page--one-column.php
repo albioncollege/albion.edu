@@ -14,6 +14,8 @@ $hero_image              = get_field( 'hero_image' );
 $routing_link            = get_field( 'routing_link' );
 $background_video        = get_field( 'background_video' );
 $link_to_spanish_content = get_field( 'link_to_spanish_content' );
+$social_bar = get_field( 'social_bar' );
+
 if( $hero_image ) : 
 	$image_url   = wp_get_attachment_url( $hero_image );
 	$image_style = 'style="background-image: url( ' . esc_url( $image_url ) . ' );"';
@@ -46,7 +48,7 @@ if( $hero_image ) :
 <?php endif; ?>
 
 	<a name="main-content"></a>
-	<?php if( have_rows( 'subnavigation_links' ) ) : ?>
+	<?php if( have_rows( 'subnavigation_links' ) || $social_bar || $link_to_spanish_content ) : ?>
 	<div class="subnav__landing container">
 		<nav class="subnav has-submenu" aria-label="Side Navigation">
 			<button class="subnav__toggle" aria-haspopup="true" aria-expanded="false"><?php esc_html_e( 'In this section', 'albion' ); ?></button>
@@ -66,8 +68,6 @@ if( $hero_image ) :
 			</ul>
 		</nav>
 		<?php 
-		$social_bar = get_field( 'social_bar' );
-
 		if ( $link_to_spanish_content || $social_bar ) : ?>
 		<div class="subnav__extra">
 			<?php if ( $link_to_spanish_content ) :
