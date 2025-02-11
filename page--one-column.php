@@ -46,7 +46,8 @@ if( $hero_image ) :
 <?php endif; ?>
 
 	<a name="main-content"></a>
-	<div class="subnav__landing container">
+	<?php if( have_rows( 'subnavigation_links' ) || $link_to_spanish_content || $social_bar ) : ?>
+		<div class="subnav__landing container">
 		<?php if( have_rows( 'subnavigation_links' ) ) : ?>
 			<nav class="subnav has-submenu" aria-label="Side Navigation">
 				<button class="subnav__toggle" aria-haspopup="true" aria-expanded="false"><?php esc_html_e( 'In this section', 'albion' ); ?></button>
@@ -116,6 +117,7 @@ if( $hero_image ) :
 				</div>
 			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 	</div>
 
 	<?php if ( post_password_required() ) :

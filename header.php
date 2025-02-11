@@ -14,6 +14,6 @@
       <a class="skip-link" href="#main-content">Skip to Main Content</a>
       <a class="skip-link" href="#footer">Skip to Footer Links</a>
     </nav>
-    <div class="canvas">
+    <!-- <div class="canvas"> -->
       <?php get_template_part( 'modules/_header' ); ?>
       
