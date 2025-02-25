@@ -421,29 +421,29 @@ h6 {
 .large-headline {
   font-family: "TiemposHeadline", serif;
   font-weight: normal;
-  font-size: 2.625rem;
+  font-size: 2.375rem;
   line-height: 1.143;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
     .large-headline {
-      font-size: 6rem;
+      font-size: 4.375rem;
       line-height: 1; } }
 
 h1, .h1 {
   font-family: "TiemposHeadline", serif;
   font-weight: normal;
-  font-size: 2.625rem;
+  font-size: 2.375rem;
   line-height: 1.143;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
     h1, .h1 {
-      font-size: 5.25rem;
+      font-size: 4.0625rem;
       line-height: 1; } }
 
 h2, .h2 {
   font-family: "TiemposHeadline", serif;
   font-weight: normal;
-  font-size: 2.375rem;
+  font-size: 2.25rem;
   line-height: 1.21;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
@@ -3870,7 +3870,7 @@ table.gsc-search-box td {
         width: 75%; }
       @media (min-width: 64.0625em) {
         .showcase-container .showcase .slide_content_headlines {
-          font-size: 6rem;
+          font-size: 4.6875rem;
           margin: 3.5rem 0;
           max-width: 40rem; }
           .showcase-container .showcase .slide_content_headlines span {

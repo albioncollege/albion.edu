@@ -151,12 +151,12 @@
 @mixin large-headline {
   font-family: $serif;
   font-weight: normal;
-  @include font-size(42);
+  @include font-size(38);
   line-height: 1.143;
   color: $purple;
 
   @include mq($lg) {
-    @include font-size(96);
+    @include font-size(70);
     line-height: 1;
   }
 }
@@ -164,25 +164,12 @@
 @mixin h1 {
   font-family: $serif;
   font-weight: normal;
-  @include font-size(42);
+  @include font-size(38);
   line-height: 1.143;
   color: $purple;
 
   @include mq($lg) {
-    @include font-size(84);
-    line-height: 1;
-  }
-}
-
-@mixin h1 {
-  font-family: $serif;
-  font-weight: normal;
-  @include font-size(42);
-  line-height: 1.143;
-  color: $purple;
-
-  @include mq($lg) {
-    @include font-size(84);
+    @include font-size(65);
     line-height: 1;
   }
 }
@@ -190,7 +177,7 @@
 @mixin h2 {
   font-family: $serif;
   font-weight: normal;
-  @include font-size(38);
+  @include font-size(36);
   line-height: 1.21;
   color: $purple;
 
