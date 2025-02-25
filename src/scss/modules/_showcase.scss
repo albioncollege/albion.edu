@@ -86,7 +86,7 @@
 			@include mq( $lg ) {
 				@include font-size(75);
 				margin: 3.5rem 0;
-				max-width: 40rem;
+				max-width: 60rem;
 
 				span {
 					@include font-size(28);
