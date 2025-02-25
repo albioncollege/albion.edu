@@ -4,6 +4,7 @@
 // include libraries
 include( 'library/post-type.php' );
 include( 'library/modules.php' );
+include( 'library/breadcrumbs.php' );
 
 
 // theme settings

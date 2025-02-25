@@ -1,16 +1,9 @@
-<?php 
-if ( get_post_type() == 'contact_card' ) : 
-	print $_SESSION['contactListing'];
-?>
+<?php if ( get_post_type() == 'contact_card' ) : ?>
 	<nav class="breadcrumb" aria-label="Page Breadcrumb">
-		<span><span><a href="https://albion.jpederson.io/">Home</a></span> ― <span class="breadcrumb_last" aria-current="page"><?php the_title(); ?></span></span>
+		<span><span><a href="/">Home</a></span> &mdash; <span class="breadcrumb_last" aria-current="page"><?php the_title(); ?></span></span>
 	</nav>
-<?php 
-elseif (!get_field('hide_breadcrumbs')) : 
-?>
+<?php else : ?>
 	<nav class="breadcrumb" aria-label="Page Breadcrumb">
-		<?php yoast_breadcrumb(); ?>
+		<?php do_page_breadcrumbs(); ?>
 	</nav>
-<?php 
-endif; 
-?>
+<?php endif; ?>
