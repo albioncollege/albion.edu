@@ -74,7 +74,7 @@ function albion_acf_json_load_point( $paths ) {
 	// append path
 	$paths[] = get_stylesheet_directory() . '/acf-json';
 	// return
-	return $paths;   
+	return $paths;
 }
 
 

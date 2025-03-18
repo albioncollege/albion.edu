@@ -2472,6 +2472,13 @@
                 "operator": "==",
                 "value": "page--program.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "area"
+            }
         ]
     ],
     "menu_order": 0,
@@ -2492,5 +2499,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1727799183
+    "modified": 1742320550
 }
