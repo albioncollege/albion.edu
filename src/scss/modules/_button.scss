@@ -1,4 +1,4 @@
-.button {
+.button, .form_button_submit {
   @include button-text;
   display: table;
   vertical-align: middle;
