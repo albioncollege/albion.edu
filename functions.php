@@ -64,7 +64,7 @@ add_action('wp_enqueue_scripts', 'theme_js');
 function hide_acf_menu_item() {
 	return !( strpos( get_bloginfo( 'url' ), 'jpederson' ) === false && strpos( get_bloginfo( 'url' ), 'dev' ) === false );
 }
-add_filter( 'acf/settings/show_admin', 'hide_acf_menu_item' );
+//add_filter( 'acf/settings/show_admin', 'hide_acf_menu_item' );
 
 
 add_filter('acf/settings/load_json', 'albion_acf_json_load_point');
