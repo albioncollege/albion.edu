@@ -86,9 +86,8 @@ $card_query = new WP_Query( $args );
 
 $is_one_column = ( stristr( get_page_template(), 'one-column' ) ? true : false );
 
-/*
 if ( $is_one_column ): ?><div class="background"><div class="container container--narrow"><?php endif;
-*/
+
 ?>
 <section class="people">
     <?php if ( $search ) : ?><div class="people-search"><input type="text" name="people-search-term" id="s" placeholder="Search Name, Academic Department, or Title"></div><?php endif; ?>
@@ -135,8 +134,7 @@ endif;
 </section>
 
 <?php
-/*
+
 if ( $is_one_column ): ?></div></div><?php endif;
-*/
 
 wp_reset_postdata();
