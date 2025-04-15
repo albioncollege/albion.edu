@@ -86,7 +86,7 @@ $card_query = new WP_Query( $args );
 
 $is_one_column = ( stristr( get_page_template(), 'one-column' ) ? true : false );
 
-if ( $is_one_column ): ?><div class="background"><div class="container container--narrow"><?php endif;
+if ( $is_one_column ): ?><div class="container container--narrow"><?php endif;
 
 ?>
 <section class="people">
@@ -135,6 +135,6 @@ endif;
 
 <?php
 
-if ( $is_one_column ): ?></div></div><?php endif;
+if ( $is_one_column ): ?></div><?php endif;
 
 wp_reset_postdata();
