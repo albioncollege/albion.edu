@@ -1,6 +1,6 @@
 {
     "key": "group_678d3934df5b8",
-    "title": "Module: Emergency Bar",
+    "title": "Module - Emergency Bar",
     "fields": [
         {
             "key": "field_678d394c2fbb2",
@@ -69,7 +69,7 @@
     "label_placement": "left",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
+    "active": false,
     "description": "",
     "show_in_rest": 0,
     "acfe_display_title": "",
@@ -79,5 +79,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1737308632
+    "modified": 1745947859
 }

@@ -15,8 +15,8 @@
         "edit_item": "Edit Area of Study",
         "view_item": "View Area of Study",
         "view_items": "View Areas of Study",
-        "add_new_item": "Add New Area of Study",
-        "add_new": "Add New Area of Study",
+        "add_new_item": "Add Area",
+        "add_new": "Add Area",
         "new_item": "New Area of Study",
         "parent_item_colon": "Parent Area of Study:",
         "search_items": "Search Areas of Study",
@@ -87,5 +87,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "",
-    "modified": 1742318929
+    "modified": 1743531955
 }

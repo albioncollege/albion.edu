@@ -1,0 +1,99 @@
+
+.background--purple-grey  {
+    background: #EEEAF0;
+}
+
+
+.container-areas {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+
+    .areas-container {
+        padding: 2rem 0 1rem;
+    }
+}
+
+.areas-container {
+    .area-listing {
+		@include mq( 500px ) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-right: -2%;
+        }
+
+        a {
+            overflow: hidden;
+            margin-bottom: 10px;
+            transition: all 400ms ease-in-out;
+            display: flex;
+            box-shadow: 0 0 20px rgba( black, .2 );
+
+            &:hover {
+                border: none;
+                opacity: .9;
+            }
+
+            @include mq( 400px ) {
+                flex: 0 1 48%;
+                margin: 0 2% 2% 0;
+            }
+
+            @include mq( 600px ) {
+                flex: 0 1 31.3333%;
+            }
+
+            @include mq( 900px ) {
+                flex: 0 1 23%;
+            }
+
+            .area-entry {
+                background-color: black;
+                background-position: center center;
+                background-size: cover;
+                position: relative;
+                text-align: center;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                height: 100px;
+                padding: 0 20px;
+
+                @include mq( 400px ) {
+                    height: 120px;
+                    padding: 0 35px;
+                }
+
+                @include mq( 900px ) {
+                    height: 160px;
+                    padding: 0 35px;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 0;
+                    background: rgba( black, .5 );
+                }
+
+                .area-name {
+                    flex: 1;
+                    position: relative;
+                    z-index: 1;
+                    color: white;
+                    font-size: 1.2em;
+                    line-height: 1.5em;
+                    text-shadow: 0 0 30px black;
+                }
+            }
+        }
+    }
+}
+

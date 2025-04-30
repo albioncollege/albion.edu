@@ -85,8 +85,7 @@ if ( $mode == 'filtered' ) {
 $card_query = new WP_Query( $args );
 
 $is_one_column = ( stristr( get_page_template(), 'one-column' ) ? true : false );
-
-if ( $is_one_column ): ?><div class="container container--narrow"><?php endif;
+if ( $is_one_column ): ?><div class="container"><?php endif;
 
 ?>
 <section class="people">

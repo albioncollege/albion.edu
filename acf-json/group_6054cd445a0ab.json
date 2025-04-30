@@ -417,16 +417,16 @@
             },
             "acfe_flexible_advanced": 0,
             "layouts": {
-                "layout_67743d6e5e75c": {
-                    "key": "layout_67743d6e5e75c",
-                    "name": "showcase",
-                    "label": "Showcase",
+                "layout_603816d12b1c9": {
+                    "key": "layout_603816d12b1c9",
+                    "name": "cta_panel_home",
+                    "label": "CTA Panel",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_67743d755e75f",
-                            "label": "Module: Showcase",
-                            "name": "module-showcase",
+                            "key": "field_6054cd446b1f5",
+                            "label": "CTA Panel",
+                            "name": "cta_panel_home",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -438,7 +438,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_6761d26b8cad2"
+                                "group_605bb3aeb275a"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -484,51 +484,6 @@
                             },
                             "clone": [
                                 "group_678d3934df5b8"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0,
-                            "acfe_seamless_style": 0,
-                            "acfe_clone_modal": 0,
-                            "acfe_clone_modal_close": 0,
-                            "acfe_clone_modal_button": "",
-                            "acfe_clone_modal_size": "large"
-                        }
-                    ],
-                    "min": "",
-                    "max": "",
-                    "acfe_flexible_render_template": false,
-                    "acfe_flexible_render_style": false,
-                    "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
-                    "acfe_flexible_settings": false,
-                    "acfe_flexible_settings_size": "medium",
-                    "acfe_flexible_modal_edit_size": false,
-                    "acfe_flexible_category": false
-                },
-                "layout_603816d12b1c9": {
-                    "key": "layout_603816d12b1c9",
-                    "name": "cta_panel_home",
-                    "label": "CTA Panel",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_6054cd446b1f5",
-                            "label": "CTA Panel",
-                            "name": "cta_panel_home",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_605bb3aeb275a"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -822,6 +777,51 @@
                     "acfe_flexible_modal_edit_size": false,
                     "acfe_flexible_category": false
                 },
+                "layout_67743d6e5e75c": {
+                    "key": "layout_67743d6e5e75c",
+                    "name": "showcase",
+                    "label": "Showcase",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_67743d755e75f",
+                            "label": "Module: Showcase",
+                            "name": "module-showcase",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6761d26b8cad2"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "acfe_seamless_style": 0,
+                            "acfe_clone_modal": 0,
+                            "acfe_clone_modal_close": 0,
+                            "acfe_clone_modal_button": "",
+                            "acfe_clone_modal_size": "large"
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_category": false
+                },
                 "layout_60380b4a44082": {
                     "key": "layout_60380b4a44082",
                     "name": "social_feed",
@@ -923,5 +923,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1737308709
+    "modified": 1745947929
 }

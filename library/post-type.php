@@ -79,56 +79,6 @@ function cpt_snippet() {
     
 }
 add_action('init', 'cpt_snippet');
-
-
-
-// class notes cpt
-function cpt_classnotes() {
-    
-    register_post_type('class_notes', array (
-        'public'     => true,
-        'label'      => 'Class Notes',
-        'supports'   => ['title'],
-        'rewrite'    => ['slug' => 'class-notes', 'with_front' => false],
-        'menu_icon' => 'dashicons-welcome-learn-more'
-    ) );
-
-}
-add_action('init', 'cpt_classnotes');
-  
-
-
-/*
-* Class Notes Taxonomy
-* A custom taxonomy for the Class Notes Custom Post Type.
-*/
-function register_taxonomy_class_notes() {
-    $labels = array(
-        'name'              => _x( 'Categories', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Category', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Categories' ),
-        'all_items'         => __( 'All Categories' ),
-        'parent_item'       => __( 'Parent Category' ),
-        'parent_item_colon' => __( 'Parent Category:' ),
-        'edit_item'         => __( 'Edit Category' ),
-        'update_item'       => __( 'Update Category' ),
-        'add_new_item'      => __( 'Add New Category' ),
-        'new_item_name'     => __( 'New Category Name' ),
-        'menu_name'         => __( 'Categories' ),
-    );
-    $args   = array(
-        'hierarchical'      => true,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'has_archive'       => true,
-        'public'            => true,
-        'rewrite'           => ['slug' => 'class-notes-category', 'with_front' => false],
-    );
-    register_taxonomy( 'class_notes_category', [ 'class_notes' ], $args );
-}
-add_action( 'init', 'register_taxonomy_class_notes' );
   
 
 

@@ -100,7 +100,7 @@
 }
 
 
-.single-contact_card .people-listing, .container--narrow .people-listing  {
+.single-contact_card .people-listing, .container .people-listing  {
 	@include mq( 500px ) {
 		display: flex;
 		flex-wrap: wrap;
