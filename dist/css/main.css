@@ -3697,6 +3697,9 @@ label {
 #sidebar2.is-affixed {
   margin-top: 500px; }
 
+.program__video {
+  padding-top: 30px; }
+
 .search {
   max-width: 49rem;
   margin: 0 auto; }

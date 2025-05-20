@@ -4,6 +4,11 @@
 $mode = get_sub_field( 'mode' );
 $search = get_sub_field( 'search' );
 
+if ( empty( $mode ) ) :
+    $mode = get_field( 'mode' );
+    $search = get_field( 'search' );
+endif;
+
 $meta_query = array(
     'relation' => 'AND',
     'name_first' => array(
@@ -27,6 +32,7 @@ if ( $mode == 'filtered' ) {
 
     // if we're filtering by a category
     $group = get_sub_field( 'group' );
+    if ( empty( $group->slug ) ) $group = get_field( 'group' );
 
     // set up query args
     $args = array(
@@ -48,7 +54,8 @@ if ( $mode == 'filtered' ) {
     
     // otherwise, this is a curated list
     $cards = get_sub_field( 'cards' );
-    
+    if ( empty( $cards ) ) $cards = get_field( 'cards' );
+   
     // some empty variables before our custom loop
     $card_ids = array();
     $card_content = '';
@@ -84,8 +91,17 @@ if ( $mode == 'filtered' ) {
 // set up the query
 $card_query = new WP_Query( $args );
 
-$is_one_column = ( stristr( get_page_template(), 'one-column' ) ? true : false );
-if ( $is_one_column ): ?><div class="container"><?php endif;
+if ( is_singular( 'area' ) ): ?>
+<div class="background background--purple-gray">
+    <div class="container container--narrow">
+        <div class="panel__headline__details">
+            <h3><?php esc_html_e( 'Faculty', 'albion' ); ?></h3>
+        </div>
+    <?php
+else:
+    $is_one_column = ( stristr( get_page_template(), 'one-column' ) || stristr( get_page_template(), 'page' ) ? true : false );
+    if ( $is_one_column ): ?><div class="container"><?php endif;
+endif;
 
 ?>
 <section class="people">
@@ -133,7 +149,12 @@ endif;
 </section>
 
 <?php
-
-if ( $is_one_column ): ?></div><?php endif;
+if ( is_singular( 'area' ) ) :?>
+    </div>
+</div>
+    <?php
+else:
+    if ( $is_one_column ): ?></div><?php endif;
+endif;
 
 wp_reset_postdata();

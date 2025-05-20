@@ -25,20 +25,23 @@ Template Post Type: page
                     <?php endif; ?>
                     <?php get_template_part('modules/_program_overview'); ?>
                     <?php get_template_part('modules/_program_learning_objectives'); ?>
+                    <?php get_template_part('modules/_program_video') ?>
                 </div>
             </div>
         </div>
     </div>
 
+    <?php get_template_part('modules/_contact-list'); ?>
+
     <?php get_template_part('modules/_program_attributes'); ?>
+
+    <?php get_template_part('modules/_program_careers_outcomes'); ?>
 
     <?php get_template_part('modules/_program_highlights'); ?>
 
     <?php get_template_part('modules/_program_faculty_quotes'); ?>
 
     <?php get_template_part('modules/_program_feature'); ?>
-
-    <?php get_template_part('modules/_program_careers_outcomes'); ?>
 
     <?php get_template_part('modules/_program_by_the_numbers'); ?>
 
