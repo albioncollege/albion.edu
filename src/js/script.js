@@ -19,10 +19,12 @@ smoothscroll.polyfill();
 // modules
 import './modules/_accordion';
 import './modules/_button';
+import './modules/_classnotes';
 import './modules/_contacts';
 import './modules/_events';
 import './modules/_footer';
 import './modules/_header';
+import './modules/_lightbox';
 import './modules/_media';
 import './modules/_nav';
 import './modules/_sidebar';

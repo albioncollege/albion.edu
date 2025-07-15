@@ -17,11 +17,20 @@ if ( $current_yr != 0 ) {
 
 // if they've chosen a category
 if ( $current_cat ) {
-    $meta_query[] = array(
-		'key'   => '_p_alum_category', 
-		'value' => $current_cat,
-	);
+    $args['tax_query'] = array( array(
+		'taxonomy' => 'note_category', 
+		'terms' => $current_cat,
+		'field' => 'slug',
+		'include_children' => true,
+        'operator' => 'IN'
+	) );
 }
+
+// get all the categories
+$terms = get_terms([
+    'taxonomy' => 'note_category',
+    'hide_empty' => false,
+]);
 
 // if they've searched by name
 if ( $current_search != '' ) {
@@ -121,23 +130,29 @@ $alum_query = new WP_Query( $args );
 				<?php } ?>
 				<div class="alum-filter">
 					<form name="alum-filters" action="<?php print $_SERVER['REQUEST_URI']; ?>" method="get">
-						<label>Year:</label> <select name="y" class="alum-year">
-							<option value="0">- any -</option>
+						<select name="y" class="alum-year">
+							<option value="0">All Years</option>
 							<?php
-							global $years;
-							foreach ( $years as $yr ) {
+							$yr = 1950;
+							$yr_now = date( 'Y' );
+							while ( $yr < $yr_now ) {
 								print "<option value='" . $yr . "'" . ( $yr == $current_yr ? ' selected="selected"' : '' ) . ">" . $yr . "</option>";
+								$yr++;
 							}
 							?>
 						</select>
-						<label>Category:</label> <select name="c" class="alum-category">
-							<option value="0">- select category -</option>
-							<option value='class-letter'<?php print ( $current_cat === 'class-letter' ? ' selected="selected"' : '' ); ?>>Class Letter</option>
-							<option value='obituary'<?php print ( $current_cat === 'obituary' ? ' selected="selected"' : '' ); ?>>Obituary</option>
-							<option value='news'<?php print ( $current_cat === 'news' ? ' selected="selected"' : '' ); ?>>News</option>
-							<option value='sightings'<?php print ( $current_cat === 'sightings' ? ' selected="selected"' : '' ); ?>>Sightings</option>
+						<select name="c" class="alum-category">
+							<option value="0">All Categories</option>
+							<?php
+							foreach ( $terms as $term ) {
+								print $current_cat;
+								print $term->slug
+								?><option value='<?php print $term->slug ?>'<?php print ( $current_cat === $term->slug ? ' selected="selected"' : '' ); ?>><?php print $term->name ?></option><?php
+							}
+							?>
+							
 						</select>
-						<label>Name:</label> <input type="text" name="t" class="alum-search" value="<?php print $current_search; ?>" />
+						<input type="text" name="t" class="alum-search" placeholder="Search" value="<?php print $current_search; ?>" />
 						<input type="submit" value="Filter" />
 					</form>
 				</div>
@@ -166,7 +181,6 @@ $alum_query = new WP_Query( $args );
 						<?php if ( get_field( '_p_alum_year' ) > 0 ) { ?><div class="alum-year"><?php the_field( '_p_alum_year' ) ?></div><?php } ?>
 						<div class="alum-location"><?php the_field( '_p_alum_city' ); ?>, <?php the_field( '_p_alum_state' ) ?></div>
 					</div>
-					<div class="alum-category alum-category-<?php the_field( '_p_alum_category' ) ?>"><?php print ucwords( str_replace( '-', ' ', get_field( '_p_alum_category' ) ) ); ?></div>
 					<div class="alum-details mfp-hide" id="alum-<?php the_ID(); ?>">
 						<h3><?php the_title(); ?></h3>
 						<div class="details">

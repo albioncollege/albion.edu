@@ -1,12 +1,10 @@
 
 .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 	border-width: 2px;
-	min-height: 50px !important;    	
 }
 
 .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_left select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_right select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select, .column-filter-widget select {
 	border-width: 2px;
-	min-height: 50px !important;    
 }
 
 .gform_wrapper .button {
@@ -20,7 +18,6 @@
 input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
 	border-width: 2px;
 	margin-top: 8px;
-	min-height: 50px !important;    	
 }
 
 input[type=submit] {
@@ -30,7 +27,7 @@ input[type=submit] {
 label {
 	font-weight: 700;
     font-size: inherit;
-	display: inline-block;
+	display: inline-block; 
     line-height: 1.3;
     clear: both;
 }

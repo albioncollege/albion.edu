@@ -1972,12 +1972,10 @@ a .feature__card__title span {
   margin-top: 0; }
 
 .gform_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
-  border-width: 2px;
-  min-height: 50px !important; }
+  border-width: 2px; }
 
 .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_left select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield div.ginput_complex span.ginput_right select, .gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select, .column-filter-widget select {
-  border-width: 2px;
-  min-height: 50px !important; }
+  border-width: 2px; }
 
 .gform_wrapper .button, .gform_wrapper .button--gold, .gform_wrapper .tribe-events-cal-links .tribe-events-button, .tribe-events-cal-links .gform_wrapper .tribe-events-button, .gform_wrapper .single-tribe_events a.tribe-events-gcal, .single-tribe_events .gform_wrapper a.tribe-events-gcal,
 .gform_wrapper .single-tribe_events a.tribe-events-ical, .single-tribe_events .gform_wrapper a.tribe-events-ical, .gform_wrapper .header--subsite .header__topbar .header__topbar__link--cta, .header--subsite .header__topbar .gform_wrapper .header__topbar__link--cta {
@@ -1988,8 +1986,7 @@ a .feature__card__title span {
 
 input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
   border-width: 2px;
-  margin-top: 8px;
-  min-height: 50px !important; }
+  margin-top: 8px; }
 
 input[type=submit] {
   margin: 16px 0 0 0; }
@@ -3058,6 +3055,43 @@ label {
 
 .background.background--purple-gray + .background.background--purple-gray {
   padding-top: 0; }
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100vw;
+  height: 100vh; }
+  .lightbox.visible {
+    display: block; }
+  .lightbox .lightbox-shade {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15% 10%; }
+    .lightbox .lightbox-shade .lightbox-inner {
+      height: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      overflow: auto;
+      padding: 20px 30px;
+      position: relative; }
+      .lightbox .lightbox-shade .lightbox-inner .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer; }
+      .lightbox .lightbox-shade .lightbox-inner h3 {
+        margin: 0; }
+      @media (min-width: 48em) {
+        .lightbox .lightbox-shade .lightbox-inner .wp-post-image {
+          width: 50%;
+          float: right;
+          margin: 0 0 2em 2em; } }
 
 .link-carousel {
   margin-top: 2rem; }
@@ -5994,6 +6028,14 @@ table.gsc-search-box td {
   font-size: 1rem;
   border-bottom: 2px solid #4A8B91; }
 
+.alumni-inner {
+  padding: 20px;
+  max-width: 80rem;
+  margin: 0 auto; }
+  @media (min-width: 1024px) {
+    .alumni-inner {
+      padding: 20px 40px; } }
+
 @media (min-width: 1024px) {
   .class-header {
     display: flex;
@@ -6033,7 +6075,6 @@ table.gsc-search-box td {
       .class-information .reunion-photo {
         margin: 25px 0; } }
     .class-information .reunion-photo a {
-      color: #BE3A34;
       text-decoration: none; }
   .class-information .class-facebook {
     padding: 12px 0; }
@@ -6062,7 +6103,6 @@ table.gsc-search-box td {
       .class-information .class-memory-book {
         margin: 25px 0; } }
     .class-information .class-memory-book a {
-      color: #BE3A34;
       text-decoration: none; }
     .class-information .class-memory-book span {
       display: block;
@@ -6081,7 +6121,6 @@ table.gsc-search-box td {
       .class-information .class-green-list {
         margin: 25px 0; } }
     .class-information .class-green-list a {
-      color: #BE3A34;
       text-decoration: none; }
     .class-information .class-green-list span {
       display: block;
@@ -6101,8 +6140,8 @@ table.gsc-search-box td {
     margin-right: -3%; } }
 
 .alum-listing .alum {
-  border: 1px solid #888;
   background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   position: relative;
   margin-bottom: 10px; }
   @media (min-width: 400px) {
@@ -6111,57 +6150,36 @@ table.gsc-search-box td {
       flex-basis: 47%;
       float: left;
       flex-grow: 0;
-      margin: 0 3% 3% 0;
-      min-height: 450px; } }
+      margin: 0 3% 3% 0; } }
   @media (min-width: 768px) {
     .alum-listing .alum {
       flex-basis: 30.3333%; } }
   @media (min-width: 940px) {
     .alum-listing .alum {
       flex-basis: 22%; } }
-  @media (min-width: 1150px) {
-    .alum-listing .alum {
-      flex-basis: 17%; } }
   .alum-listing .alum .photo {
-    padding: 0 0 10px 0; }
+    padding: 0; }
     .alum-listing .alum .photo img {
-      width: 100%; }
+      width: 100%;
+      display: block; }
   .alum-listing .alum .info {
     font-size: .85em;
     line-height: 1.4em;
-    padding: 10px 10px 50px 10px; }
+    padding: 10px 20px 20px; }
     .alum-listing .alum .info h5 {
+      font-size: 1.4em;
       line-height: 1.4em;
       font-weight: 700;
-      color: #BE3A34;
+      margin: 5px 0;
       padding: 0; }
     .alum-listing .alum .info .quiet {
       padding: 6px 0; }
     .alum-listing .alum .info .alum-year {
-      float: left;
-      width: 48%;
-      padding-left: 20px;
-      position: relative;
-      margin: 5px 0 5px 2%; }
+      display: inline-block;
+      width: 48%; }
     .alum-listing .alum .info .alum-location {
-      float: left;
-      width: 48%;
-      padding-left: 20px;
-      position: relative;
-      margin: 5px 2% 5px 0; }
-  .alum-listing .alum .alum-category {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #a6a6a6;
-    color: #999;
-    padding: 10px 0 10px 35px;
-    font-weight: 700;
-    margin-top: 5px;
-    opacity: .7;
-    transition: opacity 400ms ease-in-out;
-    border-top: 1px solid #999; }
+      display: inline-block;
+      width: 48%; }
 
 .alum-details {
   position: relative;
@@ -6186,33 +6204,27 @@ table.gsc-search-box td {
   .alum-details .alum-year {
     float: left;
     width: 60%;
-    padding-left: 20px;
     position: relative;
     margin: 5px 0; }
     @media (min-width: 500px) {
       .alum-details .alum-year {
-        margin: 10px 0;
-        padding-left: 30px; } }
+        margin: 10px 0; } }
   .alum-details .alum-location {
     float: left;
     width: 60%;
-    padding-left: 20px;
     position: relative;
     margin: 5px 0; }
     @media (min-width: 500px) {
       .alum-details .alum-location {
-        margin: 10px 0;
-        padding-left: 30px; } }
+        margin: 10px 0; } }
   .alum-details .alum-category {
     float: left;
     width: 60%;
-    padding-left: 20px;
     position: relative;
     margin: 5px 0; }
     @media (min-width: 500px) {
       .alum-details .alum-category {
-        margin: 10px 0;
-        padding-left: 30px; } }
+        margin: 10px 0; } }
   .alum-details .details-content {
     clear: both;
     border-top: 1px solid #eee; }
@@ -6227,6 +6239,12 @@ table.gsc-search-box td {
   @media (min-width: 1024px) {
     .alum-filter {
       padding: 15px 30px; } }
+  .alum-filter form {
+    margin-top: 0;
+    scroll-margin-top: 0; }
+  .alum-filter label {
+    text-transform: uppercase;
+    letter-spacing: 1px; }
   .alum-filter input[type=text], .alum-filter select {
     font-size: 15px;
     line-height: 17px;
@@ -6236,20 +6254,22 @@ table.gsc-search-box td {
     margin: 0 0 10px; }
     @media (min-width: 1024px) {
       .alum-filter input[type=text], .alum-filter select {
-        display: inline;
-        margin: 0 20px 0 5px; } }
+        display: inline-block;
+        margin: 0 5px; } }
   .alum-filter input[type=text] {
-    padding: 12px 15px; }
+    padding: 12px 15px !important;
+    margin-top: 0 !important;
+    min-height: 0px !important; }
   .alum-filter input[type=submit] {
     font-size: 15px;
     line-height: 20px;
-    padding: 10px 15px; }
+    padding: 10px 15px;
+    margin: 0; }
 
 .year-more-details {
   display: none; }
 
 .class-title {
-  color: #BE3A34;
   font-weight: 700;
   opacity: 1; }
 

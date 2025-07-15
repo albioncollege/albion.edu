@@ -174,3 +174,34 @@ function custom_taxonomy_rewrite_rules( $wp_rewrite ) {
 add_action('generate_rewrite_rules', 'custom_taxonomy_rewrite_rules');
 
 
+
+add_filter('gform_pre_render', 'populate_select_fields');
+function populate_select_fields($form) {
+
+    // get the list of class note categories for the field
+    $terms = get_terms(array(
+        'taxonomy' => 'note_category',
+        'hide_empty' => false,
+    ));
+
+    // build an array for the field labels
+    $choices = array();
+    foreach ($terms as $term) {
+        $choices[] = array(
+            'text' => $term->name,
+            'value' => $term->term_id,
+        );
+    }
+
+    // find the field based on its CSS class (no need to target IDs)
+    foreach ($form['fields'] as &$field) {
+        if ($field->cssClass == 'class-notes-category' ) {
+            // Update choices for the select field
+            $field->choices = $choices;
+            break;
+        }
+    }
+
+    return $form;
+}
+
