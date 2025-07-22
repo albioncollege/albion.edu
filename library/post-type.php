@@ -184,6 +184,16 @@ function populate_select_fields($form) {
         'hide_empty' => false,
     ));
 
+    $years = array();
+    $yr = 2025;
+    while ( $yr >= 1944 ) {
+        $years[] = array(
+            'text' => $yr,
+            'value' => $yr,
+        );
+        $yr--;
+    }
+
     // build an array for the field labels
     $choices = array();
     foreach ($terms as $term) {
@@ -198,10 +208,14 @@ function populate_select_fields($form) {
         if ($field->cssClass == 'class-notes-category' ) {
             // Update choices for the select field
             $field->choices = $choices;
-            break;
+        }
+        if ($field->cssClass == 'class-notes-year' ) {
+            // Update choices for the select field
+            $field->choices = $years;
         }
     }
 
     return $form;
 }
+
 
