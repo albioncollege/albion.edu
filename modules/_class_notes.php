@@ -188,8 +188,6 @@ $alum_query = new WP_Query( $args );
 								<?php 
 								if ( has_post_thumbnail() ) {
 									the_post_thumbnail();
-								} else {
-									show_alum_category_image( get_field( '_p_alum_category' ) );
 								}
 								?>
 							</div>
