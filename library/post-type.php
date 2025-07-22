@@ -194,7 +194,7 @@ function populate_select_fields($form) {
     }
 
     // find the field based on its CSS class (no need to target IDs)
-    foreach ($form['fields'] as &$field) {
+    foreach ( $form['fields'] as &$field ) {
         if ($field->cssClass == 'class-notes-category' ) {
             // Update choices for the select field
             $field->choices = $choices;
@@ -220,7 +220,7 @@ function populate_year_select_fields($form) {
     }
 
     // find the field based on its CSS class (no need to target IDs)
-    foreach ($form['fields'] as &$field) {
+    foreach ( $form['fields'] as &$field ) {
         if ($field->cssClass == 'class-notes-year' ) {
             // Update choices for the select field
             $field->choices = $years;

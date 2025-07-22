@@ -133,7 +133,7 @@ $alum_query = new WP_Query( $args );
 						<select name="y" class="alum-year">
 							<option value="0">All Years</option>
 							<?php
-							$yr = 1950;
+							$yr = 1944;
 							$yr_now = date( 'Y' );
 							while ( $yr < $yr_now ) {
 								print "<option value='" . $yr . "'" . ( $yr == $current_yr ? ' selected="selected"' : '' ) . ">" . $yr . "</option>";
