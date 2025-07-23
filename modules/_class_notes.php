@@ -172,7 +172,13 @@ $alum_query = new WP_Query( $args );
 				<div class="alum">
 					<div class="photo">
 						<a href="#alum-<?php the_ID(); ?>" class="open-alum-link">
-							<?php the_post_thumbnail( 'thumbnail' );?>
+							<?php 
+							if ( has_post_thumbnail() ) {
+								the_post_thumbnail( 'thumbnail' );
+							} else {
+								?><img src="<?php bloginfo( 'template_url' ); ?>/img/placeholder-classnotes.png" /><?php
+							}
+							?>
 						</a>
 					</div>
 					<div class="info group">
