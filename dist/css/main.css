@@ -1012,7 +1012,7 @@ a {
     margin: 0; }
   .accordion__toggle:hover {
     color: #4B306A;
-    background-color: #fff; }
+    background-color: rgba(255, 200, 69, 0.7); }
   .accordion__toggle.active {
     color: #fff;
     background-color: #4B306A; }
@@ -1042,9 +1042,8 @@ a {
 
 .accordion__content {
   display: none;
-  padding: 2.5rem;
-  padding-top: 0;
-  background-color: #4B306A;
+  padding: 1.5rem 2.5rem 2.5rem;
+  background-color: rgba(75, 48, 106, 0.9);
   color: #fff; }
   .accordion__content > :first-child {
     margin-top: 0; }

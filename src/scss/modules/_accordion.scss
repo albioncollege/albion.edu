@@ -24,7 +24,7 @@
 
   &:hover {
     color: $purple;
-    background-color: $white;
+    background-color: rgba( $gold, .7 );
   }
 
   &.active {
@@ -71,9 +71,8 @@
   @include zero;
   @include clear;
   display: none;
-  padding: 2.5rem;
-  padding-top: 0;
-  background-color: $purple;
+  padding: 1.5rem 2.5rem 2.5rem;
+  background-color: rgba( $purple, .9 );
   color: $white;
 
   .active + & {
