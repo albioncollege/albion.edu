@@ -189,7 +189,7 @@ function populate_select_fields($form) {
     foreach ($terms as $term) {
         $choices[] = array(
             'text' => $term->name,
-            'value' => $term->term_id,
+            'value' => $term->slug,
         );
     }
 
