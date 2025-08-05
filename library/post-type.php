@@ -189,7 +189,7 @@ function populate_select_fields($form) {
     foreach ($terms as $term) {
         $choices[] = array(
             'text' => $term->name,
-            'value' => $term->slug,
+            'value' => $term->name,
         );
     }
 
@@ -204,6 +204,7 @@ function populate_select_fields($form) {
 
     return $form;
 }
+
 
 add_filter('gform_pre_render', 'populate_year_select_fields');
 function populate_year_select_fields($form) {
