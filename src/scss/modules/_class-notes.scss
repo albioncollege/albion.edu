@@ -299,7 +299,7 @@
   background-color: #eee;
   margin: 15px 0;
   font-size: 13px;
-  color: rgba( black, .4 );
+  color: rgba( black, .7 );
   font-weight: bold;
 
   @include mq( 1024px ) {
@@ -341,6 +341,7 @@
     line-height: 20px;
     padding: 10px 15px;
     margin: 0;
+    border: 1px solid $grey;
   }
 }
 

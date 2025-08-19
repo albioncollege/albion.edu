@@ -6233,7 +6233,7 @@ table.gsc-search-box td {
   background-color: #eee;
   margin: 15px 0;
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.7);
   font-weight: bold; }
   @media (min-width: 1024px) {
     .alum-filter {
@@ -6263,7 +6263,8 @@ table.gsc-search-box td {
     font-size: 15px;
     line-height: 20px;
     padding: 10px 15px;
-    margin: 0; }
+    margin: 0;
+    border: 1px solid #999; }
 
 .year-more-details {
   display: none; }
