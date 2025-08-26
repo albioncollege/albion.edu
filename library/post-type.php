@@ -151,7 +151,7 @@ add_filter( 'post_link', 'post_types_permalink', 10, 3 );
 /*
 * Rewrite rules for Post Types custom taxonomy.
 *
-* @param $wp_retwrite array Used to rewrite rules in .htacess file.
+* @param $wp_rewrite array Used to rewrite rules in .htacess file.
 */
 function custom_taxonomy_rewrite_rules( $wp_rewrite ) {
     $rules = array();
@@ -211,7 +211,7 @@ function populate_year_select_fields($form) {
 
     // years dropdowns.
     $years = array();
-    $yr = 2025;
+    $yr = date( 'Y' );
     while ( $yr >= 1944 ) {
         $years[] = array(
             'text' => $yr,

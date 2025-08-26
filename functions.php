@@ -28,6 +28,7 @@ function theme_settings() {
 	add_image_size('quote', 482, 468, true);
 	add_image_size('blockquote', 95, 95, true);
 	add_image_size('news', 900, 600, true);
+	add_image_size('class-notes', 600, 600, true);
 	add_image_size('routing', 687, 458, true);
 	add_image_size('highlights', 420, 276, true);
 	add_image_size('callout', 510, 389, true);

@@ -139,7 +139,7 @@ $alum_query = new WP_Query( $args );
 						<a href="#alum-<?php the_ID(); ?>" class="open-alum-link">
 							<?php 
 							if ( has_post_thumbnail() ) {
-								the_post_thumbnail( 'thumbnail' );
+								the_post_thumbnail( 'class-notes' );
 							} else {
 								?><img src="<?php bloginfo( 'template_url' ); ?>/img/placeholder-classnotes.png" /><?php
 							}
@@ -148,7 +148,6 @@ $alum_query = new WP_Query( $args );
 					</div>
 					<div class="info group">
 						<h5><?php the_title(); ?></h5>
-						<?php if ( get_field( 'submitter' ) ) { ?><div class="quiet">Submitted by: <?php the_field( 'submitter' ) ?></div><?php } ?>
 						<?php if ( get_field( 'year' ) > 0 ) { ?><div class="alum-year"><?php the_field( 'year' ) ?></div><?php } ?>
 						<div class="alum-location"><?php the_field( 'city' ); ?>, <?php the_field( 'state' ) ?></div>
 					</div>
@@ -158,7 +157,7 @@ $alum_query = new WP_Query( $args );
 							<div class="details-photo">
 								<?php 
 								if ( has_post_thumbnail() ) {
-									the_post_thumbnail();
+									the_post_thumbnail( 'class-notes' );
 								}
 								?>
 							</div>
