@@ -99,12 +99,12 @@ if ( is_singular( 'area' ) ): ?>
         </div>
     <?php
 else:
-    $is_one_column = ( stristr( get_page_template(), 'one-column' ) || stristr( get_page_template(), 'page' ) ? true : false );
-    if ( $is_one_column ): ?><div class="container"><?php endif;
+    $is_two_column = ( stristr( get_page_template(), '/page.php' ) || stristr( get_page_template(), 'right-sidebar' ) ? true : false );
+    if ( !$is_two_column ): ?><div class="container"><?php endif;
 endif;
 
 ?>
-<section class="people">
+<section class="people<?php print ( $is_two_column ? ' two-col' : '' ); ?>">
     <?php if ( $search ) : ?><div class="people-search"><input type="text" name="people-search-term" id="s" placeholder="Search Name, Academic Department, or Title"></div><?php endif; ?>
 <?php
 
@@ -154,7 +154,7 @@ if ( is_singular( 'area' ) ) :?>
 </div>
     <?php
 else:
-    if ( $is_one_column ): ?></div><?php endif;
+    if ( !$is_two_column ): ?></div><?php endif;
 endif;
 
 wp_reset_postdata();
