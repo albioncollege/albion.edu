@@ -29,10 +29,19 @@ function do_page_breadcrumbs() {
     }
 
     // insert parent page into breadcrumbs array
-    array_unshift( $breadcrumbs, array(
+    $home_crumb = array(
         'title' => 'Home',
         'link' => get_permalink( $home_id )
-    ) );
+    );
+    array_unshift( $breadcrumbs, $home_crumb );
+
+    if ( is_archive() || is_home() ) {
+        $breadcrumbs = array( $home_crumb );
+        $breadcrumbs[] = array(
+            'title' => 'News Archive',
+            'link' => get_permalink( $home_id )
+        );
+    }
 
     // loop through and print out the breadcrumbs
     $crumb_count = count( $breadcrumbs );

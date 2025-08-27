@@ -3525,6 +3525,79 @@ label {
   .action-news .single-tribe_events a.tribe-events-ical, .single-tribe_events .action-news a.tribe-events-ical, .action-news .header--subsite .header__topbar .header__topbar__link--cta, .header--subsite .header__topbar .action-news .header__topbar__link--cta {
     display: block; }
 
+.post-cards-container {
+  flex: 1; }
+  @media (min-width: 32em) {
+    .post-cards-container .post-cards-listing {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -3%; } }
+  @media (min-width: 64.0625em) {
+    .post-cards-container .post-cards-listing {
+      margin-right: -2%; } }
+  .post-cards-container .post-cards-listing .post-card {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    margin: 0 0 25px; }
+    @media (min-width: 32em) {
+      .post-cards-container .post-cards-listing .post-card {
+        flex: 0 0 47%;
+        margin: 0 3% 3% 0; } }
+    @media (min-width: 48em) {
+      .post-cards-container .post-cards-listing .post-card {
+        flex: 0 0 30%; } }
+    @media (min-width: 64.0625em) {
+      .post-cards-container .post-cards-listing .post-card {
+        flex: 0 0 23%;
+        margin: 0 2% 2% 0; } }
+    .post-cards-container .post-cards-listing .post-card .thumbnail img {
+      width: 100%; }
+    .post-cards-container .post-cards-listing .post-card .content {
+      padding: 15px 20px 25px; }
+      .post-cards-container .post-cards-listing .post-card .content .link a {
+        font-size: .95em;
+        font-weight: bold;
+        transition: all 400ms ease-in-out;
+        background-image: linear-gradient(white, white);
+        background-position: 0% 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 0.0625rem; }
+        .post-cards-container .post-cards-listing .post-card .content .link a:hover {
+          background-image: linear-gradient(#00747A, #00747A);
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          background-size: 100% 0.0625rem; }
+      .post-cards-container .post-cards-listing .post-card .content .teaser {
+        font-size: .9em; }
+        .post-cards-container .post-cards-listing .post-card .content .teaser p {
+          margin: 0;
+          padding: 0 0 15px 0; }
+
+.post-date {
+  font-style: italic;
+  opacity: .7;
+  padding: 5px 0;
+  font-size: .9em; }
+
+.pagination {
+  padding: 10px 50px 30px;
+  text-align: center;
+  display: block; }
+  .pagination .nav-links a, .pagination .nav-links .page-numbers {
+    display: inline-block;
+    padding: 6px 10px 8px;
+    text-decoration: none;
+    color: #444;
+    background: #ddd;
+    display: inline-block;
+    margin: 0; }
+    .pagination .nav-links a.current, .pagination .nav-links .page-numbers.current {
+      background: #4B306A;
+      color: white; }
+    .pagination .nav-links a.dots, .pagination .nav-links .page-numbers.dots {
+      background: none; }
+    .pagination .nav-links a:hover, .pagination .nav-links .page-numbers:hover {
+      border: 0; }
+
 @media (min-width: 64.0625em) {
   .panel {
     display: flex; } }

@@ -183,3 +183,113 @@
     display: block;
   }
 }
+
+
+.post-cards-container {
+  flex: 1;
+
+  .post-cards-listing {
+    @include mq( $sm ) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -3%;
+    }
+
+    @include mq( $lg ) {
+      margin-right: -2%;
+    }
+
+    .post-card {
+      box-shadow: 0 0 25px rgba( black, .3 );
+      margin: 0 0 25px;
+      
+      @include mq( $sm ) {
+        flex: 0 0 47%;
+        margin: 0 3% 3% 0;
+      }
+
+      @include mq( $md ) {
+        flex: 0 0 30%;
+      }
+
+      @include mq( $lg ) {
+        flex: 0 0 23%;
+        margin: 0 2% 2% 0;
+      }
+      
+      .thumbnail {
+        img {
+          width: 100%;
+        }
+      }
+
+      .content {
+        padding: 15px 20px 25px;
+
+        .link {
+          a {
+            font-size: .95em;
+            font-weight: bold;
+            transition: all 400ms ease-in-out;
+            @include underline( white );
+
+            &:hover {
+              @include underline( $teal );
+            }
+          }
+        }
+
+        .teaser {
+          font-size: .9em;
+
+          p {
+            margin: 0;
+            padding: 0 0 15px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+        
+.post-date {
+  font-style: italic;
+  opacity: .7;
+  padding: 5px 0;
+  font-size: .9em;
+}
+
+
+
+.pagination {
+	padding: 10px 50px 30px;
+	text-align: center;
+	display: block;
+  
+  .nav-links {
+    a, .page-numbers {
+      display: inline-block;
+      padding: 6px 10px 8px;
+      text-decoration: none;
+      color: #444;
+      background: #ddd;
+      display: inline-block;
+      margin: 0;
+
+      &.current {
+        background: $purple;
+        color: white;
+      }
+
+      &.dots {
+        background: none;
+      }
+
+      &:hover {
+        border: 0;
+      }
+    }
+  }
+}
+

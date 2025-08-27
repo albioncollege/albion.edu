@@ -2,9 +2,6 @@
 <main class="page" id="main-content">
 	<div class="hero">
 		<div class="hero__container container--purple">
-	    <!-- REGION: Breadcrumb -->
-	      <?php get_template_part('modules/_breadcrumbs'); ?>
-	    <!-- /REGION: Breadcrumb -->
 			<h1 class="hero__title"><?php the_title(); ?></h1>
 		</div>
 	</div>
@@ -52,14 +49,14 @@
 
 				// get the post category ids
 				$category_ids = wp_get_post_categories( get_the_ID() );
-				
+
 				// if we have related page ids
 				if ( !empty( $category_ids ) ) {
 					
 					// query for all the related programs
 					$related_posts_query = new WP_Query( array( 
 						'post_type' => 'post', 
-						'cat_in' => $category_ids,
+						'cat' => $category_ids,
 						'post__not_in' => array( get_the_ID() ),
 						'posts_per_page' => 4
 					));
@@ -115,7 +112,7 @@
 					$post_type = get_field( 'post_type' );
 					?>
 				<?php if(get_the_date('F j, Y') && ($post_type=='news' || $post_type=='announcement' || $post_type=='britons')) : ?>
-		          <p><?php the_date('F j, Y'); ?></p>
+		          <p class="post-date"><?php the_date('F j, Y'); ?></p>
 		        <?php endif; ?>
 				<?php if ( post_password_required() ) :
 					echo get_the_password_form();
