@@ -84,7 +84,7 @@
 					}
 				}
 
-				if ( has_nav_menu( 'action_news' ) ) { ?>
+				if ( has_nav_menu( 'action_news' ) && !in_category( 'today' ) ) { ?>
 				<div class="related-posts">
 					<h4>Connect With Us</h4>
 					<?php
@@ -104,10 +104,17 @@
 			</div>
 
 			<div class="main__side">
-				<?php $lede = get_field('lede'); ?>
-				<?php if( $lede ) : ?>
+				<?php
+				$lede = get_field('lede'); 
+				if( $lede ) : ?>
 					<p class="text-intro"><?php echo $lede; ?></p>
-				<?php endif; ?>
+					<?php 
+				endif; ?>
+				<?php 
+				$teaser = get_field('teaser'); 
+				if( $teaser && in_category( 'today' ) ) :
+					echo apply_filters( 'the_content', $teaser );
+				endif; ?>
 				<?php 
 					$post_type = get_field( 'post_type' );
 					?>
