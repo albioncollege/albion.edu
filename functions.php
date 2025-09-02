@@ -56,7 +56,7 @@ add_action('wp_enqueue_scripts', 'theme_css');
 
 // theme js
 function theme_js() {
-	wp_enqueue_script('theme-scripts', get_theme_file_uri('/dist/js/main.js?v=6'), [], null, true );
+	wp_enqueue_script('theme-scripts', get_theme_file_uri('/dist/js/main.js?v=7'), [], null, true );
 }
 add_action('wp_enqueue_scripts', 'theme_js');
 
