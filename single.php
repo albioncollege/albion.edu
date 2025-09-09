@@ -9,7 +9,23 @@
 		<div class="main__inner right_sidebar">
 			<div id="sidebar" class="sidebar sidebar--header">
 
-				<?php 
+				<?php
+				if ( in_category( 'today' ) ) :
+					$event_start = get_field( 'event_start_time' );
+					$event_end = get_field( 'event_end_time');
+					$event_link = get_field( 'event_link' );
+					if ( !empty( $event_start ) ) : ?>
+					<div class="additional-info">
+						<h4>More Details</h4>
+						<p>Start Time: <?php print $event_start ?></p>
+						<?php if ( !empty( $event_end ) ) : ?><p>End Time: <?php print $event_end ?></p><?php endif ?>
+						<?php if ( !empty( $event_link ) ) : ?>
+							<p>Click below to get more information about this event.</p>
+							<p><a href="<?php print $event_link; ?>" class="button">Event Info &raquo;</a></p>
+						<?php endif ?>
+					</div>
+					<?php endif;
+				endif;
 				
 				$related = get_related_programs( get_the_ID() );
 
