@@ -86,16 +86,20 @@ $archive_query = new WP_Query( $args );
 				<div class="post-cards-listing">
 				<?php while ( $archive_query->have_posts() ) : $archive_query->the_post(); 
 					$external_link = get_field( "external_link", get_the_id());
+					$teaser = get_field( 'teaser' );
 					?>
 					<div class="post-card">
 						<?php if ( has_post_thumbnail() ) : ?>
-							<div class="thumbnail <?php echo ($teaser) ? 'teaser-present' : ''; ?>">
+							<div class="thumbnail <?php echo ( $teaser ) ? 'teaser-present' : ''; ?>">
 								<a href="<?php echo ( $external_link ? $external_link : get_the_permalink() ); ?>"><img src="<?php the_post_thumbnail_url( 'class-notes' ); ?>"/></a>
 							</div>
 						<?php endif; ?>
 						<div class="content">
 							<div class="link">
 								<a href="<?php echo ( $external_link ? $external_link : get_the_permalink() ); ?>"><?php the_title(); ?></a>
+							</div>
+							<div class="teaser">
+								<?php if ( is_category( 'today' ) ) { print wp_trim_words( $teaser, 20 ) ; } ?>
 							</div>
 						</div>
 					</div>
