@@ -5,6 +5,7 @@
 include( 'library/post-type.php' );
 include( 'library/modules.php' );
 include( 'library/breadcrumbs.php' );
+include( 'library/today.php' );
 
 
 // theme settings
