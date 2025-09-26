@@ -146,6 +146,11 @@
 						<?php endwhile; ?>
 					<?php endwhile; endif; wp_reset_postdata(); ?>
 				<?php endif; ?>
+				<?php if ( $post_type=='news' ) { ?>
+				<div class="post-categories quiet">
+					Posted <?php the_date(); ?> in <?php print get_the_category_list( ", ", "", get_the_ID() ); ?>.
+				</div>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

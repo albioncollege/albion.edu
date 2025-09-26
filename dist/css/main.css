@@ -507,6 +507,11 @@ h6, .h6 {
   background: #00747A;
   color: #fff; }
 
+.quiet {
+  font-size: .9em;
+  opacity: .8;
+  font-style: italic; }
+
 body {
   color: #262626;
   font-family: "trade-gothic-next", sans-serif;
