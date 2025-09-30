@@ -7,6 +7,42 @@
 	</div>
 	<div class="main">
 		<div class="main__inner right_sidebar">
+
+			<div class="main__side">
+				<?php
+				$lede = get_field('lede'); 
+				if( $lede ) : ?>
+					<p class="text-intro"><?php echo $lede; ?></p>
+					<?php 
+				endif; ?>
+				<?php 
+				$teaser = get_field('teaser'); 
+				if( $teaser && in_category( 'today' ) ) :
+					echo apply_filters( 'the_content', $teaser );
+				endif; ?>
+				<?php 
+					$post_type = get_field( 'post_type' );
+					?>
+				<?php if(get_the_date('F j, Y') && ($post_type=='news' || $post_type=='announcement' || $post_type=='britons')) : ?>
+		          <p class="post-date"><?php the_date('F j, Y'); ?></p>
+		        <?php endif; ?>
+				<?php if ( post_password_required() ) :
+					echo get_the_password_form();
+				elseif( ! post_password_required() ) : ?>
+					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php while (have_rows('main_column_modules')) : the_row(); ?>
+							<?php get_template_part('modules/_' . get_row_layout()); ?>
+						<?php endwhile; ?>
+					<?php endwhile; endif; wp_reset_postdata(); ?>
+				<?php endif; ?>
+				<?php if ( $post_type=='news' ) { ?>
+				<div class="post-categories quiet">
+					Posted <?php the_date(); ?> in <?php print get_the_category_list( ", ", "", get_the_ID() ); ?>.
+				</div>
+				<?php } ?>
+			</div>
+
+
 			<div id="sidebar" class="sidebar sidebar--header">
 
 				<?php
@@ -117,40 +153,6 @@
 				}
 
 				?>
-			</div>
-
-			<div class="main__side">
-				<?php
-				$lede = get_field('lede'); 
-				if( $lede ) : ?>
-					<p class="text-intro"><?php echo $lede; ?></p>
-					<?php 
-				endif; ?>
-				<?php 
-				$teaser = get_field('teaser'); 
-				if( $teaser && in_category( 'today' ) ) :
-					echo apply_filters( 'the_content', $teaser );
-				endif; ?>
-				<?php 
-					$post_type = get_field( 'post_type' );
-					?>
-				<?php if(get_the_date('F j, Y') && ($post_type=='news' || $post_type=='announcement' || $post_type=='britons')) : ?>
-		          <p class="post-date"><?php the_date('F j, Y'); ?></p>
-		        <?php endif; ?>
-				<?php if ( post_password_required() ) :
-					echo get_the_password_form();
-				elseif( ! post_password_required() ) : ?>
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-						<?php while (have_rows('main_column_modules')) : the_row(); ?>
-							<?php get_template_part('modules/_' . get_row_layout()); ?>
-						<?php endwhile; ?>
-					<?php endwhile; endif; wp_reset_postdata(); ?>
-				<?php endif; ?>
-				<?php if ( $post_type=='news' ) { ?>
-				<div class="post-categories quiet">
-					Posted <?php the_date(); ?> in <?php print get_the_category_list( ", ", "", get_the_ID() ); ?>.
-				</div>
-				<?php } ?>
 			</div>
 		</div>
 	</div>

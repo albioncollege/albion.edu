@@ -23,10 +23,12 @@
 }
 
 .main__inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 2rem 0;
+  @include mq( $md ) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 0;
+  }
 
   @include mq($lg) {
     margin: 4rem 0;
@@ -39,18 +41,22 @@
   }
   
   &.right_sidebar {
-    flex-direction: row-reverse;
 
-    .main__side, .sidebar {
-      float: none;
-      clear: none;
-      flex: 1;
+    @include mq( $md ) {
+      flex-direction: row-reverse;
+
+      .main__side, .sidebar {
+        float: none;
+        clear: none;
+        flex: 1;
+      }
+
+      .sidebar {
+        flex-basis: 19rem;
+        margin-left: 5rem;
+      }
     }
 
-    .sidebar {
-      flex-basis: 19rem;
-      margin-left: 5rem;
-    }
 
     .main__side {
       
