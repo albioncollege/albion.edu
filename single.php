@@ -2,6 +2,7 @@
 <main class="page" id="main-content">
 	<div class="hero">
 		<div class="hero__container container--purple">
+			<?php if ( in_category( 'today' ) ) : ?><nav class="breadcrumb" aria-label="Page Breadcrumb"><a href="/category/today">&laquo; Back to Albion Today</a></nav><?php endif; ?>
 			<h1 class="hero__title"><?php the_title(); ?></h1>
 		</div>
 	</div>
