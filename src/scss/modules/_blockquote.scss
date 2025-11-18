@@ -110,7 +110,8 @@ blockquote {
 .blockquote__author__photo {
   margin: 0 1.625rem 1.625rem 0;
   img {
-    border-radius: 95px;
+    border-radius: 50%;
+    max-width: 125px;
   }
 }
 

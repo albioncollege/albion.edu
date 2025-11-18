@@ -11,7 +11,7 @@ $quotes = get_sub_field( 'quote' );
 if( $quotes ): 
     $quote         = get_field( 'quote', $quotes->ID );
     $quote_image   = get_field( 'image', $quotes->ID );
-    $size          = 'blockquote';
+    $size          = 'thumbnail';
     $attribution_1 = get_field( 'attribution', $quotes->ID );
     $attribution_2 = get_field( 'attribution2', $quotes->ID ); ?>
     <blockquote>
