@@ -1,2 +1,7 @@
 <?php // Silence is golden.
-include( 'archive.php' );
+if ( is_search() ) :
+    print 'search';
+    include( 'search.php' );
+else:
+    include( 'archive.php' );
+endif;

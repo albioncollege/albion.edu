@@ -179,10 +179,10 @@
                     <div class="header__main">
                         <div class="search" id="main-search">
                             <button class="header__link toggle-search" aria-label="Close Search" aria-expanded="false">Close</button>
-                            <form class="search__container" method="get" action="<?php echo home_url('/search/'); ?>">
+                            <form class="search__container" method="get" action="/">
                                 <div class="search__input__container">
                                     <label for="site-search" class="screen-reader-text">Search</label>
-                                    <input id="site-search" type="search" name="q" class="search__input"
+                                    <input id="site-search" type="search" name="s" class="search__input"
                                         placeholder="Search Albion">
                                     <button type="submit" class="button">SEARCH</button>
                                 </div>

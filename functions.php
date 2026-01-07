@@ -6,7 +6,7 @@ include( 'library/post-type.php' );
 include( 'library/modules.php' );
 include( 'library/breadcrumbs.php' );
 include( 'library/today.php' );
-
+include( 'library/search.php' );
 
 // theme settings
 function theme_settings() {

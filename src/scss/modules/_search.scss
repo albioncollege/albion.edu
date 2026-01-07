@@ -1,4 +1,4 @@
-.search {
+.header__container .search {
   max-width: 49rem;
   margin: 0 auto;
 }
@@ -202,3 +202,150 @@ table.gsc-search-box td {
   margin-bottom: 3rem;
 }
 
+
+
+.search-list {
+	.searchform {
+    padding: 20px 0;
+
+		label {
+			display: block;
+			padding: 3px 0;
+
+			@include mq( 768px ) {
+				display: inline-block;
+				padding: 0;
+				margin: 0 5px;
+
+        &:first-child {
+          margin: 0;
+        }
+			}
+		}
+
+		input[type=submit] {
+			margin: 5px 0 0;
+
+			@include mq( 768px ) {
+				margin: 0 0 0 10px;
+			}
+		}
+	}
+
+	.entries {
+		margin: 20px 0 0 0;
+
+		@include mq( 1024px ) {
+			display: flex;
+			flex-wrap: wrap;
+			margin-right: -3%;
+		}
+	}
+
+  .total-results {
+    opacity: .5;
+  }
+
+  $grey-light: #eee;
+
+	.entry {
+		border: 3px solid $grey-light;
+		padding: 20px;
+		margin-bottom: 20px;
+		position: relative;
+
+		@include mq( 1024px ) {
+			flex: 0 0 47%;
+			margin: 0 3% 3% 0;
+		}
+
+		@include mq( 1220px ) {
+			flex-basis: 30.3333%;
+			margin: 0 3% 3% 0;
+		}
+
+		@include mq( 1440px ) {
+			flex-basis: 22%;
+			margin: 0 3% 3% 0;
+		}
+
+		&:before {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			background: $grey-light;
+			padding: 6px 12px;
+			font-size: .8em;
+			line-height: 1em;
+			opacity: .8;
+		}
+
+		&.post:before {
+			content: 'ARTICLE';
+		}
+
+		&.page:before {
+			content: 'PAGE';
+		}
+
+		&.event:before {
+			content: 'EVENT';
+		}
+
+		&.people:before {
+			content: 'PERSON';
+		}
+
+		&.guide:before {
+			content: 'RESEARCH GUIDE';
+		}
+	}
+
+  .excerpt {
+    font-size: .85em;
+    overflow-wrap: break-word;
+
+    & * {
+      overflow-wrap: break-word;
+    }
+  }
+
+	.post-category {
+		display: inline-block;
+		background: $grey-light;
+		padding: 5px 8px;
+		font-size: .9em;
+	}
+}
+
+
+
+.paginate {
+	padding: 10px 50px 30px;
+	text-align: center;
+	display: block;
+
+	ul {
+
+		li {
+			display: inline-block;
+
+			.page-numbers {
+				padding: 10px 10px;
+				text-decoration: none;
+				color: white;
+				background: #eeeeee;
+				display: inline-block;
+				margin: 0 4px;
+
+				&.current {
+					background: $red;
+				}
+
+				&:hover {
+					border: 0;
+				}
+			}
+		}
+	}
+}

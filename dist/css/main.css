@@ -3811,7 +3811,7 @@ label {
 .program__video {
   padding-top: 30px; }
 
-.search {
+.header__container .search {
   max-width: 49rem;
   margin: 0 auto; }
 
@@ -3978,6 +3978,102 @@ table.gsc-search-box td {
 
 .gsc-wrapper {
   margin-bottom: 3rem; }
+
+.search-list .searchform {
+  padding: 20px 0; }
+  .search-list .searchform label {
+    display: block;
+    padding: 3px 0; }
+    @media (min-width: 768px) {
+      .search-list .searchform label {
+        display: inline-block;
+        padding: 0;
+        margin: 0 5px; }
+        .search-list .searchform label:first-child {
+          margin: 0; } }
+  .search-list .searchform input[type=submit] {
+    margin: 5px 0 0; }
+    @media (min-width: 768px) {
+      .search-list .searchform input[type=submit] {
+        margin: 0 0 0 10px; } }
+
+.search-list .entries {
+  margin: 20px 0 0 0; }
+  @media (min-width: 1024px) {
+    .search-list .entries {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -3%; } }
+
+.search-list .total-results {
+  opacity: .5; }
+
+.search-list .entry {
+  border: 3px solid #eee;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative; }
+  @media (min-width: 1024px) {
+    .search-list .entry {
+      flex: 0 0 47%;
+      margin: 0 3% 3% 0; } }
+  @media (min-width: 1220px) {
+    .search-list .entry {
+      flex-basis: 30.3333%;
+      margin: 0 3% 3% 0; } }
+  @media (min-width: 1440px) {
+    .search-list .entry {
+      flex-basis: 22%;
+      margin: 0 3% 3% 0; } }
+  .search-list .entry:before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #eee;
+    padding: 6px 12px;
+    font-size: .8em;
+    line-height: 1em;
+    opacity: .8; }
+  .search-list .entry.post:before {
+    content: 'ARTICLE'; }
+  .search-list .entry.page:before {
+    content: 'PAGE'; }
+  .search-list .entry.event:before {
+    content: 'EVENT'; }
+  .search-list .entry.people:before {
+    content: 'PERSON'; }
+  .search-list .entry.guide:before {
+    content: 'RESEARCH GUIDE'; }
+
+.search-list .excerpt {
+  font-size: .85em;
+  word-wrap: break-word; }
+  .search-list .excerpt * {
+    word-wrap: break-word; }
+
+.search-list .post-category {
+  display: inline-block;
+  background: #eee;
+  padding: 5px 8px;
+  font-size: .9em; }
+
+.paginate {
+  padding: 10px 50px 30px;
+  text-align: center;
+  display: block; }
+  .paginate ul li {
+    display: inline-block; }
+    .paginate ul li .page-numbers {
+      padding: 10px 10px;
+      text-decoration: none;
+      color: white;
+      background: #eeeeee;
+      display: inline-block;
+      margin: 0 4px; }
+      .paginate ul li .page-numbers.current {
+        background: #BE3A34; }
+      .paginate ul li .page-numbers:hover {
+        border: 0; }
 
 .showcase-container {
   position: relative;
