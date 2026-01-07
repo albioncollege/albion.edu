@@ -203,6 +203,7 @@ table.gsc-search-box td {
 }
 
 
+$grey-light: #eee;
 
 .search-list {
 	.searchform {
@@ -245,8 +246,6 @@ table.gsc-search-box td {
   .total-results {
     opacity: .5;
   }
-
-  $grey-light: #eee;
 
 	.entry {
 		border: 3px solid $grey-light;
@@ -325,27 +324,22 @@ table.gsc-search-box td {
 	text-align: center;
 	display: block;
 
-	ul {
+  .page-numbers {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: black;
+    background: $grey-light;
+    display: inline-block;
+    margin: 0 4px;
+    @include underline( '#ffffff' );
 
-		li {
-			display: inline-block;
+    &.current {
+      background: $purple;
+      color: white;
+    }
 
-			.page-numbers {
-				padding: 10px 10px;
-				text-decoration: none;
-				color: white;
-				background: #eeeeee;
-				display: inline-block;
-				margin: 0 4px;
-
-				&.current {
-					background: $red;
-				}
-
-				&:hover {
-					border: 0;
-				}
-			}
-		}
-	}
+    &:hover {
+      border: 0;
+    }
+  }
 }

@@ -65,11 +65,9 @@ if ( $paged > 0 ) {
         </div>
     </div>
 </div><!-- #content -->
-<div class="pagination">
-    <?php paginate(); ?>
-</div>
-<?php 
+<?php
 
+paginate();
 
 get_footer();
 

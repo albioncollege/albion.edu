@@ -4061,19 +4061,22 @@ table.gsc-search-box td {
   padding: 10px 50px 30px;
   text-align: center;
   display: block; }
-  .paginate ul li {
-    display: inline-block; }
-    .paginate ul li .page-numbers {
-      padding: 10px 10px;
-      text-decoration: none;
-      color: white;
-      background: #eeeeee;
-      display: inline-block;
-      margin: 0 4px; }
-      .paginate ul li .page-numbers.current {
-        background: #BE3A34; }
-      .paginate ul li .page-numbers:hover {
-        border: 0; }
+  .paginate .page-numbers {
+    padding: 10px 10px;
+    text-decoration: none;
+    color: black;
+    background: #eee;
+    display: inline-block;
+    margin: 0 4px;
+    background-image: linear-gradient("#ffffff", "#ffffff");
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 0.0625rem; }
+    .paginate .page-numbers.current {
+      background: #4B306A;
+      color: white; }
+    .paginate .page-numbers:hover {
+      border: 0; }
 
 .showcase-container {
   position: relative;

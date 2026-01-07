@@ -36,7 +36,7 @@ function paginate( $prev = '&laquo;', $next = '&raquo;' ) {
 
     if ( !empty($wp_query->query_vars['s']) ) $pagination['add_args'] = array( 's' => get_query_var( 's' ) );
 
-    print paginate_links( $pagination );
+    print '<div class="paginate">' . paginate_links( $pagination ) . '</div>';
 }
 
 
