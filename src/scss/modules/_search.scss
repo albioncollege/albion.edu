@@ -287,11 +287,15 @@ $grey-light: #eee;
 			content: 'PAGE';
 		}
 
-		&.event:before {
+		&.event:before, &.tribe_events:before {
 			content: 'EVENT';
 		}
 
-		&.people:before {
+		&.area:before {
+			content: 'AREA OF STUDY';
+		}
+
+		&.people:before, &.contact_card:before {
 			content: 'PERSON';
 		}
 

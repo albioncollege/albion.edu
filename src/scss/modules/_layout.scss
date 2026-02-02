@@ -81,6 +81,7 @@
 .sidebar {
   @include zero;
   width: 100%;
+  padding: 20px 0;
 
   .post & {
     margin-top: 2rem;

@@ -1421,7 +1421,7 @@ blockquote {
 .scroll-top {
   display: none;
   position: fixed;
-  bottom: 1rem;
+  bottom: 4.5rem;
   right: 1rem;
   background-image: none;
   color: #fff;
@@ -2969,7 +2969,8 @@ label {
 
 .main__side,
 .sidebar {
-  width: 100%; }
+  width: 100%;
+  padding: 20px 0; }
   .main__side > :first-child,
   .sidebar > :first-child {
     margin-top: 0; }
@@ -4038,9 +4039,11 @@ table.gsc-search-box td {
     content: 'ARTICLE'; }
   .search-list .entry.page:before {
     content: 'PAGE'; }
-  .search-list .entry.event:before {
+  .search-list .entry.event:before, .search-list .entry.tribe_events:before {
     content: 'EVENT'; }
-  .search-list .entry.people:before {
+  .search-list .entry.area:before {
+    content: 'AREA OF STUDY'; }
+  .search-list .entry.people:before, .search-list .entry.contact_card:before {
     content: 'PERSON'; }
   .search-list .entry.guide:before {
     content: 'RESEARCH GUIDE'; }
@@ -4832,6 +4835,20 @@ table.gsc-search-box td {
       margin: 0 auto;
       z-index: 1; } }
 
+@media only screen and (max-width: 1024px) {
+  .sidebar .subnav, .subnav__landing .subnav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-height: 100%;
+    overflow: auto; }
+    .sidebar .subnav .subnav__toggle:before, .subnav__landing .subnav .subnav__toggle:before {
+      transform: rotate(180deg) translateY(80%); }
+    .sidebar .subnav.open .subnav__toggle:before, .subnav__landing .subnav.open .subnav__toggle:before {
+      transform: rotate(0) translateY(-10%); } }
+
 .table {
   margin: 2rem 0;
   overflow: auto; }
@@ -5312,6 +5329,20 @@ table.gsc-search-box td {
       top: -2.5rem;
       margin: 0 auto;
       z-index: 1; } }
+
+@media only screen and (max-width: 1024px) {
+  .sidebar .subnav, .subnav__landing .subnav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-height: 100%;
+    overflow: auto; }
+    .sidebar .subnav .subnav__toggle:before, .subnav__landing .subnav .subnav__toggle:before {
+      transform: rotate(180deg) translateY(80%); }
+    .sidebar .subnav.open .subnav__toggle:before, .subnav__landing .subnav.open .subnav__toggle:before {
+      transform: rotate(0) translateY(-10%); } }
 
 .testimonial-slider {
   background-color: #4B306A;

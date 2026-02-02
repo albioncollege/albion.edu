@@ -324,3 +324,27 @@
 		z-index: 1;
 	}
 }
+
+
+.sidebar, .subnav__landing {
+	@media only screen and (max-width: 1024px) {
+		.subnav {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1000;
+			max-height: 100%;
+			overflow: auto;
+
+			.subnav__toggle:before {
+				transform: rotate( 180deg ) translateY(80%);
+			}
+			
+			&.open .subnav__toggle:before {
+				transform: rotate( 0 ) translateY(-10%);
+			}
+		}
+	}
+}
+

@@ -3,9 +3,10 @@
 Template Name: Two-Column (Default)
 Template Post Type: page
 */
-?>
 
-<?php get_header(); ?>
+get_header(); 
+
+?>
 <main class="page" id="main-content">
 	<div class="hero">
 		<div class="hero__container container--purple">
@@ -23,17 +24,6 @@ Template Post Type: page
 	</div>
 	<div class="main">
 		<div class="main__inner">
-			<div class="main__side">
-				<?php if ( post_password_required() ) :
-					echo get_the_password_form();
-				elseif( ! post_password_required() ) : ?>
-					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-						<?php while (have_rows('main_column_modules')) : the_row(); ?>
-							<?php get_template_part('modules/_' . get_row_layout()); ?>
-						<?php endwhile; ?>
-					<?php endwhile; endif; wp_reset_postdata(); ?>
-				<?php endif; ?>
-			</div>
 			<!-- REGION: Sidebar Navigation -->
 			<div id="sidebar" class="sidebar sidebar--header">
 			    <!-- whatever goes into this container will go to the top at mobile -->
@@ -52,17 +42,31 @@ Template Post Type: page
 					<?php endwhile; endif; wp_reset_postdata(); ?>
 				</div>
 			</div>
-			<!-- whatever goes into this container will go to the bottom at mobile -->
-			<div class="sidebar mobile-only">
-				<div class="subnav__extra">
+			<!-- whatever goes into this container will go to the bottom at mobile-->
+			<?php if (have_posts()) : ?>
+				<div class="sidebar mobile-only">
+					<div class="subnav__extra">
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php while ( have_rows('sidebar_column_modules') ) : the_row(); ?>
+							<?php get_template_part( 'modules/_' . get_row_layout() ); ?>
+						<?php endwhile; ?>
+					<?php endwhile; ?>
+				</div>
+			</div>
+			<?php endif; wp_reset_postdata(); ?>
+			 
+			<!-- /REGION: Sidebar Navigation -->
+			<div class="main__side">
+				<?php if ( post_password_required() ) :
+					echo get_the_password_form();
+				elseif( ! post_password_required() ) : ?>
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-						<?php while (have_rows('sidebar_column_modules')) : the_row(); ?>
+						<?php while (have_rows('main_column_modules')) : the_row(); ?>
 							<?php get_template_part('modules/_' . get_row_layout()); ?>
 						<?php endwhile; ?>
 					<?php endwhile; endif; wp_reset_postdata(); ?>
-				</div>
+				<?php endif; ?>
 			</div>
-			<!-- /REGION: Sidebar Navigation -->
 		</div>
 	</div>
 </main>

@@ -5,10 +5,10 @@ function albion_search_query( $query ) {
     if ( $query->is_search() && ! is_admin() ) {
         
         // take post type checkboxes into account
-        $query->set( 'post_type', ( isset( $_REQUEST['post_type'] ) ? $_REQUEST['post_type'] : array( 'post', 'page', 'event', 'people' ) ) );
+        //$query->set( 'post_type', ( isset( $_REQUEST['post_type'] ) ? $_REQUEST['post_type'] : array( 'post', 'page', 'area', 'event', 'people' ) ) );
 
         // change number of results per page
-        $query->set( 'posts_per_page', 40 );
+        //$query->set( 'posts_per_page', 40 );
         
     }
     return $query;
