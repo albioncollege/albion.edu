@@ -4203,12 +4203,29 @@ table.gsc-search-box td {
         .showcase-container .controls-container .controls a.next {
           background: url(../../img/slide-arrow.png) center center no-repeat;
           background-size: contain;
-          border-radius: 0; }
+          border-radius: 0;
+          display: none; }
         .showcase-container .controls-container .controls a.prev {
           background: url(../../img/slide-arrow.png) center center no-repeat;
           background-size: contain;
           transform: rotate(180deg);
-          border-radius: 0; }
+          border-radius: 0;
+          display: none; }
+
+.main__side .showcase-container .showcase {
+  min-height: 0;
+  aspect-ratio: 5 / 4; }
+  @media (min-width: 48em) {
+    .main__side .showcase-container .showcase {
+      min-height: 0; } }
+  .main__side .showcase-container .showcase .slide:before {
+    display: none; }
+
+.main__side .showcase-container .controls-container .controls a.next {
+  display: block; }
+
+.main__side .showcase-container .controls-container .controls a.prev {
+  display: block; }
 
 .social-slider {
   background-color: #4B306A;

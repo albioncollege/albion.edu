@@ -140,6 +140,7 @@
 					background: url( ../../img/slide-arrow.png ) center center no-repeat;
 					background-size: contain;
 					border-radius: 0;
+					display: none;
 				}
 
 				&.prev {
@@ -147,9 +148,36 @@
 					background-size: contain;
 					transform: rotate( 180deg );
 					border-radius: 0;
+					display: none;
 				}
 
 			}
 		}
 	}
+}
+
+
+.main__side .showcase-container {
+	.showcase {
+		min-height: 0;
+		aspect-ratio: 5 / 4;
+
+		@include mq( $md ) {
+			min-height: 0;
+		}
+
+		.slide:before {
+			display: none;
+		}
+	}
+	.controls-container .controls a {
+		&.next {
+			display: block;
+		}
+
+		&.prev {
+			display: block;
+		}
+	}
+
 }

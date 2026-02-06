@@ -32,9 +32,9 @@ if ( have_rows( 'slides' ) ) : ?>
     </div>
     <div class="controls-container">
         <div class="controls">
-            <!--<a class="prev">&raquo; Prev</a>-->
+            <a class="prev">&raquo; Prev</a>
             <?php print $slide_controls; ?>
-            <!--<a class="next">Next &raquo;</a>-->
+            <a class="next">Next &raquo;</a>
         </div>
     </div>
 </div>
