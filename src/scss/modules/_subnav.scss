@@ -326,7 +326,7 @@
 }
 
 
-.sidebar, .subnav__landing {
+body.page .sidebar, body.page .subnav__landing {
 	@media only screen and (max-width: 1024px) {
 		.subnav {
 			position: fixed;

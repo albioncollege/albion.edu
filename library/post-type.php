@@ -31,7 +31,6 @@ function cpt_socialbar() {
 
 }
 add_action('init', 'cpt_socialbar');
-  
 
 
 // feature cpt

@@ -14,63 +14,19 @@ $paged               = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) :
 $current_cat_ID      = get_query_var('cat');
 $current_tag_ID      = get_query_var('tag');
 $tax_query			 = array();
-
-
-// exclude specific categories
-$exclude_cats		 = get_field( 'exclude-cats', 'option' );
-if ( !empty( $exclude_cats ) && !in_array( $current_cat_ID, $exclude_cats ) ) {
-	$tax_query = array(
-        array(
-            'taxonomy' => 'category',
-            'field'    => 'term_id',
-            'terms'    => $exclude_cats,
-            'operator' => 'NOT IN',
-        ),
-    );
-}
-
-
-var_dump($wp_query->query,get_queried_object()); die;
-
-// load the arguments array
-$args = array(
-	'post_type'      => 'post', 
-	'post_status'    => 'publish',
-	'paged'          => $paged,
-	'posts_per_page' => $items_per_page,
-	'tax_query'      => $tax_query,
-);
+$term = get_queried_object();
 
 
 // set some titles
-if ( is_home() ) {
-	$title = 'News';
-}
+$title = $term->name;
 
-if ( is_category() ) {
-	$args[ 'cat' ] = $current_cat_ID;
-	$title = single_cat_title( '', false );
-}
-
-if ( is_tag() ) {
-	$args[ 'tag' ] = $current_tag_ID;
-	$title = ucfirst( single_tag_title( '', false ) );
-}
-
-if ( is_tax() ) {
-	$title = single_term_title( '', false );
-}
-
-
-// query the posts
-$archive_query = new WP_Query( $args ); 
 
 ?>
 <main class="page" id="main-content">
 	<div class="hero">
 		<div class="hero__container container--purple">
 			<!-- REGION: Breadcrumb -->
-				<?php get_template_part('modules/_breadcrumbs'); ?>
+				<?php //get_template_part('modules/_breadcrumbs'); ?>
 			<!-- /REGION: Breadcrumb -->
 			<h1 class="hero__title"><?php echo esc_html( $title ); ?></h1>
 			<?php $routing_link = get_field('routing_link');
@@ -83,17 +39,22 @@ $archive_query = new WP_Query( $args );
 	</div>
 	<div class="main">
 		<div class="main__inner">
-			<?php if ( $archive_query->have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 			<div class="post-cards-container">
 				<div class="post-cards-listing">
-				<?php while ( $archive_query->have_posts() ) : $archive_query->the_post(); 
+				<?php while ( have_posts() ) : the_post(); 
 					$external_link = get_field( "external_link", get_the_id());
 					$teaser = get_field( 'teaser' );
+					$photo_id = get_field( 'image' );
 					?>
 					<div class="post-card">
 						<?php if ( has_post_thumbnail() ) : ?>
 							<div class="thumbnail <?php echo ( $teaser ) ? 'teaser-present' : ''; ?>">
 								<a href="<?php echo ( $external_link ? $external_link : get_the_permalink() ); ?>"><img src="<?php the_post_thumbnail_url( 'class-notes' ); ?>"/></a>
+							</div>
+						<?php elseif ( !empty( $photo_id ) ): ?>
+							<div class="thumbnail">
+								<a href="<?php echo ( $external_link ? $external_link : get_the_permalink() ); ?>"><?php print wp_get_attachment_image( $photo_id, 'full' ); ?></a>
 							</div>
 						<?php endif; ?>
 						<div class="content">

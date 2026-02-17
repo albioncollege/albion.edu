@@ -3826,7 +3826,7 @@ label {
   .search__input__container::before {
     position: absolute;
     content: '';
-    width: 1.25rem;
+    width: 1.75rem;
     height: 1.75rem;
     left: 0;
     top: 50%;
@@ -4853,7 +4853,7 @@ table.gsc-search-box td {
       z-index: 1; } }
 
 @media only screen and (max-width: 1024px) {
-  .sidebar .subnav, .subnav__landing .subnav {
+  body.page .sidebar .subnav, body.page .subnav__landing .subnav {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -4861,9 +4861,9 @@ table.gsc-search-box td {
     z-index: 1000;
     max-height: 100%;
     overflow: auto; }
-    .sidebar .subnav .subnav__toggle:before, .subnav__landing .subnav .subnav__toggle:before {
+    body.page .sidebar .subnav .subnav__toggle:before, body.page .subnav__landing .subnav .subnav__toggle:before {
       transform: rotate(180deg) translateY(80%); }
-    .sidebar .subnav.open .subnav__toggle:before, .subnav__landing .subnav.open .subnav__toggle:before {
+    body.page .sidebar .subnav.open .subnav__toggle:before, body.page .subnav__landing .subnav.open .subnav__toggle:before {
       transform: rotate(0) translateY(-10%); } }
 
 .table {
@@ -5348,7 +5348,7 @@ table.gsc-search-box td {
       z-index: 1; } }
 
 @media only screen and (max-width: 1024px) {
-  .sidebar .subnav, .subnav__landing .subnav {
+  body.page .sidebar .subnav, body.page .subnav__landing .subnav {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -5356,9 +5356,9 @@ table.gsc-search-box td {
     z-index: 1000;
     max-height: 100%;
     overflow: auto; }
-    .sidebar .subnav .subnav__toggle:before, .subnav__landing .subnav .subnav__toggle:before {
+    body.page .sidebar .subnav .subnav__toggle:before, body.page .subnav__landing .subnav .subnav__toggle:before {
       transform: rotate(180deg) translateY(80%); }
-    .sidebar .subnav.open .subnav__toggle:before, .subnav__landing .subnav.open .subnav__toggle:before {
+    body.page .sidebar .subnav.open .subnav__toggle:before, body.page .subnav__landing .subnav.open .subnav__toggle:before {
       transform: rotate(0) translateY(-10%); } }
 
 .testimonial-slider {
