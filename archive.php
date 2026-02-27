@@ -30,12 +30,10 @@ if ( !empty( $exclude_cats ) && !in_array( $current_cat_ID, $exclude_cats ) ) {
 }
 
 
-var_dump($wp_query->query,get_queried_object()); die;
+//var_dump($wp_query->query,get_queried_object()); die;
 
 // load the arguments array
 $args = array(
-	'post_type'      => 'post', 
-	'post_status'    => 'publish',
 	'paged'          => $paged,
 	'posts_per_page' => $items_per_page,
 	'tax_query'      => $tax_query,
