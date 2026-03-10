@@ -104,12 +104,6 @@
                     <span class="header__nav__text">Menu</span>
                     <?php echo svgstore('icon-menu', '', ''); ?>
                 </button>
-
-                <ul class="header__cta">
-                    <li><a href="#" class="button__link">Give</a></li>
-                    <li><a href="#" class="button__link">Visit</a></li>
-                    <li><a href="#" class="button__link">Apply Now</a></li>
-                </ul>
             </div>
         </div>
 
