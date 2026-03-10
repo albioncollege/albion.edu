@@ -2902,7 +2902,6 @@ label {
   .header__topbar--sticky .header__topbar__logolink {
     order: 2;
     width: 70px;
-    flex: 1;
     display: flex;
     justify-content: center;
   }
