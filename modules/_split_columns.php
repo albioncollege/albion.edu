@@ -23,17 +23,20 @@ $grid_class = '';
     default:
       break;
   }
+$valign = get_sub_field( 'valign' );
+$size = get_sub_field( 'size' );
 ?>
-
-<div class="grid<?php echo $grid_class; ?>">
-  <div>
-      <?php while (have_rows('column_1')) : the_row(); ?>
-          <?php get_template_part('modules/_' . get_row_layout()); ?>
-      <?php endwhile; ?>
-  </div>
-  <div>
-      <?php while (have_rows('column_2')) : the_row(); ?>
-          <?php get_template_part('modules/_' . get_row_layout()); ?>
-      <?php endwhile; ?>
+<div class="split-columns container<?php print ( $size == 'wide' ? '' : ' container--narrow' ) ?> v<?php print $valign ?>">
+  <div class="grid<?php echo $grid_class; ?>">
+    <div>
+        <?php while (have_rows('column_1')) : the_row(); ?>
+            <?php get_template_part('modules/_' . get_row_layout()); ?>
+        <?php endwhile; ?>
+    </div>
+    <div>
+        <?php while (have_rows('column_2')) : the_row(); ?>
+            <?php get_template_part('modules/_' . get_row_layout()); ?>
+        <?php endwhile; ?>
+    </div>
   </div>
 </div>

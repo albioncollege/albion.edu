@@ -132,7 +132,7 @@ if( $hero_image ) :
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<?php while (have_rows('modules')) : the_row(); ?>
 				<?php $layout = get_row_layout(); ?>
-				<?php if (in_array($layout, ['button', 'call_to_action_link', 'intro_text', 'table', 'subheading', 'snippet', 'quote', 'split_columns'], true )) : ?>
+				<?php if (in_array($layout, ['button', 'call_to_action_link', 'intro_text', 'table', 'subheading', 'snippet', 'quote'], true )) : ?>
 					<div class="container container--extranarrow container--paragraph <?php print get_row_layout() ?>">
 						<?php get_template_part('modules/_' . get_row_layout()); ?>
 					</div>
