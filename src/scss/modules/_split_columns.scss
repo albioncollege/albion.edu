@@ -1,8 +1,26 @@
-
-
 .split-columns {
     &.vcenter .grid {
         align-items: center;
     }
 }
 
+.split-image-content {
+    padding: 4% 0;
+    @include mq( $md) {
+        display: flex;
+        align-items: center;
+        &.reversed {
+            flex-direction: row-reverse;
+            .split-image-content-image {
+                margin: 0 0 0 4%;
+            }
+        }
+        .split-image-content-image,
+        .split-image-content-content {
+            flex: 0 0 48%;
+        }
+        .split-image-content-image {
+            margin-right: 4%;
+        }
+    }
+}

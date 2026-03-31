@@ -391,14 +391,14 @@
                 },
                 "layout_69b9a2d13a4d0": {
                     "key": "layout_69b9a2d13a4d0",
-                    "name": "split_columns",
-                    "label": "Split Columns",
+                    "name": "split_image_content",
+                    "label": "Split Image Content",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_69b9a2d73a4d3",
-                            "label": "Module - Split Columns",
-                            "name": "module-split-columns",
+                            "key": "field_69cc082ebed85",
+                            "label": "Split Image Content",
+                            "name": "split_image_content",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -411,7 +411,7 @@
                             },
                             "relevanssi_exclude": 0,
                             "clone": [
-                                "group_5fe4a5307c8ec"
+                                "group_69cc070960247"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -759,16 +759,16 @@
                     "acfe_flexible_modal_edit_size": false,
                     "acfe_flexible_category": false
                 },
-                "layout_69b9a27b3a4c9": {
-                    "key": "layout_69b9a27b3a4c9",
-                    "name": "split_columns",
-                    "label": "Split Columns",
+                "layout_69cc0662e1935": {
+                    "key": "layout_69cc0662e1935",
+                    "name": "split_image_content",
+                    "label": "Split Image Content",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_69b9a2983a4cc",
-                            "label": "Module - Split Columns",
-                            "name": "module-split-columns",
+                            "key": "field_69cc0859bed86",
+                            "label": "Split Image Content",
+                            "name": "split_image_content",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -781,10 +781,10 @@
                             },
                             "relevanssi_exclude": 0,
                             "clone": [
-                                "group_5fe4a5307c8ec"
+                                "group_69cc070960247"
                             ],
                             "display": "seamless",
-                            "layout": "",
+                            "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0,
                             "acfe_seamless_style": 0,
@@ -866,5 +866,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1774369805
+    "modified": 1774979179
 }
