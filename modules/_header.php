@@ -178,7 +178,7 @@
                                     <label for="site-search" class="screen-reader-text">Search</label>
                                     <input id="site-search" type="search" name="s" class="search__input"
                                         placeholder="Search Albion">
-                                    <button type="submit" class="button">SEARCH</button>
+                                    <input type="submit" class="button" value="SEARCH">
                                 </div>
 
                                 <?php if( have_rows('explore_more', 'options') ): ?>
