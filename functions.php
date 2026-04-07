@@ -448,11 +448,10 @@ function get_related_programs( $post_id ) {
 
 
 add_filter( 'relevanssi_indexing_restriction', 'exclude_by_meta_value' );
-function exclude_by_meta_value( $restriction ) {
+function exclude_by_meta_value( array $restriction ) {
     global $wpdb;
-    // Example: Exclude posts where meta_key 'exclude_post' is set to '1'
-    $restriction['mysql'] .= " AND post_id NOT IN (SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = 'exclude_from_search' AND meta_value = '1')";
-    $restriction['reason'] = 'Excluded via custom field';
+    $restriction['mysql'] .= " AND post.ID NOT IN (SELECT post_id FROM {$wpdb->prefix}postmeta WHERE `meta_key` = 'exclude_from_search' AND `meta_value` = true) ";
+    $restriction['reason'] .= ' Excluded via custom field';
     return $restriction;
 }
 
