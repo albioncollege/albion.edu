@@ -35,13 +35,6 @@ function theme_settings() {
 	add_image_size('callout', 510, 389, true);
 	add_image_size('image-grid', 400, 300, true);
 	add_image_size('image-grid-modal', 1200, 800, true);
-	if (function_exists('acf_add_options_page')) {
-		acf_add_options_page([
-			'page_title'  => 'Site Settings',
-			'menu_title'  => 'Site Settings',
-			'parent_slug' => 'options-general.php',
-		]);
-	}
 }
 add_action('after_setup_theme', 'theme_settings');
 
@@ -444,15 +437,6 @@ function get_related_programs( $post_id ) {
 
 	// return the related program ids in an array
 	return $related;
-}
-
-
-add_filter( 'relevanssi_indexing_restriction', 'exclude_by_meta_value' );
-function exclude_by_meta_value( array $restriction ) {
-    global $wpdb;
-    $restriction['mysql'] .= " AND post.ID NOT IN (SELECT post_id FROM {$wpdb->prefix}postmeta WHERE `meta_key` = 'exclude_from_search' AND `meta_value` = true) ";
-    $restriction['reason'] .= ' Excluded via custom field';
-    return $restriction;
 }
 
 
