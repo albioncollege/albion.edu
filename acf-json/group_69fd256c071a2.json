@@ -17,7 +17,7 @@
                 "id": ""
             },
             "relevanssi_exclude": 0,
-            "return_format": "url",
+            "return_format": "array",
             "allow_in_bindings": 0
         },
         {
@@ -41,12 +41,12 @@
             "allow_in_bindings": 0,
             "rows": "",
             "placeholder": "",
-            "new_lines": ""
+            "new_lines": "wpautop"
         },
         {
             "key": "field_69fd25b2b74d9",
-            "label": "Location",
-            "name": "location",
+            "label": "Locations",
+            "name": "locations",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -138,33 +138,6 @@
                     "parent_repeater": "field_69fd25b2b74d9"
                 },
                 {
-                    "key": "field_69fd25dfb74dd",
-                    "label": "Icon",
-                    "name": "icon",
-                    "aria-label": "",
-                    "type": "icon_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "relevanssi_exclude": 0,
-                    "tabs": [
-                        "dashicons"
-                    ],
-                    "return_format": "string",
-                    "allow_in_bindings": 0,
-                    "library": "all",
-                    "default_value": {
-                        "type": null,
-                        "value": null
-                    },
-                    "parent_repeater": "field_69fd25b2b74d9"
-                },
-                {
                     "key": "field_69fd25f2b74de",
                     "label": "Latitude",
                     "name": "latitude",
@@ -213,6 +186,95 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_69fd25b2b74d9"
+                },
+                {
+                    "key": "field_6a0b98fda03fe",
+                    "label": "Icon",
+                    "name": "icon",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "relevanssi_exclude": 0,
+                    "choices": {
+                        "info": "Info",
+                        "map": "Map",
+                        "pencil": "Pencil",
+                        "gift": "Gift"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "parent_repeater": "field_69fd25b2b74d9"
+                },
+                {
+                    "key": "field_6a0c7700c81c7",
+                    "label": "Gallery",
+                    "name": "gallery",
+                    "aria-label": "",
+                    "type": "gallery",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "relevanssi_exclude": 0,
+                    "return_format": "array",
+                    "library": "all",
+                    "min": "",
+                    "max": "",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "insert": "append",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_69fd25b2b74d9"
+                },
+                {
+                    "key": "field_6a0c770fc81c8",
+                    "label": "Video",
+                    "name": "video",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "relevanssi_exclude": 0,
+                    "uploader": "",
+                    "return_format": "array",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "library": "all",
+                    "parent_repeater": "field_69fd25b2b74d9"
                 }
             ]
         }
@@ -242,5 +304,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1778535342
+    "modified": 1779204507
 }
