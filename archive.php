@@ -31,6 +31,9 @@ if ( !empty( $exclude_cats ) && !in_array( $current_cat_ID, $exclude_cats ) ) {
         ),
     );
 }
+print '<!--';
+print_r( $exclude_cats );
+print '-->';
 
 
 //var_dump($wp_query->query,get_queried_object()); die;
@@ -77,7 +80,7 @@ $archive_query = new WP_Query( $args );
 			<?php $routing_link = get_field('routing_link');
 			if( $routing_link ) : ?>
 			<div class="hero__link">
-					<a href="<?php echo $routing_link['url']; ?>" class="button__link"><?php echo $routing_link['title']; ?></a>
+				<a href="<?php echo $routing_link['url']; ?>" class="button__link"><?php echo $routing_link['title']; ?></a>
 			</div>
 			<?php endif; ?>
 		</div>
@@ -89,7 +92,7 @@ $archive_query = new WP_Query( $args );
 				<div class="news-filters">
 					<div class="news-category-filter">
 						<strong>Browse by Category:</strong> 
-						<?php wp_dropdown_categories( array( 'class' => 'quick-category-nav', 'selected' => $cat_slug , 'value_field' => 'slug', 'orderby' => 'name', 'order' => 'ASC', 'show_option_none' => __( '- select a category -' ), 'exclude' => implode( ',', $exclude_cats ), 'hierarchical' => true ) ) ?>
+						<?php wp_dropdown_categories( array( 'class' => 'quick-category-nav', 'selected' => $cat_slug , 'value_field' => 'slug', 'orderby' => 'name', 'order' => 'ASC', 'show_option_none' => __( '- select a category -' ), 'exclude' => implode( ',', $exclude_cats ), 'hierarchical' => 1, 'depth' => 2 ) ) ?>
 					</div>
 					<div class="news-search">
 						<form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
