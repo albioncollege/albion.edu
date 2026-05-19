@@ -89,7 +89,7 @@ $archive_query = new WP_Query( $args );
 				<div class="news-filters">
 					<div class="news-category-filter">
 						<strong>Browse by Category:</strong> 
-						<?php wp_dropdown_categories( array( 'class' => 'quick-category-nav', 'selected' => $cat_slug , 'value_field' => 'slug', 'orderby' => 'name', 'order' => 'ASC', 'show_option_none' => __( '- select a category -' ), 'exclude' => implode( ',', $exclude_cats ) ) ) ?>
+						<?php wp_dropdown_categories( array( 'class' => 'quick-category-nav', 'selected' => $cat_slug , 'value_field' => 'slug', 'orderby' => 'name', 'order' => 'ASC', 'show_option_none' => __( '- select a category -' ), 'exclude' => implode( ',', $exclude_cats ), 'hierarchical' => true ) ) ?>
 					</div>
 					<div class="news-search">
 						<form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
