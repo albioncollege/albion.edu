@@ -33,3 +33,4 @@ import './modules/_social';
 import './modules/_splash';
 import './modules/_tabs';
 import './modules/_testimonial-slider';
+import './modules/_campus_map';
