@@ -16048,10 +16048,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.promise */ "./node_modules/core-js/modules/es.promise.js");
 /* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.regexp.exec */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.string.match */ "./node_modules/core-js/modules/es.string.match.js");
+/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_13__);
+
+
 
 
 
@@ -16073,12 +16079,13 @@ function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) 
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) { n[e] = r[e]; } return n; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+var droneOverlay;
 function initMap() {
   return _initMap.apply(this, arguments);
 }
 function _initMap() {
   _initMap = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var _yield$google$maps$im, Map, _yield$google$maps$im2, AdvancedMarkerElement, center, map, ALBION_BOUNDS, properties, _iterator, _step, _loop, buttons, adjustMap;
+    var _yield$google$maps$im, Map, _yield$google$maps$im2, AdvancedMarkerElement, center, map, albionBounds, imageBounds, properties, _iterator, _step, _loop, buttons, adjustMap;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -16098,17 +16105,29 @@ function _initMap() {
               lng: -84.74419733615092
             };
             map = new Map(document.getElementById("map"), {
-              zoom: 15,
+              zoom: 16,
               center: center,
               tilt: 47.5,
-              mapId: "8c85b69b9c14ff651fe76e7f"
+              mapId: "8c85b69b9c14ff651fe76e7f",
+              mapTypeId: 'satellite',
+              mapTypeControlOptions: {
+                myTypeIds: ['sattelite']
+              }
             });
-            ALBION_BOUNDS = {
-              north: 42.3,
-              south: 42.2,
+            albionBounds = {
+              north: 42.25,
+              south: 42.23,
               west: -84.77,
-              east: -84.72
+              east: -84.73
             };
+            imageBounds = {
+              north: 42.249,
+              south: 42.239,
+              west: -84.75058,
+              east: -84.7339
+            };
+            droneOverlay = new google.maps.GroundOverlay("/wp-content/uploads/2026/06/Albion-College-Full-Map-5-27-2026-orthophoto-straightened-scaled.webp", imageBounds);
+            droneOverlay.setMap(map);
             properties = JSON.parse(document.getElementById("map").dataset.locations);
             console.log(properties);
             _iterator = _createForOfIteratorHelper(properties);
@@ -16167,11 +16186,21 @@ function _initMap() {
             }; // Restrict the map area
             map.setOptions({
               restriction: {
-                latLngBounds: ALBION_BOUNDS,
+                latLngBounds: albionBounds,
                 strictBounds: false
               }
             });
-          case 19:
+
+            // Hide/Show overlay with satellite
+            map.addListener('maptypeid_changed', function () {
+              var type = map.getMapTypeId();
+              if (type === google.maps.MapTypeId.SATELLITE) {
+                droneOverlay.setMap(map);
+              } else {
+                droneOverlay.setMap(null);
+              }
+            });
+          case 23:
           case "end":
             return _context.stop();
         }
@@ -16196,12 +16225,32 @@ function clearSelection() {
 function addInfo(property) {
   var propertyInfoDiv = document.getElementById("property-info");
   var imageGalleryHTML = "";
+  var videoButtonHTML = "";
   if (property.gallery && property.gallery.length) {
     imageGalleryHTML = "\n\t\t  <div class=\"image-gallery\">\n\t\t\t".concat(property.gallery.map(function (image) {
-      return "\n\t\t\t\t<img src=\"".concat(image.url, "\" alt=\"").concat(image.alt || "", "\" />\n\t\t\t\t").concat(image.caption ? "<p class=\"media__caption\">".concat(image.caption, "</p>") : "", "\n\t\t\t");
+      return "\n\t\t\t\t<div class=\"thumbnail-button\" command=\"show-modal\" commandfor=\"dialog\" role=\"button\" tabindex=\"0\" aria-label=\"expand image into lightbox view\">\n\t\t\t\t\t<img src=\"".concat(image.url, "\" alt=\"").concat(image.alt || "", "\" />\n\t\t\t\t</div>\n\t\t\t\t").concat(image.caption ? "<p class=\"media__caption\">".concat(image.caption, "</p>") : "", "\n\t\t\t");
     }).join(""), "\n\t\t  </div>\n\t\t");
   }
-  propertyInfoDiv.innerHTML = "\n\t\t<h2>".concat(property.name, "</h2>\n\t\t").concat(property.description, "\n\t\t").concat(imageGalleryHTML, "\n\t");
+  ;
+  videoButtonHTML = "<button class=\"button show-video-dialog\" command=\"show-modal\" commandfor=\"dialog\">Watch Video</button>";
+  propertyInfoDiv.innerHTML = "\n\t\t<h2>".concat(property.name, "</h2>\n\t\t").concat(videoButtonHTML, "\n\t\t").concat(imageGalleryHTML, "\n\t\t").concat(property.description, "\n\t");
+
+  // Add video to dialog
+  if (property.youtube_video_url) {
+    var youtubeURL = property.youtube_video_url;
+    var regex = '\/(?=[^\/]*$).*';
+    var youtubeVideoID = youtubeURL.match(regex);
+    document.querySelector(".show-video-dialog").addEventListener("click", function () {
+      var youtubeEmbedHTML = "\n\t\t\t\t<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/".concat(youtubeVideoID, "\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\n\t\t\t");
+      var youtubeEmbedHTMLDialog = document.getElementById("dialog-wrapper");
+      youtubeEmbedHTMLDialog.innerHTML = youtubeEmbedHTML;
+    });
+  }
+
+  // Add light box to photos
+  if (property.gallery && property.gallery.length) {
+    lightbox();
+  }
 }
 function buildContent(property) {
   var content = document.createElement("div");
@@ -16214,6 +16263,23 @@ document.querySelector("#view-map").addEventListener("click", function () {
   document.querySelector(".info-wrapper").classList.toggle("min");
   document.querySelector("#info").classList.toggle("min");
 });
+function updateDialoge() {}
+function lightbox() {
+  var thumbnailsButtons = document.querySelectorAll(".thumbnail-button").forEach(function (element) {
+    element.addEventListener("click", function (e) {
+      var imageLigthboxHTML = e.target.outerHTML;
+      var dialogWrapperElement = document.getElementById("dialog-wrapper");
+      dialogWrapperElement.innerHTML = imageLigthboxHTML;
+      document.getElementById("dialog").showModal();
+    });
+  });
+  document.querySelector("dialog").addEventListener("click", function (e) {
+    console.log(e);
+    if (e.target.nodeName != "IMG") {
+      document.getElementById("dialog").close();
+    }
+  });
+}
 
 /***/ }),
 
