@@ -25,7 +25,7 @@
             "label": "Popup Content",
             "name": "popup_content",
             "aria-label": "",
-            "type": "textarea",
+            "type": "acfe_code_editor",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -35,13 +35,16 @@
                 "id": ""
             },
             "relevanssi_exclude": 0,
-            "default_value": "",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
+            "default_value": "<h1>Tour Albion<\/h1>\r\n<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/S_Rc1HPKGPo?si=laJhCPFi0VaE3aEP\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen><\/iframe>",
             "placeholder": "",
-            "new_lines": "wpautop"
+            "mode": "text\/html",
+            "lines": 1,
+            "indent_unit": 4,
+            "maxlength": "",
+            "rows": 4,
+            "max_rows": "",
+            "return_format": [],
+            "allow_in_bindings": 0
         },
         {
             "key": "field_69fd25b2b74d9",
@@ -95,7 +98,7 @@
                     "label": "Description",
                     "name": "description",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "acfe_code_editor",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -106,12 +109,15 @@
                     },
                     "relevanssi_exclude": 0,
                     "default_value": "",
-                    "acfe_textarea_code": 0,
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "rows": "",
                     "placeholder": "",
-                    "new_lines": "",
+                    "mode": "text\/html",
+                    "lines": 1,
+                    "indent_unit": 4,
+                    "maxlength": "",
+                    "rows": 4,
+                    "max_rows": "",
+                    "return_format": [],
+                    "allow_in_bindings": 0,
                     "parent_repeater": "field_69fd25b2b74d9"
                 },
                 {
@@ -204,9 +210,12 @@
                     "relevanssi_exclude": 0,
                     "choices": {
                         "info": "Info",
-                        "map": "Map",
-                        "pencil": "Pencil",
-                        "gift": "Gift"
+                        "book-solid": "Book Solid",
+                        "water": "Water",
+                        "greek": "Greek",
+                        "church": "Church",
+                        "house": "House",
+                        "runner": "Runner"
                     },
                     "default_value": false,
                     "return_format": "value",
@@ -253,11 +262,11 @@
                     "parent_repeater": "field_69fd25b2b74d9"
                 },
                 {
-                    "key": "field_6a0c770fc81c8",
-                    "label": "Video",
-                    "name": "video",
+                    "key": "field_6a160e062eba0",
+                    "label": "YouTube Video URL",
+                    "name": "youtube_video_url",
                     "aria-label": "",
-                    "type": "file",
+                    "type": "url",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -267,13 +276,9 @@
                         "id": ""
                     },
                     "relevanssi_exclude": 0,
-                    "uploader": "",
-                    "return_format": "array",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": "",
+                    "default_value": "https:\/\/youtu.be\/MQfxvCz3SgY?si=ARiKjQMKCn45bqUM",
                     "allow_in_bindings": 0,
-                    "library": "all",
+                    "placeholder": "",
                     "parent_repeater": "field_69fd25b2b74d9"
                 }
             ]
@@ -304,5 +309,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1779204507
+    "modified": 1780957515
 }

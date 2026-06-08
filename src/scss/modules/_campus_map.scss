@@ -41,12 +41,12 @@
 		font-size: 14px;
 		gap: 15px;
 		height: 30px;
+		width: 30px;
 		justify-content: center;
 		padding: 4px;
 		position: relative;
 		position: relative;
 		transition: all 0.3s ease-out;
-		width: 30px;
 		transform: translateY(-9px);
 
 		&:hover path {
@@ -138,6 +138,7 @@
 		height: auto;
 		padding: 8px 15px;
 		width: auto;
+		max-width: 250px;
 		z-index: 10;
 		border: 1px solid #ffc845;
 		
@@ -196,18 +197,44 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		
+		*:last-child {
+			margin-bottom: 32px;
+		}
+		
+		h1 {
+			margin-top: unset;
+		}
+		
+		.popup-content{
+			margin: 16px auto;
+		}
+		
+		iframe {
+			aspect-ratio:  16 / 9;
+			width: 100%;
+			height: auto;
+		}
 
 		&.min {
 			inset: 0 0 0 50%;
 			transition: inset 0.4s ease, width 0.4s ease;
 			width: 50%;
-			overflow: scroll;
+			overflow-y: scroll;
 			background: #4b306a;
+			
+			*:last-child {
+				margin-bottom: 16px;
+			}
 			
 			.popup-content {
 				display: none;
 			}
 		}
+	}
+	
+	#property-info {
+		margin-bottom: 16px;
 	}
 
 	#info {
@@ -215,8 +242,6 @@
 		background: #4b306a;
 		color: #fff;
 		padding: 16px;
-		top: 100px;
-		bottom: 100px;
 		width: clamp(320px, 100%, 800px);
 		transition: inset 0.4s ease, width 0.4s ease;
 
@@ -230,10 +255,17 @@
 			}
 		}
 		
+		.thumbnail-button {
+			cursor: pointer;
+		}
+		
 		#map-info {
 			display: flex;
 			flex-direction: column;
-			margin-top: 2rem;
+			
+			*:last-child {
+				margin-bottom: 0;
+			}
 		}
 		
 		.image-gallery{
@@ -253,19 +285,46 @@
 		}
 	}
 	
-	@container (width < 800px){
-		.map-wrapper {
-			max-height: 75vh;
+	dialog {
+		margin: auto;
+		max-width: 800px;
+		width: stretch;
+		background-color: #4b306a;
+		
+		iframe {
+			aspect-ratio: 16 / 9;
+			max-width: 800px;
+			height: auto;
 		}
 		
+		img {
+			max-height: 80vh;
+		}
 		
-		.map-wrapper:has(.min) {
+		#dialog-wrapper {
+			margin-bottom: 32px;
+		}
+		
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	dialog::backdrop {
+		background-color: rgba(0,0,0,0.8);
+	}
+	
+	@container (width < 800px) {
+		.map-wrapper:has(.min) {			
 		    #map,
 			#info,
 			.info-wrapper {
 				width: 100%;
+				height: 50%;
 				left: 0;
-				position: unset;
+				position: relative !important;
+				z-index: 10;
+				display: block;
 			}
 		}
 	}

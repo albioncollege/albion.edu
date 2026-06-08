@@ -9,7 +9,7 @@
    $popup_content = get_sub_field( 'popup_content' );
    $locations      = get_sub_field( 'locations' );
 ?>
-<div class="campus-map">
+<div class="campus-map" id="campus-map">
 	<div class="map-wrapper">
 		
 		<div id="map" data-locations="<?php echo esc_attr( wp_json_encode( $locations ) ); ?>"></div>
@@ -37,6 +37,11 @@
 			</div>
 		</div>
 	</div>
+	
+	<dialog id="dialog" class="container--purple">
+		<div id="dialog-wrapper"></div>
+		<button class="button" commandfor="dialog" command="close">Close</button>
+	</dialog>
 	
 	<script
 	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Yrr8fIi91K4ucFlIXdvxWXukHyfmDiU&callback=initMap&v=weekly"
