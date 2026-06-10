@@ -56,4 +56,3 @@ if( $juicerid ): ?>
 	  </div>
 	</div>
 <?php endif; ?>
- 

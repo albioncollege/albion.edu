@@ -13,7 +13,7 @@ $bg_color_class             = ( $background_color == 'gray' ) ? ' background--pu
 $routing_link               = get_sub_field( 'routing_link' );
 $display_type               = get_sub_field('display_type');
 $number_of_posts_to_display = get_sub_field('number_of_posts_to_display') ? get_sub_field('number_of_posts_to_display') : 3; 
-
+$style                      = get_sub_field( 'style' );
 
 if ($display_type == 'filtered') {
     $terms = get_sub_field('category');
@@ -41,7 +41,7 @@ if ($display_type == 'filtered') {
 }
 
 if ( $news ) : ?>                 
-    <div class="news__component">
+    <div class="news__component <?php print $style; ?>">
         <div class="background<?php echo esc_attr( $bg_color_class ); ?>">
             <div class="container">
                 <div class="news__heading">

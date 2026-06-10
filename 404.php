@@ -73,14 +73,14 @@ setup_postdata($post);
 
 				<?php
 					$social_bar    = get_field( 'social_bar' );
-					$text          = get_field( 'text', $social_bar->ID );
-					$facebook_url  = get_field( 'facebook_url', $social_bar->ID );
-					$twitter_url   = get_field( 'twitter_url', $social_bar->ID );
-					$instagram_url = get_field( 'instagram_url', $social_bar->ID );
-					$youtube_url   = get_field( 'youtube_url', $social_bar->ID );
-					$linkedin_url  = get_field( 'linkedin_url', $social_bar->ID );
-
 					if ( $social_bar ) : ?>
+						$text          = get_field( 'text', $social_bar->ID );
+						$facebook_url  = get_field( 'facebook_url', $social_bar->ID );
+						$twitter_url   = get_field( 'twitter_url', $social_bar->ID );
+						$instagram_url = get_field( 'instagram_url', $social_bar->ID );
+						$youtube_url   = get_field( 'youtube_url', $social_bar->ID );
+						$linkedin_url  = get_field( 'linkedin_url', $social_bar->ID );
+
 						<div class="subnav__social">
 						<?php if ( $text ) : ?>
 							<div class="subnav__social__title">

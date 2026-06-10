@@ -1,6 +1,6 @@
 {
     "key": "group_66d86b037558a",
-    "title": "Module: Areas of Study",
+    "title": "Module - Areas of Study",
     "fields": [
         {
             "key": "field_66d86c6192fc3",
@@ -219,12 +219,12 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "acfe_display_title": "",
+    "display_title": "",
     "acfe_autosync": [
         "json"
     ],
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1758083625
+    "modified": 1771963072
 }

@@ -47,3 +47,27 @@ function rlv_remove_pull_quotes( $content ) {
 }
 
 
+// exclude from search 
+add_filter( 'relevanssi_indexing_restriction', 'exclude_by_meta_value' );
+function exclude_by_meta_value( array $restriction ) {
+    global $wpdb;
+    $restriction['mysql'] .= " AND post.ID NOT IN (SELECT post_id FROM {$wpdb->prefix}postmeta WHERE `meta_key` = 'exclude_from_search' AND `meta_value` = true) ";
+    $restriction['reason'] .= ' Excluded via custom field';
+    return $restriction;
+}
+
+
+
+// search overrides before querying on search
+add_filter( 'relevanssi_search_filters', 'search_overrides', 10, 2 );
+function search_overrides( $args ) {
+    $redirects = get_field( 'redirect', 'option' );
+    foreach ( $redirects as $redir ) {
+        if ( $redir['text'] == $args['q'] ) {
+            wp_redirect( $redir['destination'] );
+            exit;
+        }
+    }
+    return $args;
+}
+

@@ -16692,6 +16692,25 @@ _toConsumableArray(toggleButtons).forEach(function (toggleButton) {
 
 /***/ }),
 
+/***/ "./src/js/modules/_posts.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/_posts.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// show the lightbox with content of choice (optional parameter)
+
+addEventListener("load", function (event) {
+  var catSelect = document.querySelector(".quick-category-nav");
+  // handle clicks on the lightbox shade
+  catSelect.addEventListener('change', function (event) {
+    location.href = '/category/' + catSelect.value + '/';
+  });
+});
+
+/***/ }),
+
 /***/ "./src/js/modules/_showcase.js":
 /*!*************************************!*\
   !*** ./src/js/modules/_showcase.js ***!

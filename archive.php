@@ -15,6 +15,9 @@ $current_cat_ID      = get_query_var('cat');
 $current_tag_ID      = get_query_var('tag');
 $tax_query			 = array();
 
+// get the current category slug
+$obj = get_queried_object();
+$cat_slug = $obj->slug;
 
 // exclude specific categories
 $exclude_cats		 = get_field( 'exclude-cats', 'option' );
@@ -28,6 +31,9 @@ if ( !empty( $exclude_cats ) && !in_array( $current_cat_ID, $exclude_cats ) ) {
         ),
     );
 }
+print '<!--';
+print_r( $exclude_cats );
+print '-->';
 
 
 //var_dump($wp_query->query,get_queried_object()); die;
@@ -74,7 +80,7 @@ $archive_query = new WP_Query( $args );
 			<?php $routing_link = get_field('routing_link');
 			if( $routing_link ) : ?>
 			<div class="hero__link">
-					<a href="<?php echo $routing_link['url']; ?>" class="button__link"><?php echo $routing_link['title']; ?></a>
+				<a href="<?php echo $routing_link['url']; ?>" class="button__link"><?php echo $routing_link['title']; ?></a>
 			</div>
 			<?php endif; ?>
 		</div>
@@ -83,6 +89,18 @@ $archive_query = new WP_Query( $args );
 		<div class="main__inner">
 			<?php if ( $archive_query->have_posts() ) : ?>
 			<div class="post-cards-container">
+				<div class="news-filters">
+					<div class="news-category-filter">
+						<strong>Browse by Category:</strong> 
+						<?php wp_dropdown_categories( array( 'class' => 'quick-category-nav', 'selected' => $cat_slug , 'value_field' => 'slug', 'orderby' => 'name', 'order' => 'ASC', 'show_option_none' => __( '- select a category -' ), 'exclude' => implode( ',', $exclude_cats ), 'hierarchical' => true, 'hide_empty' => false ) ) ?>
+					</div>
+					<div class="news-search">
+						<form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
+							<label><span>Search:</span> <input type="text" value="<?php print ( isset( $_REQUEST['s'] ) ? htmlspecialchars( $_REQUEST['s'] ) : '' ); ?>" name="s" id="s" placeholder="Search"></label>
+							<label><input type="submit" id="searchsubmit" value="Search" class="btn-arrow"></label>
+						</form>
+					</div>
+				</div>
 				<div class="post-cards-listing">
 				<?php while ( $archive_query->have_posts() ) : $archive_query->the_post(); 
 					$external_link = get_field( "external_link", get_the_id());
