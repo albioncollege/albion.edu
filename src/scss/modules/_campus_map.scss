@@ -1,3 +1,4 @@
+
 .campus-map {
 	background: #4B306A;
 	min-height: 100vh;
@@ -316,7 +317,7 @@
 	
 	@container (width < 800px) {
 		.map-wrapper:has(.min) {			
-		    #map,
+			#map,
 			#info,
 			.info-wrapper {
 				width: 100%;
