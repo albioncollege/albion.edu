@@ -1,28 +1,28 @@
 *,
 ::before,
 ::after {
-  box-sizing: inherit; 
-  scroll-margin-top: 6rem;
+    box-sizing: inherit;
+    scroll-margin-top: 6rem;
 }
 
 html {
-  box-sizing: border-box;
-  overflow-x: hidden;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 iframe {
-  border: 0;
+    border: 0;
 }
 
 img,
 svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 svg {
-  fill: currentColor;
+    fill: currentColor;
 }
 
 button,
@@ -30,32 +30,32 @@ input,
 optgroup,
 select,
 textarea {
-  border-radius: 0;
-  color: inherit;
-  font-family: inherit;
-  font-size: inherit;
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 button {
-  appearance: none;
-  border-radius: 0;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  cursor: pointer;
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 [type='search'] {
-  appearance: none;
+    appearance: none;
 }
 
 ::placeholder {
-  color: inherit;
-  opacity: 1;
+    color: inherit;
+    opacity: 1;
 }
 
 figure {
-  margin: 0;
+    margin: 0;
 }
 
 h1,
@@ -64,53 +64,62 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1em 0 0.5em;
-
-  & + .background {
-    margin-top: 0;
-  }
+    margin: 1em 0 0.5em;
+    &+.background {
+        margin-top: 0;
+    }
 }
 
 .large-headline {
-  @include large-headline;
+    @include large-headline;
 }
 
-h1, .h1 {
-  @include h1;
+h1,
+.h1 {
+    @include h1;
 }
 
-h2, .h2 {
-  @include h2;
+h2,
+.h2 {
+    @include h2;
 }
 
-h3, .h3 {
-  @include h3;
+h3,
+.h3 {
+    @include h3;
 }
 
-h4, .h4 {
-  @include h4;
+h4,
+.h4 {
+    @include h4;
 }
 
-h5, .h5 {
-  @include h5;
+h5,
+.h5 {
+    @include h5;
 }
 
-h6, .h6 {
-  @include h6;
+h6,
+.h6 {
+    @include h6;
 }
 
 [data-whatinput='mouse'] :focus,
 [data-whatinput='touch'] :focus {
-  outline: 0;
+    outline: 0;
 }
 
 ::selection {
-  background: $teal;
-  color: $white;
+    background: $teal;
+    color: $white;
 }
 
 .quiet {
-  font-size: .9em;
-  opacity: .8;
-  font-style: italic;
+    font-size: .9em;
+    opacity: .8;
+    font-style: italic;
+}
+
+.main-container {
+    min-width: 450px;
 }

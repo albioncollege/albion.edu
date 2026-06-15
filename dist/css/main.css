@@ -429,69 +429,83 @@ h6 {
       font-size: 4.375rem;
       line-height: 1; } }
 
-h1, .h1 {
+h1,
+.h1 {
   font-family: "TiemposHeadline", serif;
   font-weight: normal;
   font-size: 2.375rem;
   line-height: 1.143;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
-    h1, .h1 {
+    h1,
+    .h1 {
       font-size: 4.0625rem;
       line-height: 1; } }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: "TiemposHeadline", serif;
   font-weight: normal;
   font-size: 2.25rem;
   line-height: 1.21;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
-    h2, .h2 {
+    h2,
+    .h2 {
       font-size: 3.375rem;
       line-height: 1.15; } }
 
-h3, .h3, .tribe-events-title-bar h1 {
+h3,
+.h3,
+.tribe-events-title-bar h1 {
   font-family: "TiemposHeadline", serif;
   font-weight: normal;
   font-size: 2rem;
   line-height: 1.25;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
-    h3, .h3, .tribe-events-title-bar h1 {
+    h3,
+    .h3,
+    .tribe-events-title-bar h1 {
       font-size: 2.625rem;
       line-height: 1.29; } }
 
-h4, .h4 {
+h4,
+.h4 {
   font-family: "TiemposHeadline", serif;
   font-weight: normal;
   font-size: 1.625rem;
   line-height: 1.25;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
-    h4, .h4 {
+    h4,
+    .h4 {
       font-size: 2rem;
       line-height: 1.25; } }
 
-h5, .h5 {
+h5,
+.h5 {
   font-family: "trade-gothic-next", sans-serif;
   font-weight: 300;
   font-size: 1.5rem;
   line-height: 1.25;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
-    h5, .h5 {
+    h5,
+    .h5 {
       font-size: 1.75rem;
       line-height: 1.29; } }
 
-h6, .h6 {
+h6,
+.h6 {
   font-family: "trade-gothic-next", sans-serif;
   font-weight: 300;
   font-size: 1.25rem;
   line-height: 1.4;
   color: #4B306A; }
   @media (min-width: 64.0625em) {
-    h6, .h6 {
+    h6,
+    .h6 {
       font-size: 1.375rem;
       line-height: 1.45; } }
 
@@ -511,6 +525,9 @@ h6, .h6 {
   font-size: .9em;
   opacity: .8;
   font-style: italic; }
+
+.main-container {
+  min-width: 450px; }
 
 body {
   color: #262626;
