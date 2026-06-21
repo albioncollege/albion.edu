@@ -1,6 +1,4 @@
-// Dependencies
-@import 'systematize';
-
+@import 'util/reset';
 // Utils
 @import 'util/var';
 @import 'util/mixins';
@@ -13,7 +11,6 @@
 @import 'util/flickity';
 @import 'util/events';
 @import 'util/print';
-
 // Modules
 @import 'modules/accordion';
 @import 'modules/areas_of_study';
@@ -52,12 +49,10 @@
 @import 'modules/testimonial-slider';
 @import 'modules/testimonial-slider-program';
 @import 'modules/tribe';
-
 @import 'modules/events';
 @import 'modules/image-grid';
 @import 'modules/video_fw.scss';
 @import 'modules/class-notes';
 @import 'modules/infographic';
 @import 'modules/campus_map';
-
 @import 'modules/subsite';
