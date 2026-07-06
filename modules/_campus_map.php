@@ -3,11 +3,11 @@
  * Campus Map Module
  * 
  * Module partial used to display Albion Map
- * Module reintegraiton attempt.
  */
    $tour_link     = get_sub_field( 'tour_link' );
    $popup_content = get_sub_field( 'popup_content' );
-   $locations      = get_sub_field( 'locations' );
+   $locations     = get_sub_field( 'locations' );
+   $overlays      = get_sub_field( 'overlay_maps' );
 ?>
 <div class="campus-map" id="campus-map">
 	<div class="map-wrapper">
