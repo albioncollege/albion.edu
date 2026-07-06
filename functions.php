@@ -43,7 +43,7 @@ add_action('after_setup_theme', 'theme_settings');
 function theme_css() {
 	wp_dequeue_style('wp-block-library');
 	wp_enqueue_style('theme-typekit-fonts', 'https://use.typekit.net/xdv3bwe.css', [], null, 'all');
-	wp_enqueue_style('theme-styles', get_theme_file_uri('/dist/css/main.css?v=35'), [], null, 'screen');
+	wp_enqueue_style('theme-styles', get_theme_file_uri('/dist/css/main.css?v=36'), [], null, 'screen');
 }
 add_action('wp_enqueue_scripts', 'theme_css');
 
@@ -438,5 +438,4 @@ function get_related_programs( $post_id ) {
 	// return the related program ids in an array
 	return $related;
 }
-
 
