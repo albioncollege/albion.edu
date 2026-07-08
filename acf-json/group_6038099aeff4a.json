@@ -51,7 +51,9 @@
             "ui": 0,
             "ajax": 0,
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_603809bf6b470",
@@ -79,7 +81,9 @@
             "ajax": 0,
             "placeholder": "",
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_60380a8a6b473",
@@ -107,7 +111,9 @@
             "ajax": 0,
             "placeholder": "",
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_60380ab96b474",
@@ -161,6 +167,30 @@
                     "parent_repeater": "field_60380ab96b474"
                 },
                 {
+                    "key": "field_6a4d421934ff9",
+                    "label": "Blurb",
+                    "name": "blurb",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "relevanssi_exclude": 0,
+                    "default_value": "",
+                    "acfe_textarea_code": 0,
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_60380ab96b474"
+                },
+                {
                     "key": "field_60380af16b476",
                     "label": "Link",
                     "name": "link",
@@ -170,11 +200,13 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "80",
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
+                    "relevanssi_exclude": 0,
                     "return_format": "array",
+                    "allow_in_bindings": 1,
                     "parent_repeater": "field_60380ab96b474"
                 }
             ]
@@ -198,12 +230,13 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "acfe_display_title": "",
-    "acfe_autosync": [
-        "json"
-    ],
-    "acfe_form": 0,
-    "acfe_meta": "",
-    "acfe_note": "",
-    "modified": 1723168383
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfe": {
+        "autosync": [
+            "json"
+        ]
+    },
+    "modified": 1783448164
 }

@@ -105,6 +105,7 @@ $archive_query = new WP_Query( $args );
 				<?php while ( $archive_query->have_posts() ) : $archive_query->the_post(); 
 					$external_link = get_field( "external_link", get_the_id());
 					$teaser = get_field( 'teaser' );
+					$lede = get_field( 'lede' );
 					?>
 					<div class="post-card">
 						<?php if ( has_post_thumbnail() ) : ?>
@@ -117,7 +118,11 @@ $archive_query = new WP_Query( $args );
 								<a href="<?php echo ( $external_link ? $external_link : get_the_permalink() ); ?>"><?php the_title(); ?></a>
 							</div>
 							<div class="teaser">
-								<?php if ( is_category( 'today' ) ) { print wp_trim_words( $teaser, 20 ) ; } ?>
+								<?php if ( is_category( 'today' ) ) { 
+									print wp_trim_words( $teaser, 20 ); 
+								} else {
+									print $lede;
+								} ?>
 							</div>
 						</div>
 					</div>

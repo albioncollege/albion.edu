@@ -46,9 +46,8 @@ if( have_rows('grid_items') ) : ?>
                                     $link_title  = $link['title']; ?>
                             <a class="router__card__link" href="<?php echo esc_url( $link_url ); ?>">
                                 <?php echo wp_get_attachment_image( $image, $image_size, "", array( "class" => "image--full" ) ); ?>
-                                <p>
-                                    <span class="button__link"><?php echo esc_html( $link_title ); ?></span>
-                                </p>
+                                <p><span class="button__link"><?php echo esc_html( $link_title ); ?></span></p>
+                                <p><?php print get_sub_field( 'blurb' ); ?></p>
                             </a>
                             <?php endif; ?>
                         </div>

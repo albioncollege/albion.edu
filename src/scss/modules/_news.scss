@@ -29,12 +29,14 @@
             align-items: center;
             margin-bottom: 3.125rem;
             height: 13.625rem;
-            background: $purple-gray;
+            background: $purple;
+            color: white;
             .background--purple-gray & {
                 background: $white;
             }
             &:hover {
-                background: $purple;
+                background: $purple-gray;
+                color: $purple;
                 height: 16.625rem;
                 width: calc(100% + 4rem);
                 left: -2rem;
@@ -42,13 +44,13 @@
                     width: 21.125rem;
                 }
                 .news__content {
-                    padding: 5.125rem 2rem;
+                    padding: 5.125rem 4rem;
                     a {
-                        color: $white;
+                        color: $purple;
                         @include underline($gold);
                     }
                     span {
-                        color: $gold;
+                        color: $purple;
                     }
                 }
             }
@@ -103,6 +105,7 @@
         @include mq($lg) {
             height: 100%;
             width: 22.375rem;
+            aspect-ratio: 4 / 5;
             min-height: auto;
         }
     }
@@ -126,13 +129,13 @@
         @include mq($lg) {
             padding: 3.5rem 4rem;
             a {
-                color: $purple;
+                color: $white;
                 @include font-size(28);
                 font-weight: 300;
                 background-image: none;
             }
             span {
-                color: $purple;
+                color: rgba( $white, .5);
             }
         }
     }
@@ -186,9 +189,6 @@
             flex-wrap: wrap;
             margin-right: -3%;
         }
-        @include mq( $lg) {
-            margin-right: -2%;
-        }
         .post-card,
         .news__block {
             background: white;
@@ -199,11 +199,7 @@
                 margin: 0 3% 3% 0;
             }
             @include mq( $md) {
-                flex: 0 0 30%;
-            }
-            @include mq( $lg) {
-                flex: 0 0 23%;
-                margin: 0 2% 2% 0;
+                flex: 0 0 30.3333%;
             }
             .thumbnail {
                 img {
@@ -231,6 +227,7 @@
                 }
                 .teaser {
                     font-size: .9em;
+                    padding: 15px 0 0;
                     p {
                         margin: 0;
                         padding: 0 0 15px 0;
