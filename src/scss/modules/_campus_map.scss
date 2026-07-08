@@ -114,6 +114,10 @@
     /*
 	 * Property styles in highlighted state.
 	 */
+	 gmp-advanced-marker:has(.highlight) {
+		 z-index: 100 !important;
+	 }
+	 
     .property.highlight {
         background-color: #4b306a;
         border-radius: 8px;

@@ -1,6 +1,7 @@
 let droneOverlay;
 
 async function initMap() {
+
   // Request needed libraries.
   const { Map } = await google.maps.importLibrary("maps");
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
@@ -30,16 +31,14 @@ async function initMap() {
   };
   
   droneOverlay = new google.maps.GroundOverlay(
-	  "/wp-content/uploads/2026/06/Albion-College-Full-Map-5-27-2026-orthophoto-straightened-scaled.webp",
+	  "https://www.albion.edu/wp-content/uploads/2026/07/Albion-College-Full-Map-5-27-2026-orthophoto-straightened.webp",
 	  imageBounds
   );
   droneOverlay.setMap(map);
 
   const properties = JSON.parse(document.getElementById("map").dataset.locations);
-  console.log(properties);
 
   for (const property of properties) {
-	  console.log(property)
 	const advancedMarkerElement = new google.maps.marker.AdvancedMarkerElement({
 	  map,
 	  content: buildContent(property),
