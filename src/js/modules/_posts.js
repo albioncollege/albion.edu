@@ -2,10 +2,12 @@
 
 
 addEventListener("load", (event) => {
+
     var catSelect = document.querySelector(".quick-category-nav");
-    // handle clicks on the lightbox shade
-    catSelect.addEventListener('change', (event) => {
-        location.href = '/category/' + catSelect.value + '/';
-    });
+    if (catSelect !== null) {
+        catSelect.addEventListener('change', (event) => {
+            location.href = '/category/' + catSelect.value + '/';
+        });
+    }
 
 });

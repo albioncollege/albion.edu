@@ -11,8 +11,3 @@ import "./html/subsite-tpc.html";
 
 // js
 import "./js/script.js";
-
-// // scss
-import "./scss/style.scss";
-
-// imgs

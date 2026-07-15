@@ -15800,8 +15800,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _html_subsite_html__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./html/subsite.html */ "./src/html/subsite.html");
 /* harmony import */ var _html_subsite_tpc_html__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./html/subsite-tpc.html */ "./src/html/subsite-tpc.html");
 /* harmony import */ var _js_script_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/script.js */ "./src/js/script.js");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./scss/style.scss */ "./src/scss/style.scss");
-/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_scss_style_scss__WEBPACK_IMPORTED_MODULE_10__);
 // html
 
 
@@ -15814,12 +15812,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // js
-
-
-// // scss
-
-
-// imgs
 
 
 /***/ }),
@@ -15996,15 +15988,13 @@ function _initMap() {
               west: -84.75058,
               east: -84.7339
             };
-            droneOverlay = new google.maps.GroundOverlay("/wp-content/uploads/2026/06/Albion-College-Full-Map-5-27-2026-orthophoto-straightened-scaled.webp", imageBounds);
+            droneOverlay = new google.maps.GroundOverlay("https://www.albion.edu/wp-content/uploads/2026/07/Albion-College-Full-Map-5-27-2026-orthophoto-straightened.webp", imageBounds);
             droneOverlay.setMap(map);
             properties = JSON.parse(document.getElementById("map").dataset.locations);
-            console.log(properties);
             _iterator = _createForOfIteratorHelper(properties);
             try {
               _loop = function _loop() {
                 var property = _step.value;
-                console.log(property);
                 var advancedMarkerElement = new google.maps.marker.AdvancedMarkerElement({
                   map: map,
                   content: buildContent(property),
@@ -16070,7 +16060,7 @@ function _initMap() {
                 droneOverlay.setMap(null);
               }
             });
-          case 23:
+          case 22:
           case "end":
             return _context.stop();
         }
@@ -16129,10 +16119,13 @@ function buildContent(property) {
   return content;
 }
 window.initMap = initMap;
-document.querySelector("#view-map").addEventListener("click", function () {
-  document.querySelector(".info-wrapper").classList.toggle("min");
-  document.querySelector("#info").classList.toggle("min");
-});
+var viewMap = document.querySelector("#view-map");
+if (viewMap !== null) {
+  viewMap.addEventListener("click", function () {
+    document.querySelector(".info-wrapper").classList.toggle("min");
+    document.querySelector("#info").classList.toggle("min");
+  });
+}
 function updateDialoge() {}
 function lightbox() {
   var thumbnailsButtons = document.querySelectorAll(".thumbnail-button").forEach(function (element) {
@@ -16150,6 +16143,7 @@ function lightbox() {
     }
   });
 }
+null;
 
 /***/ }),
 
@@ -16573,10 +16567,11 @@ _toConsumableArray(toggleButtons).forEach(function (toggleButton) {
 
 addEventListener("load", function (event) {
   var catSelect = document.querySelector(".quick-category-nav");
-  // handle clicks on the lightbox shade
-  catSelect.addEventListener('change', function (event) {
-    location.href = '/category/' + catSelect.value + '/';
-  });
+  if (catSelect !== null) {
+    catSelect.addEventListener('change', function (event) {
+      location.href = '/category/' + catSelect.value + '/';
+    });
+  }
 });
 
 /***/ }),
@@ -18204,17 +18199,6 @@ var StickySidebar = function () {
 // Global
 // -------------------------
 window.StickySidebar = StickySidebar;
-
-/***/ }),
-
-/***/ "./src/scss/style.scss":
-/*!*****************************!*\
-  !*** ./src/scss/style.scss ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: Internal Error: Incompatible units: '%' and 'px'.\n\n    at /home/james/containers/albion/wordpress/wp-content/themes/albion/node_modules/webpack/lib/NormalModule.js:316:20\n    at /home/james/containers/albion/wordpress/wp-content/themes/albion/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /home/james/containers/albion/wordpress/wp-content/themes/albion/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/home/james/containers/albion/wordpress/wp-content/themes/albion/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.callback (/home/james/containers/albion/wordpress/wp-content/themes/albion/node_modules/sass-loader/dist/index.js:73:7)\n    at Object.done [as callback] (/home/james/containers/albion/wordpress/wp-content/themes/albion/node_modules/neo-async/async.js:8067:18)\n    at options.error (/home/james/containers/albion/wordpress/wp-content/themes/albion/node_modules/node-sass/lib/index.js:294:32)");
 
 /***/ })
 
