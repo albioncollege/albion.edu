@@ -45,6 +45,7 @@ $title = $term->name;
 				<?php while ( have_posts() ) : the_post(); 
 					$external_link = get_field( "external_link", get_the_id());
 					$teaser = get_field( 'teaser' );
+					$lede = get_field( 'lede' );
 					$photo_id = get_field( 'image' );
 					?>
 					<div class="post-card">
@@ -62,7 +63,11 @@ $title = $term->name;
 								<a href="<?php echo ( $external_link ? $external_link : get_the_permalink() ); ?>"><?php the_title(); ?></a>
 							</div>
 							<div class="teaser">
-								<?php if ( is_category( 'today' ) ) { print wp_trim_words( $teaser, 20 ) ; } ?>
+								<?php if ( is_category( 'today' ) ) { 
+									print wp_trim_words( $teaser, 20 ); 
+								} else {
+									print $lede;
+								} ?>
 							</div>
 						</div>
 					</div>

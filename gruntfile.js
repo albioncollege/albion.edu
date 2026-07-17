@@ -6,40 +6,12 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         watch: {
-            /*
-            js: {
-                files: ['js/src/*.js', 'js/src/component/*.js'],
-                tasks: ['uglify'],
-                options: {
-                    spawn: false
-                }
-            },
-            */
             css: {
                 files: ['src/scss/**/*.scss'],
                 tasks: ['sass', 'autoprefixer'],
                 options: {
                     spawn: false
                 }
-            }
-        },
-
-
-        // uglify to concat, minify, and make source maps
-        uglify: {
-            dist: {
-                files: {
-                    'js/main.js': [
-                        'node_modules/reframe.js/dist/jquery.reframe.',
-                        'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
-                        'js/src/*.js',
-                        'js/src/component/*.js',
-                    ]
-                }
-            },
-            options: {
-                sourceMap: true,
-                sourceMapName: 'js/main.js.map'
             }
         },
 
@@ -72,6 +44,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['watch']);
 
     // a build task just in case we want to
-    grunt.registerTask('build', ['sass', 'autoprefixer', 'uglify']);
+    grunt.registerTask('build', ['sass', 'autoprefixer']);
 
 };
