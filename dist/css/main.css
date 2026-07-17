@@ -8486,7 +8486,7 @@ table.gsc-search-box td {
 }
 
 .campus-map {
-  background: #4B306A;
+  background: #4b306a;
   min-height: 100vh;
   container-type: size;
 }
@@ -8704,17 +8704,23 @@ table.gsc-search-box td {
   left: 50%;
   transition: inset 0.4s ease, width 0.4s ease;
   width: 50%;
+  margin: 16px 0;
   overflow-y: scroll;
   background: #4b306a;
 }
 .campus-map .info-wrapper.min *:last-child {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 .campus-map .info-wrapper.min .popup-content {
   display: none;
 }
 .campus-map #property-info {
   margin-bottom: 16px;
+  padding-bottom: 16px;
+}
+.campus-map #property-info a {
+  color: #fff;
+  text-decoration: underline;
 }
 .campus-map #info {
   position: absolute;
@@ -8727,13 +8733,16 @@ table.gsc-search-box td {
 .campus-map #info.min {
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: auto;
   left: 0;
   width: 100%;
   transition: inset 0.4s ease, width 0.4s ease;
 }
 .campus-map #info.min #view-map {
   display: none;
+}
+.campus-map #info button {
+  width: 100%;
 }
 .campus-map #info .thumbnail-button {
   cursor: pointer;
@@ -8777,11 +8786,55 @@ table.gsc-search-box td {
 .campus-map dialog img {
   max-height: 80vh;
 }
-.campus-map dialog #dialog-wrapper {
-  margin-bottom: 32px;
+.campus-map dialog button {
+  width: 100%;
 }
-.campus-map dialog *:last-child {
+.campus-map dialog #dialog-wrapper {
   margin-bottom: 0;
+}
+.campus-map dialog > * {
+  margin-bottom: 0;
+}
+.campus-map dialog .image-gallery {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+}
+.campus-map dialog .image-gallery-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 1/1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.campus-map dialog .image-gallery-item.active {
+  opacity: 1;
+}
+.campus-map dialog .image-gallery-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.campus-map dialog .image-gallery-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
+  gap: 1rem;
+  padding: 1rem 0 0;
 }
 .campus-map dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.8);

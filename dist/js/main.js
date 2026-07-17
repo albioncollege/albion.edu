@@ -16085,7 +16085,7 @@ function initMap() {
 }
 function _initMap() {
   _initMap = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var _yield$google$maps$im, Map, _yield$google$maps$im2, AdvancedMarkerElement, center, map, albionBounds, imageBounds, properties, _iterator, _step, _loop, buttons, adjustMap;
+    var _yield$google$maps$im, Map, _yield$google$maps$im2, AdvancedMarkerElement, center, map, albionBounds, imageBounds, properties, _iterator2, _step2, _loop, buttons, adjustMap;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -16109,9 +16109,9 @@ function _initMap() {
               center: center,
               tilt: 47.5,
               mapId: "8c85b69b9c14ff651fe76e7f",
-              mapTypeId: 'satellite',
+              mapTypeId: "satellite",
               mapTypeControlOptions: {
-                myTypeIds: ['sattelite']
+                myTypeIds: ["sattelite"]
               }
             });
             albionBounds = {
@@ -16129,10 +16129,10 @@ function _initMap() {
             droneOverlay = new google.maps.GroundOverlay("https://www.albion.edu/wp-content/uploads/2026/07/Albion-College-Full-Map-5-27-2026-orthophoto-straightened.webp", imageBounds);
             droneOverlay.setMap(map);
             properties = JSON.parse(document.getElementById("map").dataset.locations);
-            _iterator = _createForOfIteratorHelper(properties);
+            _iterator2 = _createForOfIteratorHelper(properties);
             try {
               _loop = function _loop() {
-                var property = _step.value;
+                var property = _step2.value;
                 var advancedMarkerElement = new google.maps.marker.AdvancedMarkerElement({
                   map: map,
                   content: buildContent(property),
@@ -16140,19 +16140,19 @@ function _initMap() {
                     lat: parseFloat(property.latitude),
                     lng: parseFloat(property.longitude)
                   },
-                  title: property.description
+                  title: property.name
                 });
                 advancedMarkerElement.addListener("gmp-click", function () {
                   toggleHighlight(advancedMarkerElement, property);
                 });
               };
-              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
                 _loop();
               }
             } catch (err) {
-              _iterator.e(err);
+              _iterator2.e(err);
             } finally {
-              _iterator.f();
+              _iterator2.f();
             }
             buttons = [["Rotate Left", "rotate", 20, google.maps.ControlPosition.INLINE_START_BLOCK_CENTER], ["Rotate Right", "rotate", -20, google.maps.ControlPosition.INLINE_END_BLOCK_CENTER], ["Tilt Down", "tilt", 20, google.maps.ControlPosition.BLOCK_START_INLINE_CENTER], ["Tilt Up", "tilt", -20, google.maps.ControlPosition.BLOCK_END_INLINE_CENTER]];
             buttons.forEach(function (_ref) {
@@ -16190,7 +16190,7 @@ function _initMap() {
             });
 
             // Hide/Show overlay with satellite
-            map.addListener('maptypeid_changed', function () {
+            map.addListener("maptypeid_changed", function () {
               var type = map.getMapTypeId();
               if (type === google.maps.MapTypeId.SATELLITE) {
                 droneOverlay.setMap(map);
@@ -16215,8 +16215,8 @@ function toggleHighlight(markerView, property) {
   markerView.content.classList.add("highlight");
 }
 function clearSelection() {
-  document.querySelectorAll('.property.highlight').forEach(function (el) {
-    el.classList.remove('highlight');
+  document.querySelectorAll(".property.highlight").forEach(function (el) {
+    el.classList.remove("highlight");
   });
   document.getElementById("property-info").innerHTML = "";
 }
@@ -16229,14 +16229,15 @@ function addInfo(property) {
       return "\n\t\t\t\t<div class=\"thumbnail-button\" command=\"show-modal\" commandfor=\"dialog\" role=\"button\" tabindex=\"0\" aria-label=\"expand image into lightbox view\">\n\t\t\t\t\t<img src=\"".concat(image.url, "\" alt=\"").concat(image.alt || "", "\" />\n\t\t\t\t</div>\n\t\t\t\t").concat(image.caption ? "<p class=\"media__caption\">".concat(image.caption, "</p>") : "", "\n\t\t\t");
     }).join(""), "\n\t\t  </div>\n\t\t");
   }
-  ;
-  videoButtonHTML = "<button class=\"button show-video-dialog\" command=\"show-modal\" commandfor=\"dialog\">Watch Video</button>";
+  if (property.youtube_video_url) {
+    videoButtonHTML = "<button class=\"button show-video-dialog\" command=\"show-modal\" commandfor=\"dialog\">Watch Video</button>";
+  }
   propertyInfoDiv.innerHTML = "\n\t\t<h2>".concat(property.name, "</h2>\n\t\t").concat(videoButtonHTML, "\n\t\t").concat(imageGalleryHTML, "\n\t\t").concat(property.description, "\n\t");
 
   // Add video to dialog
   if (property.youtube_video_url) {
     var youtubeURL = property.youtube_video_url;
-    var regex = '\/(?=[^\/]*$).*';
+    var regex = "\/(?=[^\/]*$).*";
     var youtubeVideoID = youtubeURL.match(regex);
     document.querySelector(".show-video-dialog").addEventListener("click", function () {
       var youtubeEmbedHTML = "\n\t\t\t\t<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/".concat(youtubeVideoID, "\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>\n\t\t\t");
@@ -16257,26 +16258,76 @@ function buildContent(property) {
   return content;
 }
 window.initMap = initMap;
-document.querySelector("#view-map").addEventListener("click", function () {
-  document.querySelector(".info-wrapper").classList.toggle("min");
-  document.querySelector("#info").classList.toggle("min");
-});
-function updateDialoge() {}
+var viewMap = document.querySelector("#view-map");
+if (viewMap !== null) {
+  viewMap.addEventListener("click", function () {
+    document.querySelector(".info-wrapper").classList.toggle("min");
+    document.querySelector("#info").classList.toggle("min");
+  });
+}
 function lightbox() {
   var thumbnailsButtons = document.querySelectorAll(".thumbnail-button").forEach(function (element) {
     element.addEventListener("click", function (e) {
-      var imageLigthboxHTML = e.target.outerHTML;
+      var _dialogWrapperElement, _dialogWrapperElement2;
+      var imageLigthboxObject = e.target.closest(".image-gallery");
+      var imageLigthboxHTML = "<div class=\"image-gallery\">";
+      var _iterator = _createForOfIteratorHelper(imageLigthboxObject.querySelectorAll("img")),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var image = _step.value;
+          var wrapperDiv = document.createElement("div");
+          wrapperDiv.classList.add("image-gallery-item");
+          if (image.src === e.target.src) {
+            wrapperDiv.classList.add("active");
+          }
+          wrapperDiv.innerHTML = "<img src=\"".concat(image.src, "\" alt=\"").concat(image.alt || "", "\" />");
+          imageLigthboxHTML += wrapperDiv.outerHTML;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+      imageLigthboxHTML += "</div>";
+
+      // If there is more than one image, add a previous and next button
+      if (imageLigthboxObject.querySelectorAll(".thumbnail-button").length > 1) {
+        imageLigthboxHTML += "\n          <div class=\"image-gallery-navigation\">\n                    <button class=\"button previous-button\">Previous</button>\n                    <button class=\"button next-button\">Next</button>\n                    </div>\n                ";
+      }
       var dialogWrapperElement = document.getElementById("dialog-wrapper");
       dialogWrapperElement.innerHTML = imageLigthboxHTML;
       document.getElementById("dialog").showModal();
+      (_dialogWrapperElement = dialogWrapperElement.querySelector(".previous-button")) === null || _dialogWrapperElement === void 0 ? void 0 : _dialogWrapperElement.addEventListener("click", previousImage);
+      (_dialogWrapperElement2 = dialogWrapperElement.querySelector(".next-button")) === null || _dialogWrapperElement2 === void 0 ? void 0 : _dialogWrapperElement2.addEventListener("click", nextImage);
     });
   });
-  document.querySelector("dialog").addEventListener("click", function (e) {
-    console.log(e);
-    if (e.target.nodeName != "IMG") {
-      document.getElementById("dialog").close();
-    }
-  });
+}
+
+// Add function to navigate through the images
+function previousImage() {
+  var currentImage = document.querySelector(".image-gallery-item.active");
+  if (currentImage.previousElementSibling) {
+    var _previousImage = currentImage.previousElementSibling;
+    currentImage.classList.remove("active");
+    _previousImage.classList.add("active");
+  } else {
+    var lastImage = document.querySelectorAll(".image-gallery-item")[document.querySelectorAll(".image-gallery-item").length - 1];
+    currentImage.classList.remove("active");
+    lastImage.classList.add("active");
+  }
+}
+function nextImage() {
+  var currentImage = document.querySelector(".image-gallery-item.active");
+  if (currentImage.nextElementSibling) {
+    var _nextImage = currentImage.nextElementSibling;
+    currentImage.classList.remove("active");
+    _nextImage.classList.add("active");
+  } else {
+    var firstImage = document.querySelectorAll(".image-gallery-item")[0];
+    currentImage.classList.remove("active");
+    firstImage.classList.add("active");
+  }
 }
 
 /***/ }),
