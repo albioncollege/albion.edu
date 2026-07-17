@@ -44,7 +44,7 @@
 	</dialog>
 	
 	<script
-	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Yrr8fIi91K4ucFlIXdvxWXukHyfmDiU&callback=initMap&v=weekly"
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Yrr8fIi91K4ucFlIXdvxWXukHyfmDiU&callback=initMap&v=weekly&loading=async"
 	  defer
 	></script>
 	
