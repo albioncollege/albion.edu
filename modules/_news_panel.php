@@ -71,7 +71,10 @@ if ( $news ) : ?>
 
                 <div class="news__wrapper">
                     <?php foreach( $news as $post ) : ?>
-                        <?php setup_postdata( $post ); ?>
+                        <?php setup_postdata( $post ); 
+                        $teaser = get_field( 'teaser' );
+                        $lede = get_field( 'lede' );
+                        ?>
                         <?php $external_link = get_field( "external_link", get_the_id()); ?>
                         <div class="news__block">
                             <?php if ( has_post_thumbnail() ) : ?>
@@ -83,7 +86,13 @@ if ( $news ) : ?>
                                         <?php the_title(); ?>
                                     </a>
                                 </div>
-                                <span><?php echo get_the_date(); ?></span>
+                                <div class="teaser">
+                                    <?php if ( is_category( 'today' ) ) { 
+                                        print wp_trim_words( $teaser, 20 ); 
+                                    } else {
+                                        print $lede;
+                                    } ?>
+                                </div>
                             </div>
                         </div> 
                     <?php endforeach; ?>
