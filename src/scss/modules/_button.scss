@@ -1,6 +1,4 @@
-a.button,
-input.button,
-button.button,
+.button:not(.container),
 .form_button_submit {
     @include button-text;
     display: table;
