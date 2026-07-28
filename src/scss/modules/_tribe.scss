@@ -3,8 +3,10 @@
 .tribe-common .tribe-common-form-control-slider__label,
 .tribe-common .tribe-common-form-control-text__input,
 .tribe-common--breakpoint-medium.tribe-common .tribe-common-form-control-text__input,
-#top.tribe-theme-enfold .tribe-common .tribe-common-form-control-text__input, #top .main_color .tribe-common .tribe-common-form-control-text__input,
-#top.tribe-theme-enfold .tribe-common.tribe-common--breakpoint-medium .tribe-common-form-control-text__input, #top .main_color .tribe-common.tribe-common--breakpoint-medium .tribe-common-form-control-text__input,
+#top.tribe-theme-enfold .tribe-common .tribe-common-form-control-text__input,
+#top .main_color .tribe-common .tribe-common-form-control-text__input,
+#top.tribe-theme-enfold .tribe-common.tribe-common--breakpoint-medium .tribe-common-form-control-text__input,
+#top .main_color .tribe-common.tribe-common--breakpoint-medium .tribe-common-form-control-text__input,
 .tribe-common .tribe-common-form-control-toggle__label,
 .tribe-common .tribe-common-b1,
 .tribe-common .tribe-common-b2,
@@ -85,7 +87,7 @@
 .tribe-events .tribe-events-calendar-list__event-date-tag-weekday,
 .tribe-events .tribe-events-calendar-month__calendar-event-datetime,
 .tribe-events .tribe-events-c-view-selector__button-text {
-	font-family: inherit;
+    font-family: inherit;
 }
 
 .tribe-events-pro .tribe-events-pro-photo__event-date-tag-month,
@@ -98,15 +100,15 @@
 .tribe-events-pro .tribe-events-pro-week-grid__events-time-tag,
 .tribe-events-pro .tribe-events-pro-week-grid__event-datetime,
 .tribe-events-pro .tribe-events-pro-map__event-date-tag-weekday {
-	font-family: inherit;
+    font-family: inherit;
 }
 
 .tribe-events .tribe-events-c-ical__link {
-	color: $purple;
-	border-color: $purple;
-	&:hover {
-		background-color: $purple;
-	}
+    color: $purple;
+    border-color: $purple;
+    &:hover {
+        background-color: $purple;
+    }
 }
 
 .tribe-common .tribe-common-c-svgicon {
@@ -114,40 +116,47 @@
 }
 
 .tribe-events-cal-links .tribe-events-button {
-	@extend .button;
+    @extend .button;
 }
 
-.single-tribe_events a.tribe-events-gcal, 
-.single-tribe_events a.tribe-events-gcal:hover, 
-.single-tribe_events a.tribe-events-ical, 
+.single-tribe_events a.tribe-events-gcal,
+.single-tribe_events a.tribe-events-gcal:hover,
+.single-tribe_events a.tribe-events-ical,
 .single-tribe_events a.tribe-events-ical:hover {
-	@extend .button;
+    @extend .button;
 }
 
-#tribe-events .tribe-events-button, #tribe-events .tribe-events-button:hover, #tribe_events_filters_wrapper input[type=submit], .tribe-events-button, .tribe-events-button.tribe-active:hover, .tribe-events-button.tribe-inactive, .tribe-events-button:hover, .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-], .tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]>a {
+#tribe-events .tribe-events-button,
+#tribe-events .tribe-events-button:hover,
+#tribe_events_filters_wrapper input[type=submit],
+.tribe-events-button,
+.tribe-events-button.tribe-active:hover,
+.tribe-events-button.tribe-inactive,
+.tribe-events-button:hover,
+.tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-],
+.tribe-events-calendar td.tribe-events-present div[id*=tribe-events-daynum-]>a {
     background-color: $purple-gray;
 }
 
 .tribe-events-meta-group .tribe-events-single-section-title {
-	@extend .subnav__social__title;
+    @extend .subnav__social__title;
 }
 
 .single-tribe_events #tribe-events-content .tribe-events-event-meta dt {
-	@include text-caption;
+    @include text-caption;
 }
 
 #tribe-events-content .tribe-events-abbr {
-	@include text-caption;
+    @include text-caption;
 }
 
 .tribe-common p {
-	@include text-caption;
+    @include text-caption;
 }
 
 .single-tribe_events .tribe-events-event-meta {
-	background-color: $purple-gray;
+    background-color: $purple-gray;
 }
-
 
 .tribe-events-calendar thead th {
     background-color: $purple-gray;
@@ -167,59 +176,61 @@
 }
 
 .tribe-events-tooltip h3 {
-	margin: .5rem;
+    margin: .5rem;
 }
 
-#tribe-events h2, #tribe-events h3, #trive-events h4 {
-	font-weight: normal !important;
+#tribe-events h2,
+#tribe-events h3,
+#trive-events h4 {
+    font-weight: normal !important;
 }
 
 .tribe-events-list .tribe-events-loop .tribe-event-featured {
-	background: $blue-dark !important;
+    background: $blue-dark !important;
 }
 
 .tribe-events-notices {
-	background: $purple-gray !important;
-	color: $dark-gray !important;
-	border: none !important;
-	li:before {
-		display: none !important;
-	}
+    background: $purple-gray !important;
+    color: $dark-gray !important;
+    border: none !important;
+    li:before {
+        display: none !important;
+    }
 }
 
 .tribe-events-title-bar h1 {
-	@extend .h3;
-	margin-top: 0;
+    @extend .h3;
+    margin-top: 0;
 }
 
 .tribe-events-page-title a {
     color: $dark-gray;
 }
 
-.tribe-events .tribe-events-calendar-month__day--current .tribe-events-calendar-month__day-date, 
+.tribe-events .tribe-events-calendar-month__day--current .tribe-events-calendar-month__day-date,
 .tribe-events .tribe-events-calendar-month__day--current .tribe-events-calendar-month__day-date-link {
-	color: $teal;
+    color: $teal;
 }
 
-.tribe-events .datepicker .day.active, 
-.tribe-events .datepicker .day.active.focused, 
-.tribe-events .datepicker .day.active:focus, 
-.tribe-events .datepicker .day.active:hover, 
-.tribe-events .datepicker .month.active, 
-.tribe-events .datepicker .month.active.focused, 
-.tribe-events .datepicker .month.active:focus, 
-.tribe-events .datepicker .month.active:hover, 
-.tribe-events .datepicker .year.active, 
-.tribe-events .datepicker .year.active.focused, 
-.tribe-events .datepicker .year.active:focus, 
+.tribe-events .datepicker .day.active,
+.tribe-events .datepicker .day.active.focused,
+.tribe-events .datepicker .day.active:focus,
+.tribe-events .datepicker .day.active:hover,
+.tribe-events .datepicker .month.active,
+.tribe-events .datepicker .month.active.focused,
+.tribe-events .datepicker .month.active:focus,
+.tribe-events .datepicker .month.active:hover,
+.tribe-events .datepicker .year.active,
+.tribe-events .datepicker .year.active.focused,
+.tribe-events .datepicker .year.active:focus,
 .tribe-events .datepicker .year.active:hover {
-	background: $purple;
+    background: $purple;
 }
 
-.single-tribe_events a.tribe-events-gcal, 
-.single-tribe_events a.tribe-events-gcal:hover, 
-.single-tribe_events a.tribe-events-ical, 
+.single-tribe_events a.tribe-events-gcal,
+.single-tribe_events a.tribe-events-gcal:hover,
+.single-tribe_events a.tribe-events-ical,
 .single-tribe_events a.tribe-events-ical:hover {
-	color: $white;
-	padding: 1.0625rem 2.25rem .9375rem;
+    color: $white;
+    padding: 1.0625rem 2.25rem .9375rem;
 }

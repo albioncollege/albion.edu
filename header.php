@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
     <script src="https://25live.collegenet.com/pro/embedding-client-code/embedded25.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.7/build/pannellum.js"></script>
   </head>
   <body <?php body_class(); ?>>
     <nav aria-label="Skip to Sections">

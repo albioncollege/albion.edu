@@ -1,0 +1,33 @@
+.photo-360 {
+    position: relative;
+    min-height: 300px;
+    aspect-ratio: 10 / 3.49;
+    overflow: hidden;
+    iframe {
+        display: block;
+        width: 100%;
+        min-height: 300px;
+        aspect-ratio: 10 / 3.5;
+    }
+    .intro {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        width: 300px;
+        margin-left: -150px;
+        margin-bottom: 5%;
+        z-index: 1;
+        text-align: center;
+        @include mq( $md) {
+            width: 450px;
+            margin-left: -225px;
+        }
+        h4 {
+            color: white;
+            text-shadow: 0 0 20px 20px rgba( black, .5);
+        }
+        .button {
+            margin: 0 auto;
+        }
+    }
+}
