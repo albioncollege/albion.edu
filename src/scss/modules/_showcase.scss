@@ -109,7 +109,7 @@
                 color: transparent;
                 transition: all 400ms ease-in-out;
                 background: white;
-                border-radius: 50%;
+                border-radius: 12.5px;
                 margin: 0 4px;
                 @include mq( $md) {
                     opacity: .5;
@@ -129,6 +129,11 @@
                     transform: rotate( 180deg);
                     border-radius: 0;
                     display: none;
+                }
+                &.active {
+                    width: 60px;
+                    background: $gold;
+                    opacity: 1;
                 }
             }
         }

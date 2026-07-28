@@ -1,53 +1,55 @@
-
-
 // select all showcase containers in the page
-const showcaseContainers = document.querySelectorAll( '.showcase-container' );
+const showcaseContainers = document.querySelectorAll('.showcase-container');
 
 // loop through the showcase containers (handles multiple showcases)
-[...showcaseContainers].forEach( (showcaseContainer) => {
+[...showcaseContainers].forEach((showcaseContainer) => {
 
     // get the showcase and controls
-    const showcase = showcaseContainer.querySelector( '.showcase' );
-    const controls = showcaseContainer.querySelector( '.controls' );
+    const showcase = showcaseContainer.querySelector('.showcase');
+    const controls = showcaseContainer.querySelector('.controls');
 
 
     // function to advance to the next slide
     // we need this for both the controls and the auto-advance feature
-    var nextSlide = function(){
+    var nextSlide = function() {
         // get and store the current slide and what we expect is the next one (if it exists)
         var currentSlide = showcase.querySelector('.slide.active');
         var nextSlide = currentSlide.nextElementSibling;
 
         // remove the active class from the current slide
         currentSlide.classList.remove("active");
+        controls.querySelector('a.active').classList.remove("active");
 
         // if we don't have a next slide
-        if ( nextSlide === null ) {
-            
+        if (nextSlide === null) {
+
             // select the first slide in the list
             showcase.querySelectorAll('.slide')[0].classList.add('active');
+            controls.querySelector('a:first-child').classList.add('active');
 
         } else {
 
             // otherwise, make next slide active
+            var slideId = nextSlide.dataset.slide;
             nextSlide.classList.add("active");
+            controls.querySelector('[data-slide="' + slideId + '"]').classList.add('active');
 
         }
     }
 
 
     // select all the controls
-    controls.querySelectorAll('a').forEach( (control) => {
+    controls.querySelectorAll('a').forEach((control) => {
 
         // when the user clicks a control
-        control.addEventListener( 'click', function( event ){
+        control.addEventListener('click', function(event) {
 
             // if we're trying to go to the next slide
-            if ( this.className.match( 'next' ) ) {
+            if (this.className.match('next')) {
 
                 nextSlide();
 
-            } else if ( this.className.match( 'prev' ) ) {
+            } else if (this.className.match('prev')) {
 
                 // get and store the current slide and what we expect is the next one (if it exists)
                 var currentSlide = showcase.querySelector('.slide.active');
@@ -57,12 +59,12 @@ const showcaseContainers = document.querySelectorAll( '.showcase-container' );
                 currentSlide.classList.remove("active");
 
                 // if we don't have a next slide
-                if ( prevSlide === null ) {
-                    
+                if (prevSlide === null) {
+
                     var allSlides = showcase.querySelectorAll('.slide');
 
                     // select the first slide in the list
-                    allSlides[ allSlides.length-1 ].classList.add('active');
+                    allSlides[allSlides.length - 1].classList.add('active');
 
                 } else {
 
@@ -71,35 +73,40 @@ const showcaseContainers = document.querySelectorAll( '.showcase-container' );
 
                 }
 
-            } else { 
+            } else {
 
                 // get and store the current slide
                 var currentSlide = showcase.querySelector('.slide.active');
+                var currentControl = controls.querySelector('a.active');
 
                 // this is the catch-all for the controls, if it gets here, it means that
                 // they selected a specific slide in the showcase by pushing
-                var selectedSlide = showcase.querySelector( '[data-slide="'+this.dataset.slide+'"]' );
+                var selectedSlide = showcase.querySelector('[data-slide="' + this.dataset.slide + '"]');
+                var selectedControl = controls.querySelector('[data-slide="' + this.dataset.slide + '"]');
                 //console.log( selectedSlide );
 
                 // remove the active class from the current slide
                 currentSlide.classList.remove("active");
+                currentControl.classList.remove("active");
+
 
                 // select the first slide in the list
                 selectedSlide.classList.add('active');
+                selectedControl.classList.add('active');
 
             }
 
         });
-        
+
     });
 
     // set showcase initial height when the first image is loaded.
-    setTimeout( function() {
+    setTimeout(function() {
 
         // once we're loaded up, set a timer to auto-rotate the slides.
-        if ( showcase.querySelectorAll('.slide').length > 1 ) {
-            var autoRotate = setInterval( nextSlide, 10000 );
+        if (showcase.querySelectorAll('.slide').length > 1) {
+            var autoRotate = setInterval(nextSlide, 10000);
         }
-    }, 500 );
+    }, 500);
 
 });

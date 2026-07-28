@@ -26,15 +26,15 @@ if ( have_rows( 'slides' ) ) : ?>
         <?php if ( $slide_link ) : ?></a><?php endif; ?>
     </div>
         <?php
-        $slide_controls .= '<a data-slide="' . $row_index . '"></a>';
+        $slide_controls .= '<a data-slide="' . $row_index . '" class="' . ( get_row_index()==1 ? 'active' : '' ) . '"></a>';
     endwhile;
     ?>
     </div>
     <div class="controls-container">
         <div class="controls">
-            <a class="prev">&raquo; Prev</a>
+            <?php //<a class="prev">&raquo; Prev</a> ?>
             <?php print $slide_controls; ?>
-            <a class="next">Next &raquo;</a>
+            <?php //<a class="next">Next &raquo;</a> ?>
         </div>
     </div>
 </div>
