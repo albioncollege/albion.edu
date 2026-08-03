@@ -778,6 +778,51 @@
                     "acfe_flexible_modal_edit_size": false,
                     "acfe_flexible_category": false
                 },
+				"layout_602dadc1dbd69b": {
+					"key": "layout_602dadc1dbd69b",
+					"name": "feature_grid_v2",
+					"label": "Feature Grid v2",
+					"display": "block",
+					"sub_fields": [
+						{
+							"key": "field_602dadc6dbd6ab",
+							"label": "Feature Grid v2",
+							"name": "feature_grid_v2",
+							"aria-label": "",
+							"type": "clone",
+							"instructions": "",
+							"required": 0,
+							"conditional_logic": 0,
+							"wrapper": {
+								"width": "",
+								"class": "",
+								"id": ""
+							},
+							"clone": [
+								"group_6a69473131380"
+							],
+							"display": "seamless",
+							"layout": "block",
+							"prefix_label": 0,
+							"prefix_name": 0,
+							"acfe_seamless_style": 0,
+							"acfe_clone_modal": 0,
+							"acfe_clone_modal_close": 0,
+							"acfe_clone_modal_button": "",
+							"acfe_clone_modal_size": "large"
+						}
+					],
+					"min": "",
+					"max": "",
+					"acfe_flexible_render_template": false,
+					"acfe_flexible_render_style": false,
+					"acfe_flexible_render_script": false,
+					"acfe_flexible_thumbnail": false,
+					"acfe_flexible_settings": false,
+					"acfe_flexible_settings_size": false,
+					"acfe_flexible_modal_edit_size": false,
+					"acfe_flexible_category": false
+				},
                 "layout_602d4eaa14b30": {
                     "key": "layout_602d4eaa14b30",
                     "name": "horizontal_rule",
