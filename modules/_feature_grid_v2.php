@@ -92,8 +92,8 @@ if( have_rows('cards') ) : ?>
                 </div>
             </div>
         </div>
+		<dialog class="dialog">
+			<button class="button" commandfor="dialog" command="close">Close</button>
+		</dialog>
     </div>
-	<dialog class="dialog">
-		<button class="button" commandfor="dialog" command="close">Close</button>
-	</dialog>
 <?php endif; ?>
