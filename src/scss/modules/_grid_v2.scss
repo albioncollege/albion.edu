@@ -33,6 +33,19 @@
 	  &.background--purple {
 		color: #fff;
 	  }
+	  &.background--black {
+		background: #000;
+		
+		h2,h3,h4,h5 {
+		  color: #fff;
+	    }
+	  }
+	  &.background--white {
+		background: #fff;
+		color: #000;
+		border: 1px solid #4B306A;
+		border-top: 5px solid #4B306A;
+	  }
 	  p:first-child {
 		flex: 1;
 		display: flex;
@@ -45,5 +58,12 @@
 		width: 240px;
 	  }
 	}
+  }
+  
+  dialog {
+	  margin: auto;
+	  max-width: 800px;
+	  width: stretch;
+	  background-color: #4b306a;
   }
 }
