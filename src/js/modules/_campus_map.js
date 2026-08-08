@@ -145,6 +145,7 @@ function addInfo(property) {
   const propertyInfoDiv = document.getElementById("property-info");
   let imageGalleryHTML = "";
   let videoButtonHTML = "";
+  // Add image gallery with alt text and description
   if (property.gallery && property.gallery.length) {
     imageGalleryHTML = `
 		  <div class="image-gallery">
@@ -152,9 +153,8 @@ function addInfo(property) {
         .map(
           (image) => `
 				<div class="thumbnail-button" command="show-modal" commandfor="dialog" role="button" tabindex="0" aria-label="expand image into lightbox view">
-					<img src="${image.url}" alt="${image.alt || ""}" />
+					<img loading="lazy" src="${image.url}" alt="${image.alt || ""}" data-caption="${image.caption}"/>
 				</div>
-				${image.caption ? `<p class="media__caption">${image.caption}</p>` : ""}
 			`,
         )
         .join("")}
@@ -234,11 +234,13 @@ function lightbox() {
 
         for (const image of imageLigthboxObject.querySelectorAll("img")) {
           let wrapperDiv = document.createElement("div");
+          const description = image.dataset.description;
           wrapperDiv.classList.add("image-gallery-item");
           if (image.src === e.target.src) {
             wrapperDiv.classList.add("active");
           }
-          wrapperDiv.innerHTML = `<img src="${image.src}" alt="${image.alt || ""}" />`;
+          wrapperDiv.innerHTML = `<img src="${image.src}" alt="${image.alt || ""}" />
+          <div class="image-gallery-caption">${image.dataset.caption}</div>`;
           imageLigthboxHTML += wrapperDiv.outerHTML;
         }
         imageLigthboxHTML += `</div>`;
