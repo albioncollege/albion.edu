@@ -1,37 +1,38 @@
 import "core-js/features/array/fill";
 
 // polyfills
-import 'intersection-observer';
+import "intersection-observer";
 
 // dependencies
-import 'what-input';
-import 'whatwg-fetch';
+import "what-input";
+import "whatwg-fetch";
 
 // util
-import './util/_minimodal';
-import './util/_smoothscroll';
-import smoothscroll from 'smoothscroll-polyfill';
-import './util/_stickysidebar';
+import "./util/_minimodal";
+import "./util/_smoothscroll";
+import smoothscroll from "smoothscroll-polyfill";
+import "./util/_stickysidebar";
 
 // kick off the polyfill!
 smoothscroll.polyfill();
 
 // modules
-import './modules/_accordion';
-import './modules/_posts';
-import './modules/_button';
-import './modules/_classnotes';
-import './modules/_contacts';
-import './modules/_events';
-import './modules/_footer';
-import './modules/_header';
-import './modules/_lightbox';
-import './modules/_media';
-import './modules/_nav';
-import './modules/_sidebar';
-import './modules/_showcase';
-import './modules/_social';
-import './modules/_splash';
-import './modules/_tabs';
-import './modules/_testimonial-slider';
-import './modules/_campus_map';
+import "./modules/_accordion";
+import "./modules/_posts";
+import "./modules/_button";
+import "./modules/_classnotes";
+import "./modules/_contacts";
+import "./modules/_events";
+import "./modules/_footer";
+import "./modules/_header";
+import "./modules/_lightbox";
+import "./modules/_media";
+import "./modules/_nav";
+import "./modules/_sidebar";
+import "./modules/_showcase";
+import "./modules/_social";
+import "./modules/_splash";
+import "./modules/_tabs";
+import "./modules/_testimonial-slider";
+import "./modules/_campus_map";
+import "./modules/_video_dialogue";

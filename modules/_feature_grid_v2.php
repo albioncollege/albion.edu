@@ -49,31 +49,54 @@ if( have_rows('cards') ) : ?>
 									$card_class .= ' background--purple-gray container--purple-gray';
 								} elseif ( $color === '#ffc845' ) {
 									$card_class .= ' background--gold container--gold';
-								} else {
-									$card_style = 'background-color: ' . esc_attr( $card_background_color ) . ';';
+								} elseif ( $color === '#000000' ) {
+									$card_class .= ' background--black container--black';
+								} elseif ( $color === '#ffffff' ) {
+									$card_class .= ' background--white container--white';
 								}
 							}
 						?>
-                        <?php if ( $card_subheading ) : ?>
-                            <div class="<?= $card_class ?>" style="<?= $card_style ?>">
-                                <?php if ( $card_subheading_link ) { echo '<a href="'.$card_subheading_link.'">'; } ?>
-                                <<?= $card_subheading_level ?> class="<?= $card_subheading_level ?>"><span><?= esc_html( $card_subheading ); ?></span></<?= $card_subheading_level ?>>
-                                <?php if ( $card_subheading_link ) { echo '</a>'; } ?>
-								<?php if ( $card_blurb ) : ?>
-									<div class="blurb"><?php echo wp_kses_post( $card_blurb ); ?></div>
+                        <div class="<?= $card_class ?>" style="<?= $card_style ?>">
+                            <?php if ( $card_subheading_link ) { echo '<a href="'.$card_subheading_link.'">'; } ?>
+                            <<?= $card_subheading_level ?> class="<?= $card_subheading_level ?>"><span><?= esc_html( $card_subheading ); ?></span></<?= $card_subheading_level ?>>
+                            <?php if ( $card_subheading_link ) { echo '</a>'; } ?>
+							<?php if ( $card_blurb ) : ?>
+								<div class="blurb"><?php echo wp_kses_post( $card_blurb ); ?></div>
+							<?php endif; ?>
+
+							<?php if ( $card_button_link ) :
+								$button_url = $card_button_link['url'];
+								$is_youtube = (bool) preg_match(
+									'#(?:youtube\.com/(?:watch|shorts|embed)|youtu\.be/)#i',
+									$button_url
+								);
+							?>
+								<?php if ( $is_youtube ) : ?>
+									<button
+										type="button"
+										class="button dialog-trigger"
+										command="show-modal" 
+										commandfor="dialog"
+										href="<?php echo esc_url( $button_url ); ?>"
+									>
+										<?php echo esc_html( $card_button_link['title'] ); ?>
+									</button>
+								<?php else : ?>
+									<a href="<?php echo esc_url( $button_url ); ?>" class="button" <?php echo link_target( $card_button_link ); ?>>
+										<?php echo esc_html( $card_button_link['title'] ); ?>
+									</a>
 								<?php endif; ?>
-								<div>
-									<?php if ( $card_button_link ) : ?>
-										<a href="<?php echo esc_url( $card_button_link['url'] ); ?>" class="button" <?php echo link_target( $card_button_link ); ?>>
-											<?php echo esc_html( $card_button_link['title'] ); ?>
-										</a>
-									<?php endif; ?>
-								</div>
-                            </div>
-						<?php endif; ?>
+							<?php endif; ?>
+
+                        </div>
                     <?php endwhile; //cards ?>
                 </div>
             </div>
         </div>
+		<dialog id="dialog" class="container--purple">
+			<div id="dialog-wrapper">
+			</div>
+			<button class="button" commandfor="dialog" command="close">Close</button>
+		</dialog>
     </div>
 <?php endif; ?>

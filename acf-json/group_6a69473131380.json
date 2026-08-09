@@ -1,4 +1,4 @@
-{
+	{
 		"key": "group_6a69473131380",
 		"title": "Module - Feature Grid v2",
 		"fields": [
@@ -263,7 +263,7 @@
 						"return_format": "string",
 						"allow_in_bindings": 0,
 						"show_custom_palette": 1,
-						"palette_colors": "#4b306a,#edeaf0,#FFC845",
+						"palette_colors": "#4b306a,#edeaf0,#FFC845,#ffffff,#000000",
 						"show_color_wheel": 0,
 						"custom_palette_source": "",
 						"parent_repeater": "field_6a69473138a6b"
@@ -315,7 +315,7 @@
 						"relevanssi_exclude": 0,
 						"default_value": "",
 						"allow_in_bindings": 1,
-						"tabs": "visual",
+						"tabs": "all",
 						"toolbar": "basic",
 						"media_upload": 0,
 						"delay": 0,
