@@ -1,82 +1,51 @@
-window.onload() => {
-	document
-		.querySelectorAll('button[href*="youtube.com/watch"],button[href*="youtube.com/short"],button[href*="youtu.be"]')
-		.forEach(link => {
-			link.addEventListener('click', function(event) {
-				event.preventDefault();
+document
+  .querySelectorAll(
+    'button[href*="youtube.com/watch"],button[href*="youtube.com/short"],button[href*="youtu.be"]',
+  )
+  .forEach((link) => {
+    link.addEventListener("click", function (event) {
+      let dialogElement = document.getElementById("dialog-wrapper");
+      // Clear the dialog
+      dialogElement.innerHTML = ``;
 
-				const videoId = getYouTubeVideoId(this.href);
+      // Get the video id from the url
+      const videoId = getYouTubeVideoId(this.getAttribute("href"));
 
-				if (!videoId) {
-					return;
-				}
+      // If no video id, return
+      if (!videoId) {
+        return;
+      }
 
-				// Create dialog
-				const dialog = document.createElement('dialog');
-				dialog.classList.add('youtube-dialog');
+      // Create dialog html
+      dialogElement.innerHTML = `
+				<iframe
+					src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+					title="YouTube video"
+					allowfullscreen
+				></iframe>
+			`;
 
-				dialog.innerHTML = `
-					<div class="youtube-dialog__video">
-						<iframe
-							src="https://www.youtube.com/embed/${videoId}?autoplay=1"
-							title="YouTube video"
-							allowfullscreen
-						></iframe>
-					</div>
-					<button
-						type="button"
-						class="button"
-						aria-label="Close video"
-					>
-						Close
-					</button>
-				`;
+      // Add the dialog html to the dialog
+      dialogElement.innerHTML = dialogHTML;
+    });
+  });
 
-				document.body.appendChild(dialog);
+function getYouTubeVideoId(url) {
+  const parsedUrl = new URL(url);
 
-				// Close button
-				dialog
-					.querySelector('.youtube-dialog__close')
-					.addEventListener('click', () => {
-						dialog.close();
-					});
+  // youtu.be/VIDEO_ID
+  if (parsedUrl.hostname === "youtu.be") {
+    return parsedUrl.pathname.slice(1);
+  }
 
-				// Clicking backdrop closes dialog
-				dialog.addEventListener('click', event => {
-					if (event.target === dialog) {
-						dialog.close();
-					}
-				});
+  // youtube.com/watch?v=VIDEO_ID
+  if (parsedUrl.searchParams.has("v")) {
+    return parsedUrl.searchParams.get("v");
+  }
 
-				// Remove dialog from DOM after closing
-				dialog.addEventListener('close', () => {
-					dialog.remove();
-				});
+  // youtube.com/embed/VIDEO_ID
+  // youtube.com/shorts/VIDEO_ID
+  const match = parsedUrl.pathname.match(/^\/(?:embed|shorts)\/([^/?]+)/);
 
-				dialog.showModal();
-			});
-		});
-
-
-	function getYouTubeVideoId(url) {
-		const parsedUrl = new URL(url);
-
-		// youtu.be/VIDEO_ID
-		if (parsedUrl.hostname === 'youtu.be') {
-			return parsedUrl.pathname.slice(1);
-		}
-
-		// youtube.com/watch?v=VIDEO_ID
-		if (parsedUrl.searchParams.has('v')) {
-			return parsedUrl.searchParams.get('v');
-		}
-
-		// youtube.com/embed/VIDEO_ID
-		// youtube.com/shorts/VIDEO_ID
-		const match = parsedUrl.pathname.match(
-			/^\/(?:embed|shorts)\/([^/?]+)/
-		);
-
-		return match ? match[1] : null;
-	}
+  return match ? match[1] : null;
 }

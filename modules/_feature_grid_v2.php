@@ -74,9 +74,10 @@ if( have_rows('cards') ) : ?>
 								<?php if ( $is_youtube ) : ?>
 									<button
 										type="button"
-										class="button"
+										class="button dialog-trigger"
 										command="show-modal" 
 										commandfor="dialog"
+										href="<?php echo esc_url( $button_url ); ?>"
 									>
 										<?php echo esc_html( $card_button_link['title'] ); ?>
 									</button>
@@ -92,7 +93,9 @@ if( have_rows('cards') ) : ?>
                 </div>
             </div>
         </div>
-		<dialog class="dialog">
+		<dialog id="dialog" class="container--purple">
+			<div id="dialog-wrapper">
+			</div>
 			<button class="button" commandfor="dialog" command="close">Close</button>
 		</dialog>
     </div>
