@@ -2,10 +2,61 @@
 
 //! move to vars partials
 $light-teal: #4A8B91;
-
 .video-fw__caption {
-  padding-top   : 1rem;
-  padding-bottom: 0.65rem;
-  font-size     : 1rem;
-  border-bottom : 2px solid $light-teal;
+    padding-top: 1rem;
+    padding-bottom: 0.65rem;
+    font-size: 1rem;
+    border-bottom: 2px solid $light-teal;
+}
+
+.videos-3up {
+    padding: 4rem 0;
+    h2 {
+        margin: 0 0 1rem;
+        text-align: center;
+    }
+    .intro {
+        padding: 0 0 2rem 0;
+    }
+    .videos-3up-inner {
+        @include mq( $md) {
+            display: flex;
+            .vid {
+                flex: 0 0 30%;
+                margin: 0 3.3333% 0 0;
+                display: flex;
+                flex-flow: column;
+                align-items: stretch;
+                video {
+                    flex: 0 0 auto;
+                }
+                .vid-caption {
+                    flex: 1;
+                }
+            }
+        }
+        .vid {
+            box-shadow: 0 0 20px rgba( black, .1);
+            video {
+                aspect-ratio: 9 / 16;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            .vid-caption {
+                background: $purple;
+                padding: 20px 25px;
+                h4 {
+                    color: white;
+                    font-size: 1.2em;
+                    margin: 0;
+                }
+                p {
+                    color: white;
+                    font-size: .85em;
+                    opacity: .7;
+                }
+            }
+        }
+    }
 }

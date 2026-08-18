@@ -126,10 +126,10 @@
     visibility: hidden;
     overflow: hidden;
     width: 100%;
-    padding: 2.25rem 2rem;
+    padding: 1.5rem 2rem;
     @include font-size(18);
-    color: $white;
-    background-color: $purple;
+    color: $purple;
+    background-color: $purple-gray;
     @include mq($lg) {
         display: none;
         visibility: visible;
@@ -154,7 +154,15 @@
         }
     }
     @include mq($lg) {
-        padding: 4rem 3.125rem;
+        padding: 2.25rem 3.125rem;
+    }
+    .cta_links {
+        p {
+            display: none;
+        }
+        .cta_link a {
+            color: $purple;
+        }
     }
 }
 
@@ -164,7 +172,7 @@
     margin: 0;
     @include mq($lg) {
         height: auto !important;
-        padding: 4rem 3.125rem;
+        padding: 2.25rem 3.125rem;
     }
 }
 
@@ -172,6 +180,9 @@
     margin-bottom: -5.25rem;
     .large-headline {
         //max-width: 50rem;
+    }
+    .background {
+        padding: 4rem 0 3rem;
     }
     .tabs-nav {
         margin: 0;
