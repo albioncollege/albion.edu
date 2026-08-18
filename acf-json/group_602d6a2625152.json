@@ -68,7 +68,9 @@
             "ui": 0,
             "ajax": 0,
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_602d6a7fcacb7",
@@ -96,7 +98,9 @@
             "ajax": 0,
             "placeholder": "",
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_602d6abdcacb8",
@@ -127,7 +131,9 @@
             "ui": 0,
             "ajax": 0,
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_66b571b04ebce",
@@ -157,10 +163,12 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "short",
+                "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "default_value": "",
+            "allow_in_bindings": 1,
             "tabs": "visual",
             "toolbar": "basic",
             "media_upload": 0,
@@ -286,12 +294,13 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "acfe_display_title": "",
-    "acfe_autosync": [
-        "json"
-    ],
-    "acfe_form": 0,
-    "acfe_meta": "",
-    "acfe_note": "",
-    "modified": 1723170890
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "acfe": {
+        "autosync": [
+            "json"
+        ]
+    },
+    "modified": 1787081323
 }
