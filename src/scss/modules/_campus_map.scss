@@ -19,7 +19,7 @@
       width 0.4s ease,
       inset 0.4s ease;
     &:has(.min) #map {
-      width: 50%;
+      width: 66%;
       transition:
         width 0.4s ease,
         inset 0.4s ease;
@@ -197,11 +197,11 @@
       height: auto;
     }
     &.min {
-      inset: 0 0 0 50%;
+      inset: 0 0 0 66%;
       transition:
         inset 0.4s ease,
         width 0.4s ease;
-      width: 50%;
+      width: 34%;
       margin: 16px 0;
       overflow-y: scroll;
       background: #4b306a;
@@ -257,7 +257,7 @@
     }
     .image-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 300px));
+      grid-template-columns: repeat(auto-fill, minmax(min(100px, 100%), 200px));
       gap: 1rem;
       padding: 1rem 0;
 	  
