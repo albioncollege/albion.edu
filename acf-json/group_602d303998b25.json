@@ -1,92 +1,204 @@
-{
-    "key": "group_602d303998b25",
-    "title": "Module - One Column - Feature",
-    "fields": [
-        {
-            "key": "field_602d30454b43c",
-            "label": "Background Color",
-            "name": "background_color",
-            "aria-label": "",
-            "type": "select",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "gray": "Gray",
-                "none": "None"
-            },
-            "default_value": "gray",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "ui": 0,
-            "ajax": 0,
-            "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": ""
-        },
-        {
-            "key": "field_602d30664b43d",
-            "label": "Feature",
-            "name": "feature",
-            "aria-label": "",
-            "type": "post_object",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "feature"
-            ],
-            "post_status": "",
-            "taxonomy": "",
-            "return_format": "object",
-            "multiple": 0,
-            "save_custom": 0,
-            "save_post_status": "publish",
-            "acfe_bidirectional": {
-                "acfe_bidirectional_enabled": "0"
-            },
-            "allow_null": 0,
-            "bidirectional": 0,
-            "ui": 1,
-            "bidirectional_target": [],
-            "save_post_type": ""
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "post"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": false,
-    "description": "",
-    "show_in_rest": 0,
-    "acfe_display_title": "",
-    "acfe_autosync": [
-        "json"
-    ],
-    "acfe_form": 0,
-    "acfe_meta": "",
-    "acfe_note": "",
-    "modified": 1723167043
-}
+	{
+		"key": "group_602d303998b25",
+		"title": "Module - One Column - Feature",
+		"fields": [
+			{
+				"key": "field_6a84de8ec6aec",
+				"label": "Layout",
+				"name": "layout",
+				"aria-label": "",
+				"type": "select",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"relevanssi_exclude": 0,
+				"choices": {
+					"color_background": "Color Background",
+					"image_background": "Image Background"
+				},
+				"default_value": "color_background",
+				"return_format": "value",
+				"multiple": 0,
+				"allow_null": 0,
+				"allow_in_bindings": 0,
+				"ui": 0,
+				"ajax": 0,
+				"placeholder": "",
+				"create_options": 0,
+				"save_options": 0,
+				"allow_custom": 0,
+				"search_placeholder": ""
+			},
+			{
+				"key": "field_602d30454b43c",
+				"label": "Background Color",
+				"name": "background_color",
+				"aria-label": "",
+				"type": "select",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": [
+					[
+						{
+							"field": "field_6a84de8ec6aec",
+							"operator": "==",
+							"value": "color_background"
+						}
+					]
+				],
+				"wrapper": {
+					"width": "50",
+					"class": "",
+					"id": ""
+				},
+				"relevanssi_exclude": 0,
+				"choices": {
+					"gray": "Gray",
+					"none": "None"
+				},
+				"default_value": "gray",
+				"return_format": "value",
+				"multiple": 0,
+				"allow_null": 0,
+				"allow_in_bindings": 1,
+				"ui": 0,
+				"ajax": 0,
+				"placeholder": "",
+				"create_options": 0,
+				"save_options": 0,
+				"allow_custom": 0,
+				"search_placeholder": ""
+			},
+			{
+				"key": "field_6a84df0ac6aed",
+				"label": "Background Image",
+				"name": "background_image",
+				"aria-label": "",
+				"type": "image",
+				"instructions": "Overrides the featured image for the background image.",
+				"required": 0,
+				"conditional_logic": [
+					[
+						{
+							"field": "field_6a84de8ec6aec",
+							"operator": "==",
+							"value": "image_background"
+						}
+					]
+				],
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"relevanssi_exclude": 0,
+				"uploader": "",
+				"return_format": "array",
+				"library": "all",
+				"acfe_thumbnail": 0,
+				"min_width": "",
+				"min_height": "",
+				"min_size": "",
+				"max_width": "",
+				"max_height": "",
+				"max_size": "",
+				"mime_types": "",
+				"allow_in_bindings": 0,
+				"preview_size": "medium"
+			},
+			{
+				"key": "field_6a85d4405953e",
+				"label": "Card Background Color",
+				"name": "card_background_color",
+				"aria-label": "",
+				"type": "color_picker",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": [
+					[
+						{
+							"field": "field_6a84de8ec6aec",
+							"operator": "==",
+							"value": "image_background"
+						}
+					]
+				],
+				"wrapper": {
+					"width": "",
+					"class": "",
+					"id": ""
+				},
+				"relevanssi_exclude": 0,
+				"default_value": "#4b306a",
+				"enable_opacity": 0,
+				"return_format": "string",
+				"allow_in_bindings": 0,
+				"show_custom_palette": 1,
+				"palette_colors": "#4b306a,#edeaf0,#FFC845,#ffffff,#000000",
+				"show_color_wheel": 0,
+				"custom_palette_source": ""
+			},
+			{
+				"key": "field_602d30664b43d",
+				"label": "Feature",
+				"name": "feature",
+				"aria-label": "",
+				"type": "post_object",
+				"instructions": "",
+				"required": 0,
+				"conditional_logic": 0,
+				"wrapper": {
+					"width": "50",
+					"class": "",
+					"id": ""
+				},
+				"post_type": [
+					"feature"
+				],
+				"post_status": "",
+				"taxonomy": "",
+				"return_format": "object",
+				"multiple": 0,
+				"save_custom": 0,
+				"save_post_status": "publish",
+				"acfe_bidirectional": {
+					"acfe_bidirectional_enabled": "0"
+				},
+				"allow_null": 0,
+				"bidirectional": 0,
+				"ui": 1,
+				"bidirectional_target": [],
+				"save_post_type": ""
+			}
+		],
+		"location": [
+			[
+				{
+					"param": "post_type",
+					"operator": "==",
+					"value": "post"
+				}
+			]
+		],
+		"menu_order": 0,
+		"position": "normal",
+		"style": "default",
+		"label_placement": "top",
+		"instruction_placement": "label",
+		"hide_on_screen": "",
+		"active": false,
+		"description": "",
+		"show_in_rest": 0,
+		"display_title": "",
+		"acfe_autosync": [
+			"json"
+		],
+		"acfe_form": 0,
+		"acfe_meta": "",
+		"acfe_note": ""
+	}
