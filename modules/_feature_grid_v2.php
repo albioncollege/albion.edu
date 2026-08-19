@@ -34,7 +34,7 @@ if( have_rows('cards') ) : ?>
                         $card_blurb             = get_sub_field( 'blurb' );
 						$card_button_link       = get_sub_field( 'button_link' );
 						$card_style = '';
-						$card_class = 'grid__card';
+						$card_class = 'card';
 						$color = strtolower( $card_background_color );
 							if ( $card_background_image ) {
 								$url = wp_get_attachment_image_url( $card_background_image, 'large' );

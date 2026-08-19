@@ -6,8 +6,11 @@
  *
  */
 
+$layout                   = get_sub_field( 'layout');
 $feature_background_color = get_sub_field( 'background_color' );
 $bg_color_class           = ( $feature_background_color == 'gray' ) ? ' background--purple-gray' : '';
+$bg_image                 = get_sub_field( 'background_image' );
+$card_background_color    = get_sub_field( 'card_background_color' );
 $feature_panel            = get_sub_field( 'feature' );
 $subheading               = get_field( 'subheading', $feature_panel->ID );
 $subheading_link          = get_field( 'subheading_link', $feature_panel->ID );
@@ -20,56 +23,116 @@ $media_type               = get_field( 'media_type', $feature_panel->ID );
 $video                    = get_field( 'video', $feature_panel->ID, false );
 
 if ( $feature_panel ) : ?>
-    <div class="background<?php echo esc_attr( $bg_color_class ); ?>">  
-        <div class="panel">
-            <div class="container">
-                <div class="grid grid--50">
-                    <div>
-                        <?php if ( 'video' === $media_type ) : ?>
-                            <div class="panel__image">
-                                <a class="panel__icon" href="<?php echo esc_url( $video ); ?>" data-minimodal="">
-                                    <?php echo svgstore('icon-play', 'Play', ''); ?>
-                                </a>
-                                <?php echo wp_get_attachment_image( $feature_image, $image_size ); ?>
-                            </div>
-                        <?php elseif ( $feature_image ): ?>
-                            <div class="panel__image">
-
-                                <?php echo wp_get_attachment_image( $feature_image, $image_size ); ?>
-                                <?php if ( $image_caption ) : ?>
-                                    <p class="caption"><?php echo esc_html( $image_caption ); ?></p>
-                                <?php endif; ?>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                    <div class="panel__details">
-                        <?php if( $subheading ) : ?>
-                            <h4>
-                                <?php if ( $subheading_link ) : ?>
-                                    <a href="<?php echo esc_url( $subheading_link ); ?>">
-                                <?php endif; ?>
-                                <?php echo esc_html( $subheading ); ?>
-                                <?php if ( $subheading_link ) : ?>
-                                    </a>
-                                <?php endif; ?>
-                            </h4>
-                        <?php endif; ?>
-                        <?php if( $body ) : ?>
-                            <?php echo wp_kses_post( $body ); ?>
-                        <?php endif; ?>
-                        <?php if ( $feature_links ) : 
-                            foreach( $feature_links as $link ) :
-                                $feature_link = $link['link'];
-                                if ( $feature_link ) : ?>
-                                    <a href="<?php echo esc_url( $feature_link['url'] ); ?>" class="button"><?php echo esc_html( $feature_link['title'] ); ?></a>
-                        <?php
-                                endif; //$feature_link
-                            endforeach;
-                        endif; //$feature_links
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<?php if ( $layout == 'color_background') : ?>
+		<div class="background<?php echo esc_attr( $bg_color_class ); ?>">  
+			<div class="panel">
+				<div class="container">
+					<div class="grid grid--50">
+						<div>
+							<?php if ( 'video' === $media_type ) : ?>
+								<div class="panel__image">
+									<a class="panel__icon" href="<?php echo esc_url( $video ); ?>" data-minimodal="">
+										<?php echo svgstore('icon-play', 'Play', ''); ?>
+									</a>
+									<?php echo wp_get_attachment_image( $feature_image, $image_size ); ?>
+								</div>
+							<?php elseif ( $feature_image ): ?>
+								<div class="panel__image">
+	
+									<?php echo wp_get_attachment_image( $feature_image, $image_size ); ?>
+									<?php if ( $image_caption ) : ?>
+										<p class="caption"><?php echo esc_html( $image_caption ); ?></p>
+									<?php endif; ?>
+								</div>
+							<?php endif; ?>
+						</div>
+						<div class="panel__details">
+							<?php if( $subheading ) : ?>
+								<h4>
+									<?php if ( $subheading_link ) : ?>
+										<a href="<?php echo esc_url( $subheading_link ); ?>">
+									<?php endif; ?>
+									<?php echo esc_html( $subheading ); ?>
+									<?php if ( $subheading_link ) : ?>
+										</a>
+									<?php endif; ?>
+								</h4>
+							<?php endif; ?>
+							<?php if( $body ) : ?>
+								<?php echo wp_kses_post( $body ); ?>
+							<?php endif; ?>
+							<?php if ( $feature_links ) : 
+								foreach( $feature_links as $link ) :
+									$feature_link = $link['link'];
+									if ( $feature_link ) : ?>
+										<a href="<?php echo esc_url( $feature_link['url'] ); ?>" class="button"><?php echo esc_html( $feature_link['title'] ); ?></a>
+							<?php
+									endif; //$feature_link
+								endforeach;
+							endif; //$feature_links
+							?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<?php else: ?>
+		<section class="featured--one-column">
+			<div class="container">
+				<?php
+					$card_class = 'card';
+					$color = strtolower( $card_background_color );
+					if ( $color === '#edeaf0' ) {
+						$card_class .= ' background--purple-gray container--purple-gray';
+					} elseif ( $color === '#ffc845' ) {
+						$card_class .= ' background--gold container--gold';
+					} elseif ( $color === '#000000' ) {
+						$card_class .= ' background--black container--black';
+					} elseif ( $color === '#ffffff' ) {
+						$card_class .= ' background--white container--white';
+					} else {
+						$card_class .= ' background--purple container--purple';
+					}
+				?>
+				<div class="<?= $card_class ?>">
+					<?php if( $subheading ) : ?>
+						<h2>
+							<?php if ( $subheading_link ) : ?>
+								<a href="<?php echo esc_url( $subheading_link ); ?>">
+							<?php endif; ?>
+							<?php echo esc_html( $subheading ); ?>
+							<?php if ( $subheading_link ) : ?>
+								</a>
+							<?php endif; ?>
+						</h2>
+					<?php endif; ?>
+					<?php if( $body ) : ?>
+						<?php echo wp_kses_post( $body ); ?>
+					<?php endif; ?>
+					<?php if ( $feature_links ) : 
+						foreach( $feature_links as $link ) :
+							$feature_link = $link['link'];
+							if ( $feature_link ) : ?>
+								<a href="<?php echo esc_url( $feature_link['url'] ); ?>" class="button"><?php echo esc_html( $feature_link['title'] ); ?></a>
+							<?php 
+							endif; //$feature_link
+						endforeach;
+					endif; //$feature_links
+					?>
+					<?php if ( 'video' === $media_type ) : ?>
+						<a class="button" href="<?php echo esc_url( $video ); ?>" data-minimodal="">
+							Watch
+						</a>
+					<?php endif ?>
+				</div>
+			</div>
+			<div class="background-image">
+				<?php if ( $bg_image ) : ?>
+			    	<?php echo wp_get_attachment_image( $bg_image['ID'], 'full' ); ?>
+				<?php else: ?>
+					<?php echo wp_get_attachment_image( $feature_image ); ?>
+				<?php endif ?>
+			</div>
+		</section>
+	<?php endif ?>
 <?php endif; //$feature_panel ?>
