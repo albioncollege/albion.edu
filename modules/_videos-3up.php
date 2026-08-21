@@ -16,7 +16,7 @@ if ( count( $videos ) > 0 ) {
         <div class="videos-3up-inner">
         <?php foreach ( $videos as $video ) : ?>
             <div class="vid">
-            <video width='720' height='1280' controls>
+            <video width='720' height='1280' <?php print ( !empty( $video['thumbnail'] ) ? "poster='" . $video['thumbnail'] . "'" : '' ); ?> controls>
                 <source src="<?php print $video['url']; ?>" type="video/mp4">
             </video>
             <?php if ( !empty( $video['title'] ) && !empty( $video['caption'] ) ) : ?>
