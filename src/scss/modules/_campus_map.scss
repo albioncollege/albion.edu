@@ -24,10 +24,19 @@
         width 0.4s ease,
         inset 0.4s ease;
     }
+	&:has(.hide) #map {
+		width: 100%;
+	}
   }
   #map {
     height: 100%;
     width: 100%;
+	
+	.button {
+		position: absolute;
+		bottom: 0;
+		left: 20px;
+	}
   }
   /*
 	 * Property styles in unhighlighted state.
@@ -153,8 +162,7 @@
   }
   /* Navigation Styles */
   .gm-style div button:not([aria-label="Keyboard shortcuts"]),
-  .gmnoprint ul,
-  .gmnoprint li {
+  .gmnoprint ul {
     color: #4b306a !important;
     padding: 10px 20px;
     cursor: pointer;
@@ -205,6 +213,14 @@
       margin: 16px 0;
       overflow-y: scroll;
       background: #4b306a;
+	  &.hide {
+		  inset: 0 0 0 100%;
+		  transition:
+			inset 0.4s ease,
+			width 0.4s ease;
+		  width: 0;
+	  }
+	  
       *:last-child {
         margin-bottom: 0;
       }

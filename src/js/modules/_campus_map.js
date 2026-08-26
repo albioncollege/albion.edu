@@ -13,6 +13,7 @@ async function initMap() {
     mapTypeId: "satellite",
     mapTypeControlOptions: {
       myTypeIds: ["sattelite"],
+	  style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
     },
   });
   const albionBounds = {
@@ -38,6 +39,14 @@ async function initMap() {
   const properties = JSON.parse(
     document.getElementById("map").dataset.locations,
   );
+  
+  const clearMapSelection = () => {
+	clearSelection();
+	document.querySelector(".info-wrapper")?.classList.add("hide");
+  };
+  
+  map.addListener("click", clearMapSelection);
+  droneOverlay.addListener("click", clearMapSelection);
 
   for (const property of properties) {
     const advancedMarkerElement = new google.maps.marker.AdvancedMarkerElement({
@@ -129,6 +138,7 @@ async function initMap() {
 function toggleHighlight(markerView, property) {
   // Get number of active highlights
   clearSelection();
+  document.querySelector(".info-wrapper").classList.remove("hide");
   addInfo(property);
   const activeHighlights = document.querySelectorAll(".highlight").length;
   markerView.content.classList.add("highlight");
@@ -166,7 +176,7 @@ function addInfo(property) {
   }
 
   propertyInfoDiv.innerHTML = `
-		<h2>${property.name}</h2>
+		<h2 class="h3">${property.name}</h2>
 		${videoButtonHTML}
 		${imageGalleryHTML}
 		${property.description}
@@ -220,7 +230,15 @@ const viewMap = document.querySelector("#view-map");
 if (viewMap !== null) {
   viewMap.addEventListener("click", () => {
     document.querySelector(".info-wrapper").classList.toggle("min");
+	document.querySelector(".info-wrapper").classList.add("hide");
     document.querySelector("#info").classList.toggle("min");
+	
+	const visitButton = document.createElement("a");
+	visitButton.classList.add("button");
+	visitButton.textContent = "Schedule a Tour";
+	visitButton.href = "https://www.albion.edu/visit/";
+	
+	document.getElementById("map").append(visitButton);
   });
 }
 
