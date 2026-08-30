@@ -18,6 +18,7 @@
     transition:
       width 0.4s ease,
       inset 0.4s ease;
+	  
     &:has(.min) #map {
       width: 66%;
       transition:
@@ -31,12 +32,20 @@
   #map {
     height: 100%;
     width: 100%;
-	
-	.button {
-		position: absolute;
-		bottom: 0;
-		left: 20px;
-	}
+  }
+  
+  .button-wrapper {
+	  position: absolute;
+	  top: 10px;
+	  width: 100%;
+	  display: flex;
+	  justify-content: center;
+	  gap: 16px;
+	  pointer-events: none;
+	  
+	  .button {
+		  pointer-events: all;
+	  }
   }
   /*
 	 * Property styles in unhighlighted state.
@@ -353,16 +362,30 @@
   }
   @container (width < 800px) {
     .map-wrapper:has(.min) {
+		height: auto;
+		
       #map,
       #info,
       .info-wrapper {
         width: 100%;
-        height: 50%;
         left: 0;
         position: relative !important;
         z-index: 10;
         display: block;
       }
+	  
+	  #map {
+		height: 70vh;
+	  }
+	  
+	  #info,
+	  .info-wrapper {
+		  height: auto;
+	  }
+	  
+	  .button-wrapper {
+		display: none;
+	  }
     }
   }
 }
