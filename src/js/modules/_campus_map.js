@@ -6,7 +6,7 @@ async function initMap() {
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
   const center = { lat: 42.244132014018355, lng: -84.74419733615092 };
   const map = new Map(document.getElementById("map"), {
-    zoom: 16,
+    zoom: 18,
     center,
     tilt: 47.5,
     mapId: "8c85b69b9c14ff651fe76e7f",
@@ -62,33 +62,6 @@ async function initMap() {
       toggleHighlight(advancedMarkerElement, property);
     });
   }
-
-  const buttons = [
-    [
-      "Rotate Left",
-      "rotate",
-      20,
-      google.maps.ControlPosition.INLINE_START_BLOCK_CENTER,
-    ],
-    [
-      "Rotate Right",
-      "rotate",
-      -20,
-      google.maps.ControlPosition.INLINE_END_BLOCK_CENTER,
-    ],
-    [
-      "Tilt Down",
-      "tilt",
-      20,
-      google.maps.ControlPosition.BLOCK_START_INLINE_CENTER,
-    ],
-    [
-      "Tilt Up",
-      "tilt",
-      -20,
-      google.maps.ControlPosition.BLOCK_END_INLINE_CENTER,
-    ],
-  ];
 
   buttons.forEach(([text, mode, amount, position]) => {
     const controlUI = document.createElement("button");
@@ -233,12 +206,23 @@ if (viewMap !== null) {
 	document.querySelector(".info-wrapper").classList.add("hide");
     document.querySelector("#info").classList.toggle("min");
 	
+	const buttonWrapper = document.createElement('div');
+	buttonWrapper.classList.add('button-wrapper');
+	
 	const visitButton = document.createElement("a");
 	visitButton.classList.add("button");
 	visitButton.textContent = "Schedule a Tour";
-	visitButton.href = "https://www.albion.edu/visit/";
+	visitButton.href = "https://apply.albion.edu/portal/campus-visit_vNew";
+	buttonWrapper.append(visitButton);
 	
-	document.getElementById("map").append(visitButton);
+	const eventButton = document.createElement("a");
+	eventButton.classList.add("button");
+	eventButton.textContent = "Attend an Event";
+	eventButton.href = "/events/";
+	buttonWrapper.append(eventButton);
+	
+	document.querySelector("#map").append(buttonWrapper);
+	
   });
 }
 
