@@ -1,6 +1,6 @@
 .campus-map {
   background: #4b306a;
-  min-height: 100vh;
+  min-height: 1000px;
   container-type: size;
   .sr-only {
     position: absolute;
@@ -14,7 +14,7 @@
   }
   .map-wrapper {
     position: relative;
-    height: 100vh;
+    height: 1000px;
     transition:
       width 0.4s ease,
       inset 0.4s ease;
