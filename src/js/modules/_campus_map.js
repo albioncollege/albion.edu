@@ -218,7 +218,7 @@ if (viewMap !== null) {
 	const eventButton = document.createElement("a");
 	eventButton.classList.add("button");
 	eventButton.textContent = "Attend an Event";
-	eventButton.href = "/events/";
+	eventButton.href = "/visit";
 	buttonWrapper.append(eventButton);
 	
 	document.querySelector("#map").append(buttonWrapper);
