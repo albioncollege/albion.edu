@@ -598,6 +598,51 @@
                     "acfe_flexible_modal_edit_size": false,
                     "acfe_flexible_category": false
                 },
+                "layout_6a96080a7ffeb": {
+                    "key": "layout_6a96080a7ffeb",
+                    "name": "dashboard_panel_v2",
+                    "label": "Dashboard Panel v2",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6a96080a7ffec",
+                            "label": "Dashboard Panel v2",
+                            "name": "dashboard_panel_v2",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6a96080a7ffea"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "acfe_seamless_style": 0,
+                            "acfe_clone_modal": 0,
+                            "acfe_clone_modal_close": 0,
+                            "acfe_clone_modal_button": "",
+                            "acfe_clone_modal_size": "large"
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": false,
+                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_category": false
+                },
                 "layout_68110cb0794e0": {
                     "key": "layout_68110cb0794e0",
                     "name": "emergency",
@@ -1820,5 +1865,5 @@
             "json"
         ]
     },
-    "modified": 1785272000
+    "modified": 1788219385
 }
