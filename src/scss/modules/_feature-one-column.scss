@@ -32,4 +32,21 @@ section.featured--one-column {
 			margin: 0;
 		}
 	}
+	
+	@media (width < 767px)	{
+		.container {
+			padding: 30vh 0 0 0;
+			margin: 0;
+		}
+		
+		.background-image {
+			height: 30vh;
+			top: 0;
+			
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
 }
