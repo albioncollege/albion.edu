@@ -43,6 +43,7 @@ if ($display_type == 'filtered') {
 }
 
 if ( $news ) : ?>                 
+<div class="news__component cards">
     <div class="background<?php echo esc_attr( $bg_color_class ); ?>">
         <div class="container container--narrow">
             <div class="news__heading">
@@ -92,4 +93,5 @@ if ( $news ) : ?>
             </div>
         </div>
     </div>
+</div>
 <?php endif; ?>
