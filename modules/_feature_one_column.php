@@ -96,7 +96,7 @@ if ( $feature_panel ) : ?>
 				?>
 				<div class="<?= $card_class ?>">
 					<?php if( $subheading ) : ?>
-						<h2>
+						<h2 class="h3">
 							<?php if ( $subheading_link ) : ?>
 								<a href="<?php echo esc_url( $subheading_link ); ?>">
 							<?php endif; ?>
