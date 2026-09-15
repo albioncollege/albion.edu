@@ -41,15 +41,15 @@ if( have_rows('grid_items') ) : ?>
                         $image_size = 'routing';
                         $link       = get_sub_field( 'link' ); ?>
                         <div>
-                            <?php if ( $link ) :  
+                            <?php echo wp_get_attachment_image( $image, $image_size, "", array( "class" => "image--full" ) ); ?>
+                            <?php if ( $link ) : ?>
+                            <a class="router__card__link" href="<?php echo esc_url( $link_url ); ?>">
                                     $link_url    = $link['url'];
                                     $link_title  = $link['title']; ?>
-                            <a class="router__card__link" href="<?php echo esc_url( $link_url ); ?>">
-                                <?php echo wp_get_attachment_image( $image, $image_size, "", array( "class" => "image--full" ) ); ?>
                                 <p><span class="button__link"><?php echo esc_html( $link_title ); ?></span></p>
-                                <p><?php print get_sub_field( 'blurb' ); ?></p>
                             </a>
                             <?php endif; ?>
+                            <p><?php print get_sub_field( 'blurb' ); ?></p>
                         </div>
                     <?php endwhile; ?>
                 </div>
