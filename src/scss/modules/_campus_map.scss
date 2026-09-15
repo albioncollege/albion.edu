@@ -1,7 +1,167 @@
 .campus-map {
+  // Keep map controls and overlays below the site's navigation.
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
   background: #4b306a;
   min-height: 1000px;
   container-type: size;
+  .menu-wrapper {
+	  position: absolute;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  right: 0;
+	  transition: right 0.4s ease, max-width 0.4s ease;
+	  z-index: 11;
+	  display: flex;
+	  align-items: center;
+	  max-width: 100%;
+	  
+	  &.hidden {
+		  display: none;
+	  }
+
+      button {
+        outline: none;
+      }
+      button::-moz-focus-inner {
+        border: 0;
+      }
+      button:-moz-focusring {
+        outline: 2px solid currentColor;
+        outline-offset: -2px;
+      }
+      button:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: -2px;
+      }
+      button:focus:not(:focus-visible) {
+        outline: none;
+      }
+	  
+	  .menu.button {
+			flex: 0 0 48px;
+			width: 48px;
+			height: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		  
+		  span {
+			  transform: rotate(-90deg);
+		  }
+	}
+  }
+
+  @container (width >= 800px) {
+    .map-wrapper:has(> .info-wrapper.min:not(.hide)) > .menu-wrapper {
+      right: 34%;
+      max-width: 66%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-wrapper {
+      transition: none;
+    }
+  }
+  
+  #map-menu {
+	  box-sizing: border-box;
+	  width: 320px;
+	  min-width: 0;
+	  max-height: 70vh;
+	  overflow-x: hidden;
+	  overflow-y: auto;
+	  margin: 0;
+	  padding: 0;
+	  background: #4b306a;
+	  color: #fff;
+	  list-style: none;
+	  visibility: visible;
+	  transition: width 0.3s ease, visibility 0s;
+	  > .sub {
+		  padding: 12px 16px;
+		  margin: 0;
+	  }
+	  .label {
+		  position: relative;
+		  width: 100%;
+		  padding-right: 28px;
+		  text-align: left;
+		  &::before, &::after {
+			  content: "";
+			  position: absolute;
+			  top: 50%;
+			  right: 4px;
+			  width: 14px;
+			  height: 2px;
+			  background: currentColor;
+			  transform: translateY(-50%);
+			  pointer-events: none;
+		  }
+		  &::after {
+			  transform: translateY(-50%) rotate(90deg);
+			  transition: transform 0.3s ease, opacity 0.3s ease;
+		  }
+		  &[aria-expanded="true"]::after {
+			  transform: translateY(-50%) rotate(0deg);
+			  opacity: 0;
+		  }
+	  }
+	  .location-button {
+		  display: block;
+		  width: 100%;
+		  padding: 8px 0;
+		  border: 0;
+		  background: transparent;
+		  color: inherit;
+		  font: inherit;
+		  text-align: left;
+		  cursor: pointer;
+		  &:hover, &:focus-visible {
+			  text-decoration: underline;
+		  }
+	  }
+	  
+	  &.closed {
+		  visibility: hidden;
+		  width: 0;
+		  transition: width 0.3s ease, visibility 0s linear 0.3s;
+		  .submenu-panel {
+			  visibility: hidden;
+		  }
+	  }
+	  
+	  .submenu-panel {
+		  display: grid;
+		  grid-template-rows: 0fr;
+		  visibility: hidden;
+		  transition: grid-template-rows 0.3s ease, visibility 0s linear 0.3s;
+		  > ul {
+			  min-height: 0;
+			  overflow: hidden;
+			  margin-top: 0;
+			  margin-bottom: 0;
+			  padding-top: 0;
+			  padding-bottom: 0;
+		  }
+	  }
+	  .label[aria-expanded="true"] + .submenu-panel {
+		  grid-template-rows: 1fr;
+		  visibility: visible;
+		  transition-delay: 0s;
+	  }
+	  @media (prefers-reduced-motion: reduce) {
+		  &, &.closed {
+			  transition: none;
+		  }
+		  .submenu-panel, .label::after {
+			  transition: none;
+		  }
+	  }
+  }
+  
   .sr-only {
     position: absolute;
     width: 1px;
@@ -188,6 +348,7 @@
   }
   .info-wrapper {
     position: absolute;
+	height: 100%;
 
     background: rgba(0, 0, 0, 0.5);
     inset: 0;
@@ -196,6 +357,7 @@
       inset 0.4s ease,
       width 0.4s ease;
     display: flex;
+	flex-direction: row;
     align-items: center;
     justify-content: center;
     *:last-child {
@@ -214,6 +376,7 @@
       height: auto;
     }
     &.min {
+	align-items: flex-start;
       inset: 0 0 0 66%;
       transition:
         inset 0.4s ease,
@@ -249,7 +412,6 @@
     }
   }
   #info {
-    position: absolute;
     background: #4b306a;
     color: #fff;
     padding: 16px;
@@ -361,6 +523,43 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
   @container (width < 800px) {
+    .map-wrapper:has(> .info-wrapper.min) > .menu-wrapper {
+      position: relative;
+      top: auto;
+      right: 0;
+      transform: none;
+      width: 100%;
+      max-width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+
+      .menu.button {
+        flex: none;
+        width: 100%;
+        height: 48px;
+        span {
+          transform: none;
+        }
+      }
+
+      #map-menu {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        transition: max-height 0.3s ease, visibility 0s;
+        &.closed {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease, visibility 0s linear 0.3s;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          &, &.closed {
+            transition: none;
+          }
+        }
+      }
+    }
     .map-wrapper:has(.min) {
 		height: auto;
 		
