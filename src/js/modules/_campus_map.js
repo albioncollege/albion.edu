@@ -47,7 +47,9 @@ async function initMap() {
   
   map.addListener("click", clearMapSelection);
   droneOverlay.addListener("click", clearMapSelection);
+  
 
+  const locationMarkers = new WeakMap();
   for (const property of properties) {
     const advancedMarkerElement = new google.maps.marker.AdvancedMarkerElement({
       map,
@@ -58,11 +60,72 @@ async function initMap() {
       },
       title: property.name,
     });
+    locationMarkers.set(property, advancedMarkerElement);
     advancedMarkerElement.addListener("gmp-click", () => {
       toggleHighlight(advancedMarkerElement, property);
     });
   }
-
+  
+  // Build Map Menu
+  const menuElement = document.getElementById('map-menu');
+  
+  const groupedLocations = groupLocationsByType(properties);
+  
+  for (const [icon, locations] of Object.entries(groupedLocations)) {
+	// Create a menu section for this icon.
+	const subMenu = document.createElement("li");
+	subMenu.classList.add('sub');
+	subMenu.classList.add('nav__secondary__item');
+	subMenu.classList.add(icon);
+	const subMenuButton = document.createElement("button");
+	const locationList = document.createElement("ul");
+	const locationPanel = document.createElement("div");
+	locationPanel.classList.add("submenu-panel");
+	locationPanel.append(locationList);
+	locationList.id = `map-submenu-${menuElement.children.length}`;
+	subMenuButton.type = "button";
+	subMenuButton.setAttribute("aria-controls", locationList.id);
+	subMenuButton.setAttribute("aria-expanded", "false");
+	subMenuButton.textContent = icon === "info" ? "Information" : icon;
+	subMenuButton.classList.add('label');
+	if (icon == 'house')	{
+		subMenuButton.textContent = 'Residence Halls & Apartments';
+	} else if (icon == 'water')	{
+		subMenuButton.textContent = 'Water';
+	} else if (icon == 'greek')	{
+		subMenuButton.textContent = 'Sororities & Fraternities';
+	} else if (icon == 'runner')	{
+		subMenuButton.textContent = 'Athletics';
+	} else if (icon == 'church')	{
+		subMenuButton.textContent = 'Religious';
+	} else if (icon == 'book-solid')	{
+		subMenuButton.textContent = 'Classrooms & Common Buildings';
+	}
+	subMenu.append(subMenuButton);
+	subMenu.append(locationPanel);
+	subMenuButton.addEventListener("click", () => {
+		const expanded = subMenuButton.getAttribute("aria-expanded") !== "true";
+		subMenuButton.setAttribute("aria-expanded", String(expanded));
+	});
+	// Add a menu item for each location in locations.
+	for (const location of locations) {
+		const menuItem = document.createElement("li");
+		const locationButton = document.createElement("button");
+		locationButton.type = "button";
+		locationButton.classList.add("location-button");
+		locationButton.textContent = location.name;
+		locationButton.setAttribute("aria-controls", "property-info");
+		locationButton.addEventListener("click", () => {
+			const marker = locationMarkers.get(location);
+			toggleHighlight(marker, location);
+			map.panTo(marker.position);
+		});
+		menuItem.append(locationButton);
+		locationList.append(menuItem);
+	}
+	menuElement.append(subMenu);
+  }
+  
   buttons.forEach(([text, mode, amount, position]) => {
     const controlUI = document.createElement("button");
 
@@ -197,7 +260,50 @@ function buildContent(property) {
 	`;
   return content;
 }
+
+function groupLocationsByType(locations = []) {
+  return locations.reduce((groups, location) => {
+	const icon = location.icon || "other";
+	if (!groups[icon]) {
+	  groups[icon] = [];
+	}
+	groups[icon].push(location);
+	return groups;
+  }, Object.create(null));
+}
+
+
 window.initMap = initMap;
+
+const menuButton = document.querySelector(".menu-wrapper button.menu");
+const mapMenu = document.getElementById("map-menu");
+if (menuButton && mapMenu) {
+  const setMenuExpanded = (expanded) => {
+    menuButton.setAttribute("aria-expanded", String(expanded));
+    mapMenu.classList.toggle("closed", !expanded);
+    if (expanded) {
+      mapMenu.removeAttribute("inert");
+    } else {
+      mapMenu.setAttribute("inert", "");
+    }
+  };
+  menuButton.addEventListener("click", () => {
+    setMenuExpanded(menuButton.getAttribute("aria-expanded") !== "true");
+  });
+  mapMenu.addEventListener("click", (event) => {
+    const campusMap = mapMenu.closest(".campus-map");
+    if (event.target.closest(".location-button") && campusMap.clientWidth < 800) {
+      menuButton.focus();
+      setMenuExpanded(false);
+    }
+  });
+  menuButton.closest(".menu-wrapper").addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuExpanded(false);
+      menuButton.focus();
+    }
+  });
+}
 
 const viewMap = document.querySelector("#view-map");
 if (viewMap !== null) {
@@ -205,6 +311,7 @@ if (viewMap !== null) {
     document.querySelector(".info-wrapper").classList.toggle("min");
 	document.querySelector(".info-wrapper").classList.add("hide");
     document.querySelector("#info").classList.toggle("min");
+	document.querySelector('.menu-wrapper').classList.remove("hidden");
 	
 	const buttonWrapper = document.createElement('div');
 	buttonWrapper.classList.add('button-wrapper');
