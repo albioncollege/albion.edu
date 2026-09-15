@@ -45,9 +45,9 @@ if( have_rows('grid_items') ) : ?>
                             <?php if ( $link ) :
                                 $link_url    = $link['url'];
                                 $link_title  = $link['title']; ?>
-                            <a class="router__card__link" href="<?php echo esc_url( $link_url ); ?>">
-                                <p><span class="button__link"><?php echo esc_html( $link_title ); ?></span></p>
-                            </a>
+                            <div class="router-link">
+                                <a class="router__card__link" href="<?php echo esc_url( $link_url ); ?>"><span class="button__link"><?php echo esc_html( $link_title ); ?></span></a>
+                            </div>
                             <?php endif; ?>
                             <p><?php print get_sub_field( 'blurb' ); ?></p>
                         </div>
