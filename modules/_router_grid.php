@@ -42,10 +42,10 @@ if( have_rows('grid_items') ) : ?>
                         $link       = get_sub_field( 'link' ); ?>
                         <div>
                             <?php echo wp_get_attachment_image( $image, $image_size, "", array( "class" => "image--full" ) ); ?>
-                            <?php if ( $link ) : ?>
+                            <?php if ( $link ) :
+                                $link_url    = $link['url'];
+                                $link_title  = $link['title']; ?>
                             <a class="router__card__link" href="<?php echo esc_url( $link_url ); ?>">
-                                    $link_url    = $link['url'];
-                                    $link_title  = $link['title']; ?>
                                 <p><span class="button__link"><?php echo esc_html( $link_title ); ?></span></p>
                             </a>
                             <?php endif; ?>
