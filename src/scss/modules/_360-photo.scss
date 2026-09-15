@@ -1,13 +1,25 @@
 .photo-360 {
     position: relative;
-    min-height: 300px;
-    aspect-ratio: 10 / 3.49;
     overflow: hidden;
+    min-height: 200px;
+    aspect-ratio: 1 / 1;
+    @include mq( $sm) {
+        aspect-ratio: 10 / 7;
+    }
+    @include mq( $md) {
+        aspect-ratio: 10 / 3.49;
+    }
     iframe {
         display: block;
         width: 100%;
         min-height: 300px;
-        aspect-ratio: 10 / 3.5;
+        aspect-ratio: 1 / 1;
+        @include mq( $sm) {
+            aspect-ratio: 10 / 7;
+        }
+        @include mq( $md) {
+            aspect-ratio: 10 / 3.49;
+        }
     }
     .intro {
         position: absolute;

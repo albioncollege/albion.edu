@@ -16,7 +16,7 @@ $columns          = get_sub_field( 'columns' );
 
 if( have_rows('cards') ) : ?>
     <div class="feature__component grid_v2">
-        <div class="background<?php echo esc_attr( $bg_color_class ); ?>">  
+        <div class="background<?php echo esc_attr( $bg_color_class ); ?>">
             <div class="container container--narrow">
                 <?php if( $subheading ) : ?>
                     <<?= $subheading_level ?> class="<?= $heading_class; ?>"><?= esc_html( $subheading ); ?></<?= $subheading_level ?>>

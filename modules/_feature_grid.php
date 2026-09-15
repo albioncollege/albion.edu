@@ -10,6 +10,7 @@ $background_color = get_sub_field('background_color');
 $bg_color_class   = ( $background_color == 'gray' ) ? ' background--purple-gray' : '';
 $subheading       = get_sub_field( 'subheading' );
 $subheading_level = get_sub_field( 'subheading_level' );
+if ( empty( $subheading_level ) ) $subheading_level = 'h2';
 $intro_text       = get_sub_field( 'intro_text' );
 $heading_class    = (is_page_template( 'page--home.php' )) ? 'large-headline' : 'h3';
 
