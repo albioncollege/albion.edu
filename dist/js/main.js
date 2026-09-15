@@ -1873,6 +1873,57 @@ module.exports = function (METHOD_NAME, options) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/array-reduce.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/internals/array-reduce.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var aFunction = __webpack_require__(/*! ../internals/a-function */ "./node_modules/core-js/internals/a-function.js");
+var toObject = __webpack_require__(/*! ../internals/to-object */ "./node_modules/core-js/internals/to-object.js");
+var IndexedObject = __webpack_require__(/*! ../internals/indexed-object */ "./node_modules/core-js/internals/indexed-object.js");
+var toLength = __webpack_require__(/*! ../internals/to-length */ "./node_modules/core-js/internals/to-length.js");
+
+// `Array.prototype.{ reduce, reduceRight }` methods implementation
+var createMethod = function (IS_RIGHT) {
+  return function (that, callbackfn, argumentsLength, memo) {
+    aFunction(callbackfn);
+    var O = toObject(that);
+    var self = IndexedObject(O);
+    var length = toLength(O.length);
+    var index = IS_RIGHT ? length - 1 : 0;
+    var i = IS_RIGHT ? -1 : 1;
+    if (argumentsLength < 2) while (true) {
+      if (index in self) {
+        memo = self[index];
+        index += i;
+        break;
+      }
+      index += i;
+      if (IS_RIGHT ? index < 0 : length <= index) {
+        throw TypeError('Reduce of empty array with no initial value');
+      }
+    }
+    for (;IS_RIGHT ? index >= 0 : length > index; index += i) if (index in self) {
+      memo = callbackfn(memo, self[index], index, O);
+    }
+    return memo;
+  };
+};
+
+module.exports = {
+  // `Array.prototype.reduce` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.reduce
+  left: createMethod(false),
+  // `Array.prototype.reduceRight` method
+  // https://tc39.github.io/ecma262/#sec-array.prototype.reduceright
+  right: createMethod(true)
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/array-species-create.js":
 /*!****************************************************************!*\
   !*** ./node_modules/core-js/internals/array-species-create.js ***!
@@ -2025,6 +2076,250 @@ module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
     : CORRECT_ARGUMENTS ? classofRaw(O)
     // ES3 arguments fallback
     : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/collection-weak.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/collection-weak.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var redefineAll = __webpack_require__(/*! ../internals/redefine-all */ "./node_modules/core-js/internals/redefine-all.js");
+var getWeakData = __webpack_require__(/*! ../internals/internal-metadata */ "./node_modules/core-js/internals/internal-metadata.js").getWeakData;
+var anObject = __webpack_require__(/*! ../internals/an-object */ "./node_modules/core-js/internals/an-object.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var anInstance = __webpack_require__(/*! ../internals/an-instance */ "./node_modules/core-js/internals/an-instance.js");
+var iterate = __webpack_require__(/*! ../internals/iterate */ "./node_modules/core-js/internals/iterate.js");
+var ArrayIterationModule = __webpack_require__(/*! ../internals/array-iteration */ "./node_modules/core-js/internals/array-iteration.js");
+var $has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
+var InternalStateModule = __webpack_require__(/*! ../internals/internal-state */ "./node_modules/core-js/internals/internal-state.js");
+
+var setInternalState = InternalStateModule.set;
+var internalStateGetterFor = InternalStateModule.getterFor;
+var find = ArrayIterationModule.find;
+var findIndex = ArrayIterationModule.findIndex;
+var id = 0;
+
+// fallback for uncaught frozen keys
+var uncaughtFrozenStore = function (store) {
+  return store.frozen || (store.frozen = new UncaughtFrozenStore());
+};
+
+var UncaughtFrozenStore = function () {
+  this.entries = [];
+};
+
+var findUncaughtFrozen = function (store, key) {
+  return find(store.entries, function (it) {
+    return it[0] === key;
+  });
+};
+
+UncaughtFrozenStore.prototype = {
+  get: function (key) {
+    var entry = findUncaughtFrozen(this, key);
+    if (entry) return entry[1];
+  },
+  has: function (key) {
+    return !!findUncaughtFrozen(this, key);
+  },
+  set: function (key, value) {
+    var entry = findUncaughtFrozen(this, key);
+    if (entry) entry[1] = value;
+    else this.entries.push([key, value]);
+  },
+  'delete': function (key) {
+    var index = findIndex(this.entries, function (it) {
+      return it[0] === key;
+    });
+    if (~index) this.entries.splice(index, 1);
+    return !!~index;
+  }
+};
+
+module.exports = {
+  getConstructor: function (wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER) {
+    var C = wrapper(function (that, iterable) {
+      anInstance(that, C, CONSTRUCTOR_NAME);
+      setInternalState(that, {
+        type: CONSTRUCTOR_NAME,
+        id: id++,
+        frozen: undefined
+      });
+      if (iterable != undefined) iterate(iterable, that[ADDER], that, IS_MAP);
+    });
+
+    var getInternalState = internalStateGetterFor(CONSTRUCTOR_NAME);
+
+    var define = function (that, key, value) {
+      var state = getInternalState(that);
+      var data = getWeakData(anObject(key), true);
+      if (data === true) uncaughtFrozenStore(state).set(key, value);
+      else data[state.id] = value;
+      return that;
+    };
+
+    redefineAll(C.prototype, {
+      // 23.3.3.2 WeakMap.prototype.delete(key)
+      // 23.4.3.3 WeakSet.prototype.delete(value)
+      'delete': function (key) {
+        var state = getInternalState(this);
+        if (!isObject(key)) return false;
+        var data = getWeakData(key);
+        if (data === true) return uncaughtFrozenStore(state)['delete'](key);
+        return data && $has(data, state.id) && delete data[state.id];
+      },
+      // 23.3.3.4 WeakMap.prototype.has(key)
+      // 23.4.3.4 WeakSet.prototype.has(value)
+      has: function has(key) {
+        var state = getInternalState(this);
+        if (!isObject(key)) return false;
+        var data = getWeakData(key);
+        if (data === true) return uncaughtFrozenStore(state).has(key);
+        return data && $has(data, state.id);
+      }
+    });
+
+    redefineAll(C.prototype, IS_MAP ? {
+      // 23.3.3.3 WeakMap.prototype.get(key)
+      get: function get(key) {
+        var state = getInternalState(this);
+        if (isObject(key)) {
+          var data = getWeakData(key);
+          if (data === true) return uncaughtFrozenStore(state).get(key);
+          return data ? data[state.id] : undefined;
+        }
+      },
+      // 23.3.3.5 WeakMap.prototype.set(key, value)
+      set: function set(key, value) {
+        return define(this, key, value);
+      }
+    } : {
+      // 23.4.3.1 WeakSet.prototype.add(value)
+      add: function add(value) {
+        return define(this, value, true);
+      }
+    });
+
+    return C;
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/collection.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/internals/collection.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var isForced = __webpack_require__(/*! ../internals/is-forced */ "./node_modules/core-js/internals/is-forced.js");
+var redefine = __webpack_require__(/*! ../internals/redefine */ "./node_modules/core-js/internals/redefine.js");
+var InternalMetadataModule = __webpack_require__(/*! ../internals/internal-metadata */ "./node_modules/core-js/internals/internal-metadata.js");
+var iterate = __webpack_require__(/*! ../internals/iterate */ "./node_modules/core-js/internals/iterate.js");
+var anInstance = __webpack_require__(/*! ../internals/an-instance */ "./node_modules/core-js/internals/an-instance.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+var checkCorrectnessOfIteration = __webpack_require__(/*! ../internals/check-correctness-of-iteration */ "./node_modules/core-js/internals/check-correctness-of-iteration.js");
+var setToStringTag = __webpack_require__(/*! ../internals/set-to-string-tag */ "./node_modules/core-js/internals/set-to-string-tag.js");
+var inheritIfRequired = __webpack_require__(/*! ../internals/inherit-if-required */ "./node_modules/core-js/internals/inherit-if-required.js");
+
+module.exports = function (CONSTRUCTOR_NAME, wrapper, common) {
+  var IS_MAP = CONSTRUCTOR_NAME.indexOf('Map') !== -1;
+  var IS_WEAK = CONSTRUCTOR_NAME.indexOf('Weak') !== -1;
+  var ADDER = IS_MAP ? 'set' : 'add';
+  var NativeConstructor = global[CONSTRUCTOR_NAME];
+  var NativePrototype = NativeConstructor && NativeConstructor.prototype;
+  var Constructor = NativeConstructor;
+  var exported = {};
+
+  var fixMethod = function (KEY) {
+    var nativeMethod = NativePrototype[KEY];
+    redefine(NativePrototype, KEY,
+      KEY == 'add' ? function add(value) {
+        nativeMethod.call(this, value === 0 ? 0 : value);
+        return this;
+      } : KEY == 'delete' ? function (key) {
+        return IS_WEAK && !isObject(key) ? false : nativeMethod.call(this, key === 0 ? 0 : key);
+      } : KEY == 'get' ? function get(key) {
+        return IS_WEAK && !isObject(key) ? undefined : nativeMethod.call(this, key === 0 ? 0 : key);
+      } : KEY == 'has' ? function has(key) {
+        return IS_WEAK && !isObject(key) ? false : nativeMethod.call(this, key === 0 ? 0 : key);
+      } : function set(key, value) {
+        nativeMethod.call(this, key === 0 ? 0 : key, value);
+        return this;
+      }
+    );
+  };
+
+  // eslint-disable-next-line max-len
+  if (isForced(CONSTRUCTOR_NAME, typeof NativeConstructor != 'function' || !(IS_WEAK || NativePrototype.forEach && !fails(function () {
+    new NativeConstructor().entries().next();
+  })))) {
+    // create collection constructor
+    Constructor = common.getConstructor(wrapper, CONSTRUCTOR_NAME, IS_MAP, ADDER);
+    InternalMetadataModule.REQUIRED = true;
+  } else if (isForced(CONSTRUCTOR_NAME, true)) {
+    var instance = new Constructor();
+    // early implementations not supports chaining
+    var HASNT_CHAINING = instance[ADDER](IS_WEAK ? {} : -0, 1) != instance;
+    // V8 ~ Chromium 40- weak-collections throws on primitives, but should return false
+    var THROWS_ON_PRIMITIVES = fails(function () { instance.has(1); });
+    // most early implementations doesn't supports iterables, most modern - not close it correctly
+    // eslint-disable-next-line no-new
+    var ACCEPT_ITERABLES = checkCorrectnessOfIteration(function (iterable) { new NativeConstructor(iterable); });
+    // for early implementations -0 and +0 not the same
+    var BUGGY_ZERO = !IS_WEAK && fails(function () {
+      // V8 ~ Chromium 42- fails only with 5+ elements
+      var $instance = new NativeConstructor();
+      var index = 5;
+      while (index--) $instance[ADDER](index, index);
+      return !$instance.has(-0);
+    });
+
+    if (!ACCEPT_ITERABLES) {
+      Constructor = wrapper(function (dummy, iterable) {
+        anInstance(dummy, Constructor, CONSTRUCTOR_NAME);
+        var that = inheritIfRequired(new NativeConstructor(), dummy, Constructor);
+        if (iterable != undefined) iterate(iterable, that[ADDER], that, IS_MAP);
+        return that;
+      });
+      Constructor.prototype = NativePrototype;
+      NativePrototype.constructor = Constructor;
+    }
+
+    if (THROWS_ON_PRIMITIVES || BUGGY_ZERO) {
+      fixMethod('delete');
+      fixMethod('has');
+      IS_MAP && fixMethod('get');
+    }
+
+    if (BUGGY_ZERO || HASNT_CHAINING) fixMethod(ADDER);
+
+    // weak collections should not contains .clear method
+    if (IS_WEAK && NativePrototype.clear) delete NativePrototype.clear;
+  }
+
+  exported[CONSTRUCTOR_NAME] = Constructor;
+  $({ global: true, forced: Constructor != NativeConstructor }, exported);
+
+  setToStringTag(Constructor, CONSTRUCTOR_NAME);
+
+  if (!IS_WEAK) common.setStrong(Constructor, CONSTRUCTOR_NAME, IS_MAP);
+
+  return Constructor;
 };
 
 
@@ -2690,6 +2985,22 @@ module.exports = function (KEY, length, exec, sham) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/freezing.js":
+/*!****************************************************!*\
+  !*** ./node_modules/core-js/internals/freezing.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var fails = __webpack_require__(/*! ../internals/fails */ "./node_modules/core-js/internals/fails.js");
+
+module.exports = !fails(function () {
+  return Object.isExtensible(Object.preventExtensions({}));
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/function-bind-context.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/core-js/internals/function-bind-context.js ***!
@@ -3006,6 +3317,78 @@ if (typeof store.inspectSource != 'function') {
 }
 
 module.exports = store.inspectSource;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/internal-metadata.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/internals/internal-metadata.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var hiddenKeys = __webpack_require__(/*! ../internals/hidden-keys */ "./node_modules/core-js/internals/hidden-keys.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var has = __webpack_require__(/*! ../internals/has */ "./node_modules/core-js/internals/has.js");
+var defineProperty = __webpack_require__(/*! ../internals/object-define-property */ "./node_modules/core-js/internals/object-define-property.js").f;
+var uid = __webpack_require__(/*! ../internals/uid */ "./node_modules/core-js/internals/uid.js");
+var FREEZING = __webpack_require__(/*! ../internals/freezing */ "./node_modules/core-js/internals/freezing.js");
+
+var METADATA = uid('meta');
+var id = 0;
+
+var isExtensible = Object.isExtensible || function () {
+  return true;
+};
+
+var setMetadata = function (it) {
+  defineProperty(it, METADATA, { value: {
+    objectID: 'O' + ++id, // object ID
+    weakData: {}          // weak collections IDs
+  } });
+};
+
+var fastKey = function (it, create) {
+  // return a primitive with prefix
+  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if (!has(it, METADATA)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return 'F';
+    // not necessary to add metadata
+    if (!create) return 'E';
+    // add missing metadata
+    setMetadata(it);
+  // return object ID
+  } return it[METADATA].objectID;
+};
+
+var getWeakData = function (it, create) {
+  if (!has(it, METADATA)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return true;
+    // not necessary to add metadata
+    if (!create) return false;
+    // add missing metadata
+    setMetadata(it);
+  // return the store of weak collections IDs
+  } return it[METADATA].weakData;
+};
+
+// add metadata on freeze-family methods calling
+var onFreeze = function (it) {
+  if (FREEZING && meta.REQUIRED && isExtensible(it) && !has(it, METADATA)) setMetadata(it);
+  return it;
+};
+
+var meta = module.exports = {
+  REQUIRED: false,
+  fastKey: fastKey,
+  getWeakData: getWeakData,
+  onFreeze: onFreeze
+};
+
+hiddenKeys[METADATA] = true;
 
 
 /***/ }),
@@ -4018,6 +4401,49 @@ module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
     return O;
   };
 }() : undefined);
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/internals/object-to-array.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/object-to-array.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
+var objectKeys = __webpack_require__(/*! ../internals/object-keys */ "./node_modules/core-js/internals/object-keys.js");
+var toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ "./node_modules/core-js/internals/to-indexed-object.js");
+var propertyIsEnumerable = __webpack_require__(/*! ../internals/object-property-is-enumerable */ "./node_modules/core-js/internals/object-property-is-enumerable.js").f;
+
+// `Object.{ entries, values }` methods implementation
+var createMethod = function (TO_ENTRIES) {
+  return function (it) {
+    var O = toIndexedObject(it);
+    var keys = objectKeys(O);
+    var length = keys.length;
+    var i = 0;
+    var result = [];
+    var key;
+    while (length > i) {
+      key = keys[i++];
+      if (!DESCRIPTORS || propertyIsEnumerable.call(O, key)) {
+        result.push(TO_ENTRIES ? [key, O[key]] : O[key]);
+      }
+    }
+    return result;
+  };
+};
+
+module.exports = {
+  // `Object.entries` method
+  // https://tc39.github.io/ecma262/#sec-object.entries
+  entries: createMethod(true),
+  // `Object.values` method
+  // https://tc39.github.io/ecma262/#sec-object.values
+  values: createMethod(false)
+};
 
 
 /***/ }),
@@ -5504,6 +5930,34 @@ $({ target: 'Array', proto: true, forced: !HAS_SPECIES_SUPPORT || !USES_TO_LENGT
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.array.reduce.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.array.reduce.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var $reduce = __webpack_require__(/*! ../internals/array-reduce */ "./node_modules/core-js/internals/array-reduce.js").left;
+var arrayMethodIsStrict = __webpack_require__(/*! ../internals/array-method-is-strict */ "./node_modules/core-js/internals/array-method-is-strict.js");
+var arrayMethodUsesToLength = __webpack_require__(/*! ../internals/array-method-uses-to-length */ "./node_modules/core-js/internals/array-method-uses-to-length.js");
+
+var STRICT_METHOD = arrayMethodIsStrict('reduce');
+var USES_TO_LENGTH = arrayMethodUsesToLength('reduce', { 1: 0 });
+
+// `Array.prototype.reduce` method
+// https://tc39.github.io/ecma262/#sec-array.prototype.reduce
+$({ target: 'Array', proto: true, forced: !STRICT_METHOD || !USES_TO_LENGTH }, {
+  reduce: function reduce(callbackfn /* , initialValue */) {
+    return $reduce(this, callbackfn, arguments.length, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.array.slice.js":
 /*!********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.slice.js ***!
@@ -5617,6 +6071,26 @@ if (DESCRIPTORS && !(NAME in FunctionPrototype)) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.object.create.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.create.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ "./node_modules/core-js/internals/descriptors.js");
+var create = __webpack_require__(/*! ../internals/object-create */ "./node_modules/core-js/internals/object-create.js");
+
+// `Object.create` method
+// https://tc39.github.io/ecma262/#sec-object.create
+$({ target: 'Object', stat: true, sham: !DESCRIPTORS }, {
+  create: create
+});
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.object.define-property.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/core-js/modules/es.object.define-property.js ***!
@@ -5632,6 +6106,27 @@ var objectDefinePropertyModile = __webpack_require__(/*! ../internals/object-def
 // https://tc39.github.io/ecma262/#sec-object.defineproperty
 $({ target: 'Object', stat: true, forced: !DESCRIPTORS, sham: !DESCRIPTORS }, {
   defineProperty: objectDefinePropertyModile.f
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.object.entries.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.entries.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var $entries = __webpack_require__(/*! ../internals/object-to-array */ "./node_modules/core-js/internals/object-to-array.js").entries;
+
+// `Object.entries` method
+// https://tc39.github.io/ecma262/#sec-object.entries
+$({ target: 'Object', stat: true }, {
+  entries: function entries(O) {
+    return $entries(O);
+  }
 });
 
 
@@ -7054,6 +7549,85 @@ if (!$Symbol[PROTOTYPE][TO_PRIMITIVE]) {
 setToStringTag($Symbol, SYMBOL);
 
 hiddenKeys[HIDDEN] = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.weak-map.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/core-js/modules/es.weak-map.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var redefineAll = __webpack_require__(/*! ../internals/redefine-all */ "./node_modules/core-js/internals/redefine-all.js");
+var InternalMetadataModule = __webpack_require__(/*! ../internals/internal-metadata */ "./node_modules/core-js/internals/internal-metadata.js");
+var collection = __webpack_require__(/*! ../internals/collection */ "./node_modules/core-js/internals/collection.js");
+var collectionWeak = __webpack_require__(/*! ../internals/collection-weak */ "./node_modules/core-js/internals/collection-weak.js");
+var isObject = __webpack_require__(/*! ../internals/is-object */ "./node_modules/core-js/internals/is-object.js");
+var enforceIternalState = __webpack_require__(/*! ../internals/internal-state */ "./node_modules/core-js/internals/internal-state.js").enforce;
+var NATIVE_WEAK_MAP = __webpack_require__(/*! ../internals/native-weak-map */ "./node_modules/core-js/internals/native-weak-map.js");
+
+var IS_IE11 = !global.ActiveXObject && 'ActiveXObject' in global;
+var isExtensible = Object.isExtensible;
+var InternalWeakMap;
+
+var wrapper = function (init) {
+  return function WeakMap() {
+    return init(this, arguments.length ? arguments[0] : undefined);
+  };
+};
+
+// `WeakMap` constructor
+// https://tc39.github.io/ecma262/#sec-weakmap-constructor
+var $WeakMap = module.exports = collection('WeakMap', wrapper, collectionWeak);
+
+// IE11 WeakMap frozen keys fix
+// We can't use feature detection because it crash some old IE builds
+// https://github.com/zloirock/core-js/issues/485
+if (NATIVE_WEAK_MAP && IS_IE11) {
+  InternalWeakMap = collectionWeak.getConstructor(wrapper, 'WeakMap', true);
+  InternalMetadataModule.REQUIRED = true;
+  var WeakMapPrototype = $WeakMap.prototype;
+  var nativeDelete = WeakMapPrototype['delete'];
+  var nativeHas = WeakMapPrototype.has;
+  var nativeGet = WeakMapPrototype.get;
+  var nativeSet = WeakMapPrototype.set;
+  redefineAll(WeakMapPrototype, {
+    'delete': function (key) {
+      if (isObject(key) && !isExtensible(key)) {
+        var state = enforceIternalState(this);
+        if (!state.frozen) state.frozen = new InternalWeakMap();
+        return nativeDelete.call(this, key) || state.frozen['delete'](key);
+      } return nativeDelete.call(this, key);
+    },
+    has: function has(key) {
+      if (isObject(key) && !isExtensible(key)) {
+        var state = enforceIternalState(this);
+        if (!state.frozen) state.frozen = new InternalWeakMap();
+        return nativeHas.call(this, key) || state.frozen.has(key);
+      } return nativeHas.call(this, key);
+    },
+    get: function get(key) {
+      if (isObject(key) && !isExtensible(key)) {
+        var state = enforceIternalState(this);
+        if (!state.frozen) state.frozen = new InternalWeakMap();
+        return nativeHas.call(this, key) ? nativeGet.call(this, key) : state.frozen.get(key);
+      } return nativeGet.call(this, key);
+    },
+    set: function set(key, value) {
+      if (isObject(key) && !isExtensible(key)) {
+        var state = enforceIternalState(this);
+        if (!state.frozen) state.frozen = new InternalWeakMap();
+        nativeHas.call(this, key) ? nativeSet.call(this, key, value) : state.frozen.set(key, value);
+      } else nativeSet.call(this, key, value);
+      return this;
+    }
+  });
+}
 
 
 /***/ }),
@@ -17693,26 +18267,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
 /* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_array_join__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.join */ "./node_modules/core-js/modules/es.array.join.js");
-/* harmony import */ var core_js_modules_es_array_join__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_join__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.map */ "./node_modules/core-js/modules/es.array.map.js");
-/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.parse-float */ "./node_modules/core-js/modules/es.parse-float.js");
-/* harmony import */ var core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.promise */ "./node_modules/core-js/modules/es.promise.js");
-/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.regexp.exec */ "./node_modules/core-js/modules/es.regexp.exec.js");
-/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.string.match */ "./node_modules/core-js/modules/es.string.match.js");
-/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
-/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.iterator */ "./node_modules/core-js/modules/es.array.iterator.js");
+/* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_array_join__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.join */ "./node_modules/core-js/modules/es.array.join.js");
+/* harmony import */ var core_js_modules_es_array_join__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_join__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.array.map */ "./node_modules/core-js/modules/es.array.map.js");
+/* harmony import */ var core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_map__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_array_reduce__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.array.reduce */ "./node_modules/core-js/modules/es.array.reduce.js");
+/* harmony import */ var core_js_modules_es_array_reduce__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_reduce__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.function.name */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es_object_create__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.object.create */ "./node_modules/core-js/modules/es.object.create.js");
+/* harmony import */ var core_js_modules_es_object_create__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_create__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es_object_entries__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.object.entries */ "./node_modules/core-js/modules/es.object.entries.js");
+/* harmony import */ var core_js_modules_es_object_entries__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_entries__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/es.parse-float */ "./node_modules/core-js/modules/es.parse-float.js");
+/* harmony import */ var core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_float__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/es.promise */ "./node_modules/core-js/modules/es.promise.js");
+/* harmony import */ var core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! core-js/modules/es.regexp.exec */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! core-js/modules/es.string.iterator */ "./node_modules/core-js/modules/es.string.iterator.js");
+/* harmony import */ var core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! core-js/modules/es.string.match */ "./node_modules/core-js/modules/es.string.match.js");
+/* harmony import */ var core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_match__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var core_js_modules_es_weak_map__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! core-js/modules/es.weak-map */ "./node_modules/core-js/modules/es.weak-map.js");
+/* harmony import */ var core_js_modules_es_weak_map__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_weak_map__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
+/* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_20__);
+
+
+
+
+
+
+
 
 
 
@@ -17742,7 +18337,7 @@ function initMap() {
 }
 function _initMap() {
   _initMap = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var _yield$google$maps$im, Map, _yield$google$maps$im2, AdvancedMarkerElement, center, map, albionBounds, imageBounds, properties, clearMapSelection, _iterator2, _step2, _loop, adjustMap;
+    var _yield$google$maps$im, Map, _yield$google$maps$im2, AdvancedMarkerElement, center, map, albionBounds, imageBounds, properties, clearMapSelection, locationMarkers, _iterator2, _step2, _loop3, menuElement, groupedLocations, _loop, _i, _Object$entries, adjustMap;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -17794,9 +18389,10 @@ function _initMap() {
             };
             map.addListener("click", clearMapSelection);
             droneOverlay.addListener("click", clearMapSelection);
+            locationMarkers = new WeakMap();
             _iterator2 = _createForOfIteratorHelper(properties);
             try {
-              _loop = function _loop() {
+              _loop3 = function _loop3() {
                 var property = _step2.value;
                 var advancedMarkerElement = new google.maps.marker.AdvancedMarkerElement({
                   map: map,
@@ -17807,17 +18403,94 @@ function _initMap() {
                   },
                   title: property.name
                 });
+                locationMarkers.set(property, advancedMarkerElement);
                 advancedMarkerElement.addListener("gmp-click", function () {
                   toggleHighlight(advancedMarkerElement, property);
                 });
               };
               for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                _loop();
+                _loop3();
               }
+
+              // Build Map Menu
             } catch (err) {
               _iterator2.e(err);
             } finally {
               _iterator2.f();
+            }
+            menuElement = document.getElementById('map-menu');
+            groupedLocations = groupLocationsByType(properties);
+            _loop = function _loop() {
+              var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                icon = _Object$entries$_i[0],
+                locations = _Object$entries$_i[1];
+              // Create a menu section for this icon.
+              var subMenu = document.createElement("li");
+              subMenu.classList.add('sub');
+              subMenu.classList.add('nav__secondary__item');
+              subMenu.classList.add(icon);
+              var subMenuButton = document.createElement("button");
+              var locationList = document.createElement("ul");
+              var locationPanel = document.createElement("div");
+              locationPanel.classList.add("submenu-panel");
+              locationPanel.append(locationList);
+              locationList.id = "map-submenu-".concat(menuElement.children.length);
+              subMenuButton.type = "button";
+              subMenuButton.setAttribute("aria-controls", locationList.id);
+              subMenuButton.setAttribute("aria-expanded", "false");
+              subMenuButton.textContent = icon === "info" ? "Information" : icon;
+              subMenuButton.classList.add('label');
+              if (icon == 'house') {
+                subMenuButton.textContent = 'Residence Halls & Apartments';
+              } else if (icon == 'water') {
+                subMenuButton.textContent = 'Water';
+              } else if (icon == 'greek') {
+                subMenuButton.textContent = 'Sororities & Fraternities';
+              } else if (icon == 'runner') {
+                subMenuButton.textContent = 'Athletics';
+              } else if (icon == 'church') {
+                subMenuButton.textContent = 'Religious';
+              } else if (icon == 'book-solid') {
+                subMenuButton.textContent = 'Classrooms & Common Buildings';
+              }
+              subMenu.append(subMenuButton);
+              subMenu.append(locationPanel);
+              subMenuButton.addEventListener("click", function () {
+                var expanded = subMenuButton.getAttribute("aria-expanded") !== "true";
+                subMenuButton.setAttribute("aria-expanded", String(expanded));
+              });
+              // Add a menu item for each location in locations.
+              var _iterator3 = _createForOfIteratorHelper(locations),
+                _step3;
+              try {
+                var _loop2 = function _loop2() {
+                  var location = _step3.value;
+                  var menuItem = document.createElement("li");
+                  var locationButton = document.createElement("button");
+                  locationButton.type = "button";
+                  locationButton.classList.add("location-button");
+                  locationButton.textContent = location.name;
+                  locationButton.setAttribute("aria-controls", "property-info");
+                  locationButton.addEventListener("click", function () {
+                    var marker = locationMarkers.get(location);
+                    toggleHighlight(marker, location);
+                    map.panTo(marker.position);
+                  });
+                  menuItem.append(locationButton);
+                  locationList.append(menuItem);
+                };
+                for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                  _loop2();
+                }
+              } catch (err) {
+                _iterator3.e(err);
+              } finally {
+                _iterator3.f();
+              }
+              menuElement.append(subMenu);
+            };
+            for (_i = 0, _Object$entries = Object.entries(groupedLocations); _i < _Object$entries.length; _i++) {
+              _loop();
             }
             buttons.forEach(function (_ref) {
               var _ref2 = _slicedToArray(_ref, 4),
@@ -17862,7 +18535,7 @@ function _initMap() {
                 droneOverlay.setMap(null);
               }
             });
-          case 24:
+          case 29:
           case "end":
             return _context.stop();
         }
@@ -17923,13 +18596,54 @@ function buildContent(property) {
   content.innerHTML = "\n\t<div class=\"icon\">\n\t\t<span class=\"svgstore svgstore--icon-".concat(property.icon, "\">\n\t\t\t<svg>\n\t\t\t\t<title>").concat(property.icon, "</title>\n\t\t\t\t<use xlink:href=\"/wp-content/themes/albion/dist/img/svgstore.svg#icon-").concat(property.icon, "\"></use>\n\t\t\t</svg>\n\t\t</span>\n\t\t<span class=\"sr-only\">").concat(property.name, "</span>\n\t</div>\n\t<div class=\"details\">\n\t\t<div class=\"name\">").concat(property.name, "</div>\n\t</div>\n\t");
   return content;
 }
+function groupLocationsByType() {
+  var locations = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  return locations.reduce(function (groups, location) {
+    var icon = location.icon || "other";
+    if (!groups[icon]) {
+      groups[icon] = [];
+    }
+    groups[icon].push(location);
+    return groups;
+  }, Object.create(null));
+}
 window.initMap = initMap;
+var menuButton = document.querySelector(".menu-wrapper button.menu");
+var mapMenu = document.getElementById("map-menu");
+if (menuButton && mapMenu) {
+  var setMenuExpanded = function setMenuExpanded(expanded) {
+    menuButton.setAttribute("aria-expanded", String(expanded));
+    mapMenu.classList.toggle("closed", !expanded);
+    if (expanded) {
+      mapMenu.removeAttribute("inert");
+    } else {
+      mapMenu.setAttribute("inert", "");
+    }
+  };
+  menuButton.addEventListener("click", function () {
+    setMenuExpanded(menuButton.getAttribute("aria-expanded") !== "true");
+  });
+  mapMenu.addEventListener("click", function (event) {
+    var campusMap = mapMenu.closest(".campus-map");
+    if (event.target.closest(".location-button") && campusMap.clientWidth < 800) {
+      menuButton.focus();
+      setMenuExpanded(false);
+    }
+  });
+  menuButton.closest(".menu-wrapper").addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      setMenuExpanded(false);
+      menuButton.focus();
+    }
+  });
+}
 var viewMap = document.querySelector("#view-map");
 if (viewMap !== null) {
   viewMap.addEventListener("click", function () {
     document.querySelector(".info-wrapper").classList.toggle("min");
     document.querySelector(".info-wrapper").classList.add("hide");
     document.querySelector("#info").classList.toggle("min");
+    document.querySelector('.menu-wrapper').classList.remove("hidden");
     var buttonWrapper = document.createElement('div');
     buttonWrapper.classList.add('button-wrapper');
     var visitButton = document.createElement("a");
