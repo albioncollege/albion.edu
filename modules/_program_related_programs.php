@@ -11,7 +11,7 @@ $bg_color_class                    = ( $related_programs_background_color == 'gr
 $related_programs_panel_link       = get_field('related_programs_panel_link');
 
 if( have_rows('related_programs') ): ?>
-
+<div class="related-programs">
     <div class="background<?php echo esc_attr( $bg_color_class ); ?>">
         <div class="container container--narrow">
             <div class="panel__headline__wrapper">
@@ -47,4 +47,5 @@ if( have_rows('related_programs') ): ?>
             </div>
         </div>
     </div>
+</div>
 <?php endif; ?>

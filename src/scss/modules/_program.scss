@@ -1,37 +1,41 @@
 .main--program {
-  .main__inner {
-    margin-top: 0;
-  }
-  .inner-wrapper-sticky {
-    padding-top: 4rem;
-  }
+    .main__inner {
+        margin-top: 0;
+    }
+    .inner-wrapper-sticky {
+        padding-top: 4rem;
+    }
 }
+
 .program__header__image {
-  @include mq($lg) {
-    position: relative;
-    left: -4.25rem;
-  }
+    @include mq($lg) {
+        position: relative;
+        left: -4.25rem;
+    }
 }
+
 .program__intro {
-  padding-top: 2.5rem;
-
-  @include mq($lg) {
-    position: relative;
-    top: -3rem;
-    padding-top: 0;
-  }
+    padding-top: 2.5rem;
+    @include mq($lg) {
+        position: relative;
+        top: -3rem;
+        padding-top: 0;
+    }
 }
-
-
 
 #sidebar2 {
-  &.is-affixed {
-    margin-top: 500px;
-  }
+    &.is-affixed {
+        margin-top: 500px;
+    }
 }
 
-
-
 .program__video {
-  padding-top: 30px;
+    padding-top: 30px;
+}
+
+.related-programs,
+.careers-outcomes {
+    .background {
+        padding: 5rem 0;
+    }
 }

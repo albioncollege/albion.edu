@@ -14,10 +14,15 @@
 		
 		<div id="map" data-locations="<?php echo esc_attr( wp_json_encode( $locations ) ); ?>"></div>
 		
+			<div class="menu-wrapper hidden">
+				<button class="button menu" type="button" aria-controls="map-menu" aria-expanded="false">
+					<span>Locations</span>
+				</button>
+				<menu id="map-menu" class="closed" inert></menu>
+			</div>
 		<div class="info-wrapper container--purple">
 			<div id="info">
-				<div id="property-info">
-				</div>
+				<div id="property-info"></div>
 				<div id="map-info">
 					<div class="popup-content">
 					<?php if ( $popup_content ) : ?>

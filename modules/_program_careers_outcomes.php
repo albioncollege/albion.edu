@@ -14,6 +14,7 @@ $list_1_h3                = get_field( 'list_1_h3' );
 $list_2_h3                = get_field( 'list_2_h3' );
 
 if( have_rows('list_1_items') || have_rows('list_2_items') ) : ?>
+<div class="careers-outcomes">
     <div class="background<?php echo esc_attr( $bg_color_class ); ?>">  
         <div class="container container--narrow">
             <div class="panel__headline__wrapper">
@@ -59,4 +60,5 @@ if( have_rows('list_1_items') || have_rows('list_2_items') ) : ?>
             </div>
         </div>
     </div>
+</div>
 <?php endif; ?>

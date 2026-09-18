@@ -79,3 +79,114 @@ a .feature__card__title span {
 .feature__clear {
     clear: both;
 }
+
+.feature__component__v3 {
+    position: relative;
+    aspect-ratio: 10 / 16;
+    @include mq( $sm) {
+        aspect-ratio: 12 / 10;
+    }
+    @include mq( $lg) {
+        aspect-ratio: 16 / 8;
+    }
+    .feature__grid__controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 10 / 16;
+        @include mq( $sm) {
+            aspect-ratio: 12 / 10;
+        }
+        @include mq( $lg) {
+            aspect-ratio: 16 / 8;
+        }
+        .prev,
+        .next {
+            position: absolute;
+            top: 10%;
+            width: 55px;
+            height: 55px;
+            margin-top: -20px;
+            z-index: 2;
+            border-radius: 50%;
+            cursor: pointer;
+            @include mq( $lg) {
+                top: 50%;
+                height: 60px;
+                width: 60px;
+                margin-top: -30px;
+            }
+        }
+        .prev {
+            left: 5%;
+            background: $teal url(../img/slide-arrow.svg) center center no-repeat;
+            background-size: contain;
+            transform: rotate(270deg);
+        }
+        .next {
+            right: 5%;
+            background: $teal url(../img/slide-arrow.svg) center center no-repeat;
+            background-size: contain;
+            transform: rotate(90deg);
+        }
+    }
+    .feature__grid__v3 {
+        .feature__card__v3 {
+            aspect-ratio: 10 / 16;
+            background: center center no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: all 500ms ease-in-out;
+            opacity: 0;
+            z-index: 0;
+            &.visible {
+                z-index: 1;
+                opacity: 1;
+            }
+            @include mq( $sm) {
+                aspect-ratio: 12 / 10;
+            }
+            @include mq( $lg) {
+                aspect-ratio: 16 / 8;
+            }
+            .box {
+                position: absolute;
+                bottom: 5%;
+                right: 10%;
+                width: 80%;
+                background: $purple;
+                box-shadow: 10px 10px 25px rgba( black, .2);
+                color: white;
+                padding: 25px;
+                @include mq( $lg) {
+                    bottom: 10%;
+                    right: 15%;
+                    width: 30%;
+                }
+                h1,
+                h2,
+                h3,
+                h4,
+                h5,
+                h6,
+                a,
+                span {
+                    color: white;
+                    margin: 0;
+                    text-align: left;
+                }
+            }
+            &.odd .box {
+                @include mq( $lg) {
+                    right: auto;
+                    left: 15%;
+                }
+            }
+        }
+    }
+}
