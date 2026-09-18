@@ -16,7 +16,7 @@ $index            = 0
 			<?php if( $subheading ) : ?>
 				<<?= $subheading_level ?>><?= esc_html( $subheading ); ?></<?= $subheading_level ?>>
 			<?php endif; ?>
-            <div class="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true, "wrapAround": true, "autoPlay": true, "lazyLoad": true, "prevNextButtons": false, "wrapAround": true }'>
+            <div class="main-carousel">
                 <?php while( have_rows( 'slides' ) ) : the_row(); $image = get_sub_field( 'image' );?>
                     <div class="slide">
 						<?php if( $image ) : 

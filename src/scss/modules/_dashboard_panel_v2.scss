@@ -1,6 +1,27 @@
 .dashboard-panel-v2 {
+	.container {
+		container-type: inline-size;
+	}
+	
 	.flickity-slider {
-		gap: 64px;
+		
+		.slide {
+			max-width: 33vw;
+			min-width: clamp(320px, 30vw, 33vw);
+			margin-right: 64px;
+			
+			.image {
+				width: 100%;
+				heigth: 100%;
+				
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					aspect-ratio: 1 / 1;
+				}
+			}
+		}
 	}
 	
 	// Style dots
@@ -8,9 +29,8 @@
 		margin-top: 24px;
 		background-color: $purple;
 		padding: 8px;
-		border-radius: 50px;
+		border-radius: 25px;
 		display: inline-flex;
-		margin-left: 20%;
 		
 		.dot {
 			height: 25px;
@@ -31,6 +51,12 @@
 				background: $gold;
 			}
 		}
+		
+		@container (width < 950px) {
+			margin-right: auto;
+			margin-left: auto;
+			float: none;
+		}
 	}
 	
 	// Modify Card Styles
@@ -38,7 +64,7 @@
 		aspect-ratio: unset;
 		box-shadow: $grey 1px 1px 2px;
 		max-width: 600px;
-		margin-top: -17%;
+		margin-top: -400px;
 		z-index: 10;
 		border: none;
 		text-align: left;
@@ -46,8 +72,11 @@
 		font-weight: normal;
 		position: absolute;
 		
+		transition: opacity $transition;
+		
 		&:not(.active) {
 			opacity: 0;
+			transition: opacity $transition;
 		}
 		
 		h3 {
@@ -64,6 +93,17 @@
 				background-image: none;
 			}
 		}
+		
+		@container (width < 950px) {
+			margin-top: unset;
+			position: relative;
+			
+			&:not(.active) {
+				display: none;
+			}
+		}
+		
+		
 	}
 	
 	
@@ -72,5 +112,9 @@
 		display: flex;
 		justify-content: flex-end;
 		padding: 200px 0;
+		
+		@container (width < 950px) {
+			padding: 32px 0 0 0;
+		}
 	}
 }
