@@ -30,7 +30,7 @@ Template Post Type: page
         </div>
     </div>
 
-    <?php get_template_part('modules/_program_attributes'); ?>
+    <div class="padding-tall"><?php get_template_part('modules/_program_attributes'); ?></div>
 
     <?php get_template_part('modules/_program_highlights'); ?>
 
@@ -44,7 +44,7 @@ Template Post Type: page
 
     <?php get_template_part('modules/_program_news_panel'); ?>
 
-    <?php get_template_part('modules/_program_additional_information'); ?>
+    <div class="padding-tall"><?php get_template_part('modules/_program_additional_information'); ?></div>
 
     <?php get_template_part('modules/_program_related_programs'); ?>
 
