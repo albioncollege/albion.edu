@@ -1,9 +1,7 @@
 <?php
 /**
  * Feature Grid Module v2.0
- * 
  * Module partial used to display a grid of feature cards.
- *
  */
 
 $background_color = get_sub_field('background_color');

@@ -1,9 +1,7 @@
 <?php
 /**
  * Feature Grid Module
- * 
  * Module partial used to display a grid of feature blocks.
- *
  */
 
 $background_color = get_sub_field('background_color');
@@ -13,7 +11,6 @@ $subheading_level = get_sub_field( 'subheading_level' );
 if ( empty( $subheading_level ) ) $subheading_level = 'h3';
 $intro_text       = get_sub_field( 'intro_text' );
 $heading_class    = ( is_page_template( 'page--home.php' )) ? 'large-headline' : 'h3';
-
 
 ?>
 <?php if( have_rows('blocks') ) : ?>
