@@ -13,7 +13,7 @@ $features_h2                 = get_field( 'features_h2' );
 $features_intro_text         = get_field( 'features_intro_text') ;
 
 if( have_rows('features') ) : ?>
-    <div class="background<?php echo esc_attr( $bg_color_class ); ?>">
+    <div class="background<?php echo esc_attr( $bg_color_class ); ?> padding-tall">
         <div class="container container--narrow">
             <div class="panel__headline__wrapper">
                 <?php if ( $features_h2 || $features_intro_text ) : ?>

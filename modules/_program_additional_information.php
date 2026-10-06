@@ -12,7 +12,7 @@ $additional_info_h2               = get_field( 'additional_info_h2' );
 $additional_intro_text            = get_field( 'additional_intro_text' );
 
 if( have_rows('additional_info_column_1_links') && have_rows('additional_info_column_2_links') ) : ?>
-    <div class="background<?php echo esc_attr( $bg_color_class ); ?>">
+    <div class="background<?php echo esc_attr( $bg_color_class ); ?> padding-tall">
         <div class="container container--narrow">
             <div class="panel__headline__wrapper">
                 <div class="grid grid--70-30">
@@ -37,7 +37,7 @@ if( have_rows('additional_info_column_1_links') && have_rows('additional_info_co
                             if( $addtl_info_links_1 ): 
                                 $link_url = $addtl_info_links_1['url'];
                                 $link_title = $addtl_info_links_1['title'];
-                        ?>
+                                ?>
                                 <p>
                                     <a href="<?php echo esc_url( $link_url ); ?>" class="button__link"><?php echo esc_html( $link_title ); ?></a>
                                 </p>

@@ -6,6 +6,10 @@
     max-width: 46.5rem;
 }
 
+.padding-tall {
+    padding: 5rem 0;
+}
+
 .container--narrow {
     @include mq($lg) {
         padding-left: calc(2rem + #{$mainSpacing});
