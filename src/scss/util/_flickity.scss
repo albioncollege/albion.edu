@@ -6,7 +6,7 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    &>*:not(.testimonial-slider__content):not(.social-slider__content) {
+    &>*:not(.testimonial-slider__content):not(.social-slider__content):not(.slide) {
         flex-shrink: 0;
         position: relative !important;
         left: auto !important;

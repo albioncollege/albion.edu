@@ -22,6 +22,7 @@ import "./modules/_posts";
 import "./modules/_button";
 import "./modules/_classnotes";
 import "./modules/_contacts";
+import "./modules/_dashboard_panel_v2";
 import "./modules/_events";
 import "./modules/_footer";
 import "./modules/_feature";
