@@ -48,24 +48,27 @@ if( $hero_image ) :
 <?php endif; ?>
 
 	<a name="main-content"></a>
-	<?php if( have_rows( 'subnavigation_links' ) || $social_bar || $link_to_spanish_content ) : ?>
+	<?php if( have_rows( 'subnavigation_links' ) || has_sidebar_nav_module() || $social_bar || $link_to_spanish_content ) : ?>
 	<div class="subnav__landing container">
-		<?php if( have_rows( 'subnavigation_links' ) ) : ?>
+		<?php
+		if ( has_sidebar_nav_module() ) :
+			get_template_part( 'modules/_subnav_menu' );
+		elseif ( have_rows( 'subnavigation_links' ) ) : ?>
 		<nav class="subnav has-submenu" aria-label="Side Navigation">
 			<button class="subnav__toggle" aria-haspopup="true" aria-expanded="false"><?php esc_html_e( 'In this section', 'albion' ); ?></button>
 			<ul class="subnav__list">
 			<?php
-				while( have_rows('subnavigation_links') ) : the_row();
-					$subnav_links = get_sub_field('links');
-					if ( is_array( $subnav_links ) ) :
-						$link_url     = $subnav_links['url'];
-						$link_title   = $subnav_links['title'];
-						?>
-					<li><a href="<?php echo esc_url( $link_url ); ?>" <?php echo link_target( $subnav_links ); ?>><?php echo esc_html( $link_title ); ?></a></li>
-						<?php 
-					endif;
-				endwhile;
-				?>
+			while( have_rows('subnavigation_links') ) : the_row();
+				$subnav_links = get_sub_field('links');
+				if ( is_array( $subnav_links ) ) :
+					$link_url     = $subnav_links['url'];
+					$link_title   = $subnav_links['title'];
+					?>
+				<li><a href="<?php echo esc_url( $link_url ); ?>" <?php echo link_target( $subnav_links ); ?>><?php echo esc_html( $link_title ); ?></a></li>
+					<?php 
+				endif;
+			endwhile;
+			?>
 			</ul>
 		</nav>
 		<?php 

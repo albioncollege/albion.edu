@@ -232,6 +232,11 @@
 // Landing page
 .subnav__landing {
     margin: 2rem auto;
+    .subnav__heading {
+        @include mq( $lg) {
+            display: none;
+        }
+    }
     .subnav__list {
         @include mq($lg) {
             display: flex;
