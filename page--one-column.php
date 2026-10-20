@@ -52,7 +52,7 @@ if( $hero_image ) :
 	<div class="subnav__landing container">
 		<?php
 		if ( has_sidebar_nav_module() ) :
-			get_template_part( 'modules/_subnav_menu' );
+			get_template_part( 'modules/_subnav_onecol' );
 		elseif ( have_rows( 'subnavigation_links' ) ) : ?>
 		<nav class="subnav has-submenu" aria-label="Side Navigation">
 			<button class="subnav__toggle" aria-haspopup="true" aria-expanded="false"><?php esc_html_e( 'In this section', 'albion' ); ?></button>
