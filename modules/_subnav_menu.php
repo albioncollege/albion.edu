@@ -9,7 +9,7 @@ if ( is_object( $menu ) ) {
 <nav class="subnav has-submenu" aria-label="Side Navigation">
     <button class="subnav__toggle" aria-haspopup="true" aria-expanded="false">In this section</button>
     <h2 class="subnav__heading">In this section</h2>
-    <?php wp_nav_menu( array( 'menu' => $menu_name, 'menu_class' => 'subnav__list', 'depth' => 1 ) ); ?>
+    <?php wp_nav_menu( array( 'menu' => $menu_name, 'menu_class' => 'subnav__list' ) ); ?>
 </nav>
         <?php 
     }
