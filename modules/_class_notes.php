@@ -149,7 +149,20 @@ $alum_query = new WP_Query( $args );
 					<div class="info group">
 						<h5><?php the_title(); ?></h5>
 						<?php if ( get_field( 'year' ) > 0 ) { ?><div class="alum-year"><?php the_field( 'year' ) ?></div><?php } ?>
-						<div class="alum-location"><?php the_field( 'city' ); ?>, <?php the_field( 'state' ) ?></div>
+						<?php
+						$city = get_field( 'city' );
+						$state = get_field( 'state' );
+						$country = get_field( 'country' );
+						$location = '';
+						if ( !empty( $state ) ) {
+							$location = $city . ', ' . $state;
+						} else if ( !empty( $country ) ) {
+							$location = $city . ', ' . $country;
+						} else if ( !empty( $city ) ) {
+							$location = $city;
+						}
+						?>
+						<?php if ( !empty( $location ) ) : ?><div class="alum-location"><?php print $location ?></div><?php endif ?>
 					</div>
 					<div class="alum-details mfp-hide" id="alum-<?php the_ID(); ?>">
 						<h3><?php the_title(); ?></h3>
@@ -163,7 +176,7 @@ $alum_query = new WP_Query( $args );
 							</div>
 							<h5><?php the_field( 'name_first' ); ?> <?php the_field( 'name_last' ) ?></h5>
 							<div class="alum-year"><strong>Class of <?php the_field( 'year' ) ?></strong></div>
-							<div class="alum-location"><?php the_field( 'city' ); ?>, <?php the_field( 'state' ) ?></div>
+							<?php if ( !empty( $location ) ) : ?><div class="alum-location"><?php print $location ?></div><?php endif ?>
 							<div class="details-content">
 								<p><?php the_content(); ?></p>
 								<?php if ( get_field( 'submitter' ) ) { ?><p class="quiet">Submitted by: <?php the_field( 'submitter' ) ?></p><?php } ?>
