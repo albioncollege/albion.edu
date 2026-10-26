@@ -71,7 +71,7 @@ if ( $hide_siblings ) {
 		$subnav = wp_list_pages( array(
 			'child_of' => $root_id,
 			'echo' => false,
-			'depth' => 2,
+			'depth' => 3,
 			'title_li' => '',
 			'exclude' => get_root_child_ids( $root_id, $current_id ),
 		) );
