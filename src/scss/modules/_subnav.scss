@@ -130,10 +130,11 @@
         }
         // margin-top: 0.75rem;
         &.menu-item-has-children ul.sub-menu {
-            // display: none;
+            display: none;
         }
-        &.menu-item-has-children.current_page_item>ul,
-        &.menu-item-has-children.current_page_ancestor>ul {
+        &.menu-item-has-children.current-menu-item>ul,
+        &.menu-item-has-children.current-menu-ancestor>ul,
+        &.menu-item-has-children.current-menu-parent>ul {
             display: block;
         }
     }
