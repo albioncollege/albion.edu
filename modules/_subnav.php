@@ -25,7 +25,6 @@ if ( $hide_siblings ) {
 	$subnav = wp_list_pages( array(
 		'child_of' => $current_id,
 		'echo' => false,
-		'depth' => 2,
 		'title_li' => '',
 		'include'  =>  $current_id . ',' . implode( ',', $childids ),
 	) );
