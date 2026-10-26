@@ -132,9 +132,9 @@
         &.menu-item-has-children ul.sub-menu {
             display: none;
         }
-        &.menu-item-has-children.current-menu-item>ul,
-        &.menu-item-has-children.current-menu-ancestor>ul,
-        &.menu-item-has-children.current-menu-parent>ul {
+        &.menu-item-has-children.current-menu-item ul,
+        &.menu-item-has-children.current-menu-ancestor ul,
+        &.menu-item-has-children.current-menu-parent ul {
             display: block;
         }
     }
