@@ -86,12 +86,12 @@ async function initMap() {
 	subMenuButton.type = "button";
 	subMenuButton.setAttribute("aria-controls", locationList.id);
 	subMenuButton.setAttribute("aria-expanded", "false");
-	subMenuButton.textContent = icon === "info" ? "Information" : icon;
+	subMenuButton.textContent = icon === "info" ? "Offices" : icon;
 	subMenuButton.classList.add('label');
 	if (icon == 'house')	{
 		subMenuButton.textContent = 'Residence Halls & Apartments';
 	} else if (icon == 'water')	{
-		subMenuButton.textContent = 'Water';
+		subMenuButton.textContent = 'Facilites & Grounds';
 	} else if (icon == 'greek')	{
 		subMenuButton.textContent = 'Sororities & Fraternities';
 	} else if (icon == 'runner')	{
