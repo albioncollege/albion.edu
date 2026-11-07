@@ -63,6 +63,7 @@ async function initMap() {
     locationMarkers.set(property, advancedMarkerElement);
     advancedMarkerElement.addListener("gmp-click", () => {
       toggleHighlight(advancedMarkerElement, property);
+      trackMapLocationClick(property, "marker");
     });
   }
   
@@ -119,6 +120,7 @@ async function initMap() {
 			const marker = locationMarkers.get(location);
 			toggleHighlight(marker, location);
 			map.panTo(marker.position);
+			trackMapLocationClick(location, "menu");
 		});
 		menuItem.append(locationButton);
 		locationList.append(menuItem);
@@ -168,6 +170,17 @@ async function initMap() {
     } else {
       droneOverlay.setMap(null);
     }
+  });
+}
+
+// Use location data rather than Google Maps' generated DOM for analytics.
+function trackMapLocationClick(property, source) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "campus_map_location_click",
+    map_location_name: property.name,
+    map_icon_type: property.icon || "other",
+    map_click_source: source,
   });
 }
 
