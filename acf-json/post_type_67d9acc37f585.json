@@ -68,7 +68,8 @@
         "title",
         "editor",
         "thumbnail",
-        "custom-fields"
+        "custom-fields",
+        "excerpt"
     ],
     "taxonomies": [
         "area-categories"

@@ -99,21 +99,24 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "choices": {
+                "2up": "2-up",
                 "3up": "3-up",
                 "4up": "4-up"
             },
-            "default_value": false,
+            "default_value": "3up",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
+            "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
             "placeholder": "",
-            "allow_custom": 0,
-            "search_placeholder": "",
             "create_options": 0,
-            "save_options": 0
+            "save_options": 0,
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_60380ab96b474",
@@ -238,5 +241,5 @@
             "json"
         ]
     },
-    "modified": 1783448164
+    "modified": 1793122833
 }

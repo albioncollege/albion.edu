@@ -17,6 +17,7 @@ import "./util/_stickysidebar";
 smoothscroll.polyfill();
 
 // modules
+import "./modules/_areas";
 import "./modules/_accordion";
 import "./modules/_posts";
 import "./modules/_button";

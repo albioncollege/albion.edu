@@ -73,6 +73,10 @@ function albion_acf_json_load_point( $paths ) {
 }
 
 
+function is_two_column() {
+	return stristr( get_page_template(), '/page.php' );
+}
+
 // Creating Password Protected Form
 function custom_password_form() {
 	global $post;

@@ -11,11 +11,11 @@ $bg_color_class   = ( $background_color == 'gray' ) ? ' background--purple-gray'
 $subheading       = get_sub_field( 'subheading' );
 $subheading_level = get_sub_field( 'subheading_level' );
 $grid_layout     = get_sub_field( 'grid_layout' );
- 
+
 if( have_rows('grid_items') ) : ?>
     <div class="background<?php echo esc_attr( $bg_color_class ); ?>">
         <div class="router">
-            <div class="container">
+            <?php if ( !is_two_column() ) : ?><div class="container"><?php endif; ?>
             <?php if( $subheading ) : ?>
                 <?php if( $subheading_level == 'h2' ) : ?>
                     <h2 class="h3"><?php echo esc_html( $subheading ); ?></h2>
@@ -31,7 +31,9 @@ if( have_rows('grid_items') ) : ?>
                     <div class="h3"><?php echo esc_html( $subheading ); ?></div>
                 <?php endif; ?>
             <?php endif; ?>
-            <?php if( $grid_layout == '3up' ): ?>
+            <?php if ( $grid_layout == '2up' ): ?>
+                <div class="grid grid--50">
+            <?php elseif( $grid_layout == '3up' ): ?>
                 <div class="grid grid--33-33-33">
             <?php elseif( $grid_layout == '4up' ): ?>
                 <div class="grid grid--25-25-25-25">
@@ -53,7 +55,7 @@ if( have_rows('grid_items') ) : ?>
                         </div>
                     <?php endwhile; ?>
                 </div>
-            </div>
+            <?php if ( !is_two_column() ) : ?></div><?php endif; ?>
         </div>
     </div>
 <?php endif; ?>
