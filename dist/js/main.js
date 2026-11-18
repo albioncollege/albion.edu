@@ -18376,7 +18376,7 @@ addEventListener("load", function (event) {
 
     entries.forEach(function (entry) {
       var title = entry.textContent.trim().toLowerCase();
-      var categories = entry.dataset.category ? entry.dataset.category.split(',') : [];
+      var categories = entry.dataset.category ? entry.dataset.category.split(' ') : [];
       var matchesSearch = !query || title.includes(query);
       var matchesCategory = selectedCategory === '' || categories.includes(selectedCategory);
       var parentA = entry.parentNode; // <a>

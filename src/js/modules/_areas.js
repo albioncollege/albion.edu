@@ -15,7 +15,7 @@ addEventListener("load", (event) => {
 
         entries.forEach(entry => {
             const title = entry.textContent.trim().toLowerCase();
-            const categories = entry.dataset.category ? entry.dataset.category.split(',') : [];
+            const categories = entry.dataset.category ? entry.dataset.category.split(' ') : [];
 
             const matchesSearch = !query || title.includes(query);
             const matchesCategory = selectedCategory === '' || categories.includes(selectedCategory);
