@@ -71,9 +71,8 @@
 					
 					// query for all the related programs
 					$related_query = new WP_Query( array( 
-						'post_type' => 'page', 
-						'post__in' => $related, 
-						'post_parent' => 30
+						'post_type' => 'area', 
+						'post__in' => $related
 					));
 
 					if ( $related_query->have_posts() ) {

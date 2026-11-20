@@ -428,7 +428,7 @@ function get_related_programs( $post_id ) {
 
 		// query for pages that have a title like the category name
 		$related_area_query = new WP_Query( array( 
-			'post_type' => 'page', 
+			'post_type' => 'area', 
 			'post_title_like' => $cat->name, 
 			'posts_per_page' => 1 
 		));
